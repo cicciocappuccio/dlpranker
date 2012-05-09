@@ -1,0 +1,1717 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.fragment.org/fragment#"
+     xml:base="http://www.fragment.org/fragment"
+     xmlns:yago5="http://dbpedia.org/class/yago/19"
+     xmlns:yago4="http://dbpedia.org/class/yago/1950"
+     xmlns:yago3="http://dbpedia.org/class/yago/1958"
+     xmlns:yago2="http://dbpedia.org/class/yago/20"
+     xmlns:writingwithhitchcock="http://stevenderosa.com/writingwithhitchcock/"
+     xmlns:www="http://www.hitchcockfans.com/"
+     xmlns:ActorsFromChicago="http://dbpedia.org/class/yago/ActorsFromChicago,"
+     xmlns:PeopleFromHancockCounty="http://dbpedia.org/class/yago/PeopleFromHancockCounty,"
+     xmlns:rc="http://umbel.org/umbel/rc/"
+     xmlns:vertigo="http://www.basichip.com/vertigo/"
+     xmlns:schema="http://schema.org/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:PeopleFromEaglePoint="http://dbpedia.org/class/yago/PeopleFromEaglePoint,"
+     xmlns:Hitchcock_references_in_The_Simpsons="http://www.hitchcockwiki.com/wiki/Category:Hitchcock_references_in_The_Simpsons:"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:PeopleFromJacksonCounty="http://dbpedia.org/class/yago/PeopleFromJacksonCounty,"
+     xmlns:PeopleFromSpringfield="http://dbpedia.org/class/yago/PeopleFromSpringfield,"
+     xmlns:yago="http://dbpedia.org/class/yago/"
+     xmlns:resource="http://dbpedia.org/resource/"
+     xmlns:www2="http://www.hermenaut.com/"
+     xmlns:property="http://dbpedia.org/property/"
+     xmlns:ontology="http://dbpedia.org/ontology/"
+     xmlns:PeopleFromIndiana="http://dbpedia.org/class/yago/PeopleFromIndiana,"
+     xmlns:CompaniesBasedInLosAngeles="http://dbpedia.org/class/yago/CompaniesBasedInLosAngeles,"
+     xmlns:http="http://"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#">
+    <owl:Ontology rdf:about="http://www.fragment.org/fragment"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/ontology/cinematography -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/cinematography">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Film"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/director -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/director">
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <owl:equivalentProperty rdf:resource="http://schema.org/director"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/distributor -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/distributor">
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Organisation"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/editing -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/editing">
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Film"/>
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/musicComposer -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/musicComposer">
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/MusicalArtist"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Work"/>
+        <owl:equivalentProperty rdf:resource="http://schema.org/musicBy"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/producer -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/producer">
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <owl:equivalentProperty rdf:resource="http://schema.org/producer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/starring -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/starring">
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Work"/>
+        <owl:equivalentProperty rdf:resource="http://schema.org/actors"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/ontology/wikiPageExternalLink -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/wikiPageExternalLink"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/writer -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/ontology/writer">
+        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:domain rdf:resource="http://dbpedia.org/ontology/Work"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://dbpedia.org/property/cinematography -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/cinematography"/>
+    
+
+
+    <!-- http://dbpedia.org/property/distributor -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/distributor"/>
+    
+
+
+    <!-- http://dbpedia.org/property/editing -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/editing"/>
+    
+
+
+    <!-- http://dbpedia.org/property/music -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/music"/>
+    
+
+
+    <!-- http://dbpedia.org/property/starring -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/starring"/>
+    
+
+
+    <!-- http://dbpedia.org/property/story -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/story"/>
+    
+
+
+    <!-- http://dbpedia.org/property/writer -->
+
+    <owl:ObjectProperty rdf:about="http://dbpedia.org/property/writer"/>
+    
+
+
+    <!-- http://schema.org/actors -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/actors"/>
+    
+
+
+    <!-- http://schema.org/director -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/director"/>
+    
+
+
+    <!-- http://schema.org/musicBy -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/musicBy"/>
+    
+
+
+    <!-- http://schema.org/producer -->
+
+    <owl:ObjectProperty rdf:about="http://schema.org/producer"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://dbpedia.org/class/yago/1950sRomanceFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/1950sRomanceFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/1958Films -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/1958Films">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/19th-centuryEnglishPeople -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/19th-centuryEnglishPeople">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/20th-centuryActors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/20th-centuryActors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/20th-centuryClassicalComposers -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/20th-centuryClassicalComposers">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Composer109947232"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Abstraction100002137 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Abstraction100002137">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Entity100001740"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Acquirer109764201 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Acquirer109764201">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Actor109765278 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Actor109765278">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Performer110415638"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ActorsFromChicago,Illinois -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ActorsFromChicago,Illinois">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ActorsFromMaine -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ActorsFromMaine">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ActorsFromNewYork -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ActorsFromNewYork">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ActorsFromPennsylvania -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ActorsFromPennsylvania">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Administrator109770949 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Administrator109770949">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Head110162991"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Alumnus109786338 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Alumnus109786338">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Scholar110557854"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanCinematographers -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanCinematographers">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Cameraman109889539"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanFilmActors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanFilmActors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanFilmDirectors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanFilmDirectors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Director110014939"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanFilmEditors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanFilmEditors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Editor110044879"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanFilmProduCErs -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanFilmProduCErs">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/ManuFACturer110292316"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanFilmScoreComposers -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanFilmScoreComposers">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Composer109947232"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanPeopleOfCzechDescent -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanPeopleOfCzechDescent">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanPeopleOfEnglishDescent -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanPeopleOfEnglishDescent">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanPeopleOfScotch-IrishDescent -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanPeopleOfScotch-IrishDescent">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanSoapOperaActors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanSoapOperaActors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanStageActors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanStageActors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanTelevisionActors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanTelevisionActors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/AmericanTelevisionDirectors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/AmericanTelevisionDirectors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Director110014939"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Artifact100021939 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Artifact100021939">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Whole100003553"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Artist109812338 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Artist109812338">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Creator109614315"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Aviator109826204 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Aviator109826204">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/SkilledWorker110605985"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Cameraman109889539 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Cameraman109889539">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Photographer110426749"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/CausalAgent100007347 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/CausalAgent100007347">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/PhysicalEntity100001930"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Citizen109923673 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Citizen109923673">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/National109625401"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Cognition100023271 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Cognition100023271">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/PsychologicalFeature100023100"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/CommissionedMilitaryOfficer109943239 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/CommissionedMilitaryOfficer109943239">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/CommissionedOfficer109942970"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/CommissionedOfficer109942970 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/CommissionedOfficer109942970">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/MilitaryOfficer110317007"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Communicator109610660 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Communicator109610660">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/CompaniesBasedInLosAngeles,California -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/CompaniesBasedInLosAngeles,California">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Company108058098"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/CompaniesEstablishedIn1912 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/CompaniesEstablishedIn1912">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Company108058098"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Company108058098 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Company108058098">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Institution108053576"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Component105868954 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Component105868954">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Part105867413"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Composer109947232 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Composer109947232">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Musician110339966"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Concept105835747 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Concept105835747">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Idea105833840"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Content105809192 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Content105809192">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Cognition100023271"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Creation103129123 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Creation103129123">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Artifact100021939"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Creator109614315 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Creator109614315">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/DetectiveFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/DetectiveFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Director110014939 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Director110014939">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Administrator109770949"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Editor110044879 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Editor110044879">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/SkilledWorker110605985"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/English-languAgeFilmDirectors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/English-languAgeFilmDirectors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Director110014939"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/EnglishFilmDirectors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/EnglishFilmDirectors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Director110014939"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/EnglishFilmProduCErs -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/EnglishFilmProduCErs">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/ManuFACturer110292316"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/EnglishImmigrantsToTheUnitedStates -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/EnglishImmigrantsToTheUnitedStates">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Immigrant110199489"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/EnglishPeopleOfIrishDescent -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/EnglishPeopleOfIrishDescent">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/EnglishTelevisionDirectors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/EnglishTelevisionDirectors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Director110014939"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Entertainer109616922 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Entertainer109616922">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Entity100001740 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Entity100001740"/>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Event100029378 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Event100029378">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/PsychologicalFeature100023100"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/FilmProduCtionCompaniesOfTheUnitedStates -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/FilmProduCtionCompaniesOfTheUnitedStates">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Company108058098"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/FilmsAboutSuicide -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/FilmsAboutSuicide">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/FilmsBasedOnMysteryNovels -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/FilmsBasedOnMysteryNovels">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/FilmsDirectedByAlfredHitchcock -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/FilmsDirectedByAlfredHitchcock">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/FormerComponentsOfTheDJIA -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/FormerComponentsOfTheDJIA">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Component105868954"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/FrenchCrimeFictionWriters -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/FrenchCrimeFictionWriters">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Writer110794014"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/General110123844 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/General110123844">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/GeneralOfficer110125786"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/GeneralOfficer110125786 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/GeneralOfficer110125786">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/CommissionedMilitaryOfficer109943239"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Group100031264 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Group100031264">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Abstraction100002137"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Head110162991 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Head110162991">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Leader109623038"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Honoree110183757 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Honoree110183757">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Recipient109627906"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Idea105833840 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Idea105833840">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Content105809192"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Immigrant110199489 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Immigrant110199489">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Migrant110314952"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Institution108053576 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Institution108053576">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Organization108008335"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/IntellectuAl109621545 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/IntellectuAl109621545">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/JewishClassicalMusicians -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/JewishClassicalMusicians">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Musician110340312"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/JewishComposersAndSongwriters -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/JewishComposersAndSongwriters">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Composer109947232"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/KennedyCenterHonorees -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/KennedyCenterHonorees">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Honoree110183757"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Leader109623038 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Leader109623038">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/LivingPeople -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/LivingPeople">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/LivingThing100004258 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/LivingThing100004258">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Whole100003553"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Maker110284064 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Maker110284064">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Creator109614315"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ManuFACturer110292316 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ManuFACturer110292316">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Maker110284064"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/MercersburgAcademyAlumni -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/MercersburgAcademyAlumni">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Alumnus109786338"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Migrant110314952 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Migrant110314952">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Traveler109629752"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/MilitaryOfficer110317007 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/MilitaryOfficer110317007">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Serviceman110582746"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Movie106613686 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Movie106613686">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/ProduCt104007894"/>
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Show106619065"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Musician110339966 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Musician110339966">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Artist109812338"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Musician110340312 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Musician110340312">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Performer110415638"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/MusiciansFromNewYorkCity -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/MusiciansFromNewYorkCity">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Musician110340312"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/MysteryFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/MysteryFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/National109625401 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/National109625401">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/NaturalizedCitizensOfTheUnitedStates -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/NaturalizedCitizensOfTheUnitedStates">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Citizen109923673"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Object100002684 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Object100002684">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/PhysicalEntity100001930"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Organism100004475 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Organism100004475">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/LivingThing100004258"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Organization108008335 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Organization108008335">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/SocialGroup107950920"/>
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/YagoLegalActor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ParamountFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ParamountFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Part105867413 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Part105867413">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Concept105835747"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromCalifornia -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromCalifornia">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromEaglePoint,Oregon -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromEaglePoint,Oregon">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromHancockCounty,Maine -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromHancockCounty,Maine">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromIndiana,Pennsylvania -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromIndiana,Pennsylvania">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromJacksonCounty,Oregon -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromJacksonCounty,Oregon">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromLeytonstone -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromLeytonstone">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromNewYorkCity -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromNewYorkCity">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromParis -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromParis">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PeopleFromSpringfield,Massachusetts -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PeopleFromSpringfield,Massachusetts">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Performer110415638 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Performer110415638">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Entertainer109616922"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Person100007846 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Person100007846">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/CausalAgent100007347"/>
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Organism100004475"/>
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/YagoLegalActor"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Photographer110426749 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Photographer110426749">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Artist109812338"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PhysicalEntity100001930 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PhysicalEntity100001930">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Entity100001740"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Pilot110433164 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Pilot110433164">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Aviator109826204"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PrincetonUniversityAlumni -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PrincetonUniversityAlumni">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Alumnus109786338"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ProduCt104007894 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ProduCt104007894">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Creation103129123"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PsychologicalFeature100023100 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PsychologicalFeature100023100">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Abstraction100002137"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/PsychologicalThrillerFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/PsychologicalThrillerFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/RCAVictorArtists -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/RCAVictorArtists">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Artist109812338"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Recipient109627906 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Recipient109627906">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Acquirer109764201"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Scholar110557854 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Scholar110557854">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/IntellectuAl109621545"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Serviceman110582746 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Serviceman110582746">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/SkilledWorker110605985"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Show106619065 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Show106619065">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/SocialEvent107288639"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/SkilledWorker110605985 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/SkilledWorker110605985">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Worker109632518"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/SocialEvent107288639 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/SocialEvent107288639">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Event100029378"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/SocialGroup107950920 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/SocialGroup107950920">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Group100031264"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/SuBsidiaryCompany108003935 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/SuBsidiaryCompany108003935">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Company108058098"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Traveler109629752 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Traveler109629752">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/UnitedStatesAirForceGenerals -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/UnitedStatesAirForceGenerals">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/General110123844"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/UnitedStatesArmyAirForcesOfficers -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/UnitedStatesArmyAirForcesOfficers">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/MilitaryOfficer110317007"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/UnitedStatesArmyAirForcesPilotsOfWorldWarII -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/UnitedStatesArmyAirForcesPilotsOfWorldWarII">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Pilot110433164"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/UnitedStatesNationalFilmRegistryFilms -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/UnitedStatesNationalFilmRegistryFilms">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/ViacomSuBsidiaries -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/ViacomSuBsidiaries">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/SuBsidiaryCompany108003935"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Western%28genre%29FilmActors -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Western%28genre%29FilmActors">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Whole100003553 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Whole100003553">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Object100002684"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Worker109632518 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Worker109632518">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/Writer110794014 -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/Writer110794014">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Communicator109610660"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/YagoLegalActor -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/YagoLegalActor">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/YagoLegalActorGeo"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/class/yago/YagoLegalActorGeo -->
+
+    <owl:Class rdf:about="http://dbpedia.org/class/yago/YagoLegalActorGeo">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/class/yago/Entity100001740"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Actor -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Actor">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Artist"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Artist -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Artist">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Company -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Company">
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Organisation"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Film -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Film">
+        <owl:equivalentClass rdf:resource="http://schema.org/Movie"/>
+        <rdfs:subClassOf rdf:resource="http://dbpedia.org/ontology/Work"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/MusicalArtist -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/MusicalArtist"/>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Organisation -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Organisation">
+        <owl:equivalentClass rdf:resource="http://schema.org/Organization"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Person -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Person">
+        <owl:equivalentClass rdf:resource="http://schema.org/Person"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://dbpedia.org/ontology/Work -->
+
+    <owl:Class rdf:about="http://dbpedia.org/ontology/Work">
+        <owl:equivalentClass rdf:resource="http://schema.org/CreativeWork"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+    </owl:Class>
+    
+
+
+    <!-- http://schema.org/CreativeWork -->
+
+    <owl:Class rdf:about="http://schema.org/CreativeWork"/>
+    
+
+
+    <!-- http://schema.org/Movie -->
+
+    <owl:Class rdf:about="http://schema.org/Movie"/>
+    
+
+
+    <!-- http://schema.org/Organization -->
+
+    <owl:Class rdf:about="http://schema.org/Organization"/>
+    
+
+
+    <!-- http://schema.org/Person -->
+
+    <owl:Class rdf:about="http://schema.org/Person"/>
+    
+
+
+    <!-- http://umbel.org/umbel/rc/Actor -->
+
+    <owl:Class rdf:about="http://umbel.org/umbel/rc/Actor"/>
+    
+
+
+    <!-- http://umbel.org/umbel/rc/Artist -->
+
+    <owl:Class rdf:about="http://umbel.org/umbel/rc/Artist"/>
+    
+
+
+    <!-- http://umbel.org/umbel/rc/Business -->
+
+    <owl:Class rdf:about="http://umbel.org/umbel/rc/Business"/>
+    
+
+
+    <!-- http://umbel.org/umbel/rc/Movie_CW -->
+
+    <owl:Class rdf:about="http://umbel.org/umbel/rc/Movie_CW"/>
+    
+
+
+    <!-- http://umbel.org/umbel/rc/Organization -->
+
+    <owl:Class rdf:about="http://umbel.org/umbel/rc/Organization"/>
+    
+
+
+    <!-- http://umbel.org/umbel/rc/PersonWithOccupation -->
+
+    <owl:Class rdf:about="http://umbel.org/umbel/rc/PersonWithOccupation"/>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#Thing -->
+
+    <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.hitchcockfans.com -->
+
+    <owl:NamedIndividual rdf:about="http://www.hitchcockfans.com"/>
+    
+
+
+    <!-- http://dbpedia.org/resource/Alfred_Hitchcock -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Alfred_Hitchcock">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/19th-centuryEnglishPeople"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmDirectors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmProduCErs"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanPeopleOfEnglishDescent"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanTelevisionDirectors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/English-languAgeFilmDirectors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/EnglishFilmDirectors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/EnglishFilmProduCErs"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/EnglishImmigrantsToTheUnitedStates"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/EnglishPeopleOfIrishDescent"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/EnglishTelevisionDirectors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/NaturalizedCitizensOfTheUnitedStates"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromLeytonstone"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Actor"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Artist"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/PersonWithOccupation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Barbara_Bel_Geddes -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Barbara_Bel_Geddes">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ActorsFromMaine"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ActorsFromNewYork"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanSoapOperaActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanStageActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanTelevisionActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromHancockCounty,Maine"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromNewYorkCity"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Actor"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Artist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Bernard_Herrmann -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Bernard_Herrmann">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/20th-centuryClassicalComposers"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmScoreComposers"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/JewishClassicalMusicians"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/JewishComposersAndSongwriters"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/MusiciansFromNewYorkCity"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Actor"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Artist"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/PersonWithOccupation"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Boileau-Narcejac -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Boileau-Narcejac">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/FrenchCrimeFictionWriters"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromParis"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/George_Tomasini -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/George_Tomasini">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmEditors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromSpringfield,Massachusetts"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Actor"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Artist"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/James_Stewart -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/James_Stewart">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/20th-centuryActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ActorsFromPennsylvania"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanPeopleOfScotch-IrishDescent"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanStageActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/KennedyCenterHonorees"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/MercersburgAcademyAlumni"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromCalifornia"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromIndiana,Pennsylvania"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PrincetonUniversityAlumni"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/RCAVictorArtists"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/UnitedStatesAirForceGenerals"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/UnitedStatesArmyAirForcesOfficers"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/UnitedStatesArmyAirForcesPilotsOfWorldWarII"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Western%28genre%29FilmActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Kim_Novak -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Kim_Novak">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ActorsFromChicago,Illinois"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilmActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanPeopleOfCzechDescent"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanTelevisionActors"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/LivingPeople"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromEaglePoint,Oregon"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PeopleFromJacksonCounty,Oregon"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Paramount_Pictures -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Paramount_Pictures">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/CompaniesBasedInLosAngeles,California"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/CompaniesEstablishedIn1912"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmProduCtionCompaniesOfTheUnitedStates"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/FormerComponentsOfTheDJIA"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ParamountFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ViacomSuBsidiaries"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Company"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Organisation"/>
+        <rdf:type rdf:resource="http://schema.org/Organization"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Business"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Robert_Burks -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Robert_Burks">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Actor109765278"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanCinematographers"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Person100007846"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Samuel_A._Taylor -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Samuel_A._Taylor">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Actor"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Artist"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+        <rdf:type rdf:resource="http://schema.org/Person"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Actor"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Artist"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Universal_Studios -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Universal_Studios">
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Company"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Organisation"/>
+        <rdf:type rdf:resource="http://schema.org/Organization"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Business"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Organization"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://dbpedia.org/resource/Vertigo_%28film%29 -->
+
+    <owl:NamedIndividual rdf:about="http://dbpedia.org/resource/Vertigo_%28film%29">
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/1950sRomanceFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/1958Films"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/DetectiveFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmsAboutSuicide"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmsBasedOnMysteryNovels"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmsDirectedByAlfredHitchcock"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/MysteryFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/ParamountFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/PsychologicalThrillerFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/class/yago/UnitedStatesNationalFilmRegistryFilms"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Film"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Work"/>
+        <rdf:type rdf:resource="http://schema.org/CreativeWork"/>
+        <rdf:type rdf:resource="http://schema.org/Movie"/>
+        <rdf:type rdf:resource="http://umbel.org/umbel/rc/Movie_CW"/>
+        <ontology:wikiPageExternalLink rdf:resource="http://www.hitchcockfans.com"/>
+        <ontology:director rdf:resource="http://dbpedia.org/resource/Alfred_Hitchcock"/>
+        <ontology:producer rdf:resource="http://dbpedia.org/resource/Alfred_Hitchcock"/>
+        <property:starring rdf:resource="http://dbpedia.org/resource/Barbara_Bel_Geddes"/>
+        <ontology:starring rdf:resource="http://dbpedia.org/resource/Barbara_Bel_Geddes"/>
+        <property:music rdf:resource="http://dbpedia.org/resource/Bernard_Herrmann"/>
+        <ontology:musicComposer rdf:resource="http://dbpedia.org/resource/Bernard_Herrmann"/>
+        <property:story rdf:resource="http://dbpedia.org/resource/Boileau-Narcejac"/>
+        <ontology:editing rdf:resource="http://dbpedia.org/resource/George_Tomasini"/>
+        <property:editing rdf:resource="http://dbpedia.org/resource/George_Tomasini"/>
+        <ontology:starring rdf:resource="http://dbpedia.org/resource/James_Stewart"/>
+        <property:starring rdf:resource="http://dbpedia.org/resource/James_Stewart"/>
+        <ontology:starring rdf:resource="http://dbpedia.org/resource/Kim_Novak"/>
+        <property:starring rdf:resource="http://dbpedia.org/resource/Kim_Novak"/>
+        <property:distributor rdf:resource="http://dbpedia.org/resource/Paramount_Pictures"/>
+        <ontology:distributor rdf:resource="http://dbpedia.org/resource/Paramount_Pictures"/>
+        <property:cinematography rdf:resource="http://dbpedia.org/resource/Robert_Burks"/>
+        <ontology:cinematography rdf:resource="http://dbpedia.org/resource/Robert_Burks"/>
+        <property:writer rdf:resource="http://dbpedia.org/resource/Samuel_A._Taylor"/>
+        <ontology:writer rdf:resource="http://dbpedia.org/resource/Samuel_A._Taylor"/>
+        <ontology:distributor rdf:resource="http://dbpedia.org/resource/Universal_Studios"/>
+        <property:distributor rdf:resource="http://dbpedia.org/resource/Universal_Studios"/>
+        <ontology:wikiPageExternalLink rdf:resource="http://stevenderosa.com/writingwithhitchcock/fromthearchives.html"/>
+        <ontology:wikiPageExternalLink rdf:resource="http://www.basichip.com/vertigo/main.htm"/>
+        <ontology:wikiPageExternalLink rdf:resource="http://www.hermenaut.com/a36.shtml"/>
+        <ontology:wikiPageExternalLink rdf:resource="http://www.hitchcockfans.com/gallery_vertigo.php"/>
+        <ontology:wikiPageExternalLink rdf:resource="http://www.hitchcockwiki.com/wiki/Category:Hitchcock_references_in_The_Simpsons:_Vertigo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://stevenderosa.com/writingwithhitchcock/fromthearchives.html -->
+
+    <owl:NamedIndividual rdf:about="http://stevenderosa.com/writingwithhitchcock/fromthearchives.html"/>
+    
+
+
+    <!-- http://www.basichip.com/vertigo/main.htm -->
+
+    <owl:NamedIndividual rdf:about="http://www.basichip.com/vertigo/main.htm"/>
+    
+
+
+    <!-- http://www.hermenaut.com/a36.shtml -->
+
+    <owl:NamedIndividual rdf:about="http://www.hermenaut.com/a36.shtml"/>
+    
+
+
+    <!-- http://www.hitchcockfans.com/gallery_vertigo.php -->
+
+    <owl:NamedIndividual rdf:about="http://www.hitchcockfans.com/gallery_vertigo.php"/>
+    
+
+
+    <!-- http://www.hitchcockwiki.com/wiki/Category:Hitchcock_references_in_The_Simpsons:_Vertigo -->
+
+    <owl:NamedIndividual rdf:about="http://www.hitchcockwiki.com/wiki/Category:Hitchcock_references_in_The_Simpsons:_Vertigo"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.1.0.1602) http://owlapi.sourceforge.net -->
+

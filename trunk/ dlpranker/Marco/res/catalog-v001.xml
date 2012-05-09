@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <uri id="Imports Wizard Entry" name="http://purl.org/stuff/rev#" uri="http://purl.org/stuff/rev#"/>
+    <uri id="Imports Wizard Entry" name="http://purl.org/stuff/rev#" uri="http://vocab.org/review/terms.rdf"/>
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1334060657181" name="duplicate:http://www.fragment.org/fragment" uri="fragmentOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1334060657181" name="duplicate:http://www.fragment.org/fragment" uri="fragmentOntology2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1334060657181" name="duplicate:http://www.fragment.org/fragment" uri="fragmentOntology3.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1334060657181" name="http://www.w3.org/2002/07/owl" uri="gathered/luf_statements_20110727.rdf"/>
+    </group>
+</catalog>
