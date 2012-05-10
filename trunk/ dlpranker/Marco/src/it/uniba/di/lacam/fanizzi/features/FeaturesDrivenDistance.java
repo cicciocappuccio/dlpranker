@@ -173,17 +173,17 @@ public class FeaturesDrivenDistance {
 	
 	private void saveProjections(File oFile) {
 		
-		/*Object[] a = new Object[2];
+		Object[] a = new Object[2];
 		
 		a[0] = pi;
 		a[1] = featuresWeight;
-		*/
-		Integer pippo = 86;
+		
+
 		ObjectOutputStream oos;
 		try
 		{
 			oos = new ObjectOutputStream(new FileOutputStream(oFile));
-			oos.writeObject(SerializeUtils.serialize(pippo));
+			oos.writeObject(SerializeUtils.serialize(a));
 			oos.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block

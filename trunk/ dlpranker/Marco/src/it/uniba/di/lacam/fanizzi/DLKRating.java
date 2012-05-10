@@ -1,12 +1,11 @@
 package it.uniba.di.lacam.fanizzi;
 
+import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
+
 import java.util.List;
 import java.util.Map;
 
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
-
-
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 
 
 public class DLKRating {

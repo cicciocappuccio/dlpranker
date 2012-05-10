@@ -12,6 +12,10 @@ import it.uniba.di.lacam.fanizzi.features.*;
 import it.uniba.di.lacam.fanizzi.utils.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -68,6 +72,25 @@ public class Test {
 //		System.out.println(featuresD.length);
 		Set<OWLClassExpression> featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 		
+		String[] saveYou = new String[featuresD.size()];
+		int ai = 0;
+		for(OWLClassExpression a : featuresD)
+			saveYou[ai++] = a.toString();
+		
+	    ObjectOutputStream oos;
+	    try {
+	      oos = new ObjectOutputStream(new FileOutputStream("res/ArrayFeatures.dat"));
+//	      oos.writeObject(features);
+	      oos.writeObject(saveYou);
+	      oos.close();
+	    } catch (FileNotFoundException e) {
+	      // TODO Auto-generated catch block
+	      e.printStackTrace();
+	    } catch (IOException e) {
+	      // TODO Auto-generated catch block
+	      e.printStackTrace();
+	    }
+
 //		Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
 		//Set<OWLClassExpression> featuresD = null;
 		
