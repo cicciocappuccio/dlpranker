@@ -53,7 +53,7 @@ public class ReasonerTest {
 	
 	@Test
 	public  static void rhoDRDownTest() throws ComponentInitException {
-		String file = "res/dataset2.rdf";
+		String file = "res/fragmentOntology10.owl";
 		KnowledgeSource ks = new OWLFile(file);
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(
 				Collections.singleton(ks));
@@ -64,27 +64,23 @@ public class ReasonerTest {
 
 	    OWLOntologyManager manager;
 		OWLDataFactory dataFactory;
-		OWLOntology ontology;
 		
 		manager = OWLManager.createOWLOntologyManager();
 
-
-       
-        try {
-        	ontology = manager.loadOntologyFromOntologyDocument(new File(file));
-		} catch (OWLOntologyCreationException e1) {
-			e1.printStackTrace();
-		}
 		System.out.println(file);
-        
+
+
         dataFactory = manager.getOWLDataFactory();
 		
 		
 		OWLClass film = new OWLClassImpl(dataFactory, IRI.create("http://dbpedia.org/ontology/Film"));
 		
+		
+		
 		Set<OWLClassExpression> mio = Specialize.specialize (reasoner, film);
 		
 		System.out.println(mio);
+		System.out.println(mio.size());
 		//
 	}
 

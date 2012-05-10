@@ -66,8 +66,7 @@ public class OntologyModel {
         System.out.println("ONTOLOGY: " + ontology);
         
         reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
-        ar = new OWLAPIReasoner();
-        
+       
         
 	}
 

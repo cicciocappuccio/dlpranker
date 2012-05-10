@@ -33,30 +33,30 @@ public interface ExperimentDataset {
 	 * @param indice
 	 * @return the value of the indice-th rating example
 	 */
-	public int getRatingValue (int indice);
+//	public int getRatingValue (int indice);
 	public int getRatingValue (OWLNamedIndividual rating);
 	
 	/**
 	 * @param indice
 	 * @return the OWLNamedIndividual of the indice-th example
 	 */
-	public OWLNamedIndividual getIndividual (int indice);
+//	public OWLNamedIndividual getIndividual (int indice);
 	public OWLNamedIndividual getIndividual (OWLNamedIndividual rating);
 	
 	/**
 	 * @return the array with all the individual
 	 */
-	public OWLNamedIndividual[] getIndividuals();
+//	public OWLNamedIndividual[] getIndividuals();
 	/**
 	 * @return the array with all the individual
 	 */
-	public Set<OWLNamedIndividual> getIndividualsSet();
+	public Set<OWLNamedIndividual> getIndividuals();
 	
 	/**
 	 * @param indice
 	 * @return 
 	 */
-	public int indexIndividual(int indice);
+//	public int indexIndividual(int indice);
 	
 	/**
 	 * @return return random rating
