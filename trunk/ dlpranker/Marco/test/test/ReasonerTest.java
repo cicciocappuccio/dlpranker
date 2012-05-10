@@ -1,17 +1,8 @@
 package test;
 
-import it.uniba.di.lacam.fanizzi.OntologyModel;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRating;
-import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance2;
-import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
 import it.uniba.di.lacam.fanizzi.features.Specialize;
 
-import java.io.File;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.Collections;
-import java.util.Locale;
 import java.util.Set;
 
 import org.dllearner.core.AbstractReasonerComponent;
@@ -25,14 +16,7 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLOntology;
-import org.semanticweb.owlapi.model.OWLOntologyCreationException;
-
-import org.semanticweb.owlapi.apibinding.OWLManager;
-
 import org.semanticweb.owlapi.model.OWLOntologyManager;
-
-import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
 
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
@@ -43,7 +27,7 @@ public class ReasonerTest {
 	public static void main(String[] args) throws ComponentInitException 
 	{
 
-		rhoDRDownTest();
+//		rhoDRDownTest();
 	}
 	
 	
@@ -52,11 +36,9 @@ public class ReasonerTest {
 	
 	
 	@Test
-	public  static void rhoDRDownTest() throws ComponentInitException {
-		String file = "res/fragmentOntology10.owl";
+	public static Set<OWLClassExpression> rhoDRDownTest(String file, Set<OWLClassExpression> classi) throws ComponentInitException {
 		KnowledgeSource ks = new OWLFile(file);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(
-				Collections.singleton(ks));
+		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 		reasoner.init();
 		
 		
@@ -73,15 +55,16 @@ public class ReasonerTest {
         dataFactory = manager.getOWLDataFactory();
 		
 		
-		OWLClass film = new OWLClassImpl(dataFactory, IRI.create("http://dbpedia.org/ontology/Film"));
+		//OWLClass film = new OWLClassImpl(dataFactory, IRI.create("http://dbpedia.org/ontology/Film"));
 		
 		
 		
-		Set<OWLClassExpression> mio = Specialize.specialize (reasoner, film);
+		Set<OWLClassExpression> mio = Specialize.specialize (reasoner, classi);
 		
 		System.out.println(mio);
 		System.out.println(mio.size());
-		//
+		
+		return mio;
 	}
 
 }

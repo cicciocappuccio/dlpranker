@@ -9,6 +9,8 @@ import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 import it.uniba.di.lacam.fanizzi.utils.StatUtils;
 import it.uniba.di.lacam.fanizzi.features.*;
 
+import it.uniba.di.lacam.fanizzi.utils.*;
+
 import java.io.File;
 import java.net.URI;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 
+import test.ReasonerTest;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
 import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
@@ -63,35 +66,29 @@ public class Test {
 
 //		OWLClassExpression[] featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 //		System.out.println(featuresD.length);
+		Set<OWLClassExpression> featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 		
-		
-		Set<OWLClassExpression> featuresD = null;
+//		Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
+		//Set<OWLClassExpression> featuresD = null;
 		
 		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
 		featuresDD.preLoadPi(IRI.create(new URI(urlOwlFile)), FeaturesDrivenDistance2.ALL, ontologyModel.getReasoner(), ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());	
-		
+		System.out.println("Press <Enter> to continue =)))");
+		System.in.read();
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
 		// creazione matrice kernel
-/*
-		KernelMatrix kernel = null;
-		//File fkernel = new File(KERNELMATRIX_FILE);
-		
-		//if (fkernel.exists()) {
-		//	kernel = (KernelMatrix) SerializeUtils.deserialize(FileUtils.readFileToString(fkernel));
-		//} else {
-			kernel = new KernelMatrix();
-			kernel.createKernelMatrix(featuresDD);
-		//	String xml = SerializeUtils.serialize(kernel);
-		//	FileUtils.writeStringToFile(fkernel, xml);
-		//}
 
-		//kernel.CSVPrint();
+		KernelMatrix kernel = new KernelMatrix();;
+		kernel.createKernelMatrix(featuresDD);
+
+
+		kernel.CSVPrint();
 		
 		
 		BootstrapExperiment exp = new BootstrapExperiment();
 		exp.bootstrapExperiment(kernel, dati, 1000);
-		
+/*		
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment(ontologyModel);
 		exp2.kfxvExperiment(kernel, 10 , esempi, valoreRating, nRatings);
  */

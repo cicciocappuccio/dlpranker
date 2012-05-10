@@ -1,7 +1,11 @@
 package it.uniba.di.lacam.fanizzi;
 
 
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
+
+import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance2;
 import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 
@@ -14,37 +18,30 @@ public class KernelMatrix {
 
 	private Table<OWLNamedIndividual,OWLNamedIndividual,Double> kernel;
 	
-
 	public KernelMatrix()
 	{
 		
 	}
 	
-	
-	public Table<OWLNamedIndividual,OWLNamedIndividual,Double> createKernelMatrix(FeaturesDrivenDistance2 features)
+	public Table<OWLNamedIndividual,OWLNamedIndividual,Double> createKernelMatrix(FeaturesDrivenDistance features)
 	{
-		int numExamples = features.getIndividualsLength();
 		kernel = HashBasedTable.create();
 		
-		OWLNamedIndividual[] individui = features.getIndividuals();
+		Set<OWLNamedIndividual> individui = features.getIndividuals();
+		Set<OWLNamedIndividual> toCheck = new HashSet<OWLNamedIndividual>(individui);
 		
 		System.out.println("Computing kernel matrix");
-
-		for (int i = 0; i < numExamples; ++i)
+		for (OWLNamedIndividual i : individui)
 		{
-//			System.out.println("done.\n" + i);
-			kernel.put(individui[i], individui[i], 1.0);
-//			kernel[i][i] = 1.0;
-			for (int j = i + 1; j < numExamples; ++j)
+			for (OWLNamedIndividual j : toCheck)
 			{
 				Double kValue = 1 - features.sqrDistance(i, j);
-				
-				kernel.put(individui[i], individui[j], kValue);
-				kernel.put(individui[j], individui[i], kValue);
-				
-//				kernel[i][j] = kValue;
-//				kernel[j][i] = kValue;
+				//System.out.println(kValue + " - " + i + " - " + j);
+				kernel.put(i, j, kValue);
+				kernel.put(j, i, kValue);
 			}
+			
+			toCheck.remove(i);
 		}
 
 		System.out.println("Finished creating the Kernel Matrix.\n");
@@ -80,5 +77,4 @@ public class KernelMatrix {
 	{
 		CSVWriter.write("res/kernelMatrix.csv", kernel);
 	}
-	
 }

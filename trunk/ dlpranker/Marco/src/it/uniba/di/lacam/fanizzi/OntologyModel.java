@@ -62,12 +62,8 @@ public class OntologyModel {
 		}
         
         dataFactory = manager.getOWLDataFactory();
-        
-        System.out.println("ONTOLOGY: " + ontology);
-        
+        System.out.println("ONTOLOGY: " + ontology);     
         reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
-       
-        
 	}
 
 

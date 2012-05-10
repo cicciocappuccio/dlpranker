@@ -40,15 +40,10 @@ public class ExperimentRating implements ExperimentDataset
 	private static final int SEED = 100;
 	private Random generator;
 
-	
-//	private Map<OWLNamedIndividual, ArrayList<Integer>> ratingMap;
-//	private Table<OWLNamedIndividual, OWLNamedIndividual, Integer> index;
 	private Map<OWLNamedIndividual, OWLNamedIndividual> ratingFilm;
-//	private BiMap<Example, Integer> index;
 	private Set<OWLNamedIndividual> individuals;
 	
 	private int ratingMassimo;
-//	private int numeroDiIndividui;
 	
 	/**
 	 * @param ontologyModel
@@ -106,7 +101,6 @@ public class ExperimentRating implements ExperimentDataset
 				for (OWLIndividual sameInd : sameInds)
 				{
 					boolean trovato = false;
-
 					
 					OWLNamedIndividual sameNamedInd = (OWLNamedIndividual) sameInd;
 					Set<OWLAnnotation> individualAnnotations = sameNamedInd.getAnnotations(ontologyModel.getOntology(), ratingAnnProp);
@@ -129,7 +123,6 @@ public class ExperimentRating implements ExperimentDataset
 									ratingMassimo = Integer.valueOf(str);
 								
 								ratingFilm.put(rating, (OWLNamedIndividual) individual);
-//								index.put(new Example((OWLNamedIndividual) individual, rating), indexMatrix++);
 								trovato = true;
 							}
 						}
@@ -153,12 +146,7 @@ public class ExperimentRating implements ExperimentDataset
 	{
 		return ratingMassimo;
 	}
-/*	
-	public Example example(int indice)
-	{
-		return index.inverse().get(indice);
-	}
-	*/
+
 	/**
 	 * @param indice indice della matrice
 	 * @return retituisce il valore numerico del rating
