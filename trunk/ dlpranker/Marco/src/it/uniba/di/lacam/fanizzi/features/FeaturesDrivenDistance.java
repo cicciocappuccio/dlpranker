@@ -100,7 +100,6 @@ public class FeaturesDrivenDistance {
 		
 		for (OWLClassExpression feature : pi.rowKeySet())
 			featuresWeight.put(feature, featuresWeight.get(feature)/sum);
-		
 	}
 	
 	
@@ -131,7 +130,6 @@ public class FeaturesDrivenDistance {
 	
 		for (OWLClassExpression feature : pi.rowKeySet())
 			featuresWeight.put(feature, featuresWeight.get(feature)/total);
-
 	}
 
 	
@@ -210,7 +208,7 @@ public class FeaturesDrivenDistance {
 			
 			ois = new ObjectInputStream(new FileInputStream(iFile));
 			
-			a = (Object[]) ois.readObject();
+			a = (Object[]) SerializeUtils.deserialize((String) ois.readObject());
 
 			pi = (Table<OWLClassExpression, OWLNamedIndividual, Short>) a[0];
 			featuresWeight = (Map<OWLClassExpression, Double>) a[1];
@@ -223,6 +221,9 @@ public class FeaturesDrivenDistance {
 			// TODO Auto-generated catch block
 			e.printStackTrace();			
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Throwable e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}		
