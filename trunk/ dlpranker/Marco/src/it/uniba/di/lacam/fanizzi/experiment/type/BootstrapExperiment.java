@@ -74,8 +74,8 @@ public class BootstrapExperiment {
 			System.out.println("Training is starting...");
 
 //			double[] w = new double[trainingExs.length]; // vettore della stessa dimensione del numero di esempi di training
-			double[] w = new double[dati.getIndividuals().length]; // MODIFICATO: vettore della stessa dimensione del numero di film
-			
+//			double[] w = new double[dati.getIndividuals().length]; // MODIFICATO: vettore della stessa dimensione del numero di film
+
 			double[] theta = new double[nRatings]; // rating 1, rating 2, ...,
 													// rating MAX
 

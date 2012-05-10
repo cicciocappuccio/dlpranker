@@ -34,7 +34,7 @@ public class Specialize {
 		
 
 		System.out.println(concept);
-		Set<Description> descriptions = r.refine(ConceptUtils.convertToDescription(concept), 1, null);
+		Set<Description> descriptions = r.refine(ConceptUtils.convertToDescription(concept), 4, null);
 		
 		Set<OWLClassExpression> concepts = new HashSet<OWLClassExpression>();
 		for(Description description : descriptions)

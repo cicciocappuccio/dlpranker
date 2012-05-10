@@ -44,8 +44,8 @@ public class ExperimentRating implements ExperimentDataset
 //	private Map<OWLNamedIndividual, ArrayList<Integer>> ratingMap;
 //	private Table<OWLNamedIndividual, OWLNamedIndividual, Integer> index;
 	private Map<OWLNamedIndividual, OWLNamedIndividual> ratingFilm;
-	private BiMap<Example, Integer> index;
-	private BiMap<OWLNamedIndividual, Integer> individualIndex;
+//	private BiMap<Example, Integer> index;
+	private Set<OWLNamedIndividual> individuals;
 	
 	private int ratingMassimo;
 //	private int numeroDiIndividui;
@@ -89,8 +89,8 @@ public class ExperimentRating implements ExperimentDataset
 		System.out.println("rating");
 		
 		ratingFilm = new HashMap();
-		index = HashBiMap.create();
-		individualIndex = HashBiMap.create();
+		individuals = new HashSet<OWLNamedIndividual>();
+		
 		int indexMatrix = 0;
 		int numeroDiIndividui = 0;
 		ratingMassimo = -1;
@@ -129,7 +129,7 @@ public class ExperimentRating implements ExperimentDataset
 									ratingMassimo = Integer.valueOf(str);
 								
 								ratingFilm.put(rating, (OWLNamedIndividual) individual);
-								index.put(new Example((OWLNamedIndividual) individual, rating), indexMatrix++);
+//								index.put(new Example((OWLNamedIndividual) individual, rating), indexMatrix++);
 								trovato = true;
 							}
 						}
@@ -140,10 +140,9 @@ public class ExperimentRating implements ExperimentDataset
 						System.out.println(individual);
 						System.out.println(numeroDiIndividui);
 						*/
-						individualIndex.put((OWLNamedIndividual) individual, numeroDiIndividui++);
-						
+						numeroDiIndividui++;
+						individuals.add((OWLNamedIndividual) individual);
 					}
-						
 				}
 			}
 		}
@@ -154,16 +153,18 @@ public class ExperimentRating implements ExperimentDataset
 	{
 		return ratingMassimo;
 	}
-	
+/*	
 	public Example example(int indice)
 	{
 		return index.inverse().get(indice);
 	}
-	
+	*/
 	/**
 	 * @param indice indice della matrice
 	 * @return retituisce il valore numerico del rating
 	 */
+	
+	/*
 	public int getRatingValue (int indice)
 	{
 		OWLAnnotationProperty ratingValue = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#rating"));  
@@ -176,6 +177,7 @@ public class ExperimentRating implements ExperimentDataset
 		}
 		return (int) Integer.valueOf(str);
 	}
+	*/
 	public int getRatingValue (OWLNamedIndividual rating)
 	{
 		OWLAnnotationProperty ratingValue = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#rating"));  
@@ -189,20 +191,23 @@ public class ExperimentRating implements ExperimentDataset
 		return (int) Integer.valueOf(str);
 	}
 	
+	/*
 	public OWLNamedIndividual getRating (int indice)
 	{
 		return index.inverse().get(indice).getRating();
 	}
-	
+	*/
+	/*
 	public OWLNamedIndividual getIndividual (int indice)
 	{
 		return index.inverse().get(indice).getIndividual();
 	}
+	*/
 	public OWLNamedIndividual getIndividual (OWLNamedIndividual rating)
 	{
 		return ratingFilm.get(rating);
 	}
-
+/*
 	public OWLNamedIndividual[] getIndividuals()
 	{
 		OWLNamedIndividual[] individui = new OWLNamedIndividual[individualIndex.size()];
@@ -212,20 +217,22 @@ public class ExperimentRating implements ExperimentDataset
 		}
 		return individui;
 	}
+*/
 	
 	public int size()
 	{
-		return index.size();
+		return ratingFilm.size();
 	}
-	
+
+	/*
 	public int indexIndividual(int indice)
 	{
 		return individualIndex.get(getIndividual (indice));
 	}
-	
-	public Set<OWLNamedIndividual> getIndividualsSet()
+	*/
+	public Set<OWLNamedIndividual> getIndividuals()
 	{
-		return individualIndex.keySet();
+		return individuals;
 	}
 	
 	public OWLNamedIndividual random()

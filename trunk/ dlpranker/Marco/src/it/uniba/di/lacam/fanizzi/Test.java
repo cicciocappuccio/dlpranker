@@ -61,18 +61,14 @@ public class Test {
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		System.out.println("S E L E Z I O N E    F E A T U R E S");
 
-		OWLClassExpression[] featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
-		System.out.println(featuresD.length);
+//		OWLClassExpression[] featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
+//		System.out.println(featuresD.length);
 		
 		
+		Set<OWLClassExpression> featuresD = null;
 		
-		Set<OWLClassExpression> insieme = Specialize.specialize(urlOwlFile, featuresD[0]);
-		
-		
-		System.out.println(insieme);
-		
-		FeaturesDrivenDistance2 featuresDD = new FeaturesDrivenDistance2(featuresD, dati.getIndividuals());
-		featuresDD.preLoadPi(IRI.create(new URI(urlOwlFile)), FeaturesDrivenDistance2.ALL, ontologyModel.getReasoner(), ontologyModel.getDataFactory());	
+		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
+		featuresDD.preLoadPi(IRI.create(new URI(urlOwlFile)), FeaturesDrivenDistance2.ALL, ontologyModel.getReasoner(), ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());	
 		
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
