@@ -10,7 +10,12 @@ import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
 
 public class FeaturesSelection
 {
-	public static OWLClassExpression[] superClass(PelletReasoner reasoner, OWLNamedIndividual[] esempi)
+	/**
+	 * @param reasoner
+	 * @param esempi
+	 * @return
+	 */
+	public static Set<OWLClassExpression> superClass(PelletReasoner reasoner, Set<OWLNamedIndividual> esempi)
 	{
 		Set<OWLClass> ritorno = new HashSet<OWLClass>();
 		for (OWLNamedIndividual esempio : esempi)
@@ -19,31 +24,31 @@ public class FeaturesSelection
 			ritorno.addAll(FeaturesSelection.superClass(reasoner, nodiEsempio));
 		}
 		
-		OWLClassExpression[] featuresD = new OWLClassExpression[ritorno.size()];
-		int i = 0;
-		for (OWLClass classe : ritorno)
-		{
-			featuresD[i++] = (OWLClassExpression) classe;
-		}
+		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
+		for(OWLClass classe : ritorno)
+			featuresD.add((OWLClassExpression) classe);
+		
 		return featuresD;
 	}
 	
-	public static OWLClassExpression[] subClass(PelletReasoner reasoner, OWLNamedIndividual[] esempi)
+	/**
+	 * @param reasoner
+	 * @param esempi
+	 * @return
+	 */
+	public static Set<OWLClassExpression> subClass(PelletReasoner reasoner, Set<OWLNamedIndividual> esempi)
 	{
 		Set<OWLClass> ritorno = new HashSet<OWLClass>();
-		System.out.println("Nemero di esempi: " + esempi.length);
 		for (OWLNamedIndividual esempio : esempi)
 		{
 			NodeSet<OWLClass> nodiEsempio = reasoner.getTypes(esempio, true);
 			ritorno.addAll(FeaturesSelection.subClass(reasoner, nodiEsempio));
 		}
 		
-		OWLClassExpression[] featuresD = new OWLClassExpression[ritorno.size()];
-		int i = 0;
-		for (OWLClass classe : ritorno)
-		{
-			featuresD[i++] = (OWLClassExpression) classe;
-		}
+		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
+		for(OWLClass classe : ritorno)
+			featuresD.add((OWLClassExpression) classe);
+		
 		return featuresD;
 	}
 	
