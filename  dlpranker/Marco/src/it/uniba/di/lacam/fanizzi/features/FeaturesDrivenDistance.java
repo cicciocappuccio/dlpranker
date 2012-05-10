@@ -173,16 +173,17 @@ public class FeaturesDrivenDistance {
 	
 	private void saveProjections(File oFile) {
 		
-		Object[] a = new Object[2];
+		/*Object[] a = new Object[2];
 		
 		a[0] = pi;
 		a[1] = featuresWeight;
-		
+		*/
+		Integer pippo = 86;
 		ObjectOutputStream oos;
 		try
 		{
 			oos = new ObjectOutputStream(new FileOutputStream(oFile));
-			oos.writeObject(SerializeUtils.serialize(a));
+			oos.writeObject(SerializeUtils.serialize(pippo));
 			oos.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -242,7 +243,6 @@ public class FeaturesDrivenDistance {
 		for (OWLClassExpression feature : features)
 		{
 			double cell = 1.0 / (double)features.size();
-			System.out.println(cell);
 			featuresWeight.put(feature, cell);
 		}
 			
@@ -294,8 +294,7 @@ public class FeaturesDrivenDistance {
 		catch (FileNotFoundException e) {
 			computeProjections(reasoner, factory, features, individuals);
 			//saveProjections(datafileName);
-			
-			CSVWriter.write2("res/pi.txt", pi);
+			//CSVWriter.write2("res/pi.txt", pi);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

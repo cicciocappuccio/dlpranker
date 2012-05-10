@@ -86,15 +86,15 @@ public class BootstrapExperiment {
 
 			System.out.println("Testing is starting...");
 			// test phase: test all examples in the f-th partition
-			int i = 0;
+			int i = 1;
 			for (OWLNamedIndividual te : testExs)
 			{
-				System.out.println("\nF#" + f + "ranking example " + (i + 1) + "/" + testExs.size() + ": " + te);
+				System.out.println("\nF#" + f + "ranking example " + i++ + "/" + testExs.size() + ": " + te);
 
 				System.out.println("\ninductive Classification ------ ");
 
 				int inducedRank = kernel.rank(te, wMap, theta, nRatings);
-				System.out.printf("%d (%d)\t", inducedRank,	dati.getRatingValue(te));
+				System.out.printf("%d (%d)\t", (inducedRank + 1), dati.getRatingValue(te));
 				lossCount += Math.abs(inducedRank - dati.getRatingValue(te)) / (double) nRatings;
 				
 				System.out.print("\n");
