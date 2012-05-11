@@ -11,6 +11,8 @@ import it.uniba.di.lacam.fanizzi.features.*;
 
 import it.uniba.di.lacam.fanizzi.utils.*;
 
+import java.beans.XMLEncoder;
+import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -31,6 +33,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import org.semanticweb.owlapi.reasoner.NodeSet;
 
 import test.ReasonerTest;
+import uk.ac.manchester.cs.owl.owlapi.OWLClassExpressionImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
 import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
@@ -68,28 +71,10 @@ public class Test {
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		System.out.println("S E L E Z I O N E    F E A T U R E S");
 
-//		OWLClassExpression[] featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
-//		System.out.println(featuresD.length);
-		Set<OWLClassExpression> featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
+		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
+		featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 		
-		String[] saveYou = new String[featuresD.size()];
-		int ai = 0;
-		for(OWLClassExpression a : featuresD)
-			saveYou[ai++] = a.toString();
 		
-	    ObjectOutputStream oos;
-	    try {
-	      oos = new ObjectOutputStream(new FileOutputStream("res/ArrayFeatures.dat"));
-//	      oos.writeObject(features);
-	      oos.writeObject(saveYou);
-	      oos.close();
-	    } catch (FileNotFoundException e) {
-	      // TODO Auto-generated catch block
-	      e.printStackTrace();
-	    } catch (IOException e) {
-	      // TODO Auto-generated catch block
-	      e.printStackTrace();
-	    }
 
 //		Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
 		//Set<OWLClassExpression> featuresD = null;
@@ -105,10 +90,7 @@ public class Test {
 		KernelMatrix kernel = new KernelMatrix();;
 		kernel.createKernelMatrix(featuresDD);
 
-
-		//
-		kernel.CSVPrint();
-		
+		//kernel.CSVPrint();
 		
 		BootstrapExperiment exp = new BootstrapExperiment();
 		exp.bootstrapExperiment(kernel, dati, 1000);
