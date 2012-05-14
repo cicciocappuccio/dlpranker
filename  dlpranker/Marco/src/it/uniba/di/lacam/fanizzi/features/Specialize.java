@@ -43,7 +43,6 @@ public class Specialize {
 	public static Set<OWLClassExpression> specialize (AbstractReasonerComponent reasoner, OWLClassExpression concept)
 	{
 		RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
-		
 
 		System.out.println(concept);
 		Set<Description> descriptions = r.refine(ConceptUtils.convertToDescription(concept), 4, null);
@@ -59,20 +58,18 @@ public class Specialize {
 	{
 		RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
 		
-		List<Description> descriptionsList = new ArrayList<Description>();
+		Set<Description> descriptionsSet = new HashSet<Description>();
 		for(OWLClassExpression concept : concepts)
 		{
-			Set<Description> descriptionsSet= new HashSet<Description>();
-			
 			System.out.println(concept);
-			descriptionsSet = r.refine(ConceptUtils.convertToDescription(concept), 4, descriptionsList);
-			for(Description description : descriptionsSet)
-				descriptionsList.add(description);
+			if (!concept.toString().equals("<owl:Nothing>")) {
+				Set<Description> descriptions = r.refine(ConceptUtils.convertToDescription(concept), 3, null);
+				descriptionsSet.addAll(descriptions);
+			}
 		}
 		
 		Set<OWLClassExpression> classes = new HashSet<OWLClassExpression>();
-		
-		for(Description description : descriptionsList)
+		for(Description description : descriptionsSet)
 			classes.add(ConceptUtils.convertToOWLClassExpression(description));
 		
 		return classes;
