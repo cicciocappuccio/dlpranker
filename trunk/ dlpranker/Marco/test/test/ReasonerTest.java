@@ -51,7 +51,7 @@ public class ReasonerTest {
 
 		/*for (String a : array)
 			System.out.println(a);
-*/
+
 		System.out.println("Press <Enter> to continue =)))");
 		try {
 			System.in.read();
@@ -59,7 +59,7 @@ public class ReasonerTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+*/
 		Set<OWLClassExpression> mio = rhoDRDownTest(
 				"res/fragmentOntology10.owl", array);
 		String[] mioArray = new String[mio.size()];
@@ -67,7 +67,7 @@ public class ReasonerTest {
 		for (OWLClassExpression m : mio) {
 			mioArray[i++] = m.toString();
 		}
-/*
+
 		ObjectOutputStream oos;
 
 		try {
@@ -82,16 +82,20 @@ public class ReasonerTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-*/
+/**/
 	}
 
 	@Test
-	public static Set<OWLClassExpression> rhoDRDownTest(String file,
-			String[] array) throws ComponentInitException {
+	public static Set<OWLClassExpression> rhoDRDownTest(String file, String[] array) 
+	{
 		KnowledgeSource ks = new OWLFile(file);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(
-				Collections.singleton(ks));
-		reasoner.init();
+		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+		try {
+			reasoner.init();
+		} catch (ComponentInitException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 //		System.out.println(file);
 
@@ -107,6 +111,7 @@ public class ReasonerTest {
 		RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
 		
 		Set<OWLClassExpression> classi = new HashSet<OWLClassExpression>();
+		/*
 		for (String a : array) {
 			if (!"<owl:Nothing>".equals(a)) {
 				String tmp = (a.charAt(0) == '<' ? a.substring(1,
@@ -116,7 +121,9 @@ public class ReasonerTest {
 				classi.add(b);
 			}
 		}
-
+*/
+		OWLClass film = new OWLClassImpl(dataFactory, IRI.create("http://dbpedia.org/ontology/Film"));
+		classi.add(film);
 		Set<OWLClassExpression> mio = Specialize.specialize(reasoner, classi, r);
 
 		System.out.println(mio);

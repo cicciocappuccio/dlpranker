@@ -3,46 +3,25 @@ package it.uniba.di.lacam.fanizzi;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRating;
 import it.uniba.di.lacam.fanizzi.experiment.type.BootstrapExperiment;
-import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
-import it.uniba.di.lacam.fanizzi.utils.LogUtils;
-import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
-import it.uniba.di.lacam.fanizzi.utils.StatUtils;
-import it.uniba.di.lacam.fanizzi.features.*;
+import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
+import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance2;
+import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
 
-import it.uniba.di.lacam.fanizzi.utils.*;
-
-import java.beans.XMLEncoder;
-import java.io.BufferedOutputStream;
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.URI;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Locale;
-import java.util.Map;
 import java.util.Set;
 
-import org.apache.commons.io.FileUtils;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
-import org.semanticweb.owlapi.reasoner.NodeSet;
 
-import test.ReasonerTest;
-import uk.ac.manchester.cs.owl.owlapi.OWLClassExpressionImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
-import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
-
 public class Test {
-	
-	private static final String KERNELMATRIX_FILE = "res/KernelMatrix.xml";
 	
 	public static void main(String[] args) throws Exception {
 		
