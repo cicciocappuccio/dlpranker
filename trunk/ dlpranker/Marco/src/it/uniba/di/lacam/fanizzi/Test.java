@@ -14,9 +14,11 @@ import it.uniba.di.lacam.fanizzi.utils.*;
 import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URI;
 import java.util.ArrayList;
@@ -74,9 +76,9 @@ public class Test {
 		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
 		featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 		
-		
 
-//		Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
+
+		//Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
 		//Set<OWLClassExpression> featuresD = null;
 		
 		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
@@ -90,7 +92,7 @@ public class Test {
 		KernelMatrix kernel = new KernelMatrix();;
 		kernel.createKernelMatrix(featuresDD);
 
-		//kernel.CSVPrint();
+		kernel.CSVPrint();
 		
 		BootstrapExperiment exp = new BootstrapExperiment();
 		exp.bootstrapExperiment(kernel, dati, 1000);
