@@ -27,7 +27,7 @@ public class Specialize {
 	{
 		Set<Description> desc = new HashSet<Description>();
 		for (OWLClassExpression concept : concepts)
-			desc.addAll(specialize(reasoner, ConceptUtils.convertToDescription(concept), r, 0));
+			desc.addAll(specialize(reasoner, ConceptUtils.convertToDescription(concept), r, 3, 0));
 		
 		Set<OWLClassExpression> specialized = new HashSet<OWLClassExpression>();
 		for(Description concept : desc)
@@ -36,20 +36,25 @@ public class Specialize {
 		return specialized;
 	}
 	
-	public static Set<Description> specialize (AbstractReasonerComponent reasoner, Description concept, RefinementOperator r, int p)
+	public static Set<Description> specialize (AbstractReasonerComponent reasoner, Description concept, RefinementOperator r, int maxLength, int p)
 	{
 	//	RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
-		
+
 		Set<Description> childs = new HashSet<Description>();
 		if (concept.toString().compareTo("owl:Nothing") != 0)
 		{
 			System.out.println(concept.toString());
-			childs = r.refine(concept, 2, null);
+			childs = r.refine(concept, maxLength, null);
 		}
-		System.out.println(p + " - " + childs.size());
+		System.out.println("p: " + p + " - childs.size: " + childs.size());
+		
+		Set<Description> appendChilds = new HashSet<Description>();
 		for (Description child : childs)
-			childs.addAll(specialize(reasoner,  child, r, 1));
-
+		{
+			appendChilds.addAll(specialize(reasoner,  child, r, maxLength, p+1));
+		}
+		
+		childs.addAll(appendChilds);
 		return childs;
 	}
 }

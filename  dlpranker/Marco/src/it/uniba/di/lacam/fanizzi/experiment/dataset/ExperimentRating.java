@@ -87,7 +87,7 @@ public class ExperimentRating implements ExperimentDataset
 		individuals = new HashSet<OWLNamedIndividual>();
 		
 		int indexMatrix = 0;
-		int numeroDiIndividui = 0;
+//		int numeroDiIndividui = 0;
 		ratingMassimo = -1;
 
 		for (OWLClass concept : concepts)
@@ -133,7 +133,7 @@ public class ExperimentRating implements ExperimentDataset
 						System.out.println(individual);
 						System.out.println(numeroDiIndividui);
 						*/
-						numeroDiIndividui++;
+						//numeroDiIndividui++;
 						individuals.add((OWLNamedIndividual) individual);
 					}
 				}
