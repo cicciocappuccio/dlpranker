@@ -15,63 +15,41 @@ import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
+import org.dllearner.refinementoperators.RefinementOperator;
 import org.dllearner.refinementoperators.RhoDown;
+import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 
 
 public class Specialize {
 
-	public static Set<OWLClassExpression> specialize (String file, OWLClassExpression concept) throws ComponentInitException
+	public static Set<OWLClassExpression> specialize (AbstractReasonerComponent reasoner, Set<OWLClassExpression> concepts, RefinementOperator r)
 	{
-		KnowledgeSource ks = new OWLFile(file);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+		Set<Description> desc = new HashSet<Description>();
+		for (OWLClassExpression concept : concepts)
+			desc.addAll(specialize(reasoner, ConceptUtils.convertToDescription(concept), r, 0));
 		
-		reasoner.init();
-		return specialize (reasoner, concept);
+		Set<OWLClassExpression> specialized = new HashSet<OWLClassExpression>();
+		for(Description concept : desc)
+			specialized.add(ConceptUtils.convertToOWLClassExpression(concept));
+			
+		return specialized;
 	}
 	
-	public static Set<OWLClassExpression> specialize (String file, Set<OWLClassExpression> concepts) throws ComponentInitException
+	public static Set<Description> specialize (AbstractReasonerComponent reasoner, Description concept, RefinementOperator r, int p)
 	{
-		KnowledgeSource ks = new OWLFile(file);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+	//	RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
 		
-		reasoner.init();
-		return specialize (reasoner, concepts);
-	}
-	
-	
-	public static Set<OWLClassExpression> specialize (AbstractReasonerComponent reasoner, OWLClassExpression concept)
-	{
-		RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
-
-		System.out.println(concept);
-		Set<Description> descriptions = r.refine(ConceptUtils.convertToDescription(concept), 4, null);
-		
-		Set<OWLClassExpression> concepts = new HashSet<OWLClassExpression>();
-		for(Description description : descriptions)
-			concepts.add(ConceptUtils.convertToOWLClassExpression(description));
-		
-		return concepts;
-	}
-	
-	public static Set<OWLClassExpression> specialize (AbstractReasonerComponent reasoner, Set<OWLClassExpression> concepts)
-	{
-		RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
-		
-		Set<Description> descriptionsSet = new HashSet<Description>();
-		for(OWLClassExpression concept : concepts)
+		Set<Description> childs = new HashSet<Description>();
+		if (concept.toString().compareTo("owl:Nothing") != 0)
 		{
-			System.out.println(concept);
-			if (!concept.toString().equals("<owl:Nothing>")) {
-				Set<Description> descriptions = r.refine(ConceptUtils.convertToDescription(concept), 3, null);
-				descriptionsSet.addAll(descriptions);
-			}
+			System.out.println(concept.toString());
+			childs = r.refine(concept, 2, null);
 		}
-		
-		Set<OWLClassExpression> classes = new HashSet<OWLClassExpression>();
-		for(Description description : descriptionsSet)
-			classes.add(ConceptUtils.convertToOWLClassExpression(description));
-		
-		return classes;
+		System.out.println(p + " - " + childs.size());
+		for (Description child : childs)
+			childs.addAll(specialize(reasoner,  child, r, 1));
+
+		return childs;
 	}
 }

@@ -76,6 +76,29 @@ public class Test {
 		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
 		featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 		
+		
+		String[] array = null;
+		ObjectInputStream ois;
+
+		try {
+			ois = new ObjectInputStream(new FileInputStream("res/Specializy.dat"));
+			// features = (OWLClassExpression[]) ois.readObject();
+			array = (String[]) ois.readObject();
+			ois.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		for (String a : array)
+		{
+			System.out.println(a);
+			OWLClass b = new OWLClassImpl(ontologyModel.getDataFactory(), IRI.create(a));
+			featuresD.add(b);
+		}
 
 
 		//Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
