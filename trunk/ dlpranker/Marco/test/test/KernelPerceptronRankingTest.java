@@ -1,14 +1,11 @@
 package test;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import org.apache.commons.lang.ArrayUtils;
-
-//import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 class PointRank {
 	public double[] x;
@@ -24,7 +21,7 @@ public class KernelPerceptronRankingTest {
 	private static final double[][] DATAPOINTS_1 = { {3, 2}, {4, 1}, {5, 2}, {6, 4}, {7, 3} };
 	private static final double[][] DATAPOINTS_2 = { {1, 5}, {2, 5}, {2, 6}, {3, 6}, {5, 6} };
 	
-	private static final double[][] DATAPOINTS = (double[][]) ArrayUtils.addAll(DATAPOINTS_1, DATAPOINTS_2);
+	private static final double[][] DATAPOINTS = ArrayUtils.addAll(DATAPOINTS_1, DATAPOINTS_2);
 	
 	private static double kernel(double[] x1, double[] x2) {
 		double ret = 0.0;
