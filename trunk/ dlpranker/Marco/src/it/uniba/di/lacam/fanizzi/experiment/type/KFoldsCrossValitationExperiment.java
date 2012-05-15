@@ -25,7 +25,9 @@ public class KFoldsCrossValitationExperiment {
 	{
 		System.out.println("K-fold cross validation Experiment on ontology");
 		System.out.println("\n\n" + nFolds + " fold");
-
+		
+		int nRatings = dati.maxRating();
+		
 		double foldCardinality = Math.round((((double) dati.size()) / nFolds) - 0.5);
 		int mia = (int) Math.round(foldCardinality);
 		System.out.println(foldCardinality);
@@ -37,27 +39,50 @@ public class KFoldsCrossValitationExperiment {
 
 		for (int f = 0; f < nFolds; f++)
 		{
-			Set<OWLNamedIndividual> trainingExs = new HashSet<OWLNamedIndividual>();
+			List<OWLNamedIndividual> trainingExs = new ArrayList<OWLNamedIndividual>();
 			Set<OWLNamedIndividual> testExs = new HashSet<OWLNamedIndividual>();
 			
 			Map<OWLNamedIndividual, Double> wMap = new HashMap<OWLNamedIndividual, Double>();
 			
-			dati.
+			List<OWLNamedIndividual> black = new ArrayList<OWLNamedIndividual>(dati.getRatings());
 			
-			for (int i = 0; i < foldCardinality; i++)
+			int i = 0;
+			for (OWLNamedIndividual mio : black)
 			{
-				if ((i >= f * mio) && (i < (f + 1) * mio))
+				if ((i >= f * foldCardinality) && (i < (f + 1) * foldCardinality))
 				{
-					trainingExs.p
+					trainingExs.add(mio);
+					wMap.put(dati.getIndividual(mio), 0.0);
 				}
+				else
+				{
+					testExs.add(mio);
+				}
+				i++;
 			}
 			
+			double[] theta = new double[nRatings];
+			
+			System.out.println("Training is starting..." + mia + " - " + nFolds + " - " + nFolds * mia);
+			System.out.println("Training is starting..." + nRatings);
+			
+			DLKRating.kernelPerceptronRank(dati, kernel, trainingExs, wMap, theta);
+			
+			System.out.printf("\nmodel induced \n\n");
+
+			System.out.println("...end of Training.\n\n");
+
+			System.out.println("Testing is starting...");
+			
+			for(OWLNamedIndividual exampleTest)
 			
 			
 			
 			
-			Integer[] trainingExs = new Integer[(int) foldCardinality * (nFolds - 1)];
-			Integer[] testExs = new Integer[(int) mio];
+			
+			
+			
+			
 			int trainingIndex = 0;
 			int testIndex = 0;
 

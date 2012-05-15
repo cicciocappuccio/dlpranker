@@ -44,11 +44,7 @@ public interface ExperimentDataset {
 	public OWLNamedIndividual getIndividual (OWLNamedIndividual rating);
 	
 	/**
-	 * @return the array with all the individual
-	 */
-//	public OWLNamedIndividual[] getIndividuals();
-	/**
-	 * @return the array with all the individual
+	 * @return a Set with all the individuals
 	 */
 	public Set<OWLNamedIndividual> getIndividuals();
 	
@@ -62,4 +58,9 @@ public interface ExperimentDataset {
 	 * @return return random rating
 	 */
 	public OWLNamedIndividual random();
+	
+	/**
+	 * @return a set with all the ratings
+	 */
+	public Set<OWLNamedIndividual> getRatings ();
 }
