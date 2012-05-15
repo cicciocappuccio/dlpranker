@@ -9,9 +9,9 @@ import org.hibernate.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ConceptMembershipDAO extends BaseHibernateDAO {
+public class ConceptEntailmentDAO extends BaseHibernateDAO {
 	
-	private static final Logger log = LoggerFactory.getLogger(ConceptMembershipDAO.class);
+	private static final Logger log = LoggerFactory.getLogger(ConceptEntailmentDAO.class);
 	
 	public void save(ConceptEntailment transientInstance) {
 		log.debug("saving ConceptMembership instance");
@@ -62,7 +62,7 @@ public class ConceptMembershipDAO extends BaseHibernateDAO {
 	public List findByProperty(String propertyName, Object value) {
 		log.debug("finding ConceptMembership instance with property: " + propertyName + ", value: " + value);
 		try {
-			String queryString = "from ConceptMembership as model where model." + propertyName + "= ?";
+			String queryString = "from ConceptEntailment as model where model." + propertyName + "= ?";
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
 			return queryObject.list();
@@ -75,7 +75,7 @@ public class ConceptMembershipDAO extends BaseHibernateDAO {
 	public List findAll() {
 		log.debug("finding all ConceptMembership instances");
 		try {
-			String queryString = "from ConceptMembership";
+			String queryString = "from ConceptEntailment";
 			Query queryObject = getSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
