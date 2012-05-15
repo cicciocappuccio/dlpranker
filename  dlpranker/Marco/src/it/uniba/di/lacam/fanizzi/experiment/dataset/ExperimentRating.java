@@ -228,4 +228,9 @@ public class ExperimentRating implements ExperimentDataset
 		Object[] values = ratingFilm.keySet().toArray();
 		return (OWLNamedIndividual) values[generator.nextInt(values.length)];
 	}
+	
+	public Set<OWLNamedIndividual> getRatings()
+	{
+		return ratingFilm.keySet();
+	}
 }

@@ -290,16 +290,17 @@ public class FeaturesDrivenDistance {
 		System.out.printf("Pre-computing %d x %d pi elements \n", features.size(), individuals.size());
 		
 		computeProjections(reasoner, factory, features, individuals);
-		/*
+		
 		try { readProjections(datafileName);	
 		}  
 		catch (FileNotFoundException e) {
-			computeProjections(reasoner, factory, features, individuals);
+			//computeProjections(reasoner, factory, features, individuals);
 			//saveProjections(datafileName);
-			//CSVWriter.write2("res/pi.txt", pi);
+			CSVWriter.write2("res/pi.txt", pi);
 		} catch (IOException e) {
 			e.printStackTrace();
-		}*/
+		}
+		/**/
 	}
 	
 }	// class
