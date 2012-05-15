@@ -7,11 +7,11 @@
 	<session-factory>
 
 		<property name="dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
-		<property name="connection.url">jdbc:mysql://tera64.neuralnoise.com/OntologyCache</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1/OntologyCache</property>
 		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
-		<property name="connection.username">abc</property>
-		<property name="connection.password">abc</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">abcdef</property>
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		<property name="show_sql">true</property>
