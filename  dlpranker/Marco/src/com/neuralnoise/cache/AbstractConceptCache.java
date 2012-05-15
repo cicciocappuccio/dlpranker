@@ -2,28 +2,27 @@ package com.neuralnoise.cache;
 
 import java.util.Collection;
 
-import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Individual;
-
+import org.semanticweb.owlapi.model.OWLClassExpression;
+import org.semanticweb.owlapi.model.OWLIndividual;
 public abstract class AbstractConceptCache {
 
 	public AbstractConceptCache() { }
 	
-	public abstract boolean contains(Description concept);
+	public abstract boolean contains(OWLClassExpression concept);
 	
-	public abstract boolean contains(Description concept, Individual individual);
+	public abstract boolean contains(OWLClassExpression concept, OWLIndividual OWLIndividual);
 	
-	public abstract Boolean get(Description concept, Individual individual);
+	public abstract Boolean get(OWLClassExpression concept, OWLIndividual OWLIndividual);
 	
-	public abstract void addElement(Description concept, Individual individual, Boolean entailed);
+	public abstract void addElement(OWLClassExpression concept, OWLIndividual OWLIndividual, Boolean entailed);
 	
-	public abstract void addElements(Description concept, Collection<Individual> individuals, Boolean entailed);
+	public abstract void addElements(OWLClassExpression concept, Collection<OWLIndividual> OWLIndividuals, Boolean entailed);
 	
-	public abstract void removeElement(Description concept, Individual individual);
+	public abstract void removeElement(OWLClassExpression concept, OWLIndividual OWLIndividual);
 	
-	public abstract void removeConcept(Description concept);
+	public abstract void removeConcept(OWLClassExpression concept);
 	
-	public abstract void removeIndividual(Individual individual);
+	public abstract void removeOWLIndividual(OWLIndividual OWLIndividual);
 	
 	public abstract void flush();
 	

@@ -4,6 +4,7 @@ package it.uniba.di.lacam.fanizzi.features;
 
 //import java.io.IOException;
 import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
+import it.uniba.di.lacam.fanizzi.utils.ConceptUtils;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 
 import java.io.File;
@@ -18,6 +19,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
@@ -27,6 +30,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+import com.neuralnoise.cache.AbstractConceptCache;
 
 
 /**
@@ -233,7 +237,7 @@ public class FeaturesDrivenDistance {
 	
 	public void computeProjections(													// why public???
 			PelletReasoner reasoner,
-			OWLDataFactory factory,
+			AbstractConceptCache cache, OWLDataFactory factory,
 			Set<OWLClassExpression> features,
 			Set<OWLNamedIndividual> individuals) {
 
@@ -259,16 +263,27 @@ public class FeaturesDrivenDistance {
 				OWLClassAssertionAxiom o1 = factory.getOWLClassAssertionAxiom(feature, individual);
 				OWLClassAssertionAxiom o2 = factory.getOWLClassAssertionAxiom(negfeature, individual);
 				
-				if (reasoner.isEntailed(o1)) {
-					pi.put(feature, individual, (short) 0);
-//					System.out.print(pi[f][i]);
-				} else if (reasoner.isEntailed(o2)) {
-					pi.put(feature, individual, (short) 2);
-//					System.out.print(pi[f][i]);
+				Boolean e1 = null;
+				if (cache != null && cache.contains(feature, individual)) {
+					e1 = cache.get(feature, individual);
 				} else {
-					pi.put(feature, individual, (short) 1);
-//					System.out.print(pi[f][i]);
+					e1 = reasoner.isEntailed(o1);
+					
+					if (cache != null)
+						cache.addElement(feature, individual, e1);
 				}
+				
+				Boolean e2 = null;
+				if (cache != null && cache.contains(negfeature, individual)) {
+					e2 = cache.get(negfeature, individual);
+				} else {
+					e2 = reasoner.isEntailed(o2);
+					
+					if (cache != null)
+						cache.addElement(negfeature, individual, e2);
+				}
+				
+				pi.put(feature, individual, (short) (e1 ? 0 : (e2 ? 2 : 1)));
 			}
 			System.out.printf(" | completed. %5.1f%% \n", 100.0*(fSet++ +1)*individuals.size() / (features.size()*individuals.size())); 
 
@@ -279,28 +294,17 @@ public class FeaturesDrivenDistance {
 
 	
 	
-	public void preLoadPi(IRI iri, short mode,
+	public void preLoadPi(
 			PelletReasoner reasoner,
+			AbstractConceptCache cache,
+			
 			OWLDataFactory factory,
 			Set<OWLClassExpression> features,
 			Set<OWLNamedIndividual> individuals) {
 		
-		File datafileName = new File(iri.toURI().getPath()+EXT[mode]);
-		
 		System.out.printf("Pre-computing %d x %d pi elements \n", features.size(), individuals.size());
 		
-		computeProjections(reasoner, factory, features, individuals);
-		
-		try { readProjections(datafileName);	
-		}  
-		catch (FileNotFoundException e) {
-			//computeProjections(reasoner, factory, features, individuals);
-			//saveProjections(datafileName);
-			CSVWriter.write2("res/pi.txt", pi);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		/**/
+		computeProjections(reasoner, cache, factory, features, individuals);
 	}
 	
 }	// class

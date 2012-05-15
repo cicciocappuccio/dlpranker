@@ -19,6 +19,9 @@ import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 
+import com.neuralnoise.cache.AbstractConceptCache;
+import com.neuralnoise.cache.HibernateConceptCache;
+
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
 public class Test {
@@ -84,7 +87,11 @@ public class Test {
 		//Set<OWLClassExpression> featuresD = null;
 		
 		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
-		featuresDD.preLoadPi(IRI.create(new URI(urlOwlFile)), FeaturesDrivenDistance2.ALL, ontologyModel.getReasoner(), ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());	
+		
+		
+		AbstractConceptCache cache = new HibernateConceptCache(urlOwlFile);
+		featuresDD.preLoadPi(ontologyModel.getReasoner(), cache, ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());
+		
 		System.out.println("Press <Enter> to continue =)))");
 		System.in.read();
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
