@@ -59,7 +59,7 @@ public class HibernateConceptCache extends AbstractConceptCache {
 	}
 	
 	private static Description normalize(Description concept) {
-		Description normalised = concept;//ReasonerUtils.normalise(concept);
+		Description normalised = ReasonerUtils.normalise(concept);
 		return normalised;
 	}
 
