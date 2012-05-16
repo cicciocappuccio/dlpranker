@@ -57,10 +57,17 @@ public interface ExperimentDataset {
 	/**
 	 * @return return random rating
 	 */
+
 	public OWLNamedIndividual random();
 	
 	/**
 	 * @return a set with all the ratings
 	 */
 	public Set<OWLNamedIndividual> getRatings ();
+	
+	/**
+	 * @param individual film di cui si vuole conoscere l'insieme di rating
+	 * @return insieme di rating appartenenti al film
+	 */
+	public Set<OWLNamedIndividual> getRatings(OWLNamedIndividual individual);
 }

@@ -148,24 +148,10 @@ public class ExperimentRating implements ExperimentDataset
 	}
 
 	/**
-	 * @param indice indice della matrice
+	 * @param rating rating di cui si vuol conoscere il valore
 	 * @return retituisce il valore numerico del rating
 	 */
-	
-	/*
-	public int getRatingValue (int indice)
-	{
-		OWLAnnotationProperty ratingValue = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#rating"));  
-		Set<OWLAnnotation> valore = example(indice).getRating().getAnnotations(ontologyModel.getOntology(), ratingValue);
-		String str = "-1";
-		for (OWLAnnotation val : valore)
-		{
-			str = val.getValue().toString();
-			str = str.substring(1, str.length() - 1);
-		}
-		return (int) Integer.valueOf(str);
-	}
-	*/
+
 	public int getRatingValue (OWLNamedIndividual rating)
 	{
 		OWLAnnotationProperty ratingValue = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#rating"));  
@@ -179,45 +165,17 @@ public class ExperimentRating implements ExperimentDataset
 		return (int) Integer.valueOf(str);
 	}
 	
-	/*
-	public OWLNamedIndividual getRating (int indice)
-	{
-		return index.inverse().get(indice).getRating();
-	}
-	*/
-	/*
-	public OWLNamedIndividual getIndividual (int indice)
-	{
-		return index.inverse().get(indice).getIndividual();
-	}
-	*/
+
 	public OWLNamedIndividual getIndividual (OWLNamedIndividual rating)
 	{
 		return ratingFilm.get(rating);
 	}
-/*
-	public OWLNamedIndividual[] getIndividuals()
-	{
-		OWLNamedIndividual[] individui = new OWLNamedIndividual[individualIndex.size()];
-		for (int i = 0; i < individualIndex.size(); i++)
-		{
-			individui[i] = individualIndex.inverse().get(i);
-		}
-		return individui;
-	}
-*/
 	
 	public int size()
 	{
 		return ratingFilm.size();
 	}
 
-	/*
-	public int indexIndividual(int indice)
-	{
-		return individualIndex.get(getIndividual (indice));
-	}
-	*/
 	public Set<OWLNamedIndividual> getIndividuals()
 	{
 		return individuals;
@@ -232,5 +190,17 @@ public class ExperimentRating implements ExperimentDataset
 	public Set<OWLNamedIndividual> getRatings()
 	{
 		return ratingFilm.keySet();
+	}
+	
+	public Set<OWLNamedIndividual> getRatings(OWLNamedIndividual individual)
+	{
+		Set<OWLNamedIndividual> ritorno = new HashSet<OWLNamedIndividual>();
+		
+		for (OWLNamedIndividual rating : ratingFilm.keySet())
+		{
+			if (getIndividual(rating).toString() == individual.toString())
+				ritorno.add(rating);
+		}
+		return ritorno;
 	}
 }
