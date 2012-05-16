@@ -29,7 +29,7 @@ public class CSVWriter {
 			
 			for (OWLNamedIndividual hC : keys)
 			{
-				writer.append(',');
+				writer.append('\t');
 				writer.append(hC.toString());
 			}
 			writer.append('\n');
@@ -37,11 +37,11 @@ public class CSVWriter {
 			for (OWLNamedIndividual hCi : keys) // righe
 			{
 				writer.append(hCi.toString());
-				writer.append(',');
+				writer.append('\t');
 				for (OWLNamedIndividual hCy : keys) //colonne
 				{
 					writer.append( tabella.get(hCi, hCy).toString());
-					writer.append(',');
+					writer.append('\t');
 				}
 				writer.append('\n');
 			}

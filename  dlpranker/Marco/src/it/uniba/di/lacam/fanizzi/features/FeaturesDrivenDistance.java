@@ -3,10 +3,9 @@ package it.uniba.di.lacam.fanizzi.features;
 //conforming to new OWLAPI
 
 //import java.io.IOException;
-import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
-import it.uniba.di.lacam.fanizzi.utils.ConceptUtils;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 
+import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,14 +13,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Individual;
-import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLDataFactory;
@@ -254,19 +249,21 @@ public class FeaturesDrivenDistance {
 		int fSet= 0;
 		for (OWLClassExpression feature : features)
 		{
-			System.out.printf("%4d. %120s", fSet, feature);
+			//System.out.printf("%4d. %120s", fSet, feature);
 			
 			OWLClassExpression negfeature = feature.getComplementNNF();
 			
 			for (OWLNamedIndividual individual : individuals)
 			{
-				OWLClassAssertionAxiom o1 = factory.getOWLClassAssertionAxiom(feature, individual);
-				OWLClassAssertionAxiom o2 = factory.getOWLClassAssertionAxiom(negfeature, individual);
+
+/*
 				
 				Boolean e1 = null;
-				if (cache != null && cache.contains(feature, individual)) {
-					e1 = cache.get(feature, individual);
+				Boolean x1 = cache.get(feature, individual);
+				if (cache != null && x1 != null) {
+					e1 = x1;
 				} else {
+					OWLClassAssertionAxiom o1 = factory.getOWLClassAssertionAxiom(feature, individual);
 					e1 = reasoner.isEntailed(o1);
 					
 					if (cache != null)
@@ -274,9 +271,11 @@ public class FeaturesDrivenDistance {
 				}
 				
 				Boolean e2 = null;
-				if (cache != null && cache.contains(negfeature, individual)) {
-					e2 = cache.get(negfeature, individual);
+				Boolean x2 = cache.get(negfeature, individual);
+				if (cache != null && x2 != null) {
+					e2 = x2;
 				} else {
+					OWLClassAssertionAxiom o2 = factory.getOWLClassAssertionAxiom(negfeature, individual);
 					e2 = reasoner.isEntailed(o2);
 					
 					if (cache != null)
@@ -284,12 +283,33 @@ public class FeaturesDrivenDistance {
 				}
 				
 				pi.put(feature, individual, (short) (e1 ? 0 : (e2 ? 2 : 1)));
+				
+*/				
+				
+				
+				
+                OWLClassAssertionAxiom o1 = factory.getOWLClassAssertionAxiom(feature, individual);
+                OWLClassAssertionAxiom o2 = factory.getOWLClassAssertionAxiom(negfeature, individual);
+                
+                if (reasoner.isEntailed(o1)) {
+                        pi.put(feature, individual, (short) 0);
+//                      System.out.print(pi[f][i]);
+                } else if (reasoner.isEntailed(o2)) {
+                        pi.put(feature, individual, (short) 2);
+//                      System.out.print(pi[f][i]);
+                } else {
+                        pi.put(feature, individual, (short) 1);
+//                      System.out.print(pi[f][i]);
+                }
 			}
-			System.out.printf(" | completed. %5.1f%% \n", 100.0*(fSet++ +1)*individuals.size() / (features.size()*individuals.size())); 
+			System.out.printf("%4d. %120s | completed. %5.1f%% \n", fSet, feature, 100.0*(fSet++ +1)*individuals.size() / (features.size()*individuals.size())); 
 
 		}
 		System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------");			
-	
+
+		
+		
+		
 	}
 
 	

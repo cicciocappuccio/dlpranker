@@ -3,6 +3,7 @@ package it.uniba.di.lacam.fanizzi;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRating;
 import it.uniba.di.lacam.fanizzi.experiment.type.BootstrapExperiment;
+import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance2;
 import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
@@ -105,9 +106,9 @@ public class Test {
 		
 		BootstrapExperiment exp = new BootstrapExperiment();
 		exp.bootstrapExperiment(kernel, dati, 1000);
-/*		
-		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment(ontologyModel);
-		exp2.kfxvExperiment(kernel, 10 , esempi, valoreRating, nRatings);
- */
+		
+		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
+		exp2.kfxvExperiment(kernel, dati, 10);
+/* */
 	}
 }
