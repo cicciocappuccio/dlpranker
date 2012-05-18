@@ -30,7 +30,6 @@
 	<classpathentry kind="lib" path="lib/owlapi/pellet-owlapiv3.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi/pellet-query.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi/pellet-rules.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/components-core"/>
 	<classpathentry kind="lib" path="lib/guava-11.0.2.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate/antlr-2.7.6.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate/hibernate-annotations-3.5.6-Final.jar"/>
