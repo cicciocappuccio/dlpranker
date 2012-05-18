@@ -92,7 +92,7 @@ public class KFoldsCrossValitationExperiment {
 			System.out.printf(" %10f\n", foldLoss[f]);
 			
 			//System.out.println(wMap);
-			
+
 			System.out.println("Press <Enter> to continue =)))");
 			try {
 				System.in.read();
