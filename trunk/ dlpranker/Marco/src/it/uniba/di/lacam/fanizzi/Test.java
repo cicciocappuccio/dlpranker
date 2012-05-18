@@ -2,16 +2,13 @@ package it.uniba.di.lacam.fanizzi;
 
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRating;
-import it.uniba.di.lacam.fanizzi.experiment.type.BootstrapExperiment;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
-import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance2;
 import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.net.URI;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
@@ -19,9 +16,6 @@ import java.util.Set;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
-
-import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.HibernateConceptCache;
 
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
