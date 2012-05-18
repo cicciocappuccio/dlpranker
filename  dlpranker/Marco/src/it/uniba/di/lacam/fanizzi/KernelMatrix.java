@@ -75,6 +75,6 @@ public class KernelMatrix {
 	
 	public void CSVPrint ()
 	{
-		CSVWriter.write("res/kernelMatrix.csv", kernel);
+		CSVWriter.write("res/kernelMatrix.txt", kernel);
 	}
 }

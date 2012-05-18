@@ -31,13 +31,6 @@ public class Test {
 		
 		System.out.println("\nDL-KRatings");		
 		
-		//String urlOwlFile = "res/luf_statements_20110727.owl";
-		//String urlOwlFile = "res/dataset.owl";
-		//String urlOwlFile = "res/linkedmdb-latest-minidump.rdf";
-		//String urlOwlFile = "res/fragmentOntology3.owl";
-		//String urlOwlFile = "res/mio2.rdf";
-		//String urlOwlFile = "res/mio3.rdf";
-		//String urlOwlFile = "res/mio4.rdf";
 		String urlOwlFile = "res/dataset2.rdf";
 		//String urlOwlFile = "res/mio2Copia.rdf";
 		
@@ -90,11 +83,10 @@ public class Test {
 		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
 		
 		
-		AbstractConceptCache cache = new HibernateConceptCache(urlOwlFile);
-		featuresDD.preLoadPi(ontologyModel.getReasoner(), cache, ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());
+		//AbstractConceptCache cache = new HibernateConceptCache(urlOwlFile);
+		featuresDD.preLoadPi(ontologyModel.getReasoner(), ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());
 		
-		System.out.println("Press <Enter> to continue =)))");
-		System.in.read();
+
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
 		// creazione matrice kernel
@@ -102,10 +94,13 @@ public class Test {
 		KernelMatrix kernel = new KernelMatrix();;
 		kernel.createKernelMatrix(featuresDD);
 
+		System.out.println("Press <Enter> to continue =)))");
+		System.in.read();
+
 		kernel.CSVPrint();
 		
-		BootstrapExperiment exp = new BootstrapExperiment();
-		exp.bootstrapExperiment(kernel, dati, 1000);
+		//BootstrapExperiment exp = new BootstrapExperiment();
+		//exp.bootstrapExperiment(kernel, dati, 1000);
 		
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
 		exp2.kfxvExperiment(kernel, dati, 10);

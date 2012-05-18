@@ -3,6 +3,7 @@ package it.uniba.di.lacam.fanizzi.features;
 //conforming to new OWLAPI
 
 //import java.io.IOException;
+import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 
 import java.beans.XMLEncoder;
@@ -232,7 +233,8 @@ public class FeaturesDrivenDistance {
 	
 	public void computeProjections(													// why public???
 			PelletReasoner reasoner,
-			AbstractConceptCache cache, OWLDataFactory factory,
+			//AbstractConceptCache cache,
+			OWLDataFactory factory,
 			Set<OWLClassExpression> features,
 			Set<OWLNamedIndividual> individuals) {
 
@@ -316,7 +318,7 @@ public class FeaturesDrivenDistance {
 	
 	public void preLoadPi(
 			PelletReasoner reasoner,
-			AbstractConceptCache cache,
+			//AbstractConceptCache cache,
 			
 			OWLDataFactory factory,
 			Set<OWLClassExpression> features,
@@ -324,7 +326,8 @@ public class FeaturesDrivenDistance {
 		
 		System.out.printf("Pre-computing %d x %d pi elements \n", features.size(), individuals.size());
 		
-		computeProjections(reasoner, cache, factory, features, individuals);
+		computeProjections(reasoner, factory, features, individuals);
+		CSVWriter.write2("res/piMatrix.txt", pi);
 	}
 	
 }	// class
