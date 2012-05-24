@@ -22,6 +22,10 @@ import org.semanticweb.owlapi.reasoner.NodeSet;
 import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
 import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 
+/**
+ * @author Marco
+ *
+ */
 public class OntologyModel {
 	
 	
@@ -88,7 +92,25 @@ public class OntologyModel {
 	{
 		return dataFactory;
 	}
-
+	
+	
+	/**
+	 * @deprecated
+	 */
+	public void killReasoner()
+	{
+		reasoner = null;
+		System.gc();
+	}
+	
+	/**
+	 * @deprecated
+	 */
+	public void reasonerRise()
+	{
+		killReasoner();
+		reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
+	}
 	// ------------------   F I N E     M E T O D I     G E T   ---------------------
 	// ------------------   M E T O D I     di     L E T T U R A        ---------------------
 	

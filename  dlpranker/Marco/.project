@@ -3,6 +3,8 @@
 	<name>Marco</name>
 	<comment></comment>
 	<projects>
+		<project>components-core</project>
+		<project>RemoteSystemsTempFiles</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

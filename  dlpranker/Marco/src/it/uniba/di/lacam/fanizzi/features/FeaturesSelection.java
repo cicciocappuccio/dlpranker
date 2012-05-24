@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.reasoner.NodeSet;
+import org.semanticweb.owlapi.reasoner.impl.OWLClassNodeSet;
 
 import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
 
@@ -30,6 +31,49 @@ public class FeaturesSelection
 		
 		return featuresD;
 	}
+	
+	/**
+	 * @param reasoner
+	 * @param esempi
+	 * @return
+	 */
+	public static Set<OWLClassExpression> superClass(PelletReasoner reasoner, OWLClassExpression concetto)
+	{
+		Set<OWLClass> ritorno = new HashSet<OWLClass>();
+//		for (OWLNamedIndividual esempio : esempi)
+		{
+			NodeSet<OWLClass> nodiEsempio = new OWLClassNodeSet((OWLClass) concetto);
+			ritorno.addAll(FeaturesSelection.superClass(reasoner, nodiEsempio));
+		}
+		
+		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
+		for(OWLClass classe : ritorno)
+			featuresD.add((OWLClassExpression) classe);
+		
+		return featuresD;
+	}
+
+	/**
+	 * @param reasoner
+	 * @param esempi
+	 * @return
+	 */
+	public static Set<OWLClassExpression> subClass(PelletReasoner reasoner, OWLClassExpression concetto)
+	{
+		Set<OWLClass> ritorno = new HashSet<OWLClass>();
+//		for (OWLNamedIndividual esempio : esempi)
+		{
+			NodeSet<OWLClass> nodiEsempio = new OWLClassNodeSet((OWLClass) concetto);
+			ritorno.addAll(FeaturesSelection.subClass(reasoner, nodiEsempio));
+		}
+		
+		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
+		for(OWLClass classe : ritorno)
+			featuresD.add((OWLClassExpression) classe);
+		
+		return featuresD;
+	}
+	
 	
 	/**
 	 * @param reasoner

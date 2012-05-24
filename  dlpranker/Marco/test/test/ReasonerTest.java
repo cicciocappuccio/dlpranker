@@ -2,21 +2,30 @@ package test;
 
 import it.uniba.di.lacam.fanizzi.features.Specialize;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.net.MalformedURLException;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.dllearner.core.AbstractKnowledgeSource;
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.ComponentInitException;
+import org.dllearner.core.ComponentManager;
 import org.dllearner.core.KnowledgeSource;
+import org.dllearner.core.ReasonerComponent;
+import org.dllearner.core.owl.Description;
 import org.dllearner.kb.OWLFile;
+import org.dllearner.parser.KBParser;
 import org.dllearner.reasoning.OWLAPIReasoner;
+import org.dllearner.reasoning.PelletReasoner;
 import org.dllearner.refinementoperators.RhoDown;
 import org.junit.Test;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -28,6 +37,39 @@ import org.semanticweb.owlapi.model.OWLOntologyManager;
 
 import uk.ac.manchester.cs.owl.owlapi.OWLClassExpressionImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
+import static org.junit.Assert.assertTrue;
+
+
+import java.util.Collections;
+import java.util.Set;
+import java.util.TreeSet;
+
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+import org.dllearner.algorithms.ocel.OCEL;
+import org.dllearner.core.AbstractLearningProblem;
+import org.dllearner.core.AbstractReasonerComponent;
+import org.dllearner.core.ComponentInitException;
+import org.dllearner.core.ComponentManager;
+import org.dllearner.core.KnowledgeSource;
+import org.dllearner.core.LearningProblemUnsupportedException;
+import org.dllearner.core.owl.ClassHierarchy;
+import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.NamedClass;
+import org.dllearner.kb.OWLFile;
+import org.dllearner.learningproblems.PosNegLPStandard;
+import org.dllearner.parser.KBParser;
+import org.dllearner.parser.ParseException;
+import org.dllearner.reasoning.OWLAPIReasoner;
+import org.dllearner.refinementoperators.OperatorInverter;
+import org.dllearner.refinementoperators.RefinementOperator;
+import org.dllearner.refinementoperators.RhoDRDown;
+import org.dllearner.test.junit.TestOntologies.TestOntology;
+import org.dllearner.utilities.Helper;
+import org.junit.Test;
+
+
+
 
 public class ReasonerTest {
 
@@ -49,19 +91,15 @@ public class ReasonerTest {
 			e.printStackTrace();
 		}
 
-		/*for (String a : array)
-			System.out.println(a);
-
-		System.out.println("Press <Enter> to continue =)))");
-		try {
-			System.in.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-*/
-		Set<OWLClassExpression> mio = rhoDRDownTest(
-				"res/fragmentOntology10.owl", array);
+		/*
+		 * for (String a : array) System.out.println(a);
+		 * 
+		 * System.out.println("Press <Enter> to continue =)))"); try {
+		 * System.in.read(); } catch (IOException e) { // TODO Auto-generated
+		 * catch block e.printStackTrace(); }
+		 */
+		Set<OWLClassExpression> mio= rhoDRDownTest(
+				"res/fragmentOntology10.owl");
 		String[] mioArray = new String[mio.size()];
 		int i = 0;
 		for (OWLClassExpression m : mio) {
@@ -82,14 +120,102 @@ public class ReasonerTest {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-/**/
+
+	}
+	
+	
+	public void rhoDRDownTest(String file) {
+		try {
+			KnowledgeSource ks = new OWLFile(file);
+			AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+			reasoner.init();
+			String baseURI = reasoner.getBaseURI();
+//			ReasonerComponent rs = cm.reasoningService(rc);
+			
+			// TODO the following two lines should not be necessary
+//			rs.prepareSubsumptionHierarchy();
+//			rs.prepareRoleHierarchy();
+			
+			RhoDown op = new RhoDown(reasoner, false, false, true, true, true, true);
+/*			op.setReasoner(reasoner);
+			op.setSubHierarchy(reasoner.getClassHierarchy());
+			op.setObjectPropertyHierarchy(reasoner.getObjectPropertyHierarchy());
+			op.setDataPropertyHierarchy(reasoner.getDatatypePropertyHierarchy());
+			
+*/
+			op.init();
+			Description concept = KBParser.parseConcept(uri("Compound"));
+			Set<Description> results = op.refine(concept, 4, null);
+
+			for(Description result : results) {
+				System.out.println(result);
+			}
+			
+			int desiredResultSize = 141;
+			if(results.size() != desiredResultSize) {
+				System.out.println(results.size() + " results found, but should be " + desiredResultSize + ".");
+			}
+			assertTrue(results.size()==desiredResultSize);
+		} catch(ComponentInitException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
 	}
 
+/*	
 	@Test
-	public static Set<OWLClassExpression> rhoDRDownTest(String file, String[] array) 
+	public static Set<OWLClassExpression> rhoDRDownTest(String file, String[] array)
 	{
+		String baseURI;
+		try {
+			ComponentManager cm = ComponentManager.getInstance();
+			KnowledgeSource ks = cm.knowledgeSource(OWLFile.class);
+			//KnowledgeSource ks = new OWLFile();
+			try {
+				//cm.applyConfigEntry(new OWLFile(), "url", );
+				//cm.a
+				cm.applyConfigEntry(ks, "url", new File(file).toURI().toURL());
+			} catch (MalformedURLException e) {
+				// should never happen
+				e.printStackTrace();
+			}
+			ks.init();
+			ReasonerComponent rc = cm.reasoner(OWLAPIReasoner.class, ks);
+			rc.init();
+			baseURI = rc.getBaseURI();
+			// ReasonerComponent rs = cm.reasoningService(rc);
+
+			// TODO the following two lines should not be necessary
+			// rs.prepareSubsumptionHierarchy();
+			// rs.prepareRoleHierarchy();
+
+			RhoDown op = new RhoDown(rc);
+			Description concept = KBParser.parseConcept(uri("Compound"));
+			Set<Description> results = op.refine(concept, 4, null);
+
+			for (Description result : results) {
+				System.out.println(result);
+			}
+
+			int desiredResultSize = 141;
+			if (results.size() != desiredResultSize) {
+				System.out.println(results.size()
+						+ " results found, but should be " + desiredResultSize
+						+ ".");
+			}
+			assertTrue(results.size() == desiredResultSize);
+		} catch (ComponentInitException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		// ###########################################################################################################
+
 		KnowledgeSource ks = new OWLFile(file);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+		AbstractReasonerComponent reasoner = new OWLAPIReasoner();
+		reasoner.setSources(Collections.singleton(ks));
 		try {
 			reasoner.init();
 		} catch (ComponentInitException e) {
@@ -97,34 +223,26 @@ public class ReasonerTest {
 			e.printStackTrace();
 		}
 
-//		System.out.println(file);
+		// System.out.println(file);
 
 		OWLOntologyManager manager;
 		OWLDataFactory dataFactory;
 
 		manager = OWLManager.createOWLOntologyManager();
-		
-//		System.out.println(file);
+
+		// System.out.println(file);
 
 		dataFactory = manager.getOWLDataFactory();
-		
-		RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
-		
+
+		RhoDown r = new RhoDown(reasoner, false, false, true, true, true, true);
+
 		Set<OWLClassExpression> classi = new HashSet<OWLClassExpression>();
-		/*
-		for (String a : array) {
-			if (!"<owl:Nothing>".equals(a)) {
-				String tmp = (a.charAt(0) == '<' ? a.substring(1,
-						a.length() - 1) : a);
-				IRI c = IRI.create(tmp);
-				OWLClassExpression b = new OWLClassImpl(dataFactory, c);
-				classi.add(b);
-			}
-		}
-*/
-		OWLClass film = new OWLClassImpl(dataFactory, IRI.create("http://dbpedia.org/ontology/Film"));
+
+		OWLClass film = new OWLClassImpl(dataFactory,
+				IRI.create("http://dbpedia.org/ontology/Film"));
 		classi.add(film);
-		Set<OWLClassExpression> mio = Specialize.specialize(reasoner, classi, r);
+		Set<OWLClassExpression> mio = Specialize
+				.specialize(reasoner, classi, r);
 
 		System.out.println(mio);
 		System.out.println(mio.size());
@@ -132,5 +250,5 @@ public class ReasonerTest {
 		return mio;
 
 	}
-
+*/
 }
