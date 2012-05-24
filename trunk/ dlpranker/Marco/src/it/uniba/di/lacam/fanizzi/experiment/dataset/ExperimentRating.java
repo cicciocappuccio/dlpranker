@@ -198,8 +198,11 @@ public class ExperimentRating implements ExperimentDataset
 		
 		for (OWLNamedIndividual rating : ratingFilm.keySet())
 		{
-			if (getIndividual(rating).toString() == individual.toString())
+			//System.out.println(getIndividual(rating).toString() + " - " + individual.toString());
+			if (getIndividual(rating) == individual)
+			{
 				ritorno.add(rating);
+			}
 		}
 		return ritorno;
 	}

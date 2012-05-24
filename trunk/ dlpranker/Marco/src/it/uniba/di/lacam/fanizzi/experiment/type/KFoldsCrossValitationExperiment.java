@@ -36,6 +36,14 @@ public class KFoldsCrossValitationExperiment {
 
 		for (int f = 0; f < nFolds; f++)
 		{
+/*			System.out.println("Press <Enter> to continue =)))");
+			try {
+				System.in.read();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+*/
 			double lossCount = 0.0;
 			List<OWLNamedIndividual> trainingExs = new ArrayList<OWLNamedIndividual>();
 			Set<OWLNamedIndividual> testExs = new HashSet<OWLNamedIndividual>();
@@ -49,41 +57,58 @@ public class KFoldsCrossValitationExperiment {
 			{
 				if ((i >= f * foldCardinality) && (i < (f + 1) * foldCardinality))
 				{
-					trainingExs.addAll(dati.getRatings(mio));
-					wMap.put(dati.getIndividual(mio), 0.0);
+					testExs.add(mio);
 				}
 				else
 				{
-					testExs.add(mio);
+					trainingExs.addAll(dati.getRatings(mio));
+					wMap.put(mio, 0.0);
 				}
 				i++;
 			}
 			
-			double[] theta = new double[nRatings];
+			System.out.println("trainingExs: " + trainingExs.size());
+			System.out.println("testExs: " + testExs.size());
+			System.out.println("wMap: " + wMap.size());
 			
-			System.out.println("Training is starting..." + mia + " - " + nFolds + " - " + nFolds * mia);
-			System.out.println("Training is starting..." + nRatings);
+//			System.out.println("#################### starting wc empty test");
+			//for (OWLNamedIndividual w : wMap.keySet())
+			//	System.out.println(w);
+//			System.out.println("#################### ending wc empty test");
+			
+			
+			
+			double[] theta = new double[nRatings];
+			for (int t = 0; t < 5; t++)
+				System.out.printf(t + "(" + theta[t] + ") - ");
+
+			System.out.println("------------------------------------------ Fold " + f  + "/" + nFolds + " ------------------------------------------\nFold Cardinality: " + (int) Math.round(foldCardinality) + "\nTraining is starting...");
 			
 			DLKRating.kernelPerceptronRank(dati, kernel, trainingExs, wMap, theta);
-			
+			for (int t = 0; t < 5; t++)
+				System.out.printf(t + "(" + theta[t] + ") - ");
+
 			System.out.printf("\nmodel induced \n\n");
 
 			System.out.println("...end of Training.\n\n");
-
+			
+			
+/*			System.out.println("#################### starting wc empty test");
+			for (OWLNamedIndividual w : wMap.keySet())
+				System.out.println("wc(" + w + "):" + wMap.get(w));
+			System.out.println("#################### ending wc empty test");
+*/			
+			
 			System.out.println("Testing is starting...");
 			
 			int y = 1;
 			for (OWLNamedIndividual te : testExs)
 			{
-				System.out.println("\nF#" + f + "ranking example " + y++ + "/" + testExs.size() + ": " + te);
-
-				System.out.println("\ninductive Classification ------ ");
+				System.out.println("\nF #" + f + " ranking example " + y++ + "/" + testExs.size() + ": " + te + "\ninductive Classification ------ ");
 
 				int inducedRank = kernel.rank(te, wMap, theta, nRatings);
-				System.out.printf("%d (%d)\t", (inducedRank + 1), dati.getRatingValue(te));
+				System.out.printf("%d (%d)\t\n", (inducedRank + 1), dati.getRatingValue(te));
 				lossCount += Math.abs(inducedRank - dati.getRatingValue(te)) / (double) nRatings;
-				
-				System.out.print("\n");
 			}
 			
 			System.out.println("\n\n -------------------------------------------------- Outcomes Fold #" + f);
@@ -92,14 +117,10 @@ public class KFoldsCrossValitationExperiment {
 			System.out.printf(" %10f\n", foldLoss[f]);
 			
 			//System.out.println(wMap);
+			
+			for (int t = 0; t < 5; t++)
+				System.out.printf(t + "(" + theta[t] + ") - ");
 
-			System.out.println("Press <Enter> to continue =)))");
-			try {
-				System.in.read();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 		} // for f - fold loop
 

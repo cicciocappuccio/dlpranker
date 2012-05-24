@@ -37,7 +37,8 @@ public class DLKRating {
 				
 				if (yp != yt) {
 					avgLoss += Math.abs(yt - yp);
-					alpha.put(e, (alpha.get(e) + avgLoss));
+					
+					alpha.put(e, ((double)alpha.get(e) + (double)(yt - yp)));
 //					alpha[e] += yt - yp;
 //					alpha[t] += avgLoss;											cambio del indice di alpha per associare il peso al film
 					for (int h = Math.min(yp, yt); h < Math.max(yp, yt) - 1; h++)
@@ -45,7 +46,7 @@ public class DLKRating {
 				}
 			}
 
-			avgLoss /= trainingExs.size();
+			avgLoss /= (double)trainingExs.size();
 			System.out.println("avgLoss: " + avgLoss + "                                 " + (avgLoss > THRESHOLD) );
 		//} while (avgLoss > THRESHOLD);
 		} while ((oldAvgLoss - avgLoss) > THRESHOLD);

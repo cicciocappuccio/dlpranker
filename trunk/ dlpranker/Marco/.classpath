@@ -62,6 +62,5 @@
 	<classpathentry kind="lib" path="lib/commons/commons-pool-1.6.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/dbms/mysql-connector-java-5.1.18.jar"/>
-	<classpathentry kind="lib" path="lib/gwt-user-1.6.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

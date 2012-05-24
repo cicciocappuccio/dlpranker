@@ -62,6 +62,13 @@ public class KernelMatrix {
 			for (OWLNamedIndividual i : wc.keySet())
 			{
 //				System.out.println("wc[i]: " + wc.get(i) + "    kernel[i][e]: " + kernel.get(i, e));
+/*
+  				System.out.println(kernel.get(i, e));
+ 				System.out.println("f: " + f);
+				System.out.println("wc(i): " + wc.get(i));
+				System.out.println("i: " + i);
+				System.out.println("e: " + e);
+*/
 				f += wc.get(i) * kernel.get(i, e);
 			}
 			if (f < thetac[y])
