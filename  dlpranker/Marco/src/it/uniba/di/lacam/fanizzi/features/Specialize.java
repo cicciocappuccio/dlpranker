@@ -21,49 +21,52 @@ import org.dllearner.refinementoperators.RhoDown;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 
-
 public class Specialize {
 
-	public static Set<OWLClassExpression> specialize (AbstractReasonerComponent reasoner, Set<OWLClassExpression> concepts, RefinementOperator r, int maxLength)
-	{
+	public static Set<OWLClassExpression> specialize(
+			AbstractReasonerComponent reasoner,
+			Set<OWLClassExpression> concepts, RefinementOperator r,
+			int maxLength) {
 		Set<Description> desc = new HashSet<Description>();
 		for (OWLClassExpression concept : concepts)
-			desc.addAll(specialize(reasoner, ConceptUtils.convertToDescription(concept), r, maxLength, 0));
-		
+			desc.addAll(specialize(reasoner,
+					ConceptUtils.convertToDescription(concept), r, maxLength, 0));
+
 		Set<OWLClassExpression> specialized = new HashSet<OWLClassExpression>();
-		for(Description concept : desc)
+		for (Description concept : desc)
 			specialized.add(ConceptUtils.convertToOWLClassExpression(concept));
-			
+
 		return specialized;
 	}
-	
-	public static Set<Description> specialize (AbstractReasonerComponent reasoner, Description concept, RefinementOperator r, int maxLength, int depth)
-	{
-	//	RhoDown r = new RhoDown(reasoner, true, true, true, true, true, true);
+
+	public static Set<Description> specialize(
+			AbstractReasonerComponent reasoner, Description concept,
+			RefinementOperator r, int maxLength, int depth) {
+		// RhoDown r = new RhoDown(reasoner, true, true, true, true, true,
+		// true);
 
 		Set<Description> childs = new HashSet<Description>();
-//		if (Nothing.instance !=	concept)// . toString().compareTo("owl:Nothing") != 0)
+		// if (Nothing.instance != concept)// .
+		// toString().compareTo("owl:Nothing") != 0)
 		if (concept.toString().compareTo("owl:Nothing") != 0)
 		{
-			//System.out.println(concept.toString());
+			// System.out.println(concept.toString());
 			//childs = r.refine(concept, maxLength, null);
 			childs = r.refine(concept, maxLength);
-			//childs = r.refine(concept);
+			// childs = r.refine(concept);
 		}
 		System.out.println("p: " + depth + " - childs.size: " + childs.size());
-		
-		Set<Description> appendChilds = new HashSet<Description>();
-		for (Description child : childs)
-		{	
-	//		if (!childs.contains(child))
-			{
-				//System.out.println("													contenuto");
-				appendChilds.addAll(specialize(reasoner, child, r, maxLength, depth + 1));
 
-			}
+		Set<Description> appendChilds = new HashSet<Description>();
+		for (Description child : childs) {
+
+			// System.out.println("													contenuto");
+			appendChilds.addAll(specialize(reasoner, child, r, maxLength, depth + 1));
+
 		}
-		
+
 		childs.addAll(appendChilds);
 		return childs;
 	}
+
 }

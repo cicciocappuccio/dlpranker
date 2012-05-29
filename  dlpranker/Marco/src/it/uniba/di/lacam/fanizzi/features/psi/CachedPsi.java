@@ -10,7 +10,6 @@ import org.dllearner.core.owl.Description;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
-
 public class CachedPsi extends PsiWrapper {
 
 	private Table<String, Integer, Set<Description>> cache;

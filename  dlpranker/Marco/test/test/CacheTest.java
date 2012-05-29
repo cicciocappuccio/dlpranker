@@ -12,13 +12,13 @@ public class CacheTest {
 	 */
 	public static void main(String[] args) throws Exception {
 		
-		AbstractConceptCache cache = new HibernateConceptCache("abc");
+/*/		AbstractConceptCache cache = new HibernateConceptCache("abc");
 		
 		Database.getConceptEntailments();
 		
 		System.out.println("AAA");
 		
 		System.in.read();
-	}
+*/	}
 
 }
