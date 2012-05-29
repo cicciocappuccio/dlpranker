@@ -37,11 +37,18 @@ public class Database {
 		return cm;
 	}
 	
-	public static ConceptEntailment getConceptMembership(String ontology, String concept, String individual) {
+	public static ConceptEntailment getConceptEntailment(String ontology, String concept, String individual) {
 		HibernateSessionFactory.getSession().beginTransaction();
-		ConceptEntailmentDAO cmdao = new ConceptEntailmentDAO();
+		//ConceptEntailmentDAO cmdao = new ConceptEntailmentDAO();
 		ConceptEntailmentId id = new ConceptEntailmentId(ontology, concept, individual);
-		ConceptEntailment cm = cmdao.findById(id);
+		//ConceptEntailment cm = cmdao.findById(id);
+		ConceptEntailment cm = (ConceptEntailment) HibernateSessionFactory.getSession().createQuery(
+			    "select ce from ConceptEntailment as ce where ce.id.concept = ? and ce.id.ontology = ? and ce.id.individual = ?")
+			    .setString(0, id.getConcept())
+			    .setString(1, id.getOntology())
+			    .setString(2, id.getIndividual())
+			    .setCacheable(true)
+			    .uniqueResult();
 		HibernateSessionFactory.getSession().getTransaction().commit();
 		return cm;
 	}
@@ -56,7 +63,16 @@ public class Database {
 		return cms;
 	}
 	
-	public static Collection<ConceptEntailment> getConceptEntailments() {
+	public static Collection<ConceptEntailment> getOntology(String ontology) {
+		HibernateSessionFactory.getSession().beginTransaction();
+		Criteria criteria = HibernateSessionFactory.getSession().createCriteria(ConceptEntailment.class);
+		criteria = criteria.add(Restrictions.eq("id.ontology", ontology));
+		Collection<ConceptEntailment> cms = criteria.list();
+		HibernateSessionFactory.getSession().getTransaction().commit();
+		return cms;
+	}
+	
+	public static Collection<ConceptEntailment> getConceptMemberships() {
 		HibernateSessionFactory.getSession().beginTransaction();
 		ConceptEntailmentDAO cmdao = new ConceptEntailmentDAO();
 		Collection<ConceptEntailment> cms = cmdao.findAll();
