@@ -20,8 +20,8 @@ import com.google.common.collect.HashBiMap;
 import uk.ac.manchester.cs.owl.owlapi.OWLAnnotationPropertyImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLNamedIndividualImpl;
-
-public class ExperimentFilm implements ExperimentDataset {
+//implements ExperimentDataset
+public class ExperimentFilm  {
 	
 	
 	private OntologyModel ontologyModel;

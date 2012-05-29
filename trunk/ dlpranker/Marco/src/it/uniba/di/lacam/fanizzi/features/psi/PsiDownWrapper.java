@@ -14,7 +14,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Sets;
-
 public class PsiDownWrapper extends PsiDown {
 
 	private static final Logger log = LoggerFactory.getLogger(PsiDownWrapper.class);
