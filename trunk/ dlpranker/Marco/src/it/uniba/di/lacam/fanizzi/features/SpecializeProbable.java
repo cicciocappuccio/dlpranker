@@ -19,7 +19,7 @@ public class SpecializeProbable {
 	private static final Logger log = LoggerFactory.getLogger(SpecializeProbable.class);
 	
 	private static final double EPS = 0.005;
-	private static final boolean MATERIALIZE = true;
+	private static final boolean MATERIALIZE = false;
 	
 	private static void materialize(AbstractReasonerComponent reasoner, AbstractConceptCache cache, Description concept, Set<Individual> individuals) {
 		Set<Individual> members = reasoner.getIndividuals(concept);
