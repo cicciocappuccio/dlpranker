@@ -59,6 +59,7 @@ public class SpecializeProbable {
 			if (!cache.contains(concept, i)) {
 				log.info("Entailing " + concept + " and " + i + " ..");
 				ent = reasoner.hasType(concept, i);
+				log.info("\tResult: " + ent);
 				cache.addElement(concept, i, ent);
 			} else {
 				ent = cache.get(concept, i);
