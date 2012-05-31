@@ -35,6 +35,7 @@ import org.dllearner.reasoning.OWLAPIReasoner;
 import org.dllearner.refinementoperators.PsiDown;
 import org.dllearner.refinementoperators.RhoDRDown;
 import org.dllearner.refinementoperators.RhoDown;
+import org.mindswap.pellet.PelletOptions;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLClass;
@@ -53,6 +54,10 @@ import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 public class ReasonerTest {
 
 	public static void main(String[] args) throws Exception {
+		
+		PelletOptions.CACHE_RETRIEVAL = true;
+		PelletOptions.KEEP_ABOX_ASSERTIONS = true;
+		
 		Set<Description> mio = rhoDownTest("res/fragmentOntology10.owl");
 		//Set<OWLClassExpression> mio = rhoDownTest("test/test/leo.owl");
 		
