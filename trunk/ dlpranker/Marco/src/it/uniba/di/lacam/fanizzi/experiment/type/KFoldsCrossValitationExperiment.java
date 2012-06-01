@@ -23,13 +23,13 @@ public class KFoldsCrossValitationExperiment {
 	public void kfxvExperiment(KernelMatrix kernel, ExperimentDataset dati, int nFolds)
 	{
 		System.out.println("K-fold cross validation Experiment on ontology");
-		System.out.println("\n\n" + nFolds + " fold");
+		System.out.println(nFolds + " fold");
 		
 		int nRatings = dati.maxRating();
 		
 		double foldCardinality = Math.round((((double) dati.getIndividuals().size()) / nFolds) - 0.5);
 		int mia = (int) Math.round(foldCardinality);
-		System.out.println(foldCardinality);
+		//System.out.println(foldCardinality);
 
 		
 		double[] foldLoss = new double[nFolds];
@@ -67,9 +67,6 @@ public class KFoldsCrossValitationExperiment {
 				i++;
 			}
 			
-			System.out.println("trainingExs: " + trainingExs.size());
-			System.out.println("testExs: " + testExs.size());
-			System.out.println("wMap: " + wMap.size());
 			
 //			System.out.println("#################### starting wc empty test");
 			//for (OWLNamedIndividual w : wMap.keySet())
@@ -79,18 +76,19 @@ public class KFoldsCrossValitationExperiment {
 			
 			
 			double[] theta = new double[nRatings];
-			for (int t = 0; t < 5; t++)
+/*			for (int t = 0; t < 5; t++)
 				System.out.printf(t + "(" + theta[t] + ") - ");
-
-			System.out.println("------------------------------------------ Fold " + f  + "/" + nFolds + " ------------------------------------------\nFold Cardinality: " + (int) Math.round(foldCardinality) + "\nTraining is starting...");
+*/
+			System.out.println("------------------------------------------ Fold " + f  + "/" + nFolds + " ------------------------------------------\n" + "trainingExs: " + trainingExs.size() + " | wMap: " + wMap.size() + "\nTraining is starting...");
+			System.out.println();
 			
 			DLKRating.kernelPerceptronRank(dati, kernel, trainingExs, wMap, theta);
 			for (int t = 0; t < 5; t++)
 				System.out.printf(t + "(" + theta[t] + ") - ");
 
-			System.out.printf("\nmodel induced \n\n");
+//			System.out.printf("\nmodel induced \n\n");
 
-			System.out.println("...end of Training.\n\n");
+			System.out.println("...end of Training.");
 			
 			
 /*			System.out.println("#################### starting wc empty test");
@@ -99,7 +97,7 @@ public class KFoldsCrossValitationExperiment {
 			System.out.println("#################### ending wc empty test");
 */			
 			
-			System.out.println("Testing is starting...");
+			System.out.println("Testing is starting...--------------------------------------------------");
 			
 			int y = 1;
 			for (OWLNamedIndividual te : testExs)
@@ -110,7 +108,7 @@ public class KFoldsCrossValitationExperiment {
 				lossCount += Math.abs(inducedRank - dati.getRatingValue(te)) / (double) nRatings;
 			}
 			
-			System.out.println("\n\n -------------------------------------------------- Outcomes Fold #" + f);
+			System.out.println("-------+-------------------------------------------------- Outcomes Fold #" + f);
 			System.out.printf("\n%10s %10s\n", "Q.#", "Loss");
 			foldLoss[f] = lossCount / (double) foldCardinality;
 			System.out.printf(" %10f\n", foldLoss[f]);
