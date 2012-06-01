@@ -56,13 +56,17 @@ public class SpecializeProbable {
 		for (Individual i : individuals) {
 			boolean ent = false;
 			
-			if (!cache.contains(concept, i)) {
-				log.info("Entailing " + concept + " and " + i + " ..");
-				ent = reasoner.hasType(concept, i);
-				log.info("\tResult: " + ent);
-				cache.addElement(concept, i, ent);
+			if (cache != null) {
+				if (!cache.contains(concept, i)) {
+					log.info("Entailing " + concept + " and " + i + " ..");
+					ent = reasoner.hasType(concept, i);
+					log.info("\tResult: " + ent);
+					cache.addElement(concept, i, ent);
+				} else {
+					ent = cache.get(concept, i);
+				}
 			} else {
-				ent = cache.get(concept, i);
+				ent = reasoner.hasType(concept, i);
 			}
 			
 			if (ent)
