@@ -54,7 +54,7 @@ public class HibernateConceptCache extends AbstractConceptCache {
 	public void addElement(Description concept, Individual individual, Boolean entailment) {
 		Description normalised = normalize(concept);
 		this.cache.put(normalised.toString(), individual.toString(), entailment);
-		Database.addConceptEntailment(ontology, normalised.toString(), individual.toString(), entailment);	
+		//Database.addConceptEntailment(ontology, normalised.toString(), individual.toString(), entailment);	
 	}
 	
 	public void addElements(Description concept, Collection<Individual> individuals, Boolean entailed) {

@@ -26,6 +26,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import com.thoughtworks.xstream.XStream;
 
+import test.ReasonerTest;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 
 public class Test {
