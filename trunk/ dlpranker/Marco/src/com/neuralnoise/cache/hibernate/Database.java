@@ -32,7 +32,7 @@ public class Database {
 		ConceptEntailmentDAO cmdao = new ConceptEntailmentDAO();
 		ConceptEntailmentId id = new ConceptEntailmentId(ontology, concept, individual);
 		ConceptEntailment cm = new ConceptEntailment(id, entailed);
-		cmdao.merge(cm);
+		cmdao.save(cm);
 		HibernateSessionFactory.getSession().getTransaction().commit();
 		return cm;
 	}
