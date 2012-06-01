@@ -39,7 +39,7 @@ public class HibernateConceptCache extends AbstractConceptCache {
 		Description normalised = normalize(concept);
 		if (!cache.contains(normalised.toString(), individual.toString())) {
 			//System.out.print("-"); System.out.flush();
-			ConceptEntailment cm = Database.getConceptEntailment(ontology, normalised.toString(), individual.toString());
+			ConceptEntailment cm = null;//Database.getConceptEntailment(ontology, normalised.toString(), individual.toString());
 			if (cm != null) {
 				ret = cm.getEntailed();
 				this.cache.put(normalised.toString(), individual.toString(), ret);
