@@ -249,6 +249,8 @@ public class FeaturesDrivenDistance {
 //			int featuresEntailed = 0;
 			OWLClassExpression negfeature = feature.getComplementNNF();
 
+			//System.out.println("Individuals: " + individuals.size());
+			
 			for (OWLNamedIndividual individual : individuals) {
 
 				/*
@@ -279,7 +281,7 @@ public class FeaturesDrivenDistance {
 							.getOWLClassAssertionAxiom(feature, individual);
 					OWLClassAssertionAxiom o2 = factory
 							.getOWLClassAssertionAxiom(negfeature, individual);
-
+					
 					if (reasoner.isEntailed(o1)) {
 						pi.put(feature, individual, (short) 0);
 //						featuresEntailed++;
