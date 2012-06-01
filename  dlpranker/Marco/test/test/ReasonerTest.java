@@ -82,7 +82,7 @@ public class ReasonerTest {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 			reasoner.init();
 			
-			AbstractConceptCache cache = new HibernateConceptCache(file);
+			AbstractConceptCache cache = null;//new HibernateConceptCache(file);
 
 			Description Film = new NamedClass("http://dbpedia.org/ontology/Film");
 			SortedSet<Individual> films = reasoner.getIndividuals(Film);
