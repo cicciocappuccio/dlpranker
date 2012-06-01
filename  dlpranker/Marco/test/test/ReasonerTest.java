@@ -13,8 +13,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
@@ -55,8 +58,11 @@ public class ReasonerTest {
 
 	public static void main(String[] args) throws Exception {
 		
-		PelletOptions.CACHE_RETRIEVAL = true;
-		PelletOptions.KEEP_ABOX_ASSERTIONS = true;
+		//PelletOptions.CACHE_RETRIEVAL = true;
+		//PelletOptions.KEEP_ABOX_ASSERTIONS = true;
+		//PelletOptions.USE_CD_CLASSIFICATION
+	
+		
 		
 		Set<Description> mio = rhoDownTest("res/fragmentOntology10.owl");
 		//Set<OWLClassExpression> mio = rhoDownTest("test/test/leo.owl");
@@ -80,6 +86,12 @@ public class ReasonerTest {
 
 			Description Film = new NamedClass("http://dbpedia.org/ontology/Film");
 			SortedSet<Individual> films = reasoner.getIndividuals(Film);
+			//films.
+			List<Individual> filmsList = new ArrayList<Individual>(films);
+			
+			KFolder<Individual> kf = new KFolder<Individual>(filmsList, 5, new Random(0));
+			
+			
 			
 			System.out.println("REASONER LOADED.");
 /*			
@@ -107,7 +119,7 @@ public class ReasonerTest {
 			Psi2DownWrapper op4 = new Psi2DownWrapper(reasoner);
 			op4.init();
 			
-			Set<Description> _mio = SpecializeProbable.specialize(reasoner, cache, start, films, op4, 3, 0);
+			Set<Description> _mio = SpecializeProbable.specialize(reasoner, cache, start, new HashSet<Individual>(kf.getFold(1)), op4, 3, 0);
 			
 			
 			

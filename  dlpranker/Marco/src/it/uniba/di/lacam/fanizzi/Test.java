@@ -58,12 +58,12 @@ public class Test {
 //		Set<OWLNamedIndividual> filmSubClass = new HashSet<OWLNamedIndividual>();
 		
 		
-//		featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
-//		featuresD.addAll(FeaturesSelection.superClass(ontologyModel.getReasoner(), dati.getIndividuals()));
+		featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
+		featuresD.addAll(FeaturesSelection.superClass(ontologyModel.getReasoner(), dati.getIndividuals()));
 		//featuresD = FeaturesSelection.superClass(ontologyModel.getReasoner(), dati.getIndividuals());
 
 		
-		
+/*		
         String[] array = null;
         ObjectInputStream ois;
 
@@ -86,7 +86,7 @@ public class Test {
                 OWLClass b = new OWLClassImpl(ontologyModel.getDataFactory(), IRI.create(a));
                 featuresD.add(b);
         }
-		
+*/		
 		
 		/*		
 		System.out.println(ontologyModel.getOntology().getClassesInSignature().size());
@@ -106,7 +106,7 @@ public class Test {
 		//AbstractConceptCache cache = new HibernateConceptCache(urlOwlFile);
 		featuresDD.preLoadPi(ontologyModel.getReasoner(), ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());
 		
-		featuresDD.printAVGandVariance();
+		//featuresDD.printAVGandVariance();
 		
 /*		ontologyModel.killReasoner();
 		XMLEncoder encoder = new XMLEncoder(new BufferedOutputStream(
@@ -122,20 +122,23 @@ public class Test {
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
 		// creazione matrice kernel
-/*
+
 		KernelMatrix kernel = new KernelMatrix();;
 		kernel.createKernelMatrix(featuresDD);
 
+		kernel.CSVPrint();
+		
+		
 		System.out.println("Press <Enter> to continue =)))");
 		System.in.read();
 
-		kernel.CSVPrint();
+		
 		
 		//BootstrapExperiment exp = new BootstrapExperiment();
 		//exp.bootstrapExperiment(kernel, dati, 1000);
 		
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
 		exp2.kfxvExperiment(kernel, dati, 10);
-/* */
+/*/* */
 	}
 }
