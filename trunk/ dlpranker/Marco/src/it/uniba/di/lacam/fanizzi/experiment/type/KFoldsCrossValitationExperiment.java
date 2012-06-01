@@ -104,10 +104,9 @@ public class KFoldsCrossValitationExperiment {
 			int y = 1;
 			for (OWLNamedIndividual te : testExs)
 			{
-				System.out.println("\nF #" + f + " ranking example " + y++ + "/" + testExs.size() + ": " + te + "\ninductive Classification ------ ");
-
+				
 				int inducedRank = kernel.rank(te, wMap, theta, nRatings);
-				System.out.printf("%d (%d)\t\n", (inducedRank + 1), dati.getRatingValue(te));
+				System.out.printf( " %2d/%2d | %100s | %d | %d |\n", y++, testExs.size(), te, (inducedRank + 1), dati.getRatingValue(te) );
 				lossCount += Math.abs(inducedRank - dati.getRatingValue(te)) / (double) nRatings;
 			}
 			

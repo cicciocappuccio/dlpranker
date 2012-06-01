@@ -74,9 +74,9 @@ public class FeaturesDrivenDistance {
 	 * public int getIndividualsLength() { return pi.columnKeySet().size(); }
 	 */
 	public void computeFeatureEntropies(PelletReasoner reasoner,
-			OWLDataFactory df, OWLNamedIndividual[] individuals) {
+			OWLDataFactory df) {
 
-		int numIndA = individuals.length;
+		int numIndA = pi.columnKeySet().size();
 		double sum = 0;
 
 		for (OWLClassExpression feature : pi.rowKeySet()) {
@@ -106,17 +106,17 @@ public class FeaturesDrivenDistance {
 	}
 
 	public void computeFeatureVariance(PelletReasoner reasoner,
-			OWLDataFactory df, OWLNamedIndividual[] individuals) {
+			OWLDataFactory df) {
 
-		int numIndA = individuals.length;
+		int numIndA = pi.columnKeySet().size();
 
 		double total = 0.0;
 
 		for (OWLClassExpression feature : pi.rowKeySet()) {
 			double fsum = 0.0;
 
-			for (OWLNamedIndividual individualI : individuals) {
-				for (OWLNamedIndividual individualJ : individuals) {
+			for (OWLNamedIndividual individualI : pi.columnKeySet()) {
+				for (OWLNamedIndividual individualJ : pi.columnKeySet()) {
 					fsum += Math.pow(
 							pi.get(feature, individualI)
 									- pi.get(feature, individualJ), 2);
@@ -246,7 +246,7 @@ public class FeaturesDrivenDistance {
 		int fSet = 0;
 		for (OWLClassExpression feature : features) {
 			System.out.printf("%4d. %120s", fSet, feature);
-
+			int featuresEntailed = 0;
 			OWLClassExpression negfeature = feature.getComplementNNF();
 
 			for (OWLNamedIndividual individual : individuals) {
@@ -282,9 +282,11 @@ public class FeaturesDrivenDistance {
 
 					if (reasoner.isEntailed(o1)) {
 						pi.put(feature, individual, (short) 0);
+						featuresEntailed++;
 						// System.out.print(pi[f][i]);
 					} else if (reasoner.isEntailed(o2)) {
 						pi.put(feature, individual, (short) 2);
+						featuresEntailed++;
 						// System.out.print(pi[f][i]);
 					} else {
 						pi.put(feature, individual, (short) 1);
@@ -293,10 +295,13 @@ public class FeaturesDrivenDistance {
 
 			}
 			//System.out.printf("%4d. %120s | completed. %5.1f%% \n", fSet,	feature, 100.0 * (fSet++ + 1) * individuals.size() / (features.size() * individuals.size()));
-			System.out.printf(" | completed. %5.1f%% \n", 100.0 * (fSet++ + 1) * individuals.size() / (features.size() * individuals.size()));
+//			double cell = ((double)featuresEntailed / (double)individuals.size());
+//			featuresWeight.put(feature, 0.5);
+			System.out.printf(" | completed. %5.1f%%\n", 100.0 * (fSet++ + 1) * individuals.size() / (features.size() * individuals.size()));
 		}
 		System.out
 				.println("--------------------------------------------------------------------------------------------------------------------------------------------------");
+	//System.out.println(individuals.size());
 	}
 
 	public void preLoadPi(PelletReasoner reasoner,
@@ -309,7 +314,7 @@ public class FeaturesDrivenDistance {
 				features.size(), individuals.size());
 
 		computeProjections(reasoner, factory, features, individuals);
-		//CSVWriter.write2("res/piMatrix.txt", pi);
+		CSVWriter.write2("res/piMatrix.txt", pi);
 
 	}
 
