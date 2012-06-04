@@ -16,7 +16,7 @@ public class ConceptEntailmentDAO extends BaseHibernateDAO {
 	public void save(ConceptEntailment transientInstance) {
 		log.debug("saving ConceptMembership instance");
 		try {
-			getSession().persist(transientInstance);
+			getSession().saveOrUpdate(transientInstance);
 			log.debug("save successful");
 		} catch (RuntimeException re) {
 			log.error("save failed", re);
