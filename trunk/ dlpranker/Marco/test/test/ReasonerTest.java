@@ -21,6 +21,7 @@ import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
 
 import com.neuralnoise.cache.AbstractConceptCache;
+import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 import com.neuralnoise.cache.HibernateConceptCache;
 
 public class ReasonerTest {
@@ -49,7 +50,7 @@ public class ReasonerTest {
 				Collections.singleton(ks));
 		reasoner.init();
 
-		AbstractConceptCache cache = new HibernateConceptCache(file);
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(file);
 
 		Description Film = new NamedClass("http://dbpedia.org/ontology/Film");
 		SortedSet<Individual> films = reasoner.getIndividuals(Film);
