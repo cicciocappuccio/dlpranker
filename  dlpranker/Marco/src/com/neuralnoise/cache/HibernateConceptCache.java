@@ -9,6 +9,7 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.hibernate.ConceptEntailment;
 import com.neuralnoise.cache.hibernate.Database;
+//import com.neuralnoise.utils.ReasonerUtils;
 
 public class HibernateConceptCache extends AbstractConceptCache {
 
@@ -39,7 +40,7 @@ public class HibernateConceptCache extends AbstractConceptCache {
 		Description normalised = normalize(concept);
 		if (!cache.contains(normalised.toString(), individual.toString())) {
 			//System.out.print("-"); System.out.flush();
-			ConceptEntailment cm = null;//Database.getConceptEntailment(ontology, normalised.toString(), individual.toString());
+			ConceptEntailment cm = Database.getConceptEntailment(ontology, normalised.toString(), individual.toString());
 			if (cm != null) {
 				ret = cm.getEntailed();
 				this.cache.put(normalised.toString(), individual.toString(), ret);
@@ -53,8 +54,8 @@ public class HibernateConceptCache extends AbstractConceptCache {
 	
 	public void addElement(Description concept, Individual individual, Boolean entailment) {
 		Description normalised = normalize(concept);
+		Database.addConceptEntailment(ontology, normalised.toString(), individual.toString(), entailment);
 		this.cache.put(normalised.toString(), individual.toString(), entailment);
-		Database.addConceptEntailment(ontology, normalised.toString(), individual.toString(), entailment);	
 	}
 	
 	public void addElements(Description concept, Collection<Individual> individuals, Boolean entailed) {
@@ -87,9 +88,11 @@ public class HibernateConceptCache extends AbstractConceptCache {
 		Database.removeOntology(ontology);
 	}
 
-	@Override
 	public boolean contains(Description concept) {
 		Description normalised = normalize(concept);
 		return (Database.getConcept(ontology, normalised.toString()).size() != 0);
 	}
+
+	@Override
+	public void save() { }
 }

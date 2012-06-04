@@ -31,10 +31,19 @@ public class Database {
 		HibernateSessionFactory.getSession().beginTransaction();
 		ConceptEntailmentDAO cmdao = new ConceptEntailmentDAO();
 		ConceptEntailmentId id = new ConceptEntailmentId(ontology, concept, individual);
-		ConceptEntailment cm = new ConceptEntailment(id, entailed);
-		cmdao.save(cm);
+		ConceptEntailment ce = new ConceptEntailment(id, entailed);
+		cmdao.merge(ce);
 		HibernateSessionFactory.getSession().getTransaction().commit();
-		return cm;
+		return ce;
+	}
+	
+	public static void addConceptEntailments(Collection<ConceptEntailment> conceptEntailments) {
+		HibernateSessionFactory.getSession().beginTransaction();
+		ConceptEntailmentDAO cmdao = new ConceptEntailmentDAO();
+		for (ConceptEntailment ce : conceptEntailments) {
+			cmdao.merge(ce);
+		}
+		HibernateSessionFactory.getSession().getTransaction().commit();
 	}
 	
 	public static ConceptEntailment getConceptEntailment(String ontology, String concept, String individual) {
