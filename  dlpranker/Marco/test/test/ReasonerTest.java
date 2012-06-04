@@ -85,7 +85,7 @@ public class ReasonerTest {
 		op4.init();
 
 		Set<Description> _mio = SpecializeProbable.specialize(reasoner, cache,
-				start, new HashSet<Individual>(kf.getFold(1)), op4, 3, 0);
+				start, films, op4, 3, 0);
 
 		System.out.println("DONE REFINING.");
 
