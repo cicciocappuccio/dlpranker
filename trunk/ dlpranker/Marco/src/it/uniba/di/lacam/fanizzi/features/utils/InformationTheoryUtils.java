@@ -14,7 +14,7 @@ import com.google.common.collect.Table;
 import com.google.common.collect.Table.Cell;
 import com.neuralnoise.cache.AbstractConceptCache;
 
-public class InformationTheoryUtils<I extends Individual> {
+public class InformationTheoryUtils {
 
 	AbstractConceptCache cache;
 	
@@ -23,7 +23,7 @@ public class InformationTheoryUtils<I extends Individual> {
 	}
 	
 	
-	public double E(Description X, Set<I> individuals) {
+	public double E(Description X, Set<Individual> individuals) {
 	
 		Map<Boolean, Double> pX = new HashMap<Boolean, Double>();
 
@@ -32,7 +32,7 @@ public class InformationTheoryUtils<I extends Individual> {
 		
 		Double ZX = 1.0;
 
-		for (I individual : individuals) {
+		for (Individual individual : individuals) {
 			Boolean Xcov = cover(X, individual);
 			if (Xcov != null) {
 				pX.put(Xcov, pX.get(Xcov) + 1.0);
@@ -54,7 +54,7 @@ public class InformationTheoryUtils<I extends Individual> {
 	}
 	
 	
-	public double I(Description X, Set<I> positives, Set<I> negatives) {
+	public double I(Description X, Set<Individual> positives, Set<Individual> negatives) {
 		Map<Boolean, Double> pX = new HashMap<Boolean, Double>();
 		Map<Boolean, Double> pC = new HashMap<Boolean, Double>();
 		Table<Boolean, Boolean, Double> pXC = HashBasedTable.create();
@@ -75,9 +75,9 @@ public class InformationTheoryUtils<I extends Individual> {
 		Double ZC = 1.0;
 		Double ZXC = 1.0;
 
-		Set<I> individuals = Sets.union(positives, negatives);
+		Set<Individual> individuals = Sets.union(positives, negatives);
 																		// fin qui corretto, poi non so
-		for (I individual : individuals) {
+		for (Individual individual : individuals) {
 			Boolean Xcov = cover(X, individual);
 			if (Xcov != null) {
 				pX.put(Xcov, pX.get(Xcov) + 1.0);
@@ -126,7 +126,7 @@ public class InformationTheoryUtils<I extends Individual> {
 		return ret;
 	}
 	
-	public double I(Description X, Description Y, Set<I> individuals) {
+	public double I(Description X, Description Y, Set<Individual> individuals) {
 		
 		Map<Boolean, Double> pX = new HashMap<Boolean, Double>();
 		Map<Boolean, Double> pY = new HashMap<Boolean, Double>();
@@ -147,7 +147,7 @@ public class InformationTheoryUtils<I extends Individual> {
 		Double ZY = 1.0;
 		Double ZXY = 1.0;
 
-		for (I individual : individuals) {
+		for (Individual individual : individuals) {
 			Boolean Xcov = cover(X, individual);
 			if (Xcov != null) {
 				pX.put(Xcov, pX.get(Xcov) + 1.0);
