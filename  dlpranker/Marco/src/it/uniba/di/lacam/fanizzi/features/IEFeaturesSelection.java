@@ -1,83 +1,86 @@
 package it.uniba.di.lacam.fanizzi.features;
 
+import it.uniba.di.lacam.fanizzi.features.utils.InformationTheoryUtils;
+import it.uniba.di.lacam.fanizzi.utils.StatUtils;
+
 import java.util.HashSet;
 import java.util.Set;
 
-import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 import com.neuralnoise.cache.AbstractConceptCache;
 
+
 public class IEFeaturesSelection {
+
+	private static final double ENTROPY_THRESHOLD = ((double) 1) / Math.sqrt(2);
+
 	private AbstractConceptCache cache;
-	
-	public IEFeaturesSelection(AbstractConceptCache cache)
+	private InformationTheoryUtils calc;
+
+	private Set<Individual> individulas;
+	private Set<Description> features;
+
+	public IEFeaturesSelection(AbstractConceptCache cache, Set<Description> features, Set<Individual> individuals)
 	{
 		this.cache = cache;
+
+		this.individulas = individuals;
+		this.features = features;
+
+		calc = new InformationTheoryUtils(this.cache);
 	}
+
 	
-	public Set<Description> IEFS()
+	
+	public Set<Description> IEFS(Description rootConcept)
 	{
+		Set<Description> conceptSet = new HashSet<Description>();
+
+		double entropy = Double.NEGATIVE_INFINITY;
+		boolean exit = false;
 		
-		Set<Description> insieme = new HashSet<Description>();
-		
-		
-		return new HashSet<Description>();
-	}
-	
-	
-	public double E(Description x, Set<Individual> individuals)
-	{
-		int e = 0; 
-		for (Individual i : individuals)
+		do
 		{
-			if (!cache.contains(x, i)) {
-				if(cache.get(x, i))
-					e++;
-			}
-		}
-		
-		return ((double)e)/((double)individuals.size());
-	}
-	
-	
-	public double I(Description x, Description y, Set<Individual> individuals)
-	{
-		double tot = 0;
-		for (Individual m individuals)
-		{
-			for (Individual n individuals)
+			BiMap<Description, Double> candidates;
+			candidates = HashBiMap.create();
+
+			for (Description i : features)
 			{
-				tot += p(x,y) * Math.log(p(x,y)/(p(x)*p(y)));
+				Set<Description> newConceptSet = new HashSet<Description>();
+				newConceptSet.addAll(conceptSet);
+				newConceptSet.add(i);
+				candidates.put(i, entropy(newConceptSet, i));
 			}
+			
+			double max = StatUtils.max(candidates.inverse().keySet());
+			
+			if (entropy < max)
+			{
+				conceptSet.add(candidates.inverse().get(max));
+				entropy = max;
+			}
+			else
+				exit = true;
 		}
-		 
-		return tot;
+		while (entropy < ENTROPY_THRESHOLD && !exit);
+
+		return conceptSet;
 	}
-	
-	
-	
-	
-	
 
 	
-	public double p (Description x, Description y, Set<Individual> individuals)
+	
+	public double entropy(Set<Description> set, Description i)
 	{
-		return 0;
+		double sum = 0;
+		double e = calc.E(i, individulas);
+
+		for (Description y : set)
+			sum += e - calc.I(i, y, individulas);
+
+		return sum;
 	}
-
-	public double p (Description x, Set<Individual> individuals)
-	{
-		int e = 0; 
-		for (Individual i : individuals)
-		{
-			if (cover(x, i))
-				e++;
-		}
-		
-		return ((double)e)/((double)individuals.size());
-	}
-
-
 }

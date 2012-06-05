@@ -1,5 +1,7 @@
 package it.uniba.di.lacam.fanizzi.utils;
 
+import java.util.Set;
+
 public class StatUtils {
 
 	private StatUtils() {}
@@ -32,7 +34,19 @@ public class StatUtils {
 	    }
 	    return maximum;
 	}//end method max
-	
+
+	public static double max(Set<Double> t)
+	{
+	    
+		double maximum = Double.NEGATIVE_INFINITY;
+		for (Double i : t)
+		{
+			if (i > maximum)
+				maximum = i;
+		}
+		return maximum;
+	}//end method max
+
 	public static double variance(double[] population) {
 		long n = 0;
 		double mean = 0;
