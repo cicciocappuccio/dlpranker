@@ -36,19 +36,22 @@ public class IEFeaturesSelection {
 
 	
 	
-	public Set<Description> IEFS(Description rootConcept)
+	public Set<Description> IEFS()
 	{
 		Set<Description> conceptSet = new HashSet<Description>();
 
 		double entropy = Double.NEGATIVE_INFINITY;
 		boolean exit = false;
 		
+		Set<Description> fc = new HashSet<Description>();
+		fc.addAll(features);
+		
 		do
 		{
 			BiMap<Description, Double> candidates;
 			candidates = HashBiMap.create();
 
-			for (Description i : features)
+			for (Description i : fc)
 			{
 				Set<Description> newConceptSet = new HashSet<Description>();
 				newConceptSet.addAll(conceptSet);
@@ -60,7 +63,9 @@ public class IEFeaturesSelection {
 			
 			if (entropy < max)
 			{
-				conceptSet.add(candidates.inverse().get(max));
+				Description winner = candidates.inverse().get(max);
+				conceptSet.add(winner);
+				fc.remove(winner);
 				entropy = max;
 			}
 			else
