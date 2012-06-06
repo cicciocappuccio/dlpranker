@@ -1,6 +1,5 @@
-package it.uniba.di.lacam.fanizzi.features;
+package it.uniba.di.lacam.fanizzi.features.ie;
 
-import it.uniba.di.lacam.fanizzi.features.utils.InformationTheoryUtils;
 import it.uniba.di.lacam.fanizzi.utils.StatUtils;
 
 import java.util.HashSet;
