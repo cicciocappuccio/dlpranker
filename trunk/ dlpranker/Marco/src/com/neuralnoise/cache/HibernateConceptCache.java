@@ -9,7 +9,6 @@ import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.hibernate.ConceptEntailment;
 import com.neuralnoise.cache.hibernate.Database;
-//import com.neuralnoise.utils.ReasonerUtils;
 
 public class HibernateConceptCache extends AbstractConceptCache {
 

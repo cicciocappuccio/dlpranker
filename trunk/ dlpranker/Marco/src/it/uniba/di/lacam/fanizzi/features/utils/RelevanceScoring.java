@@ -1,5 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.utils;
 
+import it.uniba.di.lacam.fanizzi.features.ie.InformationTheoryUtils;
+
 import java.util.Set;
 
 import org.dllearner.core.owl.Description;

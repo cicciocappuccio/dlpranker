@@ -1,18 +1,17 @@
 package it.uniba.di.lacam.fanizzi;
 
 
+import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
+import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
+
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
-import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance2;
-import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 public class KernelMatrix {
 

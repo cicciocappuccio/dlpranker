@@ -7,8 +7,6 @@ import java.util.Set;
 
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
-import com.google.common.collect.BiMap;
-
 
 /**
  * @author Marco

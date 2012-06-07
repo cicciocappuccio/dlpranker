@@ -2,7 +2,6 @@ package it.uniba.di.lacam.fanizzi.utils;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.StringWriter;
 import java.util.Map;
 import java.util.Set;
 
@@ -10,11 +9,6 @@ import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import com.google.common.collect.Table;
-
-import org.supercsv.cellprocessor.ConvertNullTo;
-import org.supercsv.cellprocessor.ift.CellProcessor;
-import org.supercsv.io.*;
-import org.supercsv.prefs.CsvPreference;
 
 public class CSVWriter {
 

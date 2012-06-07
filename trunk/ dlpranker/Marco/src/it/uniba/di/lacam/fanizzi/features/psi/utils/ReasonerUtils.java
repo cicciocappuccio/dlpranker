@@ -17,8 +17,6 @@ import org.dllearner.reasoning.OWLAPIReasoner;
 import org.dllearner.utilities.owl.ConceptComparator;
 import org.dllearner.utilities.owl.ConceptTransformation;
 
-import com.neuralnoise.cache.AbstractConceptCache;
-
 /**
  * @author Marco
  *

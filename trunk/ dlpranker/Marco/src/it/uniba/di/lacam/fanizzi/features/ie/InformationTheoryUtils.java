@@ -9,7 +9,6 @@ import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 
 import com.google.common.collect.HashBasedTable;
-import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.google.common.collect.Table.Cell;
 import com.neuralnoise.cache.AbstractConceptCache;
@@ -49,79 +48,6 @@ public class InformationTheoryUtils {
 		ret -= (pxi * Math.log(pxi));
 		pxi = pX.get(false);	
 		ret -= (pxi * Math.log(pxi));
-		
-		return ret;
-	}
-	
-	
-	public double I(Description X, Set<Individual> positives, Set<Individual> negatives) {
-		Map<Boolean, Double> pX = new HashMap<Boolean, Double>();
-		Map<Boolean, Double> pC = new HashMap<Boolean, Double>();
-		Table<Boolean, Boolean, Double> pXC = HashBasedTable.create();
-		
-		pX.put(true, 1.0);
-		pX.put(false, 1.0);
-		
-		pC.put(true, 1.0);
-		pC.put(false, 1.0);
-		
-		for (Boolean xi : pX.keySet()) {
-			for (Boolean c : pC.keySet()) {
-				pXC.put(xi, c, 1.0);
-			}
-		}
-		
-		Double ZX = 1.0;
-		Double ZC = 1.0;
-		Double ZXC = 1.0;
-
-		Set<Individual> individuals = Sets.union(positives, negatives);
-																		// fin qui corretto, poi non so
-		for (Individual individual : individuals) {
-			Boolean Xcov = cover(X, individual);
-			if (Xcov != null) {
-				pX.put(Xcov, pX.get(Xcov) + 1.0);
-				ZX += 1.0;
-			}
-			
-			Boolean Ccov = (positives.contains(individual) ? true : false);
-			if (Ccov != null) {
-				pC.put(Ccov, pC.get(Ccov) + 1.0);
-				ZC += 1.0;
-			}
-			
-			if (Xcov != null && Ccov != null) {
-				pXC.put(Xcov, Ccov, pXC.get(Xcov, Ccov) + 1.0);
-			}
-		}
-		
-		for (Entry<Boolean, Double> px : pX.entrySet()) {
-			pX.put(px.getKey(), px.getValue() / ZX);
-		}
-		
-		for (Entry<Boolean, Double> pc : pC.entrySet()) {
-			pC.put(pc.getKey(), pc.getValue() / ZC);
-		}
-		
-		for (Cell<Boolean, Boolean, Double> pxc : pXC.cellSet()) {
-			pXC.put(pxc.getRowKey(), pxc.getColumnKey(), pxc.getValue() / ZXC);
-		}
-		
-		double ret = 0.0;
-		
-		for (Boolean c : pC.keySet()) {
-			Double pxic = pXC.get(true, c);
-			Double pxi = pX.get(true);
-			Double pc = pC.get(c);
-			ret += pxic * Math.log(pxic / (pxi * pc));
-		}
-		
-		for (Boolean c : pC.keySet()) {
-			Double pxic = pXC.get(false, c);
-			Double pxi = pX.get(false);
-			Double pc = pC.get(c);
-			ret += pxic * Math.log(pxic / (pxi * pc));
-		}
 		
 		return ret;
 	}

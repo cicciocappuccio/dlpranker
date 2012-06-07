@@ -1,16 +1,11 @@
 package it.uniba.di.lacam.fanizzi.experiment.dataset;
 
-import it.uniba.di.lacam.fanizzi.DLKRating;
 import it.uniba.di.lacam.fanizzi.OntologyModel;
-import it.uniba.di.lacam.fanizzi.utils.StatUtils;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import java.util.Map.*;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.IRI;
@@ -19,11 +14,6 @@ import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
-
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-import com.google.common.collect.Multiset.Entry;
-import com.google.common.collect.Table;
 
 import uk.ac.manchester.cs.owl.owlapi.OWLAnnotationPropertyImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;

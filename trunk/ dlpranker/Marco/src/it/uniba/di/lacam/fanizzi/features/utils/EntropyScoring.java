@@ -1,5 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.utils;
 
+import it.uniba.di.lacam.fanizzi.features.ie.InformationTheoryUtils;
+
 import java.util.HashSet;
 import java.util.Set;
 

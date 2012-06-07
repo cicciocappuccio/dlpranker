@@ -9,14 +9,6 @@ import org.dllearner.core.owl.Thing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.neuralnoise.example.AbstractInstance;
-import com.neuralnoise.feature.AbstractFeatureContent;
-import com.neuralnoise.search.AbstractLearning;
-import com.neuralnoise.search.AbstractModel;
-import com.neuralnoise.search.local.AbstractLocalSearch;
-import com.neuralnoise.search.utils.ContentsScore;
-import com.neuralnoise.search.utils.ModelScore;
-
 public class GreedyForwardSelection<I extends Individual> extends AbstractGlobalSearch<I> {
 	
 	private static final Logger log = LoggerFactory.getLogger(GreedyForwardSelection.class);

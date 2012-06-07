@@ -2,12 +2,10 @@ package it.uniba.di.lacam.fanizzi.features;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SortedSet;
 
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
-import org.dllearner.core.owl.Nothing;
 import org.dllearner.refinementoperators.RefinementOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
