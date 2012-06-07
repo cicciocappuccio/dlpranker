@@ -1,6 +1,6 @@
 package it.uniba.di.lacam.fanizzi.features.ie;
 
-public class Value {
+public class inf {
 
-	
+	public cover(X, individual)
 }

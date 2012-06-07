@@ -1,7 +1,6 @@
 package com.neuralnoise.cache;
 
 import java.util.Collection;
-import java.util.LinkedList;
 
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
@@ -15,7 +14,6 @@ import com.google.common.collect.Table.Cell;
 import com.neuralnoise.cache.hibernate.ConceptEntailment;
 import com.neuralnoise.cache.hibernate.ConceptEntailmentId;
 import com.neuralnoise.cache.hibernate.Database;
-//import com.neuralnoise.utils.ReasonerUtils;
 
 public class AsynchronousHibernateConceptCache extends AbstractConceptCache {
 

@@ -2,7 +2,6 @@ package it.uniba.di.lacam.fanizzi.utils;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.converters.ConversionException;
-import com.thoughtworks.xstream.io.xml.DomDriver;
 
 public class SerializeUtils {
 

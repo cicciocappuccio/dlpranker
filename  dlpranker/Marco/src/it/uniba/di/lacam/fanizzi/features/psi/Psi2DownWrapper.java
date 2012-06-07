@@ -7,7 +7,6 @@ import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.ComponentInitException;
 import org.dllearner.core.owl.Description;
 import org.dllearner.refinementoperators.PsiDown;
-import org.dllearner.refinementoperators.PsiUp;
 import org.dllearner.refinementoperators.RefinementOperator;
 import org.dllearner.refinementoperators.RefinementOperatorAdapter;
 import org.slf4j.Logger;

@@ -1,17 +1,16 @@
 package it.uniba.di.lacam.fanizzi.experiment.type;
 
-import java.io.IOException;
+import it.uniba.di.lacam.fanizzi.DLKRating;
+import it.uniba.di.lacam.fanizzi.KernelMatrix;
+import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
+import it.uniba.di.lacam.fanizzi.utils.StatUtils;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-
-import it.uniba.di.lacam.fanizzi.DLKRating;
-import it.uniba.di.lacam.fanizzi.KernelMatrix;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
-import it.uniba.di.lacam.fanizzi.utils.StatUtils;
 
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 

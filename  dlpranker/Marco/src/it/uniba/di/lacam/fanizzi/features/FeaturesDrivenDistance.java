@@ -6,7 +6,6 @@ package it.uniba.di.lacam.fanizzi.features;
 import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 
-import java.beans.XMLEncoder;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -16,7 +15,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.OWLClassAssertionAxiom;
@@ -27,7 +25,6 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 import com.clarkparsia.pellet.owlapiv3.PelletReasoner;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
-import com.neuralnoise.cache.AbstractConceptCache;
 
 /**
  * 
@@ -68,11 +65,6 @@ public class FeaturesDrivenDistance {
 		this.pi = pi;
 	}
 
-	// ******** fine da eliminare ********
-
-	/*
-	 * public int getIndividualsLength() { return pi.columnKeySet().size(); }
-	 */
 	public void computeFeatureEntropies(PelletReasoner reasoner,
 			OWLDataFactory df) {
 

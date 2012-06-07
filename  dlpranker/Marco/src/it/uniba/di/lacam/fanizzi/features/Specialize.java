@@ -2,23 +2,12 @@ package it.uniba.di.lacam.fanizzi.features;
 
 import it.uniba.di.lacam.fanizzi.utils.ConceptUtils;
 
-import java.util.List;
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
 import org.dllearner.core.AbstractReasonerComponent;
-import org.dllearner.core.ComponentInitException;
-import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Nothing;
-import org.dllearner.kb.OWLFile;
-import org.dllearner.reasoning.OWLAPIReasoner;
 import org.dllearner.refinementoperators.RefinementOperator;
-import org.dllearner.refinementoperators.RhoDown;
-import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 
 public class Specialize {

@@ -1,5 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.incrementalforwardfeatureselection;
 
+import it.uniba.di.lacam.fanizzi.features.ie.inf;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -11,14 +13,6 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import com.neuralnoise.example.AbstractInstance;
-import com.neuralnoise.feature.AbstractFeatureContent;
-import com.neuralnoise.feature.FeatureConcept;
-import com.neuralnoise.search.AbstractLearning;
-import com.neuralnoise.search.AbstractModel;
-import com.neuralnoise.search.AbstractScoring;
-import com.neuralnoise.search.utils.ContentsScore;
-import com.neuralnoise.utils.Logic.Value;
 
 public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLocalSearch<I> {
 
@@ -30,7 +24,7 @@ public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLoca
 	private AbstractLearning<I> learning;
 	
 	// Introduced feature concepts may take any set of values in this set.
-	private Set<Set<Value>> possibleValueSets;
+	private Set<Set<inf>> possibleValueSets;
 	
 	private int depth;
 	private int maxLength;
@@ -42,7 +36,7 @@ public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLoca
 	
 	public HillClimbingSearch(RefinementOperator refinementOperator, 
 			AbstractScoring<I> scoringFunction, AbstractLearning<I> learning,
-			int depth, int maxLength, Set<Set<Value>> possibleValueSets) {
+			int depth, int maxLength, Set<Set<inf>> possibleValueSets) {
 		this.refinementOperator = refinementOperator;
 		this.scoringFunction = scoringFunction;
 		this.learning = learning;
@@ -51,9 +45,9 @@ public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLoca
 		this.possibleValueSets = possibleValueSets;
 		if (this.possibleValueSets == null) {
 			this.possibleValueSets = Sets.newHashSet();
-			Set<Value> defvs = Sets.newHashSet();
-			defvs.add(Value.TRUE);
-			defvs.add(Value.FALSE);
+			Set<inf> defvs = Sets.newHashSet();
+			defvs.add(inf.TRUE);
+			defvs.add(inf.FALSE);
 			possibleValueSets.add(defvs);
 		}
 	}
@@ -133,7 +127,7 @@ public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLoca
 	private ContentsScore scoreConcept(int arity, Set<AbstractFeatureContent> originalContents, Description concept) throws Exception {
 		ContentsScore best = null;
 		for (int position = 0; position < arity; ++position) {
-			for (Set<Value> pv : this.possibleValueSets) {
+			for (Set<inf> pv : this.possibleValueSets) {
 				AbstractFeatureContent fcs = new FeatureConcept(pv, position, concept);
 				Set<AbstractFeatureContent> contents = new HashSet<AbstractFeatureContent>(originalContents);
 				contents.add(fcs);

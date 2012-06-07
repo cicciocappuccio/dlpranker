@@ -1,10 +1,7 @@
 package it.uniba.di.lacam.fanizzi.experiment.dataset;
 
-import it.uniba.di.lacam.fanizzi.DLKRating;
 import it.uniba.di.lacam.fanizzi.OntologyModel;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Set;
 
 import org.semanticweb.owlapi.model.IRI;
@@ -14,12 +11,12 @@ import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
-import com.google.common.collect.BiMap;
-import com.google.common.collect.HashBiMap;
-
 import uk.ac.manchester.cs.owl.owlapi.OWLAnnotationPropertyImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLNamedIndividualImpl;
+
+import com.google.common.collect.BiMap;
+import com.google.common.collect.HashBiMap;
 //implements ExperimentDataset
 public class ExperimentFilm  {
 	
