@@ -21,7 +21,7 @@ public class MEMRScoring<I extends Individual> {
 		this(inference, 1.0, positives, negatives, neutrals);
 	}
 	
-	@Override
+/*	@Override
 	public Double score(AbstractModel m) {
 		RedundancyScoring<I> red = new RedundancyScoring<I>(inference, positives, negatives, neutrals);
 		EntropyScoring<I> ent = new EntropyScoring<I>(inference, positives, negatives, neutrals);
@@ -29,4 +29,6 @@ public class MEMRScoring<I extends Individual> {
 		Double ret = ent.score(m) - (lambda * red.score(m));
 		return ret;
 	}
+	
+	*/
 }

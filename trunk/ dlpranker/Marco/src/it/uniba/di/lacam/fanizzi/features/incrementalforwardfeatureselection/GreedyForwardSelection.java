@@ -8,7 +8,7 @@ import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.Thing;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+/*
 public class GreedyForwardSelection<I extends Individual> extends AbstractGlobalSearch<I> {
 	
 	private static final Logger log = LoggerFactory.getLogger(GreedyForwardSelection.class);
@@ -52,3 +52,4 @@ public class GreedyForwardSelection<I extends Individual> extends AbstractGlobal
 	}
 	
 }
+*/

@@ -98,7 +98,7 @@ public class IEFeaturesSelection {
 		
 		do
 		{
-			Description candidate = candidates.inverse().get(sortedValue.get(listIndex));
+			Description candidate = candidates.inverse().get(sortedValue.get(listIndex++));
 			
 			
 			Set<Description> newConceptSet = new HashSet<Description>();

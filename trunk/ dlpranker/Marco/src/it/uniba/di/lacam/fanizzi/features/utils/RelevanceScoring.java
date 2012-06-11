@@ -17,7 +17,7 @@ public class RelevanceScoring<I extends Individual> {
 		this.inference = inference;
 	}
 
-	@Override
+/*	@Override
 	public Double score(AbstractModel m) {
 		if (!(m instanceof Committee)) {
 			throw new IllegalStateException("The model should be an instance of Committee");
@@ -37,5 +37,5 @@ public class RelevanceScoring<I extends Individual> {
 		double ret = (sS > 0.0 ? sum / sS : Double.NEGATIVE_INFINITY);
 		return ret;
 	}
-
+*/
 }

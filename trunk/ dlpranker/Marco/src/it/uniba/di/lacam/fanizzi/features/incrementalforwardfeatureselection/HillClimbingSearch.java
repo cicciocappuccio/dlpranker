@@ -1,6 +1,6 @@
 package it.uniba.di.lacam.fanizzi.features.incrementalforwardfeatureselection;
 
-import it.uniba.di.lacam.fanizzi.features.ie.inf;
+//import it.uniba.di.lacam.fanizzi.features.ie.inf;
 
 import java.util.HashSet;
 import java.util.List;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-
+/*
 public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLocalSearch<I> {
 
 	private static final Logger log = LoggerFactory.getLogger(HillClimbingSearch.class);
@@ -157,3 +157,4 @@ public class HillClimbingSearch<I extends AbstractInstance> extends AbstractLoca
 	}
 	
 }
+*/
