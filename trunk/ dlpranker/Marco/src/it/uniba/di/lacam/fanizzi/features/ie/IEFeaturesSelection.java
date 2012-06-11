@@ -84,9 +84,8 @@ public class IEFeaturesSelection {
 
 		double entropy = Double.NEGATIVE_INFINITY;
 		
-		BiMap<Description, Double> candidates;// = new HashMap<Description, Double>()
-		candidates = HashBiMap.create();
-
+		BiMap<Description, Double> candidates = HashBiMap.create();// = new HashMap<Description, Double>()
+		
 		for (Description i : features)
 		{
 			candidates.put(i, calc.E(i, individulas));
@@ -100,14 +99,11 @@ public class IEFeaturesSelection {
 		{
 			Description candidate = candidates.inverse().get(sortedValue.get(listIndex++));
 			
-			
 			Set<Description> newConceptSet = new HashSet<Description>();
 			newConceptSet.addAll(conceptSet);
 			newConceptSet.add(candidate);
 			
-			
 			double iEntropy = entropy(newConceptSet, candidate);
-			
 			
 			if (iEntropy > MINIMUM_ENTROPY_ADDING)
 			{
