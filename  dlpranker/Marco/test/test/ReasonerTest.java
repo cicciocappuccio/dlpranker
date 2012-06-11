@@ -83,7 +83,7 @@ public class ReasonerTest {
 		Description start = Thing.instance;
 		Psi2DownWrapper op4 = new Psi2DownWrapper(reasoner);
 		op4.init();
-
+		
 		Set<Description> _mio = SpecializeProbable.specialize(reasoner, cache,
 				start, films, op4, 3, 0);
 

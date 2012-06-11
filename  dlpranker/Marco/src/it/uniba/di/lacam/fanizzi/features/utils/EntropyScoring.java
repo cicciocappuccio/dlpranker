@@ -18,7 +18,7 @@ public class EntropyScoring<I extends Individual> {
 		this.inference = inference;
 	}
 
-	@Override
+/*	@Override
 	public Double score(AbstractModel m) {
 
 		if (!(m instanceof Committee)) {
@@ -48,5 +48,5 @@ public class EntropyScoring<I extends Individual> {
 		double ret = (sS > 0.0 ? sum / sS : 0.0);
 		return ret;
 	}
-
+*/
 }

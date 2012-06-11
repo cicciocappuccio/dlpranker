@@ -18,7 +18,7 @@ public class RedundancyScoring<I extends Individual> {
 		this.inference = inference;
 	}
 
-	@Override
+/*	@Override
 	public Double score(AbstractModel m) {
 		if (!(m instanceof Committee)) {
 			throw new IllegalStateException("The model should be an instance of Committee");
@@ -49,5 +49,5 @@ public class RedundancyScoring<I extends Individual> {
 		double ret = (sS > 0.0 ? sum / Math.pow(sS, 2) : Double.POSITIVE_INFINITY);
 		return ret;
 	}
-
+*/
 }

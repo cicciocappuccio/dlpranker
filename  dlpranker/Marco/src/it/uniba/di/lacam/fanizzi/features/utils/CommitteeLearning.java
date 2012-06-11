@@ -11,10 +11,12 @@ public class CommitteeLearning<I extends Individual> {
 
 	private static final Logger log = LoggerFactory
 			.getLogger(CommitteeLearning.class);
-
+/*
 	@Override
 	public AbstractModel learn(int arity, Set<Description> contents, Set<I> positives, Set<I> negatives, Set<I> neutrals) throws Exception
 	{
 		return new Committee(arity, contents);
 	}
+	
+	*/
 }
