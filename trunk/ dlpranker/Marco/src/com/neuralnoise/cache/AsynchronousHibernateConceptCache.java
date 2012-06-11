@@ -17,7 +17,7 @@ import com.neuralnoise.cache.hibernate.Database;
 
 public class AsynchronousHibernateConceptCache extends AbstractConceptCache {
 
-	private static int _N = 100000;
+	private static int _N = 1000000;
 	
 	private static final Logger log = LoggerFactory.getLogger(AsynchronousHibernateConceptCache.class);
 	
