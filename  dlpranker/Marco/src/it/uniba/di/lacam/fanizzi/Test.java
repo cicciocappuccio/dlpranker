@@ -63,6 +63,7 @@ public class Test {
 		
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
 		exp2.kfxvExperiment(kernel, dati, 10);
-/*/* */
+/*
+		*/
 	}
 }
