@@ -1,4 +1,4 @@
-package it.uniba.di.lacam.fanizzi.features.selection;
+package it.uniba.di.lacam.fanizzi.features.utils;
 
 import it.uniba.di.lacam.fanizzi.features.psi.utils.ReasonerUtils;
 
