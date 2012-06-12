@@ -49,12 +49,12 @@ public class ReasonerTest {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(
 				Collections.singleton(ks));
 		reasoner.init();
-
+		
 		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(file);
 
 		Description Film = new NamedClass("http://dbpedia.org/ontology/Film");
 		SortedSet<Individual> films = reasoner.getIndividuals(Film);
-		// films.
+		
 		List<Individual> filmsList = new ArrayList<Individual>(films);
 
 		KFolder<Individual> kf = new KFolder<Individual>(filmsList, 5,
