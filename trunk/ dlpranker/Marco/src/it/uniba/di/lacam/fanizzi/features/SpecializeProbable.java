@@ -74,7 +74,6 @@ public class SpecializeProbable {
 		double ret = members / total;
 		
 		return ret;
-		
 	}
 	
 	public static Set<Description> specialize(

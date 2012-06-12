@@ -25,7 +25,7 @@ public class InformationTheoryUtils {
 	public double E(Description X, Set<Individual> individuals) {
 	
 		Map<Boolean, Double> pX = new HashMap<Boolean, Double>();
-
+		
 		pX.put(true, 1.0);
 		pX.put(false, 1.0);
 		
