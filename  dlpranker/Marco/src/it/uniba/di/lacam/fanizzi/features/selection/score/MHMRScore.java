@@ -14,8 +14,6 @@ public class MHMRScore extends Score {
 	private MutualInformationScore mutualInformation;
 	
 	private double alpha;
-	
-
 
 	public MHMRScore(AbstractConceptCache cache,
 			AbstractReasonerComponent reasoner, EntropyScore entropy,
@@ -25,8 +23,6 @@ public class MHMRScore extends Score {
 		this.mutualInformation = mutualInformation;
 		this.alpha = alpha;
 	}
-
-
 
 	@Override
 	public double score(Set<Description> descriptions,

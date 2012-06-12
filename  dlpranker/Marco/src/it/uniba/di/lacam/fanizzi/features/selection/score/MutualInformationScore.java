@@ -1,6 +1,6 @@
 package it.uniba.di.lacam.fanizzi.features.selection.score;
 
-import it.uniba.di.lacam.fanizzi.features.selection.EIUtils;
+import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
 
 import java.util.Set;
 

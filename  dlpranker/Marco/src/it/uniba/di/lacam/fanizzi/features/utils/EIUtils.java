@@ -1,6 +1,6 @@
-package it.uniba.di.lacam.fanizzi.features.selection;
+package it.uniba.di.lacam.fanizzi.features.utils;
 
-import it.uniba.di.lacam.fanizzi.features.selection.Inference.LogicValue;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 
 import java.util.HashMap;
 import java.util.Map;
