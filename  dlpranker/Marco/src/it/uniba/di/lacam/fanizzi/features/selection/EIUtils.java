@@ -26,7 +26,7 @@ public class EIUtils {
 		this.reasoner = reasoner;
 	}
 
-	public double E(Description x, Set<Individual> individuals) {
+	public double H(Description x, Set<Individual> individuals) {
 
 		int numIndA = individuals.size();
 
