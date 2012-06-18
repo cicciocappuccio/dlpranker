@@ -1,0 +1,906 @@
+<rdf:RDF
+    xmlns:j.0="http://dbpedia.org/class/yago/"
+    xmlns:j.1="http://purl.org/stuff/rev#"
+    xmlns:j.2="http://dbpedia.org/class/yago/PeopleFromSpringfield,"
+    xmlns:j.3="http://schema.org/"
+    xmlns:j.4="http://xmlns.com/foaf/0.1/#"
+    xmlns:j.5="http://dbpedia.org/class/yago/PeopleFromJacksonCounty,"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:j.6="http://xmlns.com/foaf/0.1/"
+    xmlns:j.7="http://dbpedia.org/class/yago/19"
+    xmlns:j.8="http://dbpedia.org/class/yago/Western%28genre%29"
+    xmlns:j.9="http://purl.org/net/provenance/ns#"
+    xmlns:j.10="http://dbpedia.org/property/"
+    xmlns:j.11="http://dbpedia.org/class/yago/ActorsFromChicago,"
+    xmlns:j.12="http://dbpedia.org/class/yago/PeopleFromEaglePoint,"
+    xmlns:j.13="http://dbpedia.org/class/yago/1958"
+    xmlns:j.14="http://www.holygoat.co.uk/owl/redwood/0.1/tags/"
+    xmlns:j.15="http://dbpedia.org/class/yago/1950"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:j.16="http://www.w3.org/2004/03/trix/rdfg-1/"
+    xmlns:j.17="http://dbpedia.org/class/yago/PeopleFromIndiana,"
+    xmlns:j.18="http://dbpedia.org/class/yago/PeopleFromHancockCounty,"
+    xmlns:j.19="http://umbel.org/umbel/rc/"
+    xmlns:j.20="http://dbpedia.org/ontology/"
+    xmlns:j.21="http://dbpedia.org/class/yago/20"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:j.22="http://dbpedia.org/class/yago/CompaniesBasedInLosAngeles," > 
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies870-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 870 at time 875050801</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-09-23T22:40:01+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies870"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies846-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 846 at time 883947694</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-04T21:01:34+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies846"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies831-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 831 at time 891354726</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-31T15:32:06+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies831"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies625-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 625 at time 891262983</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-30T14:03:03+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies625"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies59-200">
+    <rdfs:comment>A review of MovieLens item 200 -  -  by user 59 at time 888205370</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-23T03:42:50+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies59"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/film/3933">
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies932-600"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies7-600"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies343-747">
+    <rdfs:comment>A review of MovieLens item 747 -  -  by user 343 at time 876407174</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-10-09T15:26:14+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies343"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies774-986">
+    <rdfs:comment>A review of MovieLens item 986 -  -  by user 774 at time 888558594</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-27T05:49:54+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies774"/>
+    <j.1:rating>1</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies392-880">
+    <rdfs:comment>A review of MovieLens item 880 -  -  by user 392 at time 891037720</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-27T22:28:40+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies392"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies721-145">
+    <rdfs:comment>A review of MovieLens item 145 -  -  by user 721 at time 877139773</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-10-18T02:56:13+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies721"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies699-124">
+    <rdfs:comment>A review of MovieLens item 124 -  -  by user 699 at time 878882667</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-07T06:04:27+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies699"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies528-588">
+    <rdfs:comment>A review of MovieLens item 588 -  -  by user 528 at time 886101736</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-29T19:22:16+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies528"/>
+    <j.1:rating>2</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies880-1215">
+    <rdfs:comment>A review of MovieLens item 1215 -  -  by user 880 at time 880167599</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-22T02:59:59+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies880"/>
+    <j.1:rating>1</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies13-263">
+    <rdfs:comment>A review of MovieLens item 263 -  -  by user 13 at time 881515647</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-07T17:27:27+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies13"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies682-420">
+    <rdfs:comment>A review of MovieLens item 420 -  -  by user 682 at time 888523115</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-26T19:58:35+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies682"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies600-229">
+    <rdfs:comment>A review of MovieLens item 229 -  -  by user 600 at time 888451840</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-26T00:10:40+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies600"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies870-1014">
+    <rdfs:comment>A review of MovieLens item 1014 -  -  by user 870 at time 884789665</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-14T14:54:25+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies870"/>
+    <j.1:rating>2</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies846-491">
+    <rdfs:comment>A review of MovieLens item 491 -  -  by user 846 at time 883947960</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-04T21:06:00+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies846"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies699-129">
+    <rdfs:comment>A review of MovieLens item 129 -  -  by user 699 at time 878882667</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-07T06:04:27+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies699"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies504-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 504 at time 887832571</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-18T20:09:31+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies504"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies758-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 758 at time 881975539</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-13T01:12:19+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies758"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies73-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 73 at time 888625127</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-28T00:18:47+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies73"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies716-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 716 at time 879796010</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-17T19:46:50+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies716"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies751-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 751 at time 889132776</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-05T21:19:36+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies751"/>
+    <j.1:rating>2</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies308-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 308 at time 887738346</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-17T17:59:06+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies308"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies121-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 121 at time 891388113</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-04-01T00:48:33+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies121"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies862-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 862 at time 879305351</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-12T03:29:11+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies862"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies724-307">
+    <rdfs:comment>A review of MovieLens item 307 -  -  by user 724 at time 883757468</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-02T16:11:08+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies724"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies293-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 293 at time 888905923</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-03T06:18:43+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies293"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies216-181">
+    <rdfs:comment>A review of MovieLens item 181 -  -  by user 216 at time 880232597</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-22T21:03:17+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies216"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies790-328">
+    <rdfs:comment>A review of MovieLens item 328 -  -  by user 790 at time 884461023</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-10T19:37:03+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies790"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies854-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 854 at time 882813623</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-22T18:00:23+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies854"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies716-488">
+    <rdfs:comment>A review of MovieLens item 488 -  -  by user 716 at time 879796171</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-17T19:49:31+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies716"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies468-372">
+    <rdfs:comment>A review of MovieLens item 372 -  -  by user 468 at time 875301098</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-09-26T20:11:38+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies468"/>
+    <j.1:rating>2</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies537-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 537 at time 886030938</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-28T23:42:18+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies537"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies293-484">
+    <rdfs:comment>A review of MovieLens item 484 -  -  by user 293 at time 888906217</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-03T06:23:37+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies293"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/film/4403">
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies223-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies493-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies347-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies130-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies715-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies54-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies303-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies294-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies279-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies758-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies727-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies749-1088"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies782-1088"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies542-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 542 at time 886532265</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-03T18:57:45+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies542"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies43-403">
+    <rdfs:comment>A review of MovieLens item 403 -  -  by user 43 at time 883956305</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-04T23:25:05+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies43"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies524-1154">
+    <rdfs:comment>A review of MovieLens item 1154 -  -  by user 524 at time 884637914</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-12T20:45:14+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies524"/>
+    <j.1:rating>1</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies292-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 292 at time 881105516</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-02T23:31:56+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies292"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies59-54">
+    <rdfs:comment>A review of MovieLens item 54 -  -  by user 59 at time 888205921</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-23T03:52:01+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies59"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies11-713">
+    <rdfs:comment>A review of MovieLens item 713 -  -  by user 11 at time 891903024</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-04-06T23:50:24+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies11"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies268-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 268 at time 875310463</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-09-26T22:47:43+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies268"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies13-755">
+    <rdfs:comment>A review of MovieLens item 755 -  -  by user 13 at time 882399014</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-17T22:50:14+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies13"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies821-56">
+    <rdfs:comment>A review of MovieLens item 56 -  -  by user 821 at time 874793847</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-09-20T23:17:27+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies821"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies59-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 59 at time 888205370</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-02-23T03:42:50+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies59"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies749-477">
+    <rdfs:comment>A review of MovieLens item 477 -  -  by user 749 at time 878848405</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-06T20:33:25+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies749"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies64-32">
+    <rdfs:comment>A review of MovieLens item 32 -  -  by user 64 at time 889739346</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-12T21:49:06+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies64"/>
+    <j.1:rating>1</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies201-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 201 at time 884111397</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-06T18:29:57+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies201"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies5-40">
+    <rdfs:comment>A review of MovieLens item 40 -  -  by user 5 at time 879198109</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-10T21:41:49+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies5"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies577-1042">
+    <rdfs:comment>A review of MovieLens item 1042 -  -  by user 577 at time 880475286</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-25T16:28:06+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies577"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies96-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 96 at time 884403758</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-10T03:42:38+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies96"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies758-421">
+    <rdfs:comment>A review of MovieLens item 421 -  -  by user 758 at time 881975814</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-13T01:16:54+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies758"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies276-421">
+    <rdfs:comment>A review of MovieLens item 421 -  -  by user 276 at time 874795500</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-09-20T23:45:00+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies276"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies385-483">
+    <rdfs:comment>A review of MovieLens item 483 -  -  by user 385 at time 879442028</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-13T17:27:08+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies385"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies437-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 437 at time 880141335</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-21T19:42:15+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies437"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies320-827">
+    <rdfs:comment>A review of MovieLens item 827 -  -  by user 320 at time 884749030</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-14T03:37:10+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies320"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies406-640">
+    <rdfs:comment>A review of MovieLens item 640 -  -  by user 406 at time 879793328</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-17T19:02:08+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies406"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies493-183">
+    <rdfs:comment>A review of MovieLens item 183 -  -  by user 493 at time 884132225</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-01-07T00:17:05+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies493"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.basichip.com/vertigo/main.htm">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies864-230">
+    <rdfs:comment>A review of MovieLens item 230 -  -  by user 864 at time 888889129</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-03T01:38:49+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies864"/>
+    <j.1:rating>2</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies416-732">
+    <rdfs:comment>A review of MovieLens item 732 -  -  by user 416 at time 893213404</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-04-22T03:50:04+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies416"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/film/690">
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Deep_Impact_%28film%29"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://dbpedia.org/resource/Vertigo_%28film%29">
+    <j.20:distributor rdf:resource="http://dbpedia.org/resource/Universal_Studios"/>
+    <j.20:cinematography rdf:resource="http://dbpedia.org/resource/Robert_Burks"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/MysteryFilms"/>
+    <j.20:wikiPageExternalLink rdf:resource="http://www.hitchcockfans.com/gallery_vertigo.php"/>
+    <rdf:type rdf:resource="http://dbpedia.org/ontology/Film"/>
+    <j.10:story rdf:resource="http://dbpedia.org/resource/Boileau-Narcejac"/>
+    <j.20:distributor rdf:resource="http://dbpedia.org/resource/Paramount_Pictures"/>
+    <j.20:starring rdf:resource="http://dbpedia.org/resource/Kim_Novak"/>
+    <j.20:wikiPageExternalLink rdf:resource="http://www.basichip.com/vertigo/main.htm"/>
+    <j.20:wikiPageExternalLink rdf:resource="http://www.hitchcockwiki.com/wiki/Category:Hitchcock_references_in_The_Simpsons:_Vertigo"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/AmericanFilms"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/1958Films"/>
+    <j.10:cinematography rdf:resource="http://dbpedia.org/resource/Robert_Burks"/>
+    <j.20:producer rdf:resource="http://dbpedia.org/resource/Alfred_Hitchcock"/>
+    <j.10:distributor rdf:resource="http://dbpedia.org/resource/Universal_Studios"/>
+    <j.20:musicComposer rdf:resource="http://dbpedia.org/resource/Bernard_Herrmann"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/Movie106613686"/>
+    <j.10:starring rdf:resource="http://dbpedia.org/resource/James_Stewart"/>
+    <j.20:editing rdf:resource="http://dbpedia.org/resource/George_Tomasini"/>
+    <j.10:distributor rdf:resource="http://dbpedia.org/resource/Paramount_Pictures"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/ParamountFilms"/>
+    <j.20:starring rdf:resource="http://dbpedia.org/resource/Barbara_Bel_Geddes"/>
+    <j.20:wikiPageExternalLink rdf:resource="http://www.hermenaut.com/a36.shtml"/>
+    <j.10:starring rdf:resource="http://dbpedia.org/resource/Barbara_Bel_Geddes"/>
+    <j.20:wikiPageExternalLink rdf:resource="http://www.hitchcockfans.com"/>
+    <rdf:type rdf:resource="http://umbel.org/umbel/rc/Movie_CW"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/UnitedStatesNationalFilmRegistryFilms"/>
+    <j.20:starring rdf:resource="http://dbpedia.org/resource/James_Stewart"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmsDirectedByAlfredHitchcock"/>
+    <rdf:type rdf:resource="http://schema.org/Movie"/>
+    <j.20:director rdf:resource="http://dbpedia.org/resource/Alfred_Hitchcock"/>
+    <j.20:wikiPageExternalLink rdf:resource="http://stevenderosa.com/writingwithhitchcock/fromthearchives.html"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/DetectiveFilms"/>
+    <j.10:music rdf:resource="http://dbpedia.org/resource/Bernard_Herrmann"/>
+    <rdf:type rdf:resource="http://schema.org/CreativeWork"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmsBasedOnMysteryNovels"/>
+    <j.20:writer rdf:resource="http://dbpedia.org/resource/Samuel_A._Taylor"/>
+    <j.10:editing rdf:resource="http://dbpedia.org/resource/George_Tomasini"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/FilmsAboutSuicide"/>
+    <rdf:type rdf:resource="http://dbpedia.org/ontology/Work"/>
+    <j.10:starring rdf:resource="http://dbpedia.org/resource/Kim_Novak"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/1950sRomanceFilms"/>
+    <j.10:writer rdf:resource="http://dbpedia.org/resource/Samuel_A._Taylor"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://dbpedia.org/class/yago/PsychologicalThrillerFilms"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies889-50">
+    <rdfs:comment>A review of MovieLens item 50 -  -  by user 889 at time 880176807</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-22T05:33:27+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies889"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies87-152">
+    <rdfs:comment>A review of MovieLens item 152 -  -  by user 87 at time 879876564</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-18T18:09:24+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies87"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/film/4388">
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies486-1609"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies592-1609"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies782-1609"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/film/2179">
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Dreamscape_%28film%29"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies326-468">
+    <rdfs:comment>A review of MovieLens item 468 -  -  by user 326 at time 879875572</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-18T17:52:52+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies326"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies425-191">
+    <rdfs:comment>A review of MovieLens item 191 -  -  by user 425 at time 878738186</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-05T13:56:26+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies425"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://data.linkedmdb.org/resource/film/234">
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies338-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies710-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies758-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies43-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies125-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies480-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies25-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies397-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies321-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies875-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies381-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies249-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies303-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies96-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies500-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies892-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies391-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies437-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies7-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies83-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies450-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies85-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies551-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies699-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies298-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies360-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies189-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies293-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies305-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies524-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies535-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies506-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies741-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies495-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies308-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies326-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies751-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies666-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies854-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies870-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies568-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies734-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies82-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies897-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies889-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies91-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies454-479"/>
+    <owl:sameAs rdf:resource="http://dbpedia.org/resource/Vertigo_%28film%29"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies625-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies271-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies73-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies533-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies276-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies18-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies452-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies385-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies406-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies234-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies561-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies339-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies6-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies398-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies389-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies747-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies409-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies942-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies313-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies23-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies121-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies323-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies890-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies194-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies908-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies407-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies537-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies292-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies932-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies267-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies16-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies48-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies354-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies698-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies796-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies883-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies622-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies416-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies601-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies748-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies42-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies474-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies664-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies498-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies345-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies655-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies435-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies72-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies707-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies542-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies840-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies269-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies445-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies456-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies527-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies592-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies116-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies311-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies504-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies380-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies776-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies903-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies831-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies393-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies330-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies268-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies528-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies899-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies894-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies344-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies650-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies10-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies239-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies833-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies59-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies312-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies716-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies567-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies553-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies846-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies492-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies503-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies60-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies669-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies383-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies429-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies297-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies378-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies911-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies608-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies543-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies479-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies804-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies896-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies334-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies659-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies115-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies862-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies566-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies213-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies648-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies201-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies402-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies90-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies214-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies847-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies848-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies28-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies815-479"/>
+    <j.1:hasReview rdf:resource="http://soa4all.isoco.net/luf/ratings/movies299-479"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies622-769">
+    <rdfs:comment>A review of MovieLens item 769 -  -  by user 622 at time 882672922</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-12-21T02:55:22+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies622"/>
+    <j.1:rating>1</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies72-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 72 at time 880037881</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-20T14:58:01+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies72"/>
+    <j.1:rating>4</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies843-271">
+    <rdfs:comment>A review of MovieLens item 271 -  -  by user 843 at time 879442947</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-13T17:42:27+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies843"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies5-441">
+    <rdfs:comment>A review of MovieLens item 441 -  -  by user 5 at time 875720830</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-10-01T16:47:10+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies5"/>
+    <j.1:rating>1</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies239-479">
+    <rdfs:comment>A review of MovieLens item 479 -  -  by user 239 at time 889178762</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1998-03-06T10:06:02+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies239"/>
+    <j.1:rating>5</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://soa4all.isoco.net/luf/ratings/movies243-461">
+    <rdfs:comment>A review of MovieLens item 461 -  -  by user 243 at time 879988132</rdfs:comment>
+    <j.1:maxRating>5</j.1:maxRating>
+    <j.1:minRating>1</j.1:minRating>
+    <j.1:createdOn rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">1997-11-20T01:08:52+0200</j.1:createdOn>
+    <j.1:reviewer rdf:resource="http://soa4all.isoco.net/luf/users/movies243"/>
+    <j.1:rating>3</j.1:rating>
+    <rdf:type rdf:resource="http://purl.org/stuff/rev#Review"/>
+  </rdf:Description>
+
+
+
+
+
+
+
+
+</rdf:RDF>

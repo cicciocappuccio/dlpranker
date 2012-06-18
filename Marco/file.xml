@@ -1,0 +1,91 @@
+<set>
+  <org.dllearner.core.owl.Negation>
+    <parent class="org.dllearner.core.owl.Negation">
+      <children class="linked-list">
+        <org.dllearner.core.owl.Negation reference="../../.."/>
+      </children>
+    </parent>
+    <children class="linked-list">
+      <org.dllearner.core.owl.NamedClass>
+        <parent class="org.dllearner.core.owl.Negation" reference="../../.."/>
+        <children class="linked-list"/>
+        <name>http://dbpedia.org/class/yago/English-languAgeFilms</name>
+      </org.dllearner.core.owl.NamedClass>
+    </children>
+  </org.dllearner.core.owl.Negation>
+  <org.dllearner.core.owl.Thing>
+    <parent class="org.dllearner.core.owl.Negation">
+      <children class="linked-list">
+        <org.dllearner.core.owl.Thing reference="../../.."/>
+      </children>
+    </parent>
+    <children class="linked-list"/>
+  </org.dllearner.core.owl.Thing>
+  <org.dllearner.core.owl.ObjectSomeRestriction>
+    <parent class="org.dllearner.core.owl.Negation">
+      <children class="linked-list">
+        <org.dllearner.core.owl.ObjectSomeRestriction reference="../../.."/>
+      </children>
+    </parent>
+    <children class="linked-list">
+      <org.dllearner.core.owl.Thing>
+        <parent class="org.dllearner.core.owl.Negation">
+          <children class="linked-list">
+            <org.dllearner.core.owl.Thing reference="../../.."/>
+          </children>
+        </parent>
+        <children class="linked-list"/>
+      </org.dllearner.core.owl.Thing>
+    </children>
+    <restrictedPropertyExpression class="org.dllearner.core.owl.ObjectProperty">
+      <name>http://dbpedia.org/ontology/wikiPageExternalLink</name>
+    </restrictedPropertyExpression>
+  </org.dllearner.core.owl.ObjectSomeRestriction>
+  <org.dllearner.core.owl.ObjectSomeRestriction>
+    <parent class="org.dllearner.core.owl.Negation">
+      <children class="linked-list">
+        <org.dllearner.core.owl.ObjectSomeRestriction reference="../../.."/>
+      </children>
+    </parent>
+    <children class="linked-list">
+      <org.dllearner.core.owl.NamedClass>
+        <parent class="org.dllearner.core.owl.Negation">
+          <parent class="org.dllearner.core.owl.ObjectAllRestriction">
+            <children class="linked-list">
+              <org.dllearner.core.owl.Negation reference="../../.."/>
+            </children>
+            <restrictedPropertyExpression class="org.dllearner.core.owl.ObjectProperty">
+              <name>http://dbpedia.org/property/studio</name>
+            </restrictedPropertyExpression>
+          </parent>
+          <children class="linked-list">
+            <org.dllearner.core.owl.NamedClass reference="../../.."/>
+          </children>
+        </parent>
+        <children class="linked-list"/>
+        <name>http://dbpedia.org/class/yago/Entity100001740</name>
+      </org.dllearner.core.owl.NamedClass>
+    </children>
+    <restrictedPropertyExpression class="org.dllearner.core.owl.ObjectProperty" reference="../children/org.dllearner.core.owl.NamedClass/parent/parent/restrictedPropertyExpression"/>
+  </org.dllearner.core.owl.ObjectSomeRestriction>
+  <org.dllearner.core.owl.ObjectSomeRestriction>
+    <parent class="org.dllearner.core.owl.Negation">
+      <children class="linked-list">
+        <org.dllearner.core.owl.ObjectSomeRestriction reference="../../.."/>
+      </children>
+    </parent>
+    <children class="linked-list">
+      <org.dllearner.core.owl.Thing>
+        <parent class="org.dllearner.core.owl.Negation">
+          <children class="linked-list">
+            <org.dllearner.core.owl.Thing reference="../../.."/>
+          </children>
+        </parent>
+        <children class="linked-list"/>
+      </org.dllearner.core.owl.Thing>
+    </children>
+    <restrictedPropertyExpression class="org.dllearner.core.owl.ObjectProperty">
+      <name>http://dbpedia.org/property/editing</name>
+    </restrictedPropertyExpression>
+  </org.dllearner.core.owl.ObjectSomeRestriction>
+</set>

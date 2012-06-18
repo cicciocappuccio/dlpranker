@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>Marco</name>
+	<comment></comment>
+	<projects>
+		<project>components-core</project>
+		<project>RemoteSystemsTempFiles</project>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<variableList>
+		<variable>
+			<name>res</name>
+			<value>file:/C:/Users/Marco/Desktop/tesi/Marco/res</value>
+		</variable>
+	</variableList>
+</projectDescription>

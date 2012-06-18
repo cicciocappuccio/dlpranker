@@ -1,0 +1,1025 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+    xmlns:xsp="http://www.owl-ontologies.com/2005/08/07/xsp.owl#"
+    xmlns="http://www.owl-ontologies.com/2008/ZS.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xml:base="http://www.owl-ontologies.com/2008/ZS.owl">
+  <owl:Ontology rdf:about="http://lifeeventontology.googlepages.com/leo.owl">
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >This is ontology of Life events within e-Government.
+It was made for my master thesis purpose.
+Unfortunatelly, names are written in slovenian language.
+
+Author: Domen Cukjati
+Contact: domen.cukjati@gmail.com
+dec. 2008</rdfs:comment>
+  </owl:Ontology>
+  <owl:Class rdf:ID="EPStop">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPZdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPStart"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPRazdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPRazdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPPodprocedura"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:ID="ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EPZivljenjskaSituacija"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Dokument">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="PonudnikStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Uporabnik"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Storitev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ZivljenjskaSituacija"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Procedura"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class>
+    <owl:unionOf rdf:parseType="Collection">
+      <owl:Class rdf:about="#ZivljenjskaSituacija"/>
+      <owl:Class rdf:about="#Storitev"/>
+      <owl:Class rdf:about="#Uporabnik"/>
+      <owl:Class rdf:about="#Procedura"/>
+    </owl:unionOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EPRazdruzevalniIN">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPPodprocedura"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStart"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPRazdruzevalniALI"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZivljenjskaSituacija"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="Priloga">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Odlocba"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Vloga"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf rdf:resource="#Dokument"/>
+  </owl:Class>
+  <owl:Class rdf:ID="Podjetje">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Uporabnik"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="OrganJavneUprave"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="Drzavljan"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#EPZivljenjskaSituacija">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStart"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPRazdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPPodprocedura"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#EPPodprocedura">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStart"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith rdf:resource="#EPZivljenjskaSituacija"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPRazdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="ZSPodjetja">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ZivljenjskaSituacija"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ZSJavneUprave"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="ZSDrzavljana"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:ID="StoritevOstala">
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StoritevJU"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="StoritevNeznana"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Storitev"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#Procedura">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PonudnikStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ZivljenjskaSituacija"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Storitev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Uporabnik"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#OrganJavneUprave">
+    <owl:disjointWith rdf:resource="#Podjetje"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Drzavljan"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#Uporabnik"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EPStart">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPRazdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#EPPodprocedura"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:ID="OsebnaStanja">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ZSDrzavljana"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="SolaIzobrazevanjeMladi"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:ID="DruzinaInOtroci"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ZSJavneUprave">
+    <owl:disjointWith rdf:resource="#ZSPodjetja"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ZSDrzavljana"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ZivljenjskaSituacija"/>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="#EPRazdruzevalniALI">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith rdf:resource="#EPStart"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniALI"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#EPPodprocedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Uporabnik">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PonudnikStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Storitev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ZivljenjskaSituacija"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Procedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EPZdruzevalniALI">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPZdruzevalniIN"/>
+    </owl:disjointWith>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniALI"/>
+    <owl:disjointWith rdf:resource="#EPPodprocedura"/>
+    <owl:disjointWith rdf:resource="#EPZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPStart"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EPZdruzevalniIN">
+    <owl:disjointWith rdf:resource="#EPPodprocedura"/>
+    <owl:disjointWith rdf:resource="#EPStart"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EPStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <owl:disjointWith rdf:resource="#EPZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <owl:disjointWith rdf:resource="#EPZdruzevalniALI"/>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniALI"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ZivljenjskaSituacija">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Storitev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Uporabnik"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#PonudnikStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith rdf:resource="#Procedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Drzavljan">
+    <owl:disjointWith rdf:resource="#OrganJavneUprave"/>
+    <owl:disjointWith rdf:resource="#Podjetje"/>
+    <rdfs:subClassOf rdf:resource="#Uporabnik"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EPStoritev">
+    <owl:disjointWith rdf:resource="#EPZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniALI"/>
+    <owl:disjointWith rdf:resource="#EPZdruzevalniIN"/>
+    <owl:disjointWith rdf:resource="#EPRazdruzevalniIN"/>
+    <owl:disjointWith rdf:resource="#EPZdruzevalniALI"/>
+    <owl:disjointWith rdf:resource="#EPStart"/>
+    <owl:disjointWith rdf:resource="#EPStop"/>
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#EPPodprocedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#PonudnikStoritev">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Uporabnik"/>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Storitev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#Procedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Storitev">
+    <owl:disjointWith rdf:resource="#PonudnikStoritev"/>
+    <owl:disjointWith rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#Uporabnik"/>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#ElementProcedure"/>
+    </owl:disjointWith>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#Procedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#DruzinaInOtroci">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ZSDrzavljana"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#SolaIzobrazevanjeMladi"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#OsebnaStanja"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StoritevNeznana">
+    <rdfs:subClassOf rdf:resource="#Storitev"/>
+    <owl:disjointWith rdf:resource="#StoritevOstala"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#StoritevJU"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#Odlocba">
+    <rdfs:subClassOf rdf:resource="#Dokument"/>
+    <owl:disjointWith rdf:resource="#Priloga"/>
+    <owl:disjointWith>
+      <owl:Class rdf:about="#Vloga"/>
+    </owl:disjointWith>
+  </owl:Class>
+  <owl:Class rdf:about="#ElementProcedure">
+    <owl:disjointWith>
+      <owl:Class rdf:about="#EStoritev"/>
+    </owl:disjointWith>
+    <owl:disjointWith rdf:resource="#PonudnikStoritev"/>
+    <owl:disjointWith rdf:resource="#Uporabnik"/>
+    <owl:disjointWith rdf:resource="#Storitev"/>
+    <owl:disjointWith rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith rdf:resource="#Procedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#EStoritev">
+    <owl:disjointWith rdf:resource="#PonudnikStoritev"/>
+    <owl:disjointWith rdf:resource="#Uporabnik"/>
+    <owl:disjointWith rdf:resource="#Storitev"/>
+    <owl:disjointWith rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#ElementProcedure"/>
+    <owl:disjointWith rdf:resource="#Dokument"/>
+    <owl:disjointWith rdf:resource="#Procedura"/>
+  </owl:Class>
+  <owl:Class rdf:about="#StoritevJU">
+    <owl:disjointWith rdf:resource="#StoritevOstala"/>
+    <owl:disjointWith rdf:resource="#StoritevNeznana"/>
+    <rdfs:subClassOf rdf:resource="#Storitev"/>
+  </owl:Class>
+  <owl:Class rdf:about="#SolaIzobrazevanjeMladi">
+    <rdfs:subClassOf>
+      <owl:Class rdf:about="#ZSDrzavljana"/>
+    </rdfs:subClassOf>
+    <owl:disjointWith rdf:resource="#DruzinaInOtroci"/>
+    <owl:disjointWith rdf:resource="#OsebnaStanja"/>
+  </owl:Class>
+  <owl:Class rdf:about="#ZSDrzavljana">
+    <rdfs:subClassOf rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:disjointWith rdf:resource="#ZSJavneUprave"/>
+    <owl:disjointWith rdf:resource="#ZSPodjetja"/>
+  </owl:Class>
+  <owl:Class rdf:about="#Vloga">
+    <owl:disjointWith rdf:resource="#Priloga"/>
+    <owl:disjointWith rdf:resource="#Odlocba"/>
+    <rdfs:subClassOf rdf:resource="#Dokument"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:ID="imaVlogo">
+    <rdfs:range rdf:resource="#Vloga"/>
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:ID="imaDokument"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Storitev"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaPritozbo">
+    <rdfs:range rdf:resource="#Storitev"/>
+    <rdfs:domain rdf:resource="#Storitev"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaEPYes">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#EPRazdruzevalniALI"/>
+    <rdfs:range rdf:resource="#ElementProcedure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaStoritev">
+    <rdfs:range rdf:resource="#Storitev"/>
+    <rdfs:domain rdf:resource="#ZivljenjskaSituacija"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaPrilogo">
+    <rdfs:subPropertyOf>
+      <owl:ObjectProperty rdf:about="#imaDokument"/>
+    </rdfs:subPropertyOf>
+    <rdfs:domain rdf:resource="#Storitev"/>
+    <rdfs:range rdf:resource="#Priloga"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="jeDokument">
+    <rdfs:domain rdf:resource="#Dokument"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaEPNo">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="#EPRazdruzevalniALI"/>
+    <rdfs:range rdf:resource="#ElementProcedure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="objectProperty_3"/>
+  <owl:ObjectProperty rdf:ID="imaZS">
+    <rdfs:range rdf:resource="#ZivljenjskaSituacija"/>
+    <rdfs:domain rdf:resource="#Uporabnik"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ObjectProperty_32"/>
+  <owl:ObjectProperty rdf:ID="imaEStoritev">
+    <rdfs:range rdf:resource="#EStoritev"/>
+    <rdfs:domain rdf:resource="#Storitev"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="izvajaZS">
+    <rdfs:domain rdf:resource="#Procedura"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:inverseOf>
+      <owl:ObjectProperty rdf:ID="imaProceduro"/>
+    </owl:inverseOf>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#imaProceduro">
+    <rdfs:range rdf:resource="#Procedura"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdfs:domain rdf:resource="#ZivljenjskaSituacija"/>
+    <owl:inverseOf rdf:resource="#izvajaZS"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaEPMulti">
+    <rdfs:range rdf:resource="#ElementProcedure"/>
+    <rdfs:domain rdf:resource="#EPRazdruzevalniIN"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="imaEP">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#EPStoritev"/>
+          <owl:Class rdf:about="#EPZdruzevalniALI"/>
+          <owl:Class rdf:about="#EPZdruzevalniIN"/>
+          <owl:Class rdf:about="#EPZivljenjskaSituacija"/>
+          <owl:Class rdf:about="#EPPodprocedura"/>
+          <owl:Class rdf:about="#EPStart"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:range rdf:resource="#ElementProcedure"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:ID="ObjectProperty_25"/>
+  <owl:ObjectProperty rdf:ID="imaPonudnika">
+    <rdfs:range rdf:resource="#PonudnikStoritev"/>
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Storitev"/>
+          <owl:Class rdf:about="#EStoritev"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="#imaDokument">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#Uporabnik"/>
+          <owl:Class rdf:about="#Storitev"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+    <rdfs:range rdf:resource="#Dokument"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:ID="Vprasanje">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:domain rdf:resource="#EPRazdruzevalniALI"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="casIzvajanja">
+    <rdfs:domain rdf:resource="#Storitev"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ime">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#PonudnikStoritev"/>
+          <owl:Class rdf:about="#Dokument"/>
+          <owl:Class rdf:about="#ZivljenjskaSituacija"/>
+          <owl:Class rdf:about="#Storitev"/>
+          <owl:Class rdf:about="#EStoritev"/>
+          <owl:Class rdf:about="#Procedura"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="link">
+    <rdfs:domain>
+      <owl:Class>
+        <owl:unionOf rdf:parseType="Collection">
+          <owl:Class rdf:about="#PonudnikStoritev"/>
+          <owl:Class rdf:about="#EStoritev"/>
+          <owl:Class rdf:about="#Vloga"/>
+        </owl:unionOf>
+      </owl:Class>
+    </rdfs:domain>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="drzavljanstvo">
+    <rdfs:domain rdf:resource="#Uporabnik"/>
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Tuje</rdf:first>
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+          </rdf:rest>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >Slovensko</rdf:first>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="datumRojstva">
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+    <rdfs:domain rdf:resource="#Uporabnik"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="imePriimek">
+    <rdfs:domain rdf:resource="#Uporabnik"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="takse">
+    <rdfs:domain rdf:resource="#Storitev"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="opis">
+    <rdfs:domain rdf:resource="#ZivljenjskaSituacija"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="pravnaPodlaga">
+    <rdfs:domain rdf:resource="#Storitev"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="ciljnaSkupina">
+    <rdfs:domain rdf:resource="#ZivljenjskaSituacija"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="Odgovornost">
+    <rdfs:domain rdf:resource="#ElementProcedure"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="stan">
+    <rdfs:range>
+      <owl:DataRange>
+        <owl:oneOf rdf:parseType="Resource">
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+          >poročen</rdf:first>
+          <rdf:rest rdf:parseType="Resource">
+            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >samski</rdf:first>
+          </rdf:rest>
+        </owl:oneOf>
+      </owl:DataRange>
+    </rdfs:range>
+    <rdfs:domain rdf:resource="#Uporabnik"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:ID="organZaUrejanje">
+    <rdfs:domain rdf:resource="#ZivljenjskaSituacija"/>
+  </owl:DatatypeProperty>
+  <owl:FunctionalProperty rdf:ID="sproziZS">
+    <rdfs:range rdf:resource="#ZivljenjskaSituacija"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#EPZivljenjskaSituacija"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="imaOdlocbo">
+    <rdfs:range rdf:resource="#Odlocba"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#Storitev"/>
+    <rdfs:subPropertyOf rdf:resource="#imaDokument"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="jeOdlocba"/>
+    </owl:inverseOf>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="imaStart">
+    <rdfs:domain rdf:resource="#Procedura"/>
+    <rdfs:range rdf:resource="#EPStart"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="jeStop">
+    <rdfs:domain rdf:resource="#EPStop"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf>
+      <owl:InverseFunctionalProperty rdf:ID="imaStop"/>
+    </owl:inverseOf>
+    <rdfs:range rdf:resource="#Procedura"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sproziStoritev">
+    <rdfs:domain rdf:resource="#EPStoritev"/>
+    <rdfs:range rdf:resource="#Storitev"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:FunctionalProperty>
+  <owl:FunctionalProperty rdf:ID="sproziPodproceduro">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="#EPPodprocedura"/>
+  </owl:FunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#jeOdlocba">
+    <rdfs:range rdf:resource="#Storitev"/>
+    <owl:inverseOf rdf:resource="#imaOdlocbo"/>
+    <rdfs:subPropertyOf rdf:resource="#jeDokument"/>
+    <rdfs:domain rdf:resource="#Odlocba"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+  </owl:InverseFunctionalProperty>
+  <owl:InverseFunctionalProperty rdf:about="#imaStop">
+    <rdfs:domain rdf:resource="#Procedura"/>
+    <rdfs:range rdf:resource="#EPStop"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <owl:inverseOf rdf:resource="#jeStop"/>
+  </owl:InverseFunctionalProperty>
+  <DruzinaInOtroci rdf:ID="PosvojimOtroka"/>
+  <StoritevJU rdf:ID="StoritevJU_7"/>
+  <DruzinaInOtroci rdf:ID="OtrokSeJeRodil"/>
+  <rdf:Description rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></owl:versionInfo>
+    <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    ></rdfs:comment>
+  </rdf:Description>
+  <Drzavljan rdf:ID="Drzavljan_1">
+    <datumRojstva rdf:datatype="http://www.w3.org/2001/XMLSchema#date"
+    >1987-12-01</datumRojstva>
+    <drzavljanstvo rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Slovensko</drzavljanstvo>
+    <stan rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >samski</stan>
+    <imePriimek rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+    >Janez Novak</imePriimek>
+    <imaZS>
+      <DruzinaInOtroci rdf:ID="PorocimSe">
+        <opis rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Zakonska zveza je z zakonom urejena življenjska skupnost moža in žene. Temelji na svobodni odločitvi skleniti zakonsko zvezo, na obojestranski čustveni navezanosti, vzajemnem spoštovanju, razumevanju, zaupanju in medsebojni pomoči. V zakonski zvezi sta zakonca enakopravna.  Osebi, ki nameravata skleniti zakonsko zavezo, se prijavita matičarju, ki vodi poročno matično knjigo za naselje, kjer želita skleniti zakonsko zvezo. Osebi, ki nameravata skleniti zakonsko zvezo, v prijavi izjavita, da svobodno sklepata zakonsko zvezo in da so izpolnjeni pogoji za njeno veljavnost. Sklenitev zakonske zveze prijavita največ tri mesece in najmanj 14 dni pred datumom sklenitve zakonske zveze. Pri prijavi predložita izpiske iz rojstne knjige in potrdilo oz. obvestilo o državljanstvu, če teh podatkov ni mogoče ugotoviti na podlagi uradnih evidenc.</opis>
+        <ime rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Poročim se</ime>
+        <imaProceduro>
+          <Procedura rdf:ID="ProceduraPorocimSe">
+            <imaStart>
+              <EPStart rdf:ID="EPStart_3">
+                <imaEP>
+                  <EPRazdruzevalniIN rdf:ID="EPRazdruzevalniIN_4">
+                    <imaEPMulti>
+                      <EPRazdruzevalniALI rdf:ID="EPRazdruzevalniALI_1">
+                        <imaEPNo>
+                          <EPZdruzevalniALI rdf:ID="EPZdruzevalniALI_3">
+                            <imaEP>
+                              <EPZdruzevalniIN rdf:ID="EPZdruzevalniIN_4">
+                                <imaEP>
+                                  <EPStoritev rdf:ID="EPStoritev_5">
+                                    <sproziStoritev>
+                                      <StoritevJU rdf:ID="PrijavaPoroke"/>
+                                    </sproziStoritev>
+                                    <imaEP>
+                                      <EPRazdruzevalniALI rdf:ID="EPRazdruzevalniALI_6">
+                                        <imaEPNo>
+                                          <EPZdruzevalniALI rdf:ID="EPZdruzevalniALI_8">
+                                            <imaEP>
+                                              <EPStoritev rdf:ID="EPStoritev_9">
+                                                <imaEP>
+                                                  <EPRazdruzevalniALI rdf:ID="EPRazdruzevalniALI_10">
+                                                    <Vprasanje
+                                                     rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >One (or both) partner(s) change personal data?</Vprasanje>
+                                                    <imaEPYes>
+                                                      <EPZivljenjskaSituacija rdf:ID="EPZivljenjskaSituacija_11">
+                                                        <sproziZS>
+                                                          <OsebnaStanja rdf:ID="SpremembaOsebnihPodatkov"/>
+                                                        </sproziZS>
+                                                        <imaEP>
+                                                          <EPZdruzevalniALI rdf:ID="EPZdruzevalniALI_12">
+                                                            <imaEP>
+                                                              <EPStop rdf:ID="EPStop_13">
+    <jeStop rdf:resource="#ProceduraPorocimSe"/>              </EPStop>
+                                                            </imaEP>
+                                                          </EPZdruzevalniALI>
+                                                        </imaEP>
+                                                      </EPZivljenjskaSituacija>
+                                                    </imaEPYes>
+                                                    <imaEPNo rdf:resource="#EPZdruzevalniALI_12"/>
+                                                  </EPRazdruzevalniALI>
+                                                </imaEP>
+                                                <sproziStoritev>
+                                                  <StoritevJU rdf:ID="RegistracijaPoroke"/>
+                                                </sproziStoritev>
+                                              </EPStoritev>
+                                            </imaEP>
+                                          </EPZdruzevalniALI>
+                                        </imaEPNo>
+                                        <Vprasanje rdf:datatype=
+                                        "http://www.w3.org/2001/XMLSchema#string"
+                                        >Appeal?</Vprasanje>
+                                        <imaEPYes>
+                                          <EPStoritev rdf:ID="EPStoritev_7">
+                                            <sproziStoritev>
+                                              <StoritevJU rdf:ID="PritozbaNaPrijavoPoroke"/>
+                                            </sproziStoritev>
+                                            <imaEP rdf:resource="#EPZdruzevalniALI_8"/>
+                                          </EPStoritev>
+                                        </imaEPYes>
+                                      </EPRazdruzevalniALI>
+                                    </imaEP>
+                                  </EPStoritev>
+                                </imaEP>
+                              </EPZdruzevalniIN>
+                            </imaEP>
+                          </EPZdruzevalniALI>
+                        </imaEPNo>
+                        <imaEPYes>
+                          <EPStoritev rdf:ID="EPStoritev_2">
+                            <imaEP rdf:resource="#EPZdruzevalniALI_3"/>
+                            <sproziStoritev>
+                              <StoritevJU rdf:ID="PridobitevDovoljenjaZaPorokoMladoletnika"/>
+                            </sproziStoritev>
+                          </EPStoritev>
+                        </imaEPYes>
+                        <Vprasanje rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >One (both) of the partner(s) is (are) minor?</Vprasanje>
+                      </EPRazdruzevalniALI>
+                    </imaEPMulti>
+                    <imaEPMulti>
+                      <EPRazdruzevalniALI rdf:ID="EPRazdruzevalniALI_14">
+                        <imaEPYes>
+                          <EPPodprocedura rdf:ID="EPPodprocedura_15">
+                            <sproziPodproceduro>
+                              <Procedura rdf:ID="PridobitevDokumentovZaTujca">
+                                <imaStart>
+                                  <EPStart rdf:ID="EPStart_14">
+                                    <imaEP>
+                                      <EPRazdruzevalniIN rdf:ID="EPRazdruzevalniIN_15">
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_16">
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_MPA_DOC_013">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="SingleCertificate">
+                                                    <ime rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    ></ime>
+                                                    <jeOdlocba rdf:resource="#DummyPS_MPA_DOC_013"/>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                            <imaEP>
+                                              <EPZdruzevalniIN rdf:ID="EPZdruzevalniIN_17">
+                                                <imaEP>
+                                                  <EPStop rdf:ID="EPStop_18">
+                                                    <jeStop rdf:resource="#PridobitevDokumentovZaTujca"/>
+                                                  </EPStop>
+                                                </imaEP>
+                                              </EPZdruzevalniIN>
+                                            </imaEP>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_19">
+                                            <imaEP rdf:resource="#EPZdruzevalniIN_17"/>
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_DOC_017">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="Odlocba_30">
+                                                    <jeOdlocba rdf:resource="#DummyPS_DOC_017"/>
+                                                    <ime rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Other certificates and acts requested in the country of origin.</ime>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_33">
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_DOC_015">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="BirthCertificateInternational">
+                                                    <jeOdlocba rdf:resource="#DummyPS_DOC_015"/>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                            <imaEP rdf:resource="#EPZdruzevalniIN_17"/>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_21">
+                                            <imaEP rdf:resource="#EPZdruzevalniIN_17"/>
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_MPA_DOC_016">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="Odlocba_26">
+                                                    <jeOdlocba rdf:resource="#DummyPS_MPA_DOC_016"/>
+                                                    <ime rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Certificate from the country of origin that there are no legal impediments to marriage</ime>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_22">
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_MPA_DOC_018">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="PassportForeign">
+                                                    <jeOdlocba rdf:resource="#DummyPS_MPA_DOC_018"/>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                            <imaEP rdf:resource="#EPZdruzevalniIN_17"/>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                      </EPRazdruzevalniIN>
+                                    </imaEP>
+                                  </EPStart>
+                                </imaStart>
+                                <imaStop rdf:resource="#EPStop_18"/>
+                              </Procedura>
+                            </sproziPodproceduro>
+                            <imaEP>
+                              <EPZdruzevalniALI rdf:ID="EPZdruzevalniALI_17">
+                                <imaEP rdf:resource="#EPZdruzevalniIN_4"/>
+                              </EPZdruzevalniALI>
+                            </imaEP>
+                          </EPPodprocedura>
+                        </imaEPYes>
+                        <imaEPNo>
+                          <EPPodprocedura rdf:ID="EPPodprocedura_16">
+                            <imaEP rdf:resource="#EPZdruzevalniALI_17"/>
+                            <sproziPodproceduro>
+                              <Procedura rdf:ID="pridobitevDokumentovDrzavljanov">
+                                <ime rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                                >Pridobitev dokumentov za državljana Slovenije</ime>
+                                <imaStart>
+                                  <EPStart rdf:ID="EPStart_20">
+                                    <imaEP>
+                                      <EPRazdruzevalniIN rdf:ID="EPRazdruzevalniIN_21">
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_3">
+                                            <imaEP>
+                                              <EPZdruzevalniIN rdf:ID="EPZdruzevalniIN_5">
+                                                <imaEP>
+                                                  <EPStop rdf:ID="EPStop_6">
+                                                    <jeStop rdf:resource="#pridobitevDokumentovDrzavljanov"/>
+                                                  </EPStop>
+                                                </imaEP>
+                                              </EPZdruzevalniIN>
+                                            </imaEP>
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_MPA_DOC_019">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="IdentifikacijskiDokument">
+                                                    <jeOdlocba rdf:resource="#DummyPS_MPA_DOC_019"/>
+                                                    <ime rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Identifikacijski dokument</ime>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                        <imaEPMulti>
+                                          <EPStoritev rdf:ID="EPStoritev_11">
+                                            <sproziStoritev>
+                                              <StoritevNeznana rdf:ID="DummyPS_MPA_DOC_020">
+                                                <imaOdlocbo>
+                                                  <Odlocba rdf:ID="RojstniList">
+                                                    <ime rdf:datatype=
+                                                    "http://www.w3.org/2001/XMLSchema#string"
+                                                    >Rojstni list</ime>
+                                                    <jeOdlocba rdf:resource="#DummyPS_MPA_DOC_020"/>
+                                                  </Odlocba>
+                                                </imaOdlocbo>
+                                              </StoritevNeznana>
+                                            </sproziStoritev>
+                                            <imaEP rdf:resource="#EPZdruzevalniIN_5"/>
+                                          </EPStoritev>
+                                        </imaEPMulti>
+                                      </EPRazdruzevalniIN>
+                                    </imaEP>
+                                  </EPStart>
+                                </imaStart>
+                                <imaStop rdf:resource="#EPStop_6"/>
+                              </Procedura>
+                            </sproziPodproceduro>
+                          </EPPodprocedura>
+                        </imaEPNo>
+                        <Vprasanje rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                        >Partner(s) is (are) foreign citizen(s)?</Vprasanje>
+                      </EPRazdruzevalniALI>
+                    </imaEPMulti>
+                  </EPRazdruzevalniIN>
+                </imaEP>
+                <Odgovornost rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+                >User</Odgovornost>
+              </EPStart>
+            </imaStart>
+            <izvajaZS rdf:resource="#PorocimSe"/>
+            <ime rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+            >Procedura za ŽS PoročimSe</ime>
+            <imaStop rdf:resource="#EPStop_13"/>
+          </Procedura>
+        </imaProceduro>
+        <ciljnaSkupina rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >Dve praviloma polnoletni osebi različnega spola, ki se želita pročiti oziroma skleniti zakonsko zvezo. </ciljnaSkupina>
+        <organZaUrejanje rdf:datatype="http://www.w3.org/2001/XMLSchema#string"
+        >MINISTRSTVO ZA DELO, DRUŽINO IN SOCIALNE ZADEVE  </organZaUrejanje>
+      </DruzinaInOtroci>
+    </imaZS>
+  </Drzavljan>
+</rdf:RDF>
+
+<!-- Created with Protege (with OWL Plugin 3.4, Build 506)  http://protege.stanford.edu -->
