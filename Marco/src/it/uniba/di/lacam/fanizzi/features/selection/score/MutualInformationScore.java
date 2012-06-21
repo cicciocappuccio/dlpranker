@@ -8,8 +8,10 @@ import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 
+import com.google.common.annotations.Beta;
 import com.neuralnoise.cache.AbstractConceptCache;
 
+@Beta
 public class MutualInformationScore extends AbstractScore {
 
 	
@@ -29,7 +31,11 @@ public class MutualInformationScore extends AbstractScore {
 			for (Description j : descriptions)
 				sum += calc.I(i, j, individuals);
 			
-		sum = (1.0/((double)descriptions.size()*(double)descriptions.size()))*sum;
+		//sum = (1.0/((double)descriptions.size()*(double)descriptions.size()))*sum;
+		
+		double dS = descriptions.size();
+		sum = (1.0 / dS) * sum;
+		
 		return sum;
 	}
 

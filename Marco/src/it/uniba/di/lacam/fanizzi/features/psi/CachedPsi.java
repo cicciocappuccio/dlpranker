@@ -1,6 +1,5 @@
 package it.uniba.di.lacam.fanizzi.features.psi;
 
-import it.uniba.di.lacam.fanizzi.features.psi.utils.ReasonerUtils;
 
 import java.util.Set;
 
@@ -9,6 +8,7 @@ import org.dllearner.core.owl.Description;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
+import com.neuralnoise.cache.ReasonerUtils;
 
 public class CachedPsi extends PsiWrapper {
 

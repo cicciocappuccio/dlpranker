@@ -1,8 +1,5 @@
 package test;
 
-import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.HibernateConceptCache;
-import com.neuralnoise.cache.hibernate.Database;
 
 public class CacheTest {
 

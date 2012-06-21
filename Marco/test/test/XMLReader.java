@@ -3,7 +3,6 @@ package test;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.Set;
 
 import org.dllearner.core.owl.Description;

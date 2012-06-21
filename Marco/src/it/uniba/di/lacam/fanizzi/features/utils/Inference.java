@@ -1,13 +1,12 @@
 package it.uniba.di.lacam.fanizzi.features.utils;
 
-import it.uniba.di.lacam.fanizzi.features.psi.utils.ReasonerUtils;
-
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.Negation;
 
 import com.neuralnoise.cache.AbstractConceptCache;
+import com.neuralnoise.cache.ReasonerUtils;
 
 public class Inference {
 
@@ -56,7 +55,7 @@ public class Inference {
 			cache.addElement(normalised, i, get);
 			cache.addElement(negatedNormalised, i, nget);
 		}
-		
+
 		if (get)
 			ret = LogicValue.TRUE;
 		if (nget)

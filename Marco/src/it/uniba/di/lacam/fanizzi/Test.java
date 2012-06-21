@@ -4,17 +4,16 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRating;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
-import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
 import it.uniba.di.lacam.fanizzi.features.selection.Wrapper;
+import it.uniba.di.lacam.fanizzi.utils.XMLStream;
 
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-import org.dllearner.core.owl.Individual;
-import org.dllearner.utilities.owl.OWLAPIConverter;
+import org.dllearner.core.owl.Description;
+import org.dllearner.utilities.owl.OWLAPIDescriptionConvertVisitor;
 import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 public class Test {
 	
@@ -24,15 +23,6 @@ public class Test {
 		
 		String urlOwlFile = "res/dataset2.rdf";
 
-		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();
-		Wrapper mio = new Wrapper("res/fragmentOntology10.owl");
-		
-		featuresD = mio.trasformer(mio.cerca());
-		
-		
-		mio = null;
-		System.gc();
-		
 		Locale.setDefault(Locale.US);
 		OntologyModel ontologyModel = new OntologyModel(urlOwlFile);
 		
@@ -53,7 +43,14 @@ public class Test {
 
 		//Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
 		
-
+		Set<Description> descriptionD = XMLStream.leggi();
+		
+		System.out.println(descriptionD);
+		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();		
+		
+		
+		for (Description d : descriptionD)
+			featuresD.add(OWLAPIDescriptionConvertVisitor.getOWLClassExpression(d));
 		
 		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
 		
@@ -64,7 +61,7 @@ public class Test {
 
 		// creazione matrice kernel
 
-/*		KernelMatrix kernel = new KernelMatrix();;
+		KernelMatrix kernel = new KernelMatrix();;
 		kernel.createKernelMatrix(featuresDD);
 
 		kernel.CSVPrint();
@@ -78,6 +75,6 @@ public class Test {
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
 		exp2.kfxvExperiment(kernel, dati, 10);
 
-		*/
+/*/*		*/
 	}
 }

@@ -6,22 +6,18 @@ import java.util.List;
 import java.util.Random;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
-class PointRank {
-	public double[] x;
-	public double y;
-	public PointRank(double[] x, double y) {
-		this.x = x;
-		this.y = y;
-	}
-}
 
-public class KernelPerceptronRankingTest {
+
+public class KernelPerceptronRank {
 
 	private static final double[][] DATAPOINTS_1 = { {3, 2}, {4, 1}, {5, 2}, {6, 4}, {7, 3} };
 	private static final double[][] DATAPOINTS_2 = { {1, 5}, {2, 5}, {2, 6}, {3, 6}, {5, 6} };
 	
 	private static final double[][] DATAPOINTS = ArrayUtils.addAll(DATAPOINTS_1, DATAPOINTS_2);
+	
+	static final double THRESHOLD = .1;
 	
 	private static double kernel(double[] x1, double[] x2) {
 		double ret = 0.0;
@@ -37,45 +33,51 @@ public class KernelPerceptronRankingTest {
 	private static void kernelPerceptronRank(List<PointRank> stream) {
 		alpha = new double[DATAPOINTS.length];
 		b = new double[2];
-		b[1] = Double.POSITIVE_INFINITY;
 		
-		for (PointRank pointRank : stream) {
-			int indexInAlpha = 0;
+		for (int i = 0; i < alpha.length; i++)
+			alpha[i] = 0;
+		
+		for (int i = 0; i < b.length; i++)
+			b[i] = 0;
+		
+		b[b.length-1] = Double.POSITIVE_INFINITY;
+		double avgLoss = 0;
+		do
+		{
+			avgLoss = 0;
 			
-			for (int j = 0; j < alpha.length; ++j)
-				if (pointRank.x == DATAPOINTS[j])
-					indexInAlpha = j;
-			
-			int yi = rank(alpha, b, pointRank.x);
-			
-			if (yi < pointRank.y){
-				alpha[indexInAlpha] += pointRank.y - yi;
-
-				for (int z = (int) pointRank.y; z < (yi-1); z++)
-					b[z]--;
-			} else if (yi > pointRank.y){
-				alpha[indexInAlpha] += pointRank.y - yi;
-				
-				for (int z = yi; z < (pointRank.y-1); z++)
-					b[z]++;
+			for(int i = 0; i < stream.size(); i++)
+			{
+				int ySegnato = rank(alpha, b, stream.get(i).x);
+				if (ySegnato != stream.get(i).y)
+				{
+					avgLoss += Math.abs(stream.get(i).y - ySegnato);
+					alpha[i] += (stream.get(i).y - ySegnato);
+					
+					for (int j = (int) Math.min(ySegnato, stream.get(i).y); j < Math.max(ySegnato, stream.get(i).y) - 1; i++)
+						b[j] -= 1;
+				}
 			}
-		}
+			
+			avgLoss /= (double)stream.size();
+		}while(avgLoss>THRESHOLD);
 	}
 	
-	private static int rank(double[] alpha, double[] b, double[] x)
+	private static int rank(double[] alpha, double[] thetac, double[] x)
 	{
-		int ret = 2;
-		
-		double sum = 0.0;
-		for (int i = 0; i < DATAPOINTS.length; ++i) {
-			double kxxi = kernel(x, DATAPOINTS[i]);
-			sum += (alpha[i] * kxxi);
-		}
-		
-		if (sum < b[0])
-			ret = 1;
-		
-		return ret;
+		int ymin = nRatings-1;
+		int y = nRatings-1;
+		do {
+			--y;
+			double f = 0;
+			for (int i = 0; i < alpha.length; i++)
+			{
+				f += alpha[i] * kernel(x, DATAPOINTS[i]);
+			}
+			if (f < thetac[y])
+				ymin = y;
+		} while (y == ymin && y>0);
+		return ymin;
 	}
 	
 	
@@ -93,7 +95,8 @@ public class KernelPerceptronRankingTest {
 		kernelPerceptronRank(stream);
 		
 		System.out.println(rank(alpha, b, DATAPOINTS_2[0]));
-	}
+		System.out.println(rank(alpha, b, DATAPOINTS_1[3]));
+		}
 
 	
 }

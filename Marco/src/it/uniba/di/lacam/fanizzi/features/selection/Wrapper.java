@@ -1,13 +1,13 @@
 package it.uniba.di.lacam.fanizzi.features.selection;
 
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-
 import it.uniba.di.lacam.fanizzi.features.psi.Psi2DownWrapper;
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.utils.ConceptUtils;
+
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.KnowledgeSource;
@@ -17,8 +17,6 @@ import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.Thing;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
-import org.dllearner.utilities.owl.DLLearnerDescriptionConvertVisitor;
-import org.dllearner.utilities.owl.OWLAPIConverter;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 
 import com.neuralnoise.cache.AbstractConceptCache;

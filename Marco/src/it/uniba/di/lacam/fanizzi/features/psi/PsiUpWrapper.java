@@ -1,6 +1,5 @@
 package it.uniba.di.lacam.fanizzi.features.psi;
 
-import it.uniba.di.lacam.fanizzi.features.psi.utils.ReasonerUtils;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Sets;
+import com.neuralnoise.cache.ReasonerUtils;
 
 public class PsiUpWrapper extends PsiUp {
 

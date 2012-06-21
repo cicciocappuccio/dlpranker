@@ -2,7 +2,6 @@ package test;
 
 import java.io.File;
 import java.util.Set;
-import java.util.SortedSet;
 
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;

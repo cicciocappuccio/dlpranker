@@ -4,10 +4,11 @@ import it.uniba.di.lacam.fanizzi.features.psi.Psi2DownWrapper;
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
 
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import org.dllearner.core.AbstractReasonerComponent;
-import org.dllearner.core.ComponentInitException;
 import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
@@ -16,6 +17,7 @@ import org.dllearner.core.owl.Thing;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
 
+import com.google.common.collect.Sets;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 
@@ -40,21 +42,46 @@ public class EITest {
 		Description Film = new NamedClass("http://dbpedia.org/ontology/Film");
 		Set<Individual> _films = reasoner.getIndividuals(Film);
 
+		Set<Individual> films = Sets.newHashSet();
+		int m = 0;
+		Iterator<Individual> it = _films.iterator();
+		while (it.hasNext() && m++ < 10)
+			films.add(it.next());
+
 		Set<Description> concetti = reasoner.getSubClasses(Thing.instance);
 		EIUtils calc = new EIUtils(cache, reasoner);
 
 		System.out.println("concetti: " + concetti.size());
+		/*
+		 * int y = 0; for (Description i : concetti) {
+		 * 
+		 * Description negatedNormalised = ReasonerUtils .normalise(new
+		 * Negation(i)); System.out.println("\nH(" + i + "): " + calc.H(i,
+		 * _films)); for (Individual n : films) {
+		 * System.out.println(cache.get(i, n));
+		 * System.out.println(cache.get(negatedNormalised, n));
+		 * 
+		 * }
+		 * 
+		 * System.in.read();
+		 * 
+		 * }
+		 */
+
+		Set<Individual> usali = new HashSet<Individual>(_films);
+		
 		for (Description i : concetti) {
-			System.out.println("\nH(" + i + "): " + calc.H(i, _films));
+			System.out.println("\nH(" + i + "): " + calc.H(i, usali));
 
 			int count = 1;
-			
+
 			for (Description y : concetti) {
 				if ((count++ % 8) != 0)
-					System.out.printf("	" + calc.I(i, y, _films));
+					System.out.printf("	" + calc.I(i, y, usali));
 				else
-					System.out.printf("	" + calc.I(i, y, _films) + "\n");
+					System.out.printf("	" + calc.I(i, y, usali) + "\n");
 			}
 		}
+
 	}
 }

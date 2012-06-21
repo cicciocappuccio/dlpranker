@@ -22,36 +22,17 @@ package test;
 import static org.junit.Assert.assertTrue;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
-import java.util.TreeSet;
 
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.dllearner.algorithms.ocel.OCEL;
-import org.dllearner.core.AbstractKnowledgeSource;
-import org.dllearner.core.AbstractLearningProblem;
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.ComponentInitException;
-import org.dllearner.core.ComponentManager;
 import org.dllearner.core.KnowledgeSource;
-import org.dllearner.core.LearningProblemUnsupportedException;
-import org.dllearner.core.owl.ClassHierarchy;
 import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.Thing;
 import org.dllearner.kb.OWLFile;
-import org.dllearner.learningproblems.PosNegLPStandard;
-import org.dllearner.parser.KBParser;
-import org.dllearner.parser.ParseException;
 import org.dllearner.reasoning.OWLAPIReasoner;
-import org.dllearner.refinementoperators.OperatorInverter;
-import org.dllearner.refinementoperators.RefinementOperator;
 import org.dllearner.refinementoperators.RhoDRDown;
-import org.dllearner.utilities.Helper;
 import org.junit.Test;
-
-import com.hp.hpl.jena.ontology.impl.TestOntology;
 
 /**
  * A suite of JUnit tests related to refinement operators.

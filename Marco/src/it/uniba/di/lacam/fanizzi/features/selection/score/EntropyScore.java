@@ -8,8 +8,10 @@ import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 
+import com.google.common.annotations.Beta;
 import com.neuralnoise.cache.AbstractConceptCache;
 
+@Beta
 public class EntropyScore extends AbstractScore {
 	
 	
@@ -32,7 +34,10 @@ public class EntropyScore extends AbstractScore {
 			//System.out.println(x);
 			sum += calc.H(x, individuals);
 		}
-		sum = (1.0/(double)descriptions.size())*sum;
+		
+		//double dS =	descriptions.size();		
+		//sum = (1.0 / dS) * sum;
+		
 		return sum;
 	}
 }

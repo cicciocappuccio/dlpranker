@@ -18,16 +18,36 @@ public class EIUtils {
 
 	private AbstractConceptCache cache;
 	private AbstractReasonerComponent reasoner;
-
+	
+	private Map<Description, Double> H;
+	private Table<Description, Description, Double> I;
+	
 	public EIUtils(AbstractConceptCache cache,
 			AbstractReasonerComponent reasoner) {
 		super();
 		this.cache = cache;
 		this.reasoner = reasoner;
+		
+		this.H = new HashMap<Description, Double>();
+		this.I = HashBasedTable.create();
 	}
 
-	public double H(Description x, Set<Individual> individuals) {
-
+	public double H (Description x, Set<Individual> individuals)
+	{
+		if(H.containsKey(x))
+			return H.get(x);
+		else
+		{
+			double h = HCalc(x, individuals);
+			H.put(x, h);
+			return h;
+		}
+					
+	}
+	
+	public double HCalc(Description x, Set<Individual> individuals) {
+		
+		
 		Map<LogicValue, Integer> numX = new HashMap<LogicValue, Integer>();
 
 		for (LogicValue valore : LogicValue.values())
@@ -40,25 +60,44 @@ public class EIUtils {
 
 			Inference inf = new Inference(cache, reasoner);
 			LogicValue infVal = inf.cover(x, i);
-
 			numX.put(infVal, numX.get(infVal) + 1);
 			ZX += 1.0;
 		}
-
+		
+	
 		Map<LogicValue, Double> prX = new HashMap<LogicValue, Double>();
 
 		for (LogicValue valore : LogicValue.values())
+		{
 			prX.put(valore, (numX.get(valore) / ZX));
-
+			
+		}
+			
+		
 		double e = 0.0;
 
 		for (LogicValue valore : LogicValue.values())
+			
+		{	
 			e -= (prX.get(valore) * Math.log(prX.get(valore)));
-
+		}
 		return e;
 	}
 
-	public double I(Description x, Description y, Set<Individual> individuals) {
+	public double I(Description x, Description y, Set<Individual> individuals)
+	{
+		if(I.contains(x,y))
+			return I.get(x,y);
+		else
+		{
+			double i = ICalc(x, y, individuals);
+			I.put(x, y, i);
+			return i;
+		}
+					
+	}
+	
+	public double ICalc(Description x, Description y, Set<Individual> individuals) {
 		int numInd = individuals.size();
 
 		Map<LogicValue, Double> numX = new HashMap<LogicValue, Double>();

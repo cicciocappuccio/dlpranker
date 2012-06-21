@@ -22,7 +22,6 @@ import org.dllearner.reasoning.OWLAPIReasoner;
 
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
-import com.neuralnoise.cache.HibernateConceptCache;
 
 public class ReasonerTest {
 

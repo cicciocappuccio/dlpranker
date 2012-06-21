@@ -1,7 +1,5 @@
 package it.uniba.di.lacam.fanizzi.features.psi;
 
-import it.uniba.di.lacam.fanizzi.features.psi.utils.ReasonerUtils;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Sets;
+import com.neuralnoise.cache.ReasonerUtils;
 public class PsiDownWrapper extends PsiDown {
 
 	private static final Logger log = LoggerFactory.getLogger(PsiDownWrapper.class);

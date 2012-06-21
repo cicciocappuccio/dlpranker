@@ -1,8 +1,8 @@
 package it.uniba.di.lacam.fanizzi.features.selection;
 
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
+import it.uniba.di.lacam.fanizzi.utils.XMLStream;
 
-import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -38,51 +38,42 @@ public class ClimbingSearch {
 
 		boolean stop = false;
 		do {
-
 			stop = true;
 			Set<Description> refinements = r.refine(bestConcept, maxLength);
 
+			// System.out.println(refinements.size());
+
 			// ciclo sui figli per sceglierne il migliore
 			for (Description refinement : refinements) {
-				Set<Description> newConceptSet = new HashSet<Description>();
-				newConceptSet.addAll(conceptSet);
-				newConceptSet.add(refinement);
 
-				if (refinement.toString() == "(NOT http://dbpedia.org/class/yago/English-languAgeFilms)") {
-					System.out.println("conceptSet: " + conceptSet);
-					System.out.println("individuals: " + individuals);
+				if (!conceptSet.contains(refinement)) {
+					Set<Description> newConceptSet = new HashSet<Description>();
+					newConceptSet.addAll(conceptSet);
+					newConceptSet.add(refinement);
+					
+					XMLStream.scrivi(conceptSet);
+					
+					double proposed = tScore.score(newConceptSet, individuals);
 
-					try {
-						System.in.read();
-						System.in.read();
-					} catch (IOException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
+					// System.out.println("refinement: " + refinement +
+					// " with score: " + proposed + " best: " + best + " S: " +
+					// (newConceptSet.size()));
+
+					if (proposed > best) {
+						bestConcept = refinement;
+
+						// System.out.println("    True, best concept is: " +
+						// bestConcept);
+						// System.out.println("Press <Enter> to continue =)))");
+
+						best = proposed;
+						stop = false;
 					}
 				}
-
-				double proposed = tScore.score(newConceptSet, individuals);
-
-				// System.out.println("refinement: " + refinement +
-				// " with score: " + proposed + " best: " + best + " S: " +
-				// (newConceptSet.size()));
-
-				if (proposed > best) {
-					bestConcept = refinement;
-
-					// System.out.println("    True, best concept is: " +
-					// bestConcept);
-					// System.out.println("Press <Enter> to continue =)))");
-
-					best = proposed;
-					stop = false;
-				}
-
 			}
 
 		} while (!stop);
 
 		return bestConcept;
-
 	}
 }

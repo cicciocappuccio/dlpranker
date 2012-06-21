@@ -1,7 +1,7 @@
 package com.neuralnoise.cache;
 
 import java.io.File;
-import java.util.Comparator;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -16,6 +16,8 @@ import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
 import org.dllearner.utilities.owl.ConceptComparator;
 import org.dllearner.utilities.owl.ConceptTransformation;
+
+import com.google.common.collect.Maps;
 
 public class ReasonerUtils {
 	
@@ -49,18 +51,27 @@ public class ReasonerUtils {
 		return new Negation(concept);
 	}
 
+	private static final Map<String, Description> map = Maps.newHashMap();
+	
 	public static Description normalise(Description concept) {
 		Description ret = null;
-		try {
-			ret = ConceptTransformation.transformToNegationNormalForm(concept);
-		} catch (RuntimeException re) {
-			//
-		}	
-		if (ret == null) {
-			ret = concept;
+		String sconcept = concept.toString();
+		if (!map.containsKey(sconcept)) {
+			try {
+				ret = ConceptTransformation.transformToNegationNormalForm(concept);
+				ConceptComparator c = new ConceptComparator();
+				ConceptTransformation.transformToOrderedForm(ret, c);
+				ret = ConceptTransformation.getShortConceptNonRecursive(ret, c);
+			} catch (RuntimeException re) {
+				//
+			}
+			if (ret == null) {
+				ret = concept;
+			}
+			map.put(sconcept, ret);
+		} else {
+			ret = map.get(sconcept);
 		}
-		Comparator<Description> c = new ConceptComparator();
-		ConceptTransformation.transformToOrderedForm(ret, c);
 		return ret;
 	}
 	
