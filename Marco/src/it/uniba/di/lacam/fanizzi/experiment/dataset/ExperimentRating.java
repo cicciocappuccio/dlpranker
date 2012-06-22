@@ -8,6 +8,10 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import org.dllearner.core.AbstractReasonerComponent;
+import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
+import org.dllearner.core.owl.ObjectProperty;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
@@ -49,6 +53,8 @@ public class ExperimentRating implements ExperimentDataset
 		
 		OWLAnnotationProperty ratingAnnProp = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#hasReview"));  
 		OWLAnnotationProperty ratingValue = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#rating"));  
+		
+		
 		
 		createIndex (mio, ratingAnnProp, ratingValue);
 		
@@ -130,6 +136,11 @@ public class ExperimentRating implements ExperimentDataset
 			}
 		}
 	}
+	
+
+	
+	
+	
 	
 	
 	public int maxRating()
