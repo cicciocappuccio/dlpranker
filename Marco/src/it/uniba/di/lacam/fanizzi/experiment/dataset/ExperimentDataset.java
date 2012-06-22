@@ -5,7 +5,7 @@ package it.uniba.di.lacam.fanizzi.experiment.dataset;
 
 import java.util.Set;
 
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
+import org.dllearner.core.owl.Individual;
 
 
 /**
@@ -32,19 +32,19 @@ public interface ExperimentDataset {
 	 * @return the value of the indice-th rating example
 	 */
 //	public int getRatingValue (int indice);
-	public int getRatingValue (OWLNamedIndividual rating);
+	public int getRatingValue (Individual rating);
 	
 	/**
 	 * @param indice
 	 * @return the OWLNamedIndividual of the indice-th example
 	 */
 //	public OWLNamedIndividual getIndividual (int indice);
-	public OWLNamedIndividual getIndividual (OWLNamedIndividual rating);
+	public Individual getIndividual (Individual rating);
 	
 	/**
 	 * @return a Set with all the individuals
 	 */
-	public Set<OWLNamedIndividual> getIndividuals();
+	public Set<Individual> getIndividuals();
 	
 	/**
 	 * @param indice
@@ -56,16 +56,16 @@ public interface ExperimentDataset {
 	 * @return return random rating
 	 */
 
-	public OWLNamedIndividual random();
+	public Individual random();
 	
 	/**
 	 * @return a set with all the ratings
 	 */
-	public Set<OWLNamedIndividual> getRatings ();
+	public Set<Individual> getRatings ();
 	
 	/**
 	 * @param individual film di cui si vuole conoscere l'insieme di rating
 	 * @return insieme di rating appartenenti al film
 	 */
-	public Set<OWLNamedIndividual> getRatings(OWLNamedIndividual individual);
+	public Set<Individual> getRatings(Individual individual);
 }

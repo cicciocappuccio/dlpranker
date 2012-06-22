@@ -1,10 +1,9 @@
 package it.uniba.di.lacam.fanizzi;
 
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRating;
+import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
-import it.uniba.di.lacam.fanizzi.features.selection.Wrapper;
 import it.uniba.di.lacam.fanizzi.utils.XMLStream;
 
 import java.util.HashSet;
@@ -29,7 +28,7 @@ public class Test {
 	
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		
-		ExperimentDataset dati = new ExperimentRating(ontologyModel);
+		ExperimentDataset dati = new ExperimentRatingW(ontologyModel);
 		System.out.println("Numero rating: " + dati.size());
 
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");

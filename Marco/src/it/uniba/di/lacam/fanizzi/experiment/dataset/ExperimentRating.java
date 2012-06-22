@@ -8,10 +8,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
-import org.dllearner.core.AbstractReasonerComponent;
-import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Individual;
-import org.dllearner.core.owl.ObjectProperty;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
@@ -27,7 +23,7 @@ import uk.ac.manchester.cs.owl.owlapi.OWLNamedIndividualImpl;
  * @author Marco
  *
  */
-public class ExperimentRating implements ExperimentDataset
+public class ExperimentRating
 {
 	private OntologyModel ontologyModel;
 	
@@ -143,7 +139,7 @@ public class ExperimentRating implements ExperimentDataset
 	
 	
 	
-	public int maxRating()
+	protected int maxRating()
 	{
 		return ratingMassimo;
 	}
@@ -153,7 +149,7 @@ public class ExperimentRating implements ExperimentDataset
 	 * @return retituisce il valore numerico del rating
 	 */
 
-	public int getRatingValue (OWLNamedIndividual rating)
+	protected int getRatingValue (OWLNamedIndividual rating)
 	{
 		OWLAnnotationProperty ratingValue = new OWLAnnotationPropertyImpl(ontologyModel.getDataFactory(), IRI.create("http://purl.org/stuff/rev#rating"));  
 		Set<OWLAnnotation> valore = rating.getAnnotations(ontologyModel.getOntology(), ratingValue);
@@ -167,33 +163,33 @@ public class ExperimentRating implements ExperimentDataset
 	}
 	
 
-	public OWLNamedIndividual getIndividual (OWLNamedIndividual rating)
+	protected OWLNamedIndividual getIndividual (OWLNamedIndividual rating)
 	{
 		return ratingFilm.get(rating);
 	}
 	
-	public int size()
+	protected int size()
 	{
 		return ratingFilm.size();
 	}
 
-	public Set<OWLNamedIndividual> getIndividuals()
+	protected Set<OWLNamedIndividual> getIndividuals(int a)
 	{
 		return individuals;
 	}
 	
-	public OWLNamedIndividual random()
+	protected OWLNamedIndividual random(int a)
 	{
 		Object[] values = ratingFilm.keySet().toArray();
 		return (OWLNamedIndividual) values[generator.nextInt(values.length)];
 	}
 	
-	public Set<OWLNamedIndividual> getRatings()
+	protected Set<OWLNamedIndividual> getRatings(int a)
 	{
 		return ratingFilm.keySet();
 	}
 	
-	public Set<OWLNamedIndividual> getRatings(OWLNamedIndividual individual)
+	protected Set<OWLNamedIndividual> getRatings(OWLNamedIndividual individual)
 	{
 		Set<OWLNamedIndividual> ritorno = new HashSet<OWLNamedIndividual>();
 		
