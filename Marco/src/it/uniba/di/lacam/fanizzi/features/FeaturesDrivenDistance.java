@@ -281,7 +281,7 @@ public class FeaturesDrivenDistance {
 				features.size(), individuals.size());
 
 		computeProjections(reasoner, factory, features, individuals);
-		CSVWriter.write2("res/piMatrix.txt", pi);
+		//CSVWriter.write2("res/piMatrix.txt", pi);
 
 	}
 

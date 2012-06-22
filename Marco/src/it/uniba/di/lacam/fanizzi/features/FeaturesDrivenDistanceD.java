@@ -236,9 +236,7 @@ public class FeaturesDrivenDistanceD {
 
 	public void computeProjections(
 			// why public???
-			AbstractReasonerComponent reasoner, AbstractConceptCache cache,
-			OWLDataFactory factory, Set<Description> features,
-			Set<Individual> individuals) {
+			AbstractReasonerComponent reasoner, AbstractConceptCache cache,	Set<Description> features, Set<Individual> individuals) {
 
 		pi = HashBasedTable.create();
 		featuresWeight = new HashMap<Description, Double>();
@@ -290,13 +288,13 @@ public class FeaturesDrivenDistanceD {
 	}
 
 	public void preLoadPi(AbstractReasonerComponent reasoner,
-			AbstractConceptCache cache, OWLDataFactory factory,
+			AbstractConceptCache cache,
 			Set<Description> features, Set<Individual> individuals) {
 
 		System.out.printf("Pre-computing %d x %d pi elements \n",
 				features.size(), individuals.size());
 
-		computeProjections(reasoner, cache, factory, features, individuals);
+		computeProjections(reasoner, cache, features, individuals);
 
 	}
 

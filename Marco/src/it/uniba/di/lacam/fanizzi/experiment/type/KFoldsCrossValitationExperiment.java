@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.dllearner.core.owl.Individual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 public class KFoldsCrossValitationExperiment {
@@ -44,15 +45,15 @@ public class KFoldsCrossValitationExperiment {
 			}
 */
 			double lossCount = 0.0;
-			List<OWLNamedIndividual> trainingExs = new ArrayList<OWLNamedIndividual>();
-			Set<OWLNamedIndividual> testExs = new HashSet<OWLNamedIndividual>();
+			List<Individual> trainingExs = new ArrayList<Individual>();
+			Set<Individual> testExs = new HashSet<Individual>();
 			
-			Map<OWLNamedIndividual, Double> wMap = new HashMap<OWLNamedIndividual, Double>();
+			Map<Individual, Double> wMap = new HashMap<Individual, Double>();
 			
-			List<OWLNamedIndividual> black = new ArrayList<OWLNamedIndividual>(dati.getIndividuals());
+			List<Individual> black = new ArrayList<Individual>(dati.getIndividuals());
 			
 			int i = 0;
-			for (OWLNamedIndividual mio : black)
+			for (Individual mio : black)
 			{
 				if ((i >= f * foldCardinality) && (i < (f + 1) * foldCardinality))
 				{
@@ -99,7 +100,7 @@ public class KFoldsCrossValitationExperiment {
 			System.out.println("Testing is starting... ---------------------------------------------------------------------------------------+---+----+");
 			
 			int y = 1;
-			for (OWLNamedIndividual te : testExs)
+			for (Individual te : testExs)
 			{
 				
 				int inducedRank = kernel.rank(te, wMap, theta, nRatings);

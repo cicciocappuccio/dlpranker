@@ -2,12 +2,14 @@ package it.uniba.di.lacam.fanizzi;
 
 
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
+import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistanceD;
 import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
+import org.dllearner.core.owl.Individual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import com.google.common.collect.HashBasedTable;
@@ -15,24 +17,24 @@ import com.google.common.collect.Table;
 
 public class KernelMatrix {
 
-	private Table<OWLNamedIndividual,OWLNamedIndividual,Double> kernel;
+	private Table<Individual,Individual,Double> kernel;
 	
 	public KernelMatrix()
 	{
 		
 	}
 	
-	public Table<OWLNamedIndividual,OWLNamedIndividual,Double> createKernelMatrix(FeaturesDrivenDistance features)
+	public Table<Individual,Individual,Double> createKernelMatrix(FeaturesDrivenDistanceD features)
 	{
 		kernel = HashBasedTable.create();
 		
-		Set<OWLNamedIndividual> individui = features.getIndividuals();
-		Set<OWLNamedIndividual> toCheck = new HashSet<OWLNamedIndividual>(individui);
+		Set<Individual> individui = features.getIndividuals();
+		Set<Individual> toCheck = new HashSet<Individual>(individui);
 		
 		System.out.println("Computing kernel matrix");
-		for (OWLNamedIndividual i : individui)
+		for (Individual i : individui)
 		{
-			for (OWLNamedIndividual j : toCheck)
+			for (Individual j : toCheck)
 			{
 				Double kValue = 1 - features.sqrDistance(i, j);
 				//System.out.println(kValue + " - " + i + " - " + j);
@@ -47,7 +49,7 @@ public class KernelMatrix {
 		return kernel;
 	}
 	
-	public int rank(OWLNamedIndividual e, Map<OWLNamedIndividual, Double> wc, double[] thetac, int nRatings)
+	public int rank(Individual e, Map<Individual, Double> wc, double[] thetac, int nRatings)
 	{
 		
 		int ymin = nRatings-1;
@@ -55,7 +57,7 @@ public class KernelMatrix {
 		do {
 			--y;
 			double f = 0;
-			for (OWLNamedIndividual i : wc.keySet())
+			for (Individual i : wc.keySet())
 			{
 				f += wc.get(i) * kernel.get(i, e);
 			}

@@ -23,7 +23,7 @@ import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 public class OntologyModel {
 	
 	
-    private PelletReasoner reasoner;
+ //   private PelletReasoner reasoner;
     private OWLOntologyManager manager;
 	private OWLDataFactory dataFactory;
 	private OWLOntology ontology;
@@ -61,7 +61,7 @@ public class OntologyModel {
         
         dataFactory = manager.getOWLDataFactory();
         System.out.println("ONTOLOGY: " + ontology);     
-        reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
+ //       reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
 	}
 
 
@@ -72,11 +72,12 @@ public class OntologyModel {
 		return ontology;
 	}
 	
-	public PelletReasoner getReasoner()
-	{
+/*
+ 	public PelletReasoner getReasoner()
+ 	{
 		return reasoner;
 	}
-	
+*/	
 	public OWLOntologyManager getManager()
 	{
 		return manager;
@@ -88,23 +89,7 @@ public class OntologyModel {
 	}
 	
 	
-	/**
-	 * @deprecated
-	 */
-	public void killReasoner()
-	{
-		reasoner = null;
-		System.gc();
-	}
-	
-	/**
-	 * @deprecated
-	 */
-	public void reasonerRise()
-	{
-		killReasoner();
-		reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
-	}
+
 	// ------------------   F I N E     M E T O D I     G E T   ---------------------
 	// ------------------   M E T O D I     di     L E T T U R A        ---------------------
 	

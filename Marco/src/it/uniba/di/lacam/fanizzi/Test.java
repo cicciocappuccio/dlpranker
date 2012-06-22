@@ -4,15 +4,24 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
+import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistanceD;
 import it.uniba.di.lacam.fanizzi.utils.XMLStream;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
+import org.dllearner.core.AbstractReasonerComponent;
+import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
+import org.dllearner.kb.OWLFile;
+import org.dllearner.reasoning.OWLAPIReasoner;
 import org.dllearner.utilities.owl.OWLAPIDescriptionConvertVisitor;
 import org.semanticweb.owlapi.model.OWLClassExpression;
+
+import com.neuralnoise.cache.AbstractConceptCache;
+import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 
 public class Test {
 	
@@ -25,7 +34,11 @@ public class Test {
 		Locale.setDefault(Locale.US);
 		OntologyModel ontologyModel = new OntologyModel(urlOwlFile);
 		
-	
+		KnowledgeSource ks = new OWLFile(urlOwlFile);
+		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+		reasoner.init();
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
+
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		
 		ExperimentDataset dati = new ExperimentRatingW(ontologyModel);
@@ -44,16 +57,10 @@ public class Test {
 		
 		Set<Description> descriptionD = XMLStream.leggi();
 		
-		System.out.println(descriptionD);
-		Set<OWLClassExpression> featuresD = new HashSet<OWLClassExpression>();		
+	
+		FeaturesDrivenDistanceD featuresDD = new FeaturesDrivenDistanceD();
 		
-		
-		for (Description d : descriptionD)
-			featuresD.add(OWLAPIDescriptionConvertVisitor.getOWLClassExpression(d));
-		
-		FeaturesDrivenDistance featuresDD = new FeaturesDrivenDistance();
-		
-		featuresDD.preLoadPi(ontologyModel.getReasoner(), ontologyModel.getDataFactory(), featuresD, dati.getIndividuals());
+		featuresDD.preLoadPi(reasoner, cache, descriptionD, dati.getIndividuals());
 		
 		
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");

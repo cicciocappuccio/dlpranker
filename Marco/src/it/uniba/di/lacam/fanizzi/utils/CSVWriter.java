@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.Set;
 
+import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
@@ -12,27 +14,27 @@ import com.google.common.collect.Table;
 
 public class CSVWriter {
 
-	public static void write(String sFileName, Table<OWLNamedIndividual, OWLNamedIndividual, Double> tabella)
+	public static void write(String sFileName, Table<Individual, Individual, Double> tabella)
 	{
-		Map<OWLNamedIndividual, Map<OWLNamedIndividual, Double>> columnMap = tabella.columnMap();
-		Set<OWLNamedIndividual> keys = columnMap.keySet();
+		Map<Individual, Map<Individual, Double>> columnMap = tabella.columnMap();
+		Set<Individual> keys = columnMap.keySet();
 
 		try {
 			FileWriter writer = new FileWriter(sFileName);
 			writer.append("");
 			
-			for (OWLNamedIndividual hC : keys)
+			for (Individual hC : keys)
 			{
 				writer.append('\t');
 				writer.append(hC.toString());
 			}
 			writer.append('\n');
 			
-			for (OWLNamedIndividual hCi : keys) // righe
+			for (Individual hCi : keys) // righe
 			{
 				writer.append(hCi.toString());
 				writer.append('\t');
-				for (OWLNamedIndividual hCy : keys) //colonne
+				for (Individual hCy : keys) //colonne
 				{
 					writer.append( tabella.get(hCi, hCy).toString());
 					writer.append('\t');
@@ -51,30 +53,30 @@ public class CSVWriter {
 		}
 	}
 	
-	public static void write2(String sFileName, Table<OWLClassExpression, OWLNamedIndividual, Short> tabella)
+	public static void write2(String sFileName, Table<Description, Individual, Short> tabella)
 	{
 //		Map<OWLNamedIndividual, Map<OWLClassExpression, Short>> columnMap = tabella.columnMap();
 //		Set<OWLNamedIndividual> keys = columnMap.keySet();
 
-		Set<OWLClassExpression> keyRows = tabella.rowKeySet();
-		Set<OWLNamedIndividual> keyColumns = tabella.columnKeySet();
+		Set<Description> keyRows = tabella.rowKeySet();
+		Set<Individual> keyColumns = tabella.columnKeySet();
 		
 		try {
 			FileWriter writer = new FileWriter(sFileName);
 			writer.append("");
 			
-			for (OWLNamedIndividual hC : keyColumns)
+			for (Individual hC : keyColumns)
 			{
 				writer.append('\t');
 				writer.append(hC.toString());
 			}
 			writer.append('\n');
 			
-			for (OWLClassExpression hCi : keyRows) // righe
+			for (Description hCi : keyRows) // righe
 			{
 				writer.append(hCi.toString());
 				writer.append('\t');
-				for (OWLNamedIndividual hCy : keyColumns) //colonne
+				for (Individual hCy : keyColumns) //colonne
 				{
 					writer.append( tabella.get(hCi, hCy).toString());
 					writer.append('\t');

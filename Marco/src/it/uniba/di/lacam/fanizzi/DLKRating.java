@@ -5,6 +5,7 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import java.util.List;
 import java.util.Map;
 
+import org.dllearner.core.owl.Individual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 
@@ -14,7 +15,7 @@ public class DLKRating {
 	private static final double THRESHOLD = Math.pow(10, -8); //.1;
 
 	
-	public static void kernelPerceptronRank(ExperimentDataset dati, KernelMatrix kernel, List<OWLNamedIndividual> trainingExs, Map<OWLNamedIndividual, Double> alpha, double[] theta) {
+	public static void kernelPerceptronRank(ExperimentDataset dati, KernelMatrix kernel, List<Individual> trainingExs, Map<Individual, Double> alpha, double[] theta) {
 		
 //		System.out.println("kernelPerceptronRank(" + DebugUtils.toString(trainingExs) + ", " + DebugUtils.toString(ranks)
 //				+ ", " + DebugUtils.toString(alpha) + ", " + DebugUtils.toString(theta) + ", " + nRatings + ")");
@@ -26,9 +27,9 @@ public class DLKRating {
 		do {
 			oldAvgLoss = avgLoss;
 			avgLoss = 0.0;
-			for (OWLNamedIndividual t : trainingExs)
+			for (Individual t : trainingExs)
 			{
-				OWLNamedIndividual e = dati.getIndividual(t);
+				Individual e = dati.getIndividual(t);
 				
 				int yp = kernel.rank(e, alpha, theta, dati.maxRating());
 				int yt = dati.getRatingValue(t);
@@ -65,7 +66,7 @@ public class DLKRating {
 	 * @param alpha
 	 * @param theta
 	 */
-	public static void kernelPerceptronRankOL(ExperimentDataset dati, KernelMatrix kernel, List<OWLNamedIndividual> trainingExs, Map<OWLNamedIndividual, Double> alpha, double[] theta) {
+	public static void kernelPerceptronRankOL(ExperimentDataset dati, KernelMatrix kernel, List<Individual> trainingExs, Map<Individual, Double> alpha, double[] theta) {
 		
 //		System.out.println("kernelPerceptronRank(" + DebugUtils.toString(trainingExs) + ", " + DebugUtils.toString(ranks)
 //				+ ", " + DebugUtils.toString(alpha) + ", " + DebugUtils.toString(theta) + ", " + nRatings + ")");
@@ -73,9 +74,9 @@ public class DLKRating {
 		
 		theta[dati.maxRating()-1] = Double.MAX_VALUE;
 		
-		for (OWLNamedIndividual esempio : trainingExs)
+		for (Individual esempio : trainingExs)
 		{
-			OWLNamedIndividual e = dati.getIndividual(esempio);
+			Individual e = dati.getIndividual(esempio);
 			
 			int yp = kernel.rank(e, alpha, theta, dati.maxRating());
 			int yi = dati.getRatingValue(esempio);
