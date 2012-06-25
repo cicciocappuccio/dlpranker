@@ -27,7 +27,7 @@ public class BootstrapExperiment {
 		
 		
 	}
-
+/*
 	public void bootstrapExperiment(KernelMatrix kernel, ExperimentDataset dati, int nFolds) throws IOException
 	{
 		System.out.println("\n\n" + nFolds	+ "-fold BOOTSTRAP Experiment on ontology");
@@ -97,7 +97,7 @@ public class BootstrapExperiment {
 				
 				System.out.print("\n");
 			}
-/**/
+/*
 			System.out.println("\n\n -------------------------------------------------- Outcomes Fold #" + f);
 			System.out.printf("\n%10s %10s\n", "Q.#", "Loss");
 			foldLoss[f] = lossCount / (double) ntestExs[f];
@@ -116,5 +116,5 @@ public class BootstrapExperiment {
 		System.out.printf("%10s %10.2f\n", "avg loss", StatUtils.avg(foldLoss));
 		System.out.printf("%10s %10.2f\n", "avg std-dev", StatUtils.stdDeviation(foldLoss));
 	} // bootstrap
-
+*/
 }

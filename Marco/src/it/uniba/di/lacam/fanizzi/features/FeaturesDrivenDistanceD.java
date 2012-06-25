@@ -253,11 +253,11 @@ public class FeaturesDrivenDistanceD {
 			Description negfeature = new Negation(feature);
 
 			// System.out.println("Individuals: " + individuals.size());
-			Inference a = new Inference(cache, reasoner);
+//			Inference a = new Inference(cache, reasoner);
 			
 			for (Individual individual : individuals) {
 				
-				LogicValue b = a.cover(feature, individual);
+//				LogicValue b = a.cover(feature, individual);
 				
 				
 				if (reasoner.hasType(feature, individual)) {

@@ -8,12 +8,17 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 
+import org.dllearner.core.owl.Individual;
+import org.dllearner.utilities.owl.OWLAPIConverter;
 import org.semanticweb.owlapi.model.IRI;
 import org.semanticweb.owlapi.model.OWLAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotationProperty;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLIndividual;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
+
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
 
 import uk.ac.manchester.cs.owl.owlapi.OWLAnnotationPropertyImpl;
 import uk.ac.manchester.cs.owl.owlapi.OWLClassImpl;
@@ -34,6 +39,24 @@ public class ExperimentRating
 	private Set<OWLNamedIndividual> individuals;
 	
 	private int ratingMassimo;
+	
+	
+	public Table<Individual, Individual, Integer> createTable()
+	{
+		
+		Table<Individual, Individual, Integer> ret = HashBasedTable.create();
+		
+		for (OWLNamedIndividual i : ratingFilm.keySet())
+		{
+			ret.put(OWLAPIConverter.convertIndividual(i), OWLAPIConverter.convertIndividual(ratingFilm.get(i)), (Integer) getRatingValue(i));
+		}
+
+		return ret;
+		
+	}
+	
+	
+	
 	
 	/**
 	 * @param ontologyModel
@@ -75,7 +98,7 @@ public class ExperimentRating
 	{
 		System.out.println("rating");
 		
-		ratingFilm = new HashMap();
+		ratingFilm = new HashMap<OWLNamedIndividual, OWLNamedIndividual>();
 		individuals = new HashSet<OWLNamedIndividual>();
 		
 		int indexMatrix = 0;

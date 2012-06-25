@@ -1,24 +1,40 @@
 package it.uniba.di.lacam.fanizzi.experiment.dataset;
 
 import it.uniba.di.lacam.fanizzi.OntologyModel;
+import it.uniba.di.lacam.fanizzi.utils.XMLFilmRatingStream;
 
-import java.util.HashSet;
+import java.util.Collections;
 import java.util.Set;
 
 import org.dllearner.core.owl.Individual;
-import org.dllearner.utilities.owl.OWLAPIConverter;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
-public class ExperimentRatingW extends ExperimentRating implements ExperimentDataset {
+import com.google.common.collect.Table;
 
-	public ExperimentRatingW(OntologyModel ontologyModel) {
-		super(ontologyModel);
-		// TODO Auto-generated constructor stub
+
+public class ExperimentRatingW implements ExperimentDataset {
+
+	
+	private Table<Individual, Individual, Integer> ratings;							// rating, film, ratingValue,   row, column, cell
+
+	
+	public ExperimentRatingW(String urlOWLFile) {
+		Table<Individual, Individual, Integer> prov = XMLFilmRatingStream.leggi();
+		if (prov == null)
+		{
+			System.out.println("Lettura del file fallita, creazione di ExperimentRating e scrittura del file");
+			OntologyModel om = new OntologyModel(urlOWLFile);
+			ExperimentRating er = new ExperimentRating(om);
+			prov = er.createTable();
+			XMLFilmRatingStream.scrivi(prov);
+		}
+		else
+			System.out.println("Lettura del file avvenuta con successo");
+		ratings = prov;
 	}
 
 	public int maxRating()
 	{
-		return super.maxRating();
+		return Collections.max(ratings.values());
 	}
 
 	/**
@@ -28,57 +44,31 @@ public class ExperimentRatingW extends ExperimentRating implements ExperimentDat
 
 	public int getRatingValue (Individual rating)
 	{
-		OWLNamedIndividual ratingONI = (OWLNamedIndividual) OWLAPIConverter.getOWLAPIIndividual(rating); 
-				
-		return super.getRatingValue(ratingONI);
-		
+		return ratings.rowMap().get(rating).entrySet().iterator().next().getValue();
 	}
-	
 
 	public Individual getIndividual (Individual rating)
 	{
-		OWLNamedIndividual ratingONI = (OWLNamedIndividual) OWLAPIConverter.getOWLAPIIndividual(rating); 
-		
-		return OWLAPIConverter.convertIndividual(super.getIndividual(ratingONI));
+		return ratings.rowMap().get(rating).entrySet().iterator().next().getKey();
 	}
 	
 	public int size()
 	{
-		return super.size();
+		return ratings.size();
 	}
 
 	public Set<Individual> getIndividuals()
 	{
-		Set<Individual> individui = new HashSet<Individual>();
-		
-		for (OWLNamedIndividual i : super.getIndividuals(0))
-			individui.add(OWLAPIConverter.convertIndividual(i));
-		
-		return individui;
+		return ratings.columnKeySet();
 	}
-	
-	public Individual random()
-	{
-		return OWLAPIConverter.convertIndividual(super.random(0));
-	}
-	
+
 	public Set<Individual> getRatings()
 	{
-		Set<Individual> individui = new HashSet<Individual>();
-		
-		for (OWLNamedIndividual i : super.getRatings(0))
-			individui.add(OWLAPIConverter.convertIndividual(i));
-		
-		return individui;
+		return ratings.rowKeySet();
 	}
 	
 	public Set<Individual> getRatings(Individual individual)
 	{
-		Set<Individual> individui = new HashSet<Individual>();
-		
-		for (OWLNamedIndividual i : super.getRatings((OWLNamedIndividual)OWLAPIConverter.getOWLAPIIndividual(individual)))
-			individui.add(OWLAPIConverter.convertIndividual(i));
-		
-		return individui;
+		return ratings.columnMap().get(individual).keySet();
 	}
 }

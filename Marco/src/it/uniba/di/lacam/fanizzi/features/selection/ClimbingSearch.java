@@ -1,7 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.selection;
 
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
-import it.uniba.di.lacam.fanizzi.utils.XMLStream;
+import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -51,7 +51,7 @@ public class ClimbingSearch {
 					newConceptSet.addAll(conceptSet);
 					newConceptSet.add(refinement);
 					
-					XMLStream.scrivi(conceptSet);
+					XMLConceptStream.scrivi(conceptSet);
 					
 					double proposed = tScore.score(newConceptSet, individuals);
 

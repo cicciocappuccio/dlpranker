@@ -5,7 +5,7 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistanceD;
-import it.uniba.di.lacam.fanizzi.utils.XMLStream;
+import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -32,18 +32,13 @@ public class Test {
 		String urlOwlFile = "res/dataset2.rdf";
 
 		Locale.setDefault(Locale.US);
-		OntologyModel ontologyModel = new OntologyModel(urlOwlFile);
 		
-		KnowledgeSource ks = new OWLFile(urlOwlFile);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
-		reasoner.init();
-		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		
-		ExperimentDataset dati = new ExperimentRatingW(ontologyModel);
+		ExperimentDataset dati = new ExperimentRatingW(urlOwlFile);
 		System.out.println("Numero rating: " + dati.size());
-
+		
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		System.out.println("S E L E Z I O N E    F E A T U R E S");
 
@@ -54,15 +49,25 @@ public class Test {
 //		featuresD.addAll(FeaturesSelection.superClass(ontologyModel.getReasoner(), dati.getIndividuals()));
 
 		//Set<OWLClassExpression> featuresDS = ReasonerTest.rhoDRDownTest(urlOwlFile, featuresD);
+
+		KnowledgeSource ks = new OWLFile(urlOwlFile);
+		System.out.println("kb creato");
+		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
+		System.out.println("reasoner creato");
 		
-		Set<Description> descriptionD = XMLStream.leggi();
+		reasoner.init();
+		System.out.println("reasoner inizializzato");
+		AbstractConceptCache cache = null; //new AsynchronousHibernateConceptCache(urlOwlFile);
+		System.out.println("cache creata");
 		
+		
+		Set<Description> descriptionD = XMLConceptStream.leggi();
 	
 		FeaturesDrivenDistanceD featuresDD = new FeaturesDrivenDistanceD();
 		
 		featuresDD.preLoadPi(reasoner, cache, descriptionD, dati.getIndividuals());
 		
-		
+/*		
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 
 		// creazione matrice kernel
@@ -81,6 +86,6 @@ public class Test {
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
 		exp2.kfxvExperiment(kernel, dati, 10);
 
-/*/*		*/
+/*		*/
 	}
 }

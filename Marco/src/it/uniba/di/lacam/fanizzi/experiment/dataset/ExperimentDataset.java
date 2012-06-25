@@ -52,11 +52,6 @@ public interface ExperimentDataset {
 	 */
 //	public int indexIndividual(int indice);
 	
-	/**
-	 * @return return random rating
-	 */
-
-	public Individual random();
 	
 	/**
 	 * @return a set with all the ratings
