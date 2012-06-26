@@ -4,6 +4,9 @@ import it.uniba.di.lacam.fanizzi.OntologyModel;
 import it.uniba.di.lacam.fanizzi.utils.XMLFilmRatingStream;
 
 import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import org.dllearner.core.owl.Individual;
@@ -43,7 +46,7 @@ public class ExperimentRatingW implements ExperimentDataset {
 	 */
 
 	public int getRatingValue (Individual rating)
-	{
+	{	
 		return ratings.rowMap().get(rating).entrySet().iterator().next().getValue();
 	}
 

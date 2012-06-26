@@ -104,8 +104,8 @@ public class KFoldsCrossValitationExperiment {
 			{
 				
 				int inducedRank = kernel.rank(te, wMap, theta, nRatings);
-				System.out.printf( " %2d/%2d | %100s | %d | %d |\n", y++, testExs.size(), te, (inducedRank + 1), dati.getRatingValue(te) );
-				lossCount += Math.abs(inducedRank - dati.getRatingValue(te)) / (double) nRatings;
+				System.out.printf( " %2d/%2d | %100s | %d | %d |\n", y++, testExs.size(), te, (inducedRank + 1), -1 );
+				lossCount += Math.abs(inducedRank - 0) / (double) nRatings;
 			}
 			
 			System.out.println("-------+------------------------------------------------------------------------------------------------------+---+----+");

@@ -5,6 +5,7 @@ package it.uniba.di.lacam.fanizzi.features;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
+import it.uniba.di.lacam.fanizzi.utils.XMLPi;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -149,11 +150,9 @@ public class FeaturesDrivenDistanceD {
 		double acc = 0;
 		// System.out.println("pi.length: " + pi.length);
 
-		for (Description feature : pi.rowKeySet()) {
-			acc += Math.pow(
-					featuresWeight.get(feature)
-							* (pi.get(feature, ind1) - pi.get(feature, ind2)),
-					2);
+		for (Description feature : featuresWeight.keySet()) {
+			//System.out.println(feature + " " + featuresWeight.get(feature));
+			acc += Math.pow(featuresWeight.get(feature)	* (pi.get(feature, ind1) - pi.get(feature, ind2)), 2);
 		}
 		return (double) Math.sqrt(acc) / (2 * featuresWeight.size());
 	} // distance
@@ -178,99 +177,82 @@ public class FeaturesDrivenDistanceD {
 													// doppi in pi
 	} // distance
 
-	private void saveProjections(File oFile) {
+	private void saveProjections() {
 
-		Object[] a = new Object[2];
-
-		a[0] = pi;
-		a[1] = featuresWeight;
-
-		ObjectOutputStream oos;
 		try {
-			oos = new ObjectOutputStream(new FileOutputStream(oFile));
-			oos.writeObject(SerializeUtils.serialize(a));
-			oos.close();
+			XMLPi.scrivi(pi);
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
-	private void readProjections(File iFile) throws IOException {
-
-		ObjectInputStream ois;
+	private void readProjections() throws IOException {
 
 		try {
-			Object[] a = new Object[2];
-
-			ois = new ObjectInputStream(new FileInputStream(iFile));
-
-			a = (Object[]) SerializeUtils
-					.deserialize((String) ois.readObject());
-
-			pi = (Table<Description, Individual, Short>) a[0];
-			featuresWeight = (Map<Description, Double>) a[1];
-
-			ois.close();
+			pi = XMLPi.leggi();
 		} catch (FileNotFoundException e) {
 			System.err.println("to be loaded...");
+			int a = 1;
+			System.out.println();
 			throw e;
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (Throwable e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 
+	@SuppressWarnings("static-access")
 	public void computeProjections(
 			// why public???
-			AbstractReasonerComponent reasoner, AbstractConceptCache cache,	Set<Description> features, Set<Individual> individuals) {
+			AbstractReasonerComponent reasoner, AbstractConceptCache cache,
+			Set<Description> features, Set<Individual> individuals) {
 
 		pi = HashBasedTable.create();
-		featuresWeight = new HashMap<Description, Double>();
 
-		for (Description feature : features) {
-			double cell = 1.0 / (double) features.size();
-			featuresWeight.put(feature, cell);
-		}
-
+		
 		int fSet = 0;
 		for (Description feature : features) {
 			System.out.printf("%4d. %120s", fSet, feature);
 			// int featuresEntailed = 0;
+
+			Inference a = new Inference(cache, reasoner);
+
 			Description negfeature = new Negation(feature);
 
 			// System.out.println("Individuals: " + individuals.size());
-//			Inference a = new Inference(cache, reasoner);
-			
+
 			for (Individual individual : individuals) {
-				
-//				LogicValue b = a.cover(feature, individual);
-				
-				
-				if (reasoner.hasType(feature, individual)) {
-					pi.put(feature, individual, (short) 0);
-					// featuresEntailed++;
-					// System.out.print(pi[f][i]);
-				} else if (reasoner.hasType(negfeature, individual)) {
-					pi.put(feature, individual, (short) 2);
-					// featuresEntailed++;
-					// System.out.print(pi[f][i]);
+
+				if (cache == null) {
+					
+					//System.out.println(individual);
+					
+					if (reasoner.hasType(feature, individual)) {
+						pi.put(feature, individual, (short) 0);
+						// featuresEntailed++;
+						// System.out.print(pi[f][i]);
+					} else if (reasoner.hasType(negfeature, individual)) {
+						pi.put(feature, individual, (short) 2);
+						// featuresEntailed++;
+						// System.out.print(pi[f][i]);
+					} else {
+						pi.put(feature, individual, (short) 1);
+						// System.out.print(pi[f][i]);
+					}
+					
 				} else {
-					pi.put(feature, individual, (short) 1);
-					// System.out.print(pi[f][i]);
+					LogicValue b = a.cover(feature, individual);
+
+					if (b.compareTo(b.TRUE) == 0) {
+						pi.put(feature, individual, (short) 0);
+						// featuresEntailed++;
+						// System.out.print(pi[f][i]);
+					} else if (b.compareTo(b.FALSE) == 0) {
+						pi.put(feature, individual, (short) 2);
+						// featuresEntailed++;
+						// System.out.print(pi[f][i]);
+					} else {
+						pi.put(feature, individual, (short) 1);
+						// System.out.print(pi[f][i]);
+					}
 				}
 
 			}
@@ -288,18 +270,40 @@ public class FeaturesDrivenDistanceD {
 	}
 
 	public void preLoadPi(AbstractReasonerComponent reasoner,
-			AbstractConceptCache cache,
-			Set<Description> features, Set<Individual> individuals) {
+			AbstractConceptCache cache, Set<Description> features,
+			Set<Individual> individuals) {
 
 		System.out.printf("Pre-computing %d x %d pi elements \n",
 				features.size(), individuals.size());
 
-		computeProjections(reasoner, cache, features, individuals);
 
+
+		try {
+			readProjections();
+		} catch (FileNotFoundException e) {
+			computeProjections(reasoner, cache, features, individuals);
+			saveProjections();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		featuresWeight = new HashMap<Description, Double>();
+
+		for (Description feature : pi.rowKeySet()) {
+			featuresWeight.put(feature, 1.0 / (double) features.size() );
+			//System.out.println(cell);
+		}
+	
 	}
 
-	public Table<Description, Individual, Short> getPi() {
-		return pi;
+	public void printW()
+	{
+		for (Description i : featuresWeight.keySet())
+			System.out.println(i + " " + featuresWeight.get(i));
+		
+		for (Description i : pi.rowKeySet())
+			System.out.println(i);
 	}
-
+	
 } // class

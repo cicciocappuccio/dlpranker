@@ -29,7 +29,8 @@ public class Test {
 		
 		System.out.println("\nDL-KRatings");		
 		
-		String urlOwlFile = "res/dataset2.rdf";
+//		String urlOwlFile = "res/dataset2.rdf";
+		String urlOwlFile = "res/fragmentOntology10.owl";
 
 		Locale.setDefault(Locale.US);
 		
@@ -38,7 +39,7 @@ public class Test {
 		
 		ExperimentDataset dati = new ExperimentRatingW(urlOwlFile);
 		System.out.println("Numero rating: " + dati.size());
-		
+/*	*/		
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		System.out.println("S E L E Z I O N E    F E A T U R E S");
 
@@ -52,6 +53,7 @@ public class Test {
 
 		KnowledgeSource ks = new OWLFile(urlOwlFile);
 		System.out.println("kb creato");
+//		AbstractReasonerComponent reasoner = null; //new OWLAPIReasoner(Collections.singleton(ks));
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 		System.out.println("reasoner creato");
 		
@@ -67,9 +69,11 @@ public class Test {
 		
 		featuresDD.preLoadPi(reasoner, cache, descriptionD, dati.getIndividuals());
 		
-/*		
+		featuresDD.printW();
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
-
+		
+		
+		
 		// creazione matrice kernel
 
 		KernelMatrix kernel = new KernelMatrix();;
@@ -85,7 +89,7 @@ public class Test {
 		
 		KFoldsCrossValitationExperiment exp2 = new KFoldsCrossValitationExperiment();
 		exp2.kfxvExperiment(kernel, dati, 10);
-
+/*
 /*		*/
 	}
 }
