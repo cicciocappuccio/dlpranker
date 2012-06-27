@@ -41,16 +41,26 @@ public class AllPrimitivesExists {
 		AbstractConceptCache cache = null;
 		
 		Description start = Thing.instance;
-		Psi2DownWrapper op4 = new Psi2DownWrapper(reasoner);
+
 		
 		try {
 			reasoner.init();
 			cache = new AsynchronousHibernateConceptCache(file);
-			op4.init();
+			
 		} catch (ComponentInitException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Psi2DownWrapper op4 = new Psi2DownWrapper(reasoner);
+		
+		
+		try {
+			op4.init();
+		} catch (ComponentInitException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

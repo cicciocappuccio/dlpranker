@@ -14,7 +14,7 @@ public class Specialize {
 
 		Set<Description> childs = new HashSet<Description>();
 //
-		if (!(concept.toString().contains(" OR ") || concept.toString().contains(" AND ") || concept.toString().startsWith("(NOT ") || concept.toString().startsWith("BOTTOM")))
+		if (!(concept.toString().contains(" OR ") || concept.toString().contains(" AND ") || concept.toString().startsWith("BOTTOM") || concept.toString().endsWith("BOTTOM")))
 		{
 			childs = r.refine(concept, maxLength);
 		}
