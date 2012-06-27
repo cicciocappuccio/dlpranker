@@ -60,7 +60,7 @@ public class ClimbingSearchTest {
 		GreedyForward pioniere = new GreedyForward(cache, reasoner, r,
 				maxLength);
 
-		Set<Description> risultato = pioniere.estrazione(Thing.instance, films,
+		Set<Description> risultato = pioniere.estrazione(Thing.instance, _films,
 				tScore);
 
 		for (Description j : risultato)

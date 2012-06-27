@@ -9,7 +9,7 @@ import com.google.common.collect.Table;
 
 public class BatchKernelPerceptronRanker<T> {
 	
-	static final double THRESHOLD = .1;
+	static final double THRESHOLD = .5;
 	
 	private Map<T, Double> alpha;
 	private double[] b;
@@ -31,7 +31,7 @@ public class BatchKernelPerceptronRanker<T> {
 	}
 	
 	
-	private void kernelPerceptronRank(List<ObjectRank<T>> stream) {
+	public void kernelPerceptronRank(List<ObjectRank<T>> stream) {
 		
 		double avgLoss = 0;
 		do
@@ -40,7 +40,7 @@ public class BatchKernelPerceptronRanker<T> {
 			
 			for(int i = 0; i < stream.size(); i++)
 			{
-				int ySegnato = rank(stream.get(i).getObject());
+				int ySegnato = rank2(stream.get(i).getObject());
 				if (ySegnato != stream.get(i).getRank())
 				{
 					avgLoss += Math.abs(stream.get(i).getRank() - ySegnato);
@@ -55,7 +55,7 @@ public class BatchKernelPerceptronRanker<T> {
 		}while(avgLoss>THRESHOLD);
 	}
 	
-	private int rank(T t)
+	public int rank(T t)
 	{
 		int ymin = b.length - 1;
 		int y = b.length - 1;
@@ -72,7 +72,19 @@ public class BatchKernelPerceptronRanker<T> {
 		return ymin;
 	}
 	
-	
+	public int rank2(T object) {
+		double sum = 0.0;
+		for (T o : this.alpha.keySet()) {
+			sum += (this.alpha.get(o) * this.K.get(object, o));
+		}
+		int ret = 0;
+		while (b[ret] <= sum) {
+			ret++;
+		}
+		ret++;
+		//System.out.println("sum is: " + sum + " and b is: " + DebugUtils.toString(b) + ",  returning " + ret);
+		return ret;
+	}
 
 
 }

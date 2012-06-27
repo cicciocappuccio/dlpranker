@@ -66,7 +66,7 @@ public class Test {
 		System.out.println("cache creata");
 		
 		
-		Set<Description> descriptionD = XMLConceptStream.leggi();
+		Set<Description> descriptionD = XMLConceptStream.leggi(1);
 	
 		FeaturesDrivenDistanceD featuresDD = new FeaturesDrivenDistanceD();
 		

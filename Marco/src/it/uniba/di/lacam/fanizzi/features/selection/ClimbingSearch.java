@@ -51,7 +51,7 @@ public class ClimbingSearch {
 					newConceptSet.addAll(conceptSet);
 					newConceptSet.add(refinement);
 					
-					XMLConceptStream.scrivi(conceptSet);
+					XMLConceptStream.scrivi(conceptSet, 1);
 					
 					double proposed = tScore.score(newConceptSet, individuals);
 
