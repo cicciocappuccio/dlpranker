@@ -63,4 +63,16 @@ public interface ExperimentDataset {
 	 * @return insieme di rating appartenenti al film
 	 */
 	public Set<Individual> getRatings(Individual individual);
+	
+	/**
+	 * @param individual film di cui si vuole conoscere la moda dei rating
+	 * @return moda
+	 */
+	public int getRatingMode(Individual individual);
+	
+	/**
+	 * @param individual film di cui si vuole conoscere la media dei rating
+	 * @return media
+	 */
+	public double getAVGRating(Individual individual);
 }

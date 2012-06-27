@@ -3,12 +3,14 @@ package it.uniba.di.lacam.fanizzi.experiment.dataset;
 import it.uniba.di.lacam.fanizzi.OntologyModel;
 import it.uniba.di.lacam.fanizzi.utils.XMLFilmRatingStream;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.apache.commons.math.stat.StatUtils;
 import org.dllearner.core.owl.Individual;
 
 import com.google.common.collect.Table;
@@ -74,4 +76,40 @@ public class ExperimentRatingW implements ExperimentDataset {
 	{
 		return ratings.columnMap().get(individual).keySet();
 	}
+	
+	public double getAVGRating(Individual individual)
+	{
+		Set<Individual> ratings = getRatings(individual);
+		
+		double sum = 0;
+		
+		for (Individual i : ratings)
+			sum += getRatingValue(i);
+		
+		return sum/ratings.size();
+	}
+	
+	
+	public int getRatingMode(Individual individual)
+	{
+		Set<Individual> ratings = getRatings(individual);
+		
+		int[] modeV = new int[5];
+		Arrays.fill(modeV,0);
+		
+		for (Individual i : ratings)
+			modeV[getRatingValue(i) - 1]++;
+		
+		int max = -1;
+		int maxI = -1;
+		for (int i = 0; i < 5; i++)
+			if (modeV[i] > max)
+			{
+				max = modeV[i];
+				maxI = i;
+			}
+				
+		return maxI + 1;
+	}
+	
 }

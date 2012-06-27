@@ -83,9 +83,11 @@ public class KFoldsCrossValitationExperiment {
 			//System.out.println();
 			
 			DLKRating.kernelPerceptronRank(dati, kernel, trainingExs, wMap, theta);
-			/*			for (int t = 0; t < 5; t++)
-				System.out.printf(t + "(" + theta[t] + ") - ");*/
+/*						for (int t = 0; t < 5; t++)
+				System.out.printf(t + "(" + theta[t] + ") - ");
 
+*
+*/
 //			System.out.printf("\nmodel induced \n\n");
 
 			System.out.println("                                               ...end of Training.");
@@ -97,18 +99,18 @@ public class KFoldsCrossValitationExperiment {
 			System.out.println("#################### ending wc empty test");
 */			
 			
-			System.out.println("Testing is starting... ---------------------------------------------------------------------------------------+---+----+");
+			System.out.println("Testing is starting... ---------------------------------------------------------------------------------------+---+---+");
 			
 			int y = 1;
 			for (Individual te : testExs)
 			{
 				
-				int inducedRank = kernel.rank(te, wMap, theta, nRatings);
-				System.out.printf( " %2d/%2d | %100s | %d | %d |\n", y++, testExs.size(), te, (inducedRank + 1), -1 );
-				lossCount += Math.abs(inducedRank - 0) / (double) nRatings;
+				int inducedRank = kernel.rank2(te, wMap, theta, nRatings);
+				System.out.printf( " %2d/%2d | %100s | %d | %d | %f |\n", y++, testExs.size(), te, (inducedRank + 1), dati.getRatingMode(te), dati.getAVGRating(te));
+				lossCount += Math.abs(inducedRank - dati.getRatingMode(te)) / (double) nRatings;
 			}
 			
-			System.out.println("-------+------------------------------------------------------------------------------------------------------+---+----+");
+			System.out.println("-------+------------------------------------------------------------------------------------------------------+---+---+");
 			System.out.printf("\n%10s %10s\n", "Q.#", "Loss");
 			foldLoss[f] = lossCount / (double) foldCardinality;
 			System.out.printf(" %10f\n", foldLoss[f]);

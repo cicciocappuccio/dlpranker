@@ -12,7 +12,7 @@ import org.semanticweb.owlapi.model.OWLNamedIndividual;
 public class DLKRating {
 
 
-	private static final double THRESHOLD = Math.pow(10, -8); //.1;
+	private static final double THRESHOLD = Math.pow(10, -1); //.1;
 
 	
 	public static void kernelPerceptronRank(ExperimentDataset dati, KernelMatrix kernel, List<Individual> trainingExs, Map<Individual, Double> alpha, double[] theta) {
@@ -31,7 +31,7 @@ public class DLKRating {
 			{
 				Individual e = dati.getIndividual(t);
 				
-				int yp = kernel.rank(e, alpha, theta, dati.maxRating());
+				int yp = kernel.rank2(e, alpha, theta, dati.maxRating());
 				int yt = dati.getRatingValue(t);
 				
 //				System.out.println("yp: " + yp + ", yt: " + yt);
@@ -50,7 +50,11 @@ public class DLKRating {
 			avgLoss /= (double)trainingExs.size();
 			System.out.println("avgLoss: " + avgLoss + "                                 " + (avgLoss > THRESHOLD) );
 		//} while (avgLoss > THRESHOLD);
+			for (int t = 0; t < 5; t++)
+				System.out.printf(t + "(" + theta[t] + ") - ");
 		} while ((oldAvgLoss - avgLoss) > THRESHOLD);
+		
+		
 		
 	}
 	

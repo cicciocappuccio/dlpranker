@@ -68,6 +68,30 @@ public class KernelMatrix {
 		return ymin;
 	}
 	
+	
+	
+	
+	
+	public int rank2(Individual e, Map<Individual, Double> wc, double[] thetac, int nRatings)
+	{
+		
+		double sum = 0.0;
+		for (Individual i : wc.keySet()) {
+			sum += (wc.get(i) * kernel.get(i, e));
+		}
+		int ret = 0;
+		while (thetac[ret] <= sum) {
+			ret++;
+		}
+		ret++;
+		//System.out.println("sum is: " + sum + " and b is: " + DebugUtils.toString(b) + ",  returning " + ret);
+		return ret;
+	}
+	
+	
+	
+	
+	
 	public void CSVPrint ()
 	{
 		CSVWriter.write("res/kernelMatrix.txt", kernel);

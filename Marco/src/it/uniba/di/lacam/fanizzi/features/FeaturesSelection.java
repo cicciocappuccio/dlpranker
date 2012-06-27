@@ -1,8 +1,13 @@
 package it.uniba.di.lacam.fanizzi.features;
 
+import it.uniba.di.lacam.fanizzi.OntologyModel;
+
 import java.util.HashSet;
 import java.util.Set;
 
+import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
+import org.dllearner.utilities.owl.OWLAPIConverter;
 import org.semanticweb.owlapi.model.OWLClass;
 import org.semanticweb.owlapi.model.OWLClassExpression;
 import org.semanticweb.owlapi.model.OWLNamedIndividual;
@@ -133,4 +138,33 @@ public class FeaturesSelection
 		
 	}
 	
+	
+	
+	
+	public static Set<Description> subSuperClass(String urlFile, Set<Individual> individui)
+	{
+		
+		OntologyModel om = new OntologyModel(urlFile);
+		
+		
+		Set<OWLNamedIndividual> owI = new HashSet<OWLNamedIndividual>();
+		
+		for (Individual i : individui)
+			owI.add(OWLAPIConverter.getOWLAPIIndividual(i).asOWLNamedIndividual());
+		
+		Set<OWLClassExpression> tutto = new HashSet<OWLClassExpression>();
+		
+		tutto.addAll(superClass(om.getReasoner(),owI));
+		tutto.addAll(subClass(om.getReasoner(),owI));
+		
+		Set<Description> tutti = new HashSet<Description>();
+		
+		for (OWLClassExpression i : tutto)
+			tutti.add(OWLAPIConverter.convertClass(i.asOWLClass()));
+		
+		
+		
+		return tutti;
+		
+	}
 }

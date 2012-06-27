@@ -5,6 +5,7 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistanceD;
+import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
 import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
 
 import java.util.Collections;
@@ -15,6 +16,7 @@ import java.util.Set;
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
 import org.dllearner.utilities.owl.OWLAPIDescriptionConvertVisitor;
@@ -44,7 +46,8 @@ public class Test {
 		System.out.println("S E L E Z I O N E    F E A T U R E S");
 
 		
-//		OWLClass film = new OWLClassImpl(ontologyModel.getDataFactory(), IRI.create("http://dbpedia.org/ontology/Film"));
+		//Set<Description> descriptionD = FeaturesSelection.subSuperClass(urlOwlFile, dati.getIndividuals());
+		
 		
 //		featuresD = FeaturesSelection.subClass(ontologyModel.getReasoner(), dati.getIndividuals());
 //		featuresD.addAll(FeaturesSelection.superClass(ontologyModel.getReasoner(), dati.getIndividuals()));
@@ -69,7 +72,8 @@ public class Test {
 		
 		featuresDD.preLoadPi(reasoner, cache, descriptionD, dati.getIndividuals());
 		
-		featuresDD.printW();
+			
+		//featuresDD.printW();
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<");
 		
 		

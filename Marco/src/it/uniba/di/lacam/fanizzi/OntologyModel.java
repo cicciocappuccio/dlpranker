@@ -23,7 +23,7 @@ import com.clarkparsia.pellet.owlapiv3.PelletReasonerFactory;
 public class OntologyModel {
 	
 	
- //   private PelletReasoner reasoner;
+    private PelletReasoner reasoner;
     private OWLOntologyManager manager;
 	private OWLDataFactory dataFactory;
 	private OWLOntology ontology;
@@ -61,7 +61,7 @@ public class OntologyModel {
         
         dataFactory = manager.getOWLDataFactory();
         System.out.println("ONTOLOGY: " + ontology);     
- //       reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
+        reasoner = PelletReasonerFactory.getInstance().createReasoner(ontology);
 	}
 
 
@@ -72,12 +72,12 @@ public class OntologyModel {
 		return ontology;
 	}
 	
-/*
+
  	public PelletReasoner getReasoner()
  	{
 		return reasoner;
 	}
-*/	
+	
 	public OWLOntologyManager getManager()
 	{
 		return manager;

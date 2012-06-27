@@ -69,9 +69,10 @@ public class FeaturesDrivenDistanceD {
 		this.pi = pi;
 	}
 
-	public void computeFeatureEntropies(AbstractReasonerComponent reasoner,
-			OWLDataFactory df) {
-
+	public void computeFeatureEntropies(AbstractReasonerComponent reasoner) {
+		
+		
+		System.out.println("entropy calc");
 		int numIndA = pi.columnKeySet().size();
 		double sum = 0;
 
@@ -110,7 +111,10 @@ public class FeaturesDrivenDistanceD {
 		}
 
 		for (Description feature : pi.rowKeySet())
+		{
 			featuresWeight.put(feature, featuresWeight.get(feature) / sum);
+			System.out.println(featuresWeight.get(feature));
+		}
 	}
 
 	public void computeFeatureVariance(PelletReasoner reasoner,
