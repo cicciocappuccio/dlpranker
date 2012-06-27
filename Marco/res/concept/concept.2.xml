@@ -1,0 +1,3152 @@
+<set>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MafiaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/YagoGeoEntity</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SuBmarineFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnTheWorksOfMarkTwain</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTedKotcheff</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Merchant-IvoryFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1985Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PsychologicalFeature100023100</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestSupportingActressGoldenGlobeWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1950sDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FeaturesBasedOnShortFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWesCraven</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NaturalDepression109366017</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnRichardMathesonWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1984Soundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1950sAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SpirituAlBeing109504135</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmRemakes</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1940Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1964Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ZombieFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960sScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HighlanderFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Imagination105625465</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1975Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TheMatrixAlbums</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SamuraiFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GhostFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnthologyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByFredSchepisi</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Museum103800563</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalVampires</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestSupportingActressAcademyAwardWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByOliverStone</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BasketballFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnMysteryNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PortuguEse-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByBarryLevinson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnFantasyNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRogerVadim</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/EpicFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Content105809192</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1945Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1998Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPaulW.S.Anderson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanActionThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByBillDuke</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Western%28genre%29ComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGeorgeCukor</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BelgianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutFilmDirectorsAndProduCErs</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Ape102470325</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanPoliticalDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPhillipNoyce</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MarioBros.DerivativeWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanComedy-dramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CausalAgent100007347</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanPoliticalSatireFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Musical107019172</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AlbumsRecordedAtAbbeyRoadStuDios</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanCriminalComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnTelevisionSeries</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WerewolvesInFilmAndTelevision</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutPirateRadio</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1961Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Recording104063868</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MusicalFilmsBasedOnActuAlEvents</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://umbel.org/umbel/rc/Movie_CW</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BuDDyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ChaseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PinewoodFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TimeTravelFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanAnimatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnRobertLouisStevensonWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnNon-fictionBooks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SatiricalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAndrewBergman</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ChristmasFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Creativity105624700</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutRadioPeople</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Event100029378</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRidleyScott</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/EndProduCt103287178</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRussellMulcahy</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanMusicalDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1930sMusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TruECrimeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Fictional-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SequElFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByVictorSaville</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Illusion105939636</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ActionComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HoodFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGaryFleder</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Aramaic-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960sAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MartialArtsTournamentFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960sMusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TragedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sActionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980sScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanMusicalComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Vietnamese-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1992Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TaiwaneseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GeffenFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMikaelSalomon</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WarAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnChildren%27sBooks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sMusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Movie106613686</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanTeenFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByLawrenceKasdan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/VideoGamesBasedOnFilmsDirectedByOliverStone</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://schema.org/Movie</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanSatiricalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MaleSibling110286084</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Occultist110370381</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Kinsman110236946</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByDavidLean</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByClintEastwood</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJamesL.Brooks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/EvilSpirit109541919</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TeenFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanTeenRomanceFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Even-toedUngulate102394477</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Theory105989479</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ItalianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutApes</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestActorAcademyAwardWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRichardBrooks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ParamountFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WarFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnDCComics</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmSoundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Representation105926676</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByBrettLeonard</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnNorseMythology</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980sRomanceFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/3-DFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1981Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1970sComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByQuEntinTarantino</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/IconProduCtionsFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MysteryFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1937Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnLandis</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJimSheridan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJoeDante</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnThrillerNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Comedy-dramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Feature105849789</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnDuigan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980sDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsWithLiveActionAndAnimation</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPaulThomasAnderson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PregnancyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/OperaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPeterHyams</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980sThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GothFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/EroticThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTerryZwigoff</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Depository103177349</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalGhosts</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DinosaurFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Facility103315023</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Mandarin-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HipHopFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SpeciesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.Thing>
+    <children class="linked-list"/>
+  </org.dllearner.core.owl.Thing>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NaturalHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanBiographicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/French-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PhysicalEntity100001930</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutCats</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/KillingField108690479</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/LivingThing100004258</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJonathanKaplan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BelgianLGBT-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HolocaustFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Animal100015388</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1998Soundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DoomsdayFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanSpyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Abstraction100002137</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1940sHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CanadianFilmSoundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.Nothing>
+    <children class="linked-list"/>
+  </org.dllearner.core.owl.Nothing>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1970sRomanticComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WorksByRobertBolt</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sWesternFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/EnvironmentalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAnthonyMinghella</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WarnerBros.Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1950Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutMutinies</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJonAvnet</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutDragons</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Organism100004475</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/StreetFighterFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MetafictionalWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutClassicalMusicAndMusicians</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestDramaActorGoldenGlobeWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FoxSearchlightFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NationalBasketballAssociationFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1930sRomanticComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Act100030358</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanLegalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAlanSmithee</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Arabic-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByStuArtBaird</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GracieFilmsProduCtions</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SuperheroComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanTragedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGregoryNava</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmblinEntertainmentFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMikeNewell</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnGreco-RomanMythology</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FrenchComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByNickCassavetes</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TheTrouBles%28NorthernIreland%29Media</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMichaelApted</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RomanticEpicFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SoundRecording104262678</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutJournalists</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutFilmmaking</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWalterHill</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BiographicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PsychologicalThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutDysfunctionalFamilies</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MexicanFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutInsects</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Script107009946</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Cognition100023271</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMichaelCurtiz</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MexicanHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Self-reflexiveFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJodieFoster</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DetectiveFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPeterJackson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1950sRomanticComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnMichaelCrichton%27sBooks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NonlinearNarrativeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingAnthropomorphicCharacters</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MexicanAmericanFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CaravanPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CrimeDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GamblingFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PoliceDetectiveFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutOrganizedCrimeInTheUnitedStates</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1994Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanFantasy-comedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1970sScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/IndependentFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NewZealandFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1930sAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Remake104074329</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Vertebrate101471682</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SportsFilmsBasedOnActuAlEvents</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CourtroomDramas</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Monster109491966</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanActionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TouChstonePicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960sHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/LegalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ABandApartProduCtions</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1979Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanSexComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TheKillingFields</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/UnitedArtistsFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MuseumsInPopularCulture</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByDannyBoyle</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1965Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/OrionPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnPlays</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CinergiFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MorganCreekFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Alien%28franchise%29Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanParodyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Computer-animatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SpanishCivilWarMedia</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ProduCt104007894</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByActors</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SuperheroFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanLGBT-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/JadranFilmFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Object100002684</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SupernaturalHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnimatedFeaturesReleasedByColumbiaPictures</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HauntedHouseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WrittenCommunication106349220</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGarryMarshall</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Apparition105897553</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SwashbuCklerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Kennedy/MarshallFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HorrorFilmsBySeries</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJoeJohnston</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutActors</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnWorksByJohnGrisham</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJerryLewis</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutOrphans</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByFrankMarshall</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MickeyMouseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRichardAttenborough</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MythicalBeing109484664</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutTelevision</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SelenaVideoAlbums</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Werewolf109503121</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalWitches</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTaylorHackford</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Coming-of-ageFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1935Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnVideoGames</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1996Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalApes</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByDonChaffey</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Soundtrack104262969</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Actor109765278</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TriStarFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJimAbrahams</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByNeilJordan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PrisonFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RobotFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanRomanticDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MalpasoFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnBiographies</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Screenplay107012279</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Computer103082979</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalCharacter109587565</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestMusicalOrComedyActressGoldenGlobeWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FrenchScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Mammal101861778</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Location100027167</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CatholicFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGeorgeStevens</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedBySamWood</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1940sWarFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RKOFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGregoryHoblit</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/VampiresInFilmAndTelevision</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWilliamKeighley</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1940sDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DisneyAnimatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HistoricalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BisexuAlity-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1930sComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WorldWarIFilmsBasedOnActuAlEvents</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanChildren%27sFantasyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWesAnderson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWolfgangPetersen</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CanadianDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FemaleBuDDyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnElmoreLeonardNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Communication100033020</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAlfredHitchcock</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Ability105616246</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestSupportingActorGoldenGlobeWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Game100430606</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Tract108673395</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanRomanticComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ReligiousHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWoodyAllen</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SpeechAct107160883</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutNuClearWarAndWeapons</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTerryGeorge</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WorldWarIIFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/UnderwaterActionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1943Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WingNutFilmsProduCtions</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BalletFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MythicalMonster109492123</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SilverPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Andr%C3%A9PrevinAlbums</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnTheWorksOfRobertA.Heinlein</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutMusicAndMusicians</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GermanFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960sDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WorkingTitleFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1947Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Vampire109544109</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1962Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RobinHoodFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SonyPicturesAnimationFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnFrenchComics</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CanadianScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnHorrorNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Device103183080</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutTheIrishRepuBlicanArmy</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsProduCEDByJamesL.Brooks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GangFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanLegalDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutSnakes</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScienceFictionFilmCharacters</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DirectorialDebutFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1970sMusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DocumentariesAboutVisuAlArtists</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanTeenDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMikeLeigh</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PirateFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Whole100003553</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanComing-of-ageFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PortuguEseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GoldcrestFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanWarDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutWriters</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Medical-themedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedBySpikeLee</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByEdwardDmytryk</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAkiraKurosawa</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MGMFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Medium106254669</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByFrankOz</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AustralianComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DonSimpsonFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnSingleton</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByHaroldBecker</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWilliamDear</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ColumbiaPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGuillermoDelToro</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GeographicalArea108574314</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScienceFictionActionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/YagoLegalActorGeo</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ParodyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sCrimeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CarolcoFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByArneGlimcher</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PunkFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestMusicalOrComedyActorGoldenGlobeWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnErnestHemingwayWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FantasyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Lesbian-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanPoliticalThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/UniversalPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnActuAlEvents</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedBySallyPotter</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnTheWorksOfH.G.Wells</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTsaiMing-liang</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Black-and-whiteFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AustralianDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AlienVisitationFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanBaseballFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/IrishFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByHalHartley</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ComedyHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SupernaturalThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DocumentariesAboutComics</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1982Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDistributedByBuEnaVistaInternational</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScottishFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1999Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsInvolvingAmputees</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMartinScorsese</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnComics</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://schema.org/CreativeWork</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJean-JacquEsBeineix</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BlackComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1940sThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Japanese-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Egyptian-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FrenchFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGaryOldman</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutAnimals</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MexicanThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJean-LuCGodard</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AfricanAmericanFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Disagreement107180787</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Polish-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ProduCtion107006951</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanCrimeThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByTrumanCapote</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Hole109304750</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Brother109876454</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WarRomanceFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/English-languAgeIndianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Dispute107181935</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ObscenityControversies</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanSignLanguAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Spirit109545324</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RyanverseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PeriodFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Machine103699975</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutTelepresence</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1960sComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGeraldPotterton</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ShermanBrothers</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CanadianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SerialKillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1989Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1970sHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Dutch-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WarEpicFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ColdWarFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanComedyScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MadScientistFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CrimeThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MartialArtsFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Ungulate102370806</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsWithACapitalPunishmentTheme</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Fantasy-comedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJeannotSzwarc</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJimJarmusch</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WitchesInFilmAndTelevision</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Instrumentality103575240</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1995Soundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1968Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Show106619065</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Thinking105770926</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanBasketballFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/StuDioCanalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Latin-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WorldWarIFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanRomanticFantasyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CanadianAnimatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByStevenSoderbergh</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByKenAnnakin</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AviationFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TruCkerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sRomanticComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRandalKleiser</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestSupportingActorAcademyAwardWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Children%27sFantasyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/EroticFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1971Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HollywoodPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Writing106362953</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1963Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SpaceAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanSportsComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Concept105835747</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRogerDonaldson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AdventureComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMarkSandrich</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RomanticPeriodFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDepictingLatinAmericanMilitaryDictatorships</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnCassavetes</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Drug-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/JidaigekiFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DavisEntertainmentFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByLarryClark</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByQuEntinTarantino</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestActressAcademyAwardWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByNicolasRoeg</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAtomEgoyan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CountryMusicFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SurrealistFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MusicalFantasyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Idea105833840</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDistributedByMadmanFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByRichardMatheson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/2006Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/YagoLegalActor</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1997Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AdventureDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedBySteveMiner</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJerryZuCker</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishLGBT-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnimatedComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRobReiner</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRobertMulligan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutScreenwriters</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalCharactersWithMultiplePersonalities</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJamesIvory</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Explanation105793000</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnUrbanLegends</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnRomanceNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnScienceFictionNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/40Acres&amp;AMuleFilmworksFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Enchantress110055297</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ImpactEventsInFiction</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByBillyWilder</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Hog102395406</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1942Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutPsychiatry</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRobertWise</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Primate102469914</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMilo%C5%A1Forman</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnShortFiction</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanScienceFictionActionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ConspiracyTheories</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ComputersInFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PederasticFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/VictorianEraFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1978Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DystopianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SlasherFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTimBurton</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WormholesInFiction</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanDisasterFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTonyScott</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Italian-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/GeologicalFormation109287968</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1986Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MemoryDevice103744840</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRichardBenjamin</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AustralianMusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPaulAuster</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CyberpunkFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MTVFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishEmpireWarFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanCrimeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CrimeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Presentation106891022</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPaulMazursky</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnWorksByTomClancy</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Entity100001740</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByStephenHopkins</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanRockMusicals</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/ontology/Work</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ParallelUniversesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByStephenFrears</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DramaticComposition107007684</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MiramaxFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Live-actionFilmsBasedOnCartoons</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TechNoirFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanFantasyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Race-relatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Region108630985</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CastleRockEntertainmentFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ComputerGame100458890</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NewLineCinemaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByFraserClarkeHeston</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1977Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutAlcoholism</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByWilliamGoldman</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanScrewballComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1993Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/JapaneseFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HigherCognitiveProcess105770664</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishCrimeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Documentary106616806</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRolandEmmerich</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnimatedFeaturesReleasedByWarnerBros.</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByRowanAtkinson</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Property105849040</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnHuston</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Relative110235549</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ComedyThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanPoliticalComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnimatedFeaturesReleasedByUniversalPictures</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Display106887726</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutPresidentsOfTheUnitedStates</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AustralianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnBadham</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Stop-motionAnimatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BaseballFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalPigs</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnHenryJamesWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Irish-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Entertainer109616922</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutSuicide</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HorizonPicturesFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/English-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1970sAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/20thCenturyFoxFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanScienceFictionHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Children%27sFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByIvanReitman</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Site108651247</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1995Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SexComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/HeistFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Appearance105939432</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Spanish-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByNormanTokar</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJackClayton</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByScottHicks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/WorksDerivedFromP.G.Wodehouse</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Ghost105898171</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ActionHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Album106591815</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1950sRomanceFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Person100007846</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/By-produCt102930492</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Controversy107183151</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Wormhole109481036</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByWayneWang</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PackageFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAlanJ.Pakula</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanTeenComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1986Soundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnStephenKing%27sWorks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPhilipKauFman</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/ontology/Film</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Creation103129123</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Performer110415638</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FeministFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByRichardCurtis</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByGeorgeP.Cosmatos</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Oeuvre103841417</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRichardDonner</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanBlackComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FrenchThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AlternateHistoryFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Belief105941423</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Chordate101466257</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RomanticDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PoliticalDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanCrimeDramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsProduCEDByStevenSpielberg</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanComedyThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Activity100407535</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByVolkerSchl%C3%B6ndorff</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutDogs</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DanishFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980sComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByAlanRuDolph</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/PoliticalThrillerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsFeaturingABestDramaActressGoldenGlobeWinningPerformance</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Gaelic-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByHaroldRamis</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByRolandJoff%C3%A9</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/JerryBruCkheimerFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJeferyLevy</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Artifact100021939</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1984Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Play107018931</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanAdventureComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Khmer-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/UnitedStatesNationalFilmRegistryFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/CriminalComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Diversion100426928</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DisneyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1980sHorrorFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsAboutElections</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AmericanRomanticMusicalFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByStanleyKuBrick</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ActorsWhoPlayThemselves</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJohnMcTiernan</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1990sComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ElliotGoldenthalSoundtracks</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FantasyAdventureFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1958Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/NationalLampoonFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/RegencyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Process105701363</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/VietnamWarFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Placental101886756</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnDarkHorseComics</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1973Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/MortalKombatFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByNoraEphron</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/DramaFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/BritishIndianFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FemaleSportsFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnimatedFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ComedyScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByPaulVerhoeven</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMikeFiggis</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FictionalPopulatedPlaces</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Play107007945</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/German-languAgeFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnMusicals</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmSpin-offs</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/SocialEvent107288639</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsBasedOnMilitaryNovels</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/1938Films</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/AnimatedScienceFictionFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ImaginaryBeing109483738</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByTheCoenBrothers</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/Swine102395003</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByJonathanDemme</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/FilmsDirectedByMelSmith</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/ScreenplaysByHortonFoote</name>
+  </org.dllearner.core.owl.NamedClass>
+  <org.dllearner.core.owl.NamedClass>
+    <children class="linked-list"/>
+    <name>http://dbpedia.org/class/yago/TeenComedyFilms</name>
+  </org.dllearner.core.owl.NamedClass>
+</set>
