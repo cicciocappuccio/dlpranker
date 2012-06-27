@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Nothing;
 import org.dllearner.refinementoperators.RefinementOperator;
 
 public class Specialize {
