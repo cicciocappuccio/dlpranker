@@ -16,8 +16,6 @@ public class Inference {
 	private AbstractConceptCache cache;
 	private AbstractReasonerComponent reasoner;
 	
-	
-	
 	public Inference(AbstractConceptCache cache,
 			AbstractReasonerComponent reasoner) {
 		super();
@@ -64,4 +62,8 @@ public class Inference {
 		return ret; 
 	}
 	
+	public AbstractReasonerComponent getReasoner() {
+		return reasoner;
+	}
+
 }

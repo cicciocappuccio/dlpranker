@@ -81,6 +81,12 @@ public class Test {
 		// creazione matrice kernel
 
 		KernelMatrix kernel = new KernelMatrix();;
+
+		
+		
+		
+		
+		
 		kernel.createKernelMatrix(featuresDD);
 
 		kernel.CSVPrint();

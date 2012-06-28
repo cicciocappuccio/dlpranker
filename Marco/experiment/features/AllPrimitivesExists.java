@@ -65,7 +65,7 @@ public class AllPrimitivesExists {
 			e.printStackTrace();
 		}
 		
-		Set<Description> risultato = Specialize.specialize(start, op4, 3, 0);
+		Set<Description> risultato = null;// FeaturesGenerator.specialize(start, op4, 3, 0);
 		
 		Set<Individual> individui = dati.getIndividuals();
 		

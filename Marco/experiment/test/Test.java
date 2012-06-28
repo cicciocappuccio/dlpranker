@@ -1,32 +1,16 @@
 package test;
 
+import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
+import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
+import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
+
+import java.util.Set;
+
+import org.dllearner.core.owl.Description;
+
 import features.AllPrimitivesExists;
 import features.Climbing;
 import features.FeaturesSelection;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
-import it.uniba.di.lacam.fanizzi.features.psi.Psi2DownWrapper;
-import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
-import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
-import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
-import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
-
-import java.util.Collections;
-import java.util.Set;
-import java.util.SortedSet;
-
-import org.dllearner.core.AbstractReasonerComponent;
-import org.dllearner.core.ComponentInitException;
-import org.dllearner.core.KnowledgeSource;
-import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Individual;
-import org.dllearner.core.owl.NamedClass;
-import org.dllearner.core.owl.Thing;
-import org.dllearner.kb.OWLFile;
-import org.dllearner.reasoning.OWLAPIReasoner;
-
-import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 
 public class Test {
 
