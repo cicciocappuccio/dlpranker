@@ -44,14 +44,19 @@ public class Inference {
 		LogicValue ret = LogicValue.UNKNOWN;
 		boolean get = false, nget = false;
 		
-		if (cache.contains(normalised, i) && cache.contains(negatedNormalised, i)) {
+		if (cache != null && cache.contains(normalised, i) && cache.contains(negatedNormalised, i)) {
 			get = cache.get(normalised, i);
 			nget = cache.get(negatedNormalised, i);
 		} else {
+			// System.out.println("Entailing: " + normalised + " ..");
+
 			get = reasoner.hasType(normalised, i);
 			nget = reasoner.hasType(negatedNormalised, i);
-			cache.addElement(normalised, i, get);
-			cache.addElement(negatedNormalised, i, nget);
+
+			if (cache != null) {
+				cache.addElement(normalised, i, get);
+				cache.addElement(negatedNormalised, i, nget);
+			}
 		}
 
 		if (get)

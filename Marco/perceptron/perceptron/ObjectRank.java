@@ -1,7 +1,7 @@
 package perceptron;
 
 public class ObjectRank<T> {
-	
+
 	public T object;
 	public int rank;
 	
@@ -24,5 +24,10 @@ public class ObjectRank<T> {
 
 	public void setRank(int rank) {
 		this.rank = rank;
+	}
+	
+	@Override
+	public String toString() {
+		return "ObjectRank [object=" + object + ", rank=" + rank + "]";
 	}
 }

@@ -63,6 +63,6 @@
 	<classpathentry kind="lib" path="lib/commons/commons-pool-1.6.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-lang3-3.1.jar"/>
 	<classpathentry kind="lib" path="lib/dbms/mysql-connector-java-5.1.18.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/components-core"/>
+	<classpathentry kind="lib" path="lib/components-core-1.0-SNAPSHOT.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

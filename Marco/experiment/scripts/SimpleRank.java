@@ -3,6 +3,7 @@ package scripts;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
+import it.uniba.di.lacam.fanizzi.features.psi.Psi2Wrapper;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
@@ -50,18 +51,21 @@ public class SimpleRank {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
+		AbstractConceptCache cache = null;//new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
-		FeaturesGenerator fg = new FeaturesGenerator(inference, null);
+		FeaturesGenerator fg = new FeaturesGenerator(inference, new Psi2Wrapper(reasoner));
 
-		Set<Description> features = fg.getAtomicFeatures();
+		Set<Description> features = fg.getExistentialFeatures();
+		//reasoner.releaseKB();
 
 		//Set<Description> features = XMLConceptStream.leggi(1);
 		//Set<Description> features = XMLConceptStream.leggi(2);
 
 		Set<Individual> film = dati.getIndividuals();
 
+		System.out.println("Creating Pi..");
+		
 		Table<Description, Individual, Double> Pi = HashBasedTable.create();
 
 		Inference a = new Inference(cache, reasoner);
@@ -73,46 +77,77 @@ public class SimpleRank {
 			}
 		}
 
+		if (cache != null)
+			cache.save();
+		
 		Table<Individual, Individual, Double> K = HashBasedTable.create();
 		Set<Individual> toCheck = new HashSet<Individual>(film);
+
+		System.out.println("Creating Kernel..");
 
 		final boolean paperKernel = true;
 
 		if (paperKernel) {
-		for (Individual i : film) {
-			for (Individual j : toCheck) {
-				double sum = 0;
-				for (Description feature : features)
-					sum += Math.pow(1 - Math.abs((Pi.get(feature, i) - Pi.get(
-							feature, j))), 2);
-				sum = (Math.sqrt(sum));
-				K.put(i, j, sum);
-				K.put(j, i, sum);
+			for (Individual i : film) {
+				for (Individual j : toCheck) {
+					double sum = 0;
+					for (Description feature : features)
+						sum += Math.pow(1 - Math.abs((Pi.get(feature, i) - Pi.get(feature, j))), 2);
+					sum = (Math.sqrt(sum));
+					K.put(i, j, sum);
+					K.put(j, i, sum);
+				}
+				toCheck.remove(i);
 			}
-			toCheck.remove(i);
-		}
 		} else {
-		
-		//						FANIZZI
-		double featuresWeight = ((double) 1) / ((double) features.size());
 
-		for (Individual i : film) {
-			for (Individual j : toCheck) {
-				double sum = 0;
-				for (Description feature : features)
-					sum += Math.pow(Math.abs(featuresWeight * ((double)(Pi.get(feature, i) - Pi.get(feature, j)))), 2);
-				
-				sum = 1 - (Math.sqrt(sum) / (double)(features.size() * 2));
-				K.put(i, j, sum);
-				K.put(j, i, sum);
+			// FANIZZI
+			double featuresWeight = ((double) 1) / ((double) features.size());
+			for (Individual i : film) {
+				for (Individual j : toCheck) {
+					double sum = 0;
+					for (Description feature : features)
+						sum += Math.pow(Math.abs(featuresWeight * ((double) (Pi.get(feature, i) - Pi.get(feature, j)))), 2);
+					sum = 1 - (Math.sqrt(sum) / (double) (features.size() * 2));
+					K.put(i, j, sum);
+					K.put(j, i, sum);
+				}
+				toCheck.remove(i);
 			}
-			toCheck.remove(i);
-		}
-		
+
 		//						FINE FANIZZI
 		}
 		
 		//System.out.println(K);
+		
+		Table<Individual, Individual, Double> E = HashBasedTable.create();
+		for (Individual xi : K.rowKeySet()) {
+			double Kii = K.get(xi, xi);
+			for (Individual xj : K.columnKeySet()) {
+				double Kjj = K.get(xj, xj);
+				E.put(xi, xj, Math.sqrt(- K.get(xi, xj) + 0.5 * (Kii + Kjj)));
+			}
+		}
+		
+		
+		Individual candidateI = null, candidateJ = null;
+		
+		for (Individual xi : K.rowKeySet()) {
+			double min = Double.MAX_VALUE;
+			for (Individual xj : K.columnKeySet()) {
+				if (xi != xj && min > E.get(xi, xj))
+				{
+					min = E.get(xi, xj);
+					candidateI = xi;
+					candidateJ = xj;
+				}
+			}
+			System.out.println("min(" + candidateI + " -> " + candidateJ + "): " + min);
+		}
+		
+		
+		
+		
 		
 		//BatchKernelPerceptronRanker<Individual> m = new BatchKernelPerceptronRanker<Individual>(film, K, 5);
 
@@ -134,14 +169,22 @@ public class SimpleRank {
 				training.add(ii);
 			}
 
-			for (ObjectRank<Individual> i : training)
+			System.out.println("Training the perceptron..");
+			
+			for (ObjectRank<Individual> i : training) {
+				System.out.println("Feeding " + i + " to the online algorithm..");
 				m.feed(i);
+			}
+				
 /**/			
 //			m.kernelPerceptronRank(lista);
 
 			for (Individual i : (List<Individual>) folder.getFold(j)) {
 				System.out.println(i + " - Predicted: " + m.rank(i) + " - Real: " + dati.getRatingMode(i));
 			}
+			
+			System.exit(0);
+			
 		}
 	}
 }
