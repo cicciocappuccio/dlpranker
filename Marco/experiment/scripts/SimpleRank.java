@@ -51,13 +51,12 @@ public class SimpleRank {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = null;//new AsynchronousHibernateConceptCache(urlOwlFile);
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
 		FeaturesGenerator fg = new FeaturesGenerator(inference, new Psi2Wrapper(reasoner));
 
 		Set<Description> features = fg.getExistentialFeatures();
-		//reasoner.releaseKB();
 
 		//Set<Description> features = XMLConceptStream.leggi(1);
 		//Set<Description> features = XMLConceptStream.leggi(2);
