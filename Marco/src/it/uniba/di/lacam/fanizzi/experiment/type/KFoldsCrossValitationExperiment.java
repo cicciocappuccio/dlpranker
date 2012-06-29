@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.dllearner.core.owl.Individual;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 public class KFoldsCrossValitationExperiment {
 

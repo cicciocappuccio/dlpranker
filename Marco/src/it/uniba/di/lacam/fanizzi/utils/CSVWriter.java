@@ -7,8 +7,6 @@ import java.util.Set;
 
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
-import org.semanticweb.owlapi.model.OWLClassExpression;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import com.google.common.collect.Table;
 

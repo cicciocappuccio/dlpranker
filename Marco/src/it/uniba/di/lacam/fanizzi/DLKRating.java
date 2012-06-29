@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.dllearner.core.owl.Individual;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 
 public class DLKRating {

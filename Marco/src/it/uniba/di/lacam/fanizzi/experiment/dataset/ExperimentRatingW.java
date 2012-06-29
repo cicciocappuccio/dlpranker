@@ -5,12 +5,8 @@ import it.uniba.di.lacam.fanizzi.utils.XMLFilmRatingStream;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
-import org.apache.commons.math.stat.StatUtils;
 import org.dllearner.core.owl.Individual;
 
 import com.google.common.collect.Table;

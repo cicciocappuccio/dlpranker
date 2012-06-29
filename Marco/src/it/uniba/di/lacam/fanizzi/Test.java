@@ -3,27 +3,20 @@ package it.uniba.di.lacam.fanizzi;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.experiment.type.KFoldsCrossValitationExperiment;
-import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistanceD;
-import it.uniba.di.lacam.fanizzi.features.FeaturesSelection;
 import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
 
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Individual;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
-import org.dllearner.utilities.owl.OWLAPIDescriptionConvertVisitor;
-import org.semanticweb.owlapi.model.OWLClassExpression;
 
 import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 
 public class Test {
 	

@@ -7,14 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Set;
-import java.util.SortedSet;
 
-import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.Thing;
-import org.dllearner.parser.KBParser;
-import org.dllearner.parser.ParseException;
 import org.dllearner.refinementoperators.RefinementOperator;
 
 import com.google.common.collect.Sets;

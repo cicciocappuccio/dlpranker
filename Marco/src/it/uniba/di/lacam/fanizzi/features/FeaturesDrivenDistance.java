@@ -3,7 +3,6 @@ package it.uniba.di.lacam.fanizzi.features;
 //conforming to new OWLAPI
 
 
-import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 import it.uniba.di.lacam.fanizzi.utils.SerializeUtils;
 
 import java.io.File;

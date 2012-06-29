@@ -3,12 +3,7 @@ package it.uniba.di.lacam.fanizzi.utils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
 
-import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 
 import com.google.common.collect.HashBasedTable;

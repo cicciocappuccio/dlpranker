@@ -1,7 +1,6 @@
 package it.uniba.di.lacam.fanizzi;
 
 
-import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistance;
 import it.uniba.di.lacam.fanizzi.features.FeaturesDrivenDistanceD;
 import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 
@@ -10,7 +9,6 @@ import java.util.Map;
 import java.util.Set;
 
 import org.dllearner.core.owl.Individual;
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

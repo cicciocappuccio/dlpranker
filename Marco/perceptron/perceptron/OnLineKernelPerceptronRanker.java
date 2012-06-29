@@ -1,7 +1,5 @@
 package perceptron;
 
-import it.uniba.di.lacam.fanizzi.utils.DebugUtils;
-
 import java.util.Map;
 import java.util.Set;
 

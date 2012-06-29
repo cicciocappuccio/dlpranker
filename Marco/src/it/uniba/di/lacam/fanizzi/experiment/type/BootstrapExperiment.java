@@ -1,20 +1,6 @@
 package it.uniba.di.lacam.fanizzi.experiment.type;
 
-import it.uniba.di.lacam.fanizzi.DLKRating;
-import it.uniba.di.lacam.fanizzi.KernelMatrix;
-import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
-import it.uniba.di.lacam.fanizzi.utils.StatUtils;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
 import java.util.Random;
-import java.util.Set;
-
-import org.semanticweb.owlapi.model.OWLNamedIndividual;
 
 public class BootstrapExperiment {
 

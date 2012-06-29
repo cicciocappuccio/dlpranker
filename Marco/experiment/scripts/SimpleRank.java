@@ -6,26 +6,20 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.features.psi.Psi2Wrapper;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
-import it.uniba.di.lacam.fanizzi.utils.XMLConceptStream;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
 import java.util.Set;
 
 import org.dllearner.core.AbstractReasonerComponent;
-import org.dllearner.core.ComponentInitException;
 import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
-import org.dllearner.core.owl.Negation;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
 
-import perceptron.BatchKernelPerceptronRanker;
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 import test.KFolder;
