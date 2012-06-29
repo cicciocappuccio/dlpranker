@@ -72,6 +72,7 @@
         <pathelement location="lib/commons/commons-lang3-3.1.jar"/>
         <pathelement location="lib/dbms/mysql-connector-java-5.1.18.jar"/>
         <pathelement location="lib/components-core-1.0-SNAPSHOT.jar"/>
+        <pathelement location="lib/dbms/postgresql-jdbc4-9.1.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
