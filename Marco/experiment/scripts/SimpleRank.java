@@ -93,10 +93,8 @@ public class SimpleRank {
 			toCheck.remove(i);
 		}
 
-		// BatchKernelPerceptronRanker<Individual> m = new
-		// BatchKernelPerceptronRanker<Individual>(film, K, 5);
-		OnLineKernelPerceptronRanker<Individual> m = new OnLineKernelPerceptronRanker<Individual>(
-				film, K, 5);
+		BatchKernelPerceptronRanker<Individual> m = new BatchKernelPerceptronRanker<Individual>(film, K, 5);
+		//OnLineKernelPerceptronRanker<Individual> m = new OnLineKernelPerceptronRanker<Individual>(film, K, 5);
 
 		List<Individual> filmList = new ArrayList<Individual>(film);
 		KFolder<Individual> folder = new KFolder<Individual>(filmList, 10);
@@ -113,10 +111,11 @@ public class SimpleRank {
 				}
 
 			}
-/**/
+/*
 			for (ObjectRank i : lista)
 				m.feed(i);
-			// m.kernelPerceptronRank(lista);
+*/			
+			m.kernelPerceptronRank(lista);
 
 			for (Individual i : (List<Individual>) folder.getFold(j)) {
 				System.out.println(i + " - " + m.rank(i) + " - "

@@ -40,7 +40,7 @@ public class BatchKernelPerceptronRanker<T> {
 			
 			for(int i = 0; i < stream.size(); i++)
 			{
-				int ySegnato = rank2(stream.get(i).getObject());
+				int ySegnato = rank(stream.get(i).getObject());
 				if (ySegnato != stream.get(i).getRank())
 				{
 					avgLoss += Math.abs(stream.get(i).getRank() - ySegnato);
@@ -56,24 +56,7 @@ public class BatchKernelPerceptronRanker<T> {
 		}while(avgLoss>THRESHOLD);
 	}
 	
-	public int rank(T t)
-	{
-		int ymin = b.length - 1;
-		int y = b.length - 1;
-		do {
-			--y;
-			double f = 0;
-			for (T i : alpha.keySet())
-			{
-				f += alpha.get(i) * K.get(t, i); // kernel(x, DATAPOINTS[i]);
-			}
-			if (f < b[y])
-				ymin = y;
-		} while (y == ymin && y>0);
-		return ymin;
-	}
-	
-	public int rank2(T object) {
+	public int rank(T object) {
 		double sum = 0.0;
 		for (T o : this.alpha.keySet()) {
 			sum += (this.alpha.get(o) * this.K.get(object, o));

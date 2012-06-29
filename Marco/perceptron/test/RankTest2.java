@@ -52,16 +52,16 @@ public class RankTest2 {
 		
 
 		
-		System.out.println(ranker.rank2(DATAPOINTS_1[1]));
-		System.out.println(ranker.rank2(DATAPOINTS_1[2]));
-		System.out.println(ranker.rank2(DATAPOINTS_1[3]));
-		System.out.println(ranker.rank2(DATAPOINTS_1[4]));
-		System.out.println(ranker.rank2(DATAPOINTS_1[0]));
-		System.out.println(ranker.rank2(DATAPOINTS_2[1]));
-		System.out.println(ranker.rank2(DATAPOINTS_2[2]));
-		System.out.println(ranker.rank2(DATAPOINTS_2[3]));
-		System.out.println(ranker.rank2(DATAPOINTS_2[4]));
-		System.out.println(ranker.rank2(DATAPOINTS_2[0]));
+		System.out.println(ranker.rank(DATAPOINTS_1[1]));
+		System.out.println(ranker.rank(DATAPOINTS_1[2]));
+		System.out.println(ranker.rank(DATAPOINTS_1[3]));
+		System.out.println(ranker.rank(DATAPOINTS_1[4]));
+		System.out.println(ranker.rank(DATAPOINTS_1[0]));
+		System.out.println(ranker.rank(DATAPOINTS_2[1]));
+		System.out.println(ranker.rank(DATAPOINTS_2[2]));
+		System.out.println(ranker.rank(DATAPOINTS_2[3]));
+		System.out.println(ranker.rank(DATAPOINTS_2[4]));
+		System.out.println(ranker.rank(DATAPOINTS_2[0]));
 	}
 
 	private static double kernel(double[] x1, double[] x2) {
