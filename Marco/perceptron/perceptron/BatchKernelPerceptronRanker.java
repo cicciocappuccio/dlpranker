@@ -9,7 +9,7 @@ import com.google.common.collect.Table;
 
 public class BatchKernelPerceptronRanker<T> {
 	
-	static final double THRESHOLD = .5;
+	static final double THRESHOLD = 0.1;
 	
 	private Map<T, Double> alpha;
 	private double[] b;
@@ -46,12 +46,13 @@ public class BatchKernelPerceptronRanker<T> {
 					avgLoss += Math.abs(stream.get(i).getRank() - ySegnato);
 					alpha.put(stream.get(i).getObject(), alpha.get(stream.get(i).getObject()) + (stream.get(i).getRank() - ySegnato));
 										
-					for (int j = (int) Math.min(ySegnato, stream.get(i).getRank()); j < Math.max(ySegnato, stream.get(i).getRank()) - 1; i++)
+					for (int j = (int) Math.min(ySegnato, stream.get(i).getRank()); j < Math.max(ySegnato, stream.get(i).getRank()) - 1; j++)
 						b[j] -= 1;
 				}
 			}
 			
 			avgLoss /= (double)stream.size();
+			System.out.println(avgLoss);
 		}while(avgLoss>THRESHOLD);
 	}
 	

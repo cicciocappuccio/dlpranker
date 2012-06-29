@@ -32,7 +32,7 @@ public class DLKRating {
 				Individual e = dati.getIndividual(t);
 				
 				int yp = kernel.rank2(e, alpha, theta, dati.maxRating());
-				int yt = dati.getRatingValue(t);
+				int yt = dati.getRatingMode(dati.getIndividual(t));
 				
 //				System.out.println("yp: " + yp + ", yt: " + yt);
 				
