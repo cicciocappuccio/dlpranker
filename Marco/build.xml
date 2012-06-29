@@ -81,11 +81,6 @@
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="bin">
-            <fileset dir="experiment">
-                <exclude name="**/*.java"/>
-            </fileset>
-        </copy>
-        <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
                 <exclude name="**/*.java"/>
                 <exclude name="it/uniba/di/lacam/fanizzi/reasonerUtils/ReasonerUtils.java"/>
@@ -93,6 +88,11 @@
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="test">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="experiment">
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -110,16 +110,16 @@
             <classpath refid="Marco.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="experiment"/>
-            <classpath refid="Marco.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
             <exclude name="it/uniba/di/lacam/fanizzi/reasonerUtils/ReasonerUtils.java"/>
             <classpath refid="Marco.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="test"/>
+            <classpath refid="Marco.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="experiment"/>
             <classpath refid="Marco.classpath"/>
         </javac>
     </target>
