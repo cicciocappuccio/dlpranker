@@ -47,19 +47,18 @@ public class SimpleRank {
 		ExperimentDataset dati = new ExperimentRatingW(urlOwlFile);
 
 		KnowledgeSource ks = new OWLFile(urlOwlFile);
-		AbstractReasonerComponent reasoner = new OWLAPIReasoner(
-				Collections.singleton(ks));
+		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(
-				urlOwlFile);
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
-
 		FeaturesGenerator fg = new FeaturesGenerator(inference, null);
 
-		// Set<Description> features = fg.getAtomicFeatures();
-		Set<Description> features = XMLConceptStream.leggi(1);
+		Set<Description> features = fg.getAtomicFeatures();
+
+		//Set<Description> features = XMLConceptStream.leggi(1);
+		//Set<Description> features = XMLConceptStream.leggi(2);
 
 		Set<Individual> film = dati.getIndividuals();
 
@@ -70,16 +69,16 @@ public class SimpleRank {
 		for (Description feature : features) {
 			for (Individual individual : film) {
 				LogicValue b = a.cover(feature, individual);
-				Pi.put(feature, individual, (b == LogicValue.TRUE ? 0
-						: (b == LogicValue.FALSE ? 1 : 0.5)));
+				Pi.put(feature, individual, (b == LogicValue.TRUE ? 0 : (b == LogicValue.FALSE ? 1 : 0.5)));
 			}
 		}
 
 		Table<Individual, Individual, Double> K = HashBasedTable.create();
 		Set<Individual> toCheck = new HashSet<Individual>(film);
 
-		double featuresWeight = ((double) 1) / ((double) features.size());
+		final boolean paperKernel = true;
 
+		if (paperKernel) {
 		for (Individual i : film) {
 			for (Individual j : toCheck) {
 				double sum = 0;
@@ -92,34 +91,56 @@ public class SimpleRank {
 			}
 			toCheck.remove(i);
 		}
+		} else {
+		
+		//						FANIZZI
+		double featuresWeight = ((double) 1) / ((double) features.size());
 
-		BatchKernelPerceptronRanker<Individual> m = new BatchKernelPerceptronRanker<Individual>(film, K, 5);
-		//OnLineKernelPerceptronRanker<Individual> m = new OnLineKernelPerceptronRanker<Individual>(film, K, 5);
+		for (Individual i : film) {
+			for (Individual j : toCheck) {
+				double sum = 0;
+				for (Description feature : features)
+					sum += Math.pow(Math.abs(featuresWeight * ((double)(Pi.get(feature, i) - Pi.get(feature, j)))), 2);
+				
+				sum = 1 - (Math.sqrt(sum) / (double)(features.size() * 2));
+				K.put(i, j, sum);
+				K.put(j, i, sum);
+			}
+			toCheck.remove(i);
+		}
+		
+		//						FINE FANIZZI
+		}
+		
+		//System.out.println(K);
+		
+		//BatchKernelPerceptronRanker<Individual> m = new BatchKernelPerceptronRanker<Individual>(film, K, 5);
 
 		List<Individual> filmList = new ArrayList<Individual>(film);
 		KFolder<Individual> folder = new KFolder<Individual>(filmList, 10);
-
-		List<ObjectRank<Individual>> lista = new ArrayList<ObjectRank<Individual>>();
-
+		
 		for (int j = 0; j < 10; j++) {
+			OnLineKernelPerceptronRanker<Individual> m = new OnLineKernelPerceptronRanker<Individual>(film, K, 5);
+			
+			List<ObjectRank<Individual>> training = new ArrayList<ObjectRank<Individual>>();
 			for (Individual i : (List<Individual>) folder.getOtherFolds(j)) {
-				for (Individual y : dati.getRatings(i)) {
-					ObjectRank<Individual> ii = new ObjectRank<Individual>(i,
-							dati.getRatingValue(y));
-					lista.add(ii);
-
-				}
-
-			}
 /*
-			for (ObjectRank i : lista)
+ 				for (Individual y : dati.getRatings(i)) {
+					ObjectRank<Individual> ii = new ObjectRank<Individual>(i, dati.getRatingValue(y));
+					lista.add(ii);
+				}
+*/
+				ObjectRank<Individual> ii = new ObjectRank<Individual>(i, dati.getRatingMode(i));
+				training.add(ii);
+			}
+
+			for (ObjectRank<Individual> i : training)
 				m.feed(i);
-*/			
-			m.kernelPerceptronRank(lista);
+/**/			
+//			m.kernelPerceptronRank(lista);
 
 			for (Individual i : (List<Individual>) folder.getFold(j)) {
-				System.out.println(i + " - " + m.rank(i) + " - "
-						+ dati.getRatingMode(i));
+				System.out.println(i + " - Predicted: " + m.rank(i) + " - Real: " + dati.getRatingMode(i));
 			}
 		}
 	}

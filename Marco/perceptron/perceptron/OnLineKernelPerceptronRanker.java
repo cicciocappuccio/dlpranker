@@ -55,5 +55,4 @@ public class OnLineKernelPerceptronRanker<T> {
 		//System.out.println("sum is: " + sum + " and b is: " + DebugUtils.toString(b) + ",  returning " + ret);
 		return ret;
 	}
-
 }
