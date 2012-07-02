@@ -14,6 +14,11 @@ public class Inference {
 	private LogicValue value;
 
 	private AbstractConceptCache cache;
+
+	public AbstractConceptCache getCache() {
+		return cache;
+	}
+
 	private AbstractReasonerComponent reasoner;
 	
 	public Inference(AbstractConceptCache cache,

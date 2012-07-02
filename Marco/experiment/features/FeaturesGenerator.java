@@ -1,5 +1,8 @@
 package features;
 
+import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
+import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
+import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 
 import java.util.HashSet;
@@ -9,6 +12,7 @@ import java.util.Queue;
 import java.util.Set;
 
 import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.Thing;
 import org.dllearner.refinementoperators.RefinementOperator;
@@ -82,6 +86,18 @@ public class FeaturesGenerator {
 			}
 		}
 		System.out.println("Film subclasses: " + ret.size());
+		return ret;
+	}
+	
+	
+	public Set<Description> getMHMRFeatures(Set<Individual> individui) {
+		
+		GreedyForward gf = new GreedyForward(inference.getCache(), inference.getReasoner(), refinement, 3);
+		
+		AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), .8);
+		
+		Set<Description> ret = gf.estrazione(Thing.instance, individui, tScore);
+		
 		return ret;
 	}
 	
