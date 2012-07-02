@@ -1,5 +1,6 @@
 package scripts;
 
+import features.AllAtomicRefinementOperator;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
@@ -45,18 +46,22 @@ public class SimpleRank {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile + ".tmp");
 
 		Inference inference = new Inference(cache, reasoner);
-		FeaturesGenerator fg = new FeaturesGenerator(inference, new Psi2Wrapper(reasoner));
+		Set<Individual> film = dati.getIndividuals();
 
-		Set<Description> features = fg.getExistentialFeatures();
-
+		//FeaturesGenerator fg = new FeaturesGenerator(inference, new Psi2Wrapper(reasoner));
+		FeaturesGenerator fg = new FeaturesGenerator(inference, new AllAtomicRefinementOperator(reasoner));
+		Set<Description> features = fg.getMHMRFeatures(film, .9);
 		//Set<Description> features = XMLConceptStream.leggi(1);
 		//Set<Description> features = XMLConceptStream.leggi(2);
 
-		Set<Individual> film = dati.getIndividuals();
-
+		System.out.println("Features:");
+		for (Description f : features) {
+			System.out.println("\t" + f);
+		}
+		
 		System.out.println("Creating Pi..");
 		
 		Table<Description, Individual, Double> Pi = HashBasedTable.create();
@@ -113,6 +118,7 @@ public class SimpleRank {
 		
 		//System.out.println(K);
 		
+		/*
 		Table<Individual, Individual, Double> E = HashBasedTable.create();
 		for (Individual xi : K.rowKeySet()) {
 			double Kii = K.get(xi, xi);
@@ -137,10 +143,7 @@ public class SimpleRank {
 			}
 			System.out.println("min(" + candidateI + " -> " + candidateJ + "): " + min);
 		}
-		
-		
-		
-		
+		*/
 		
 		//BatchKernelPerceptronRanker<Individual> m = new BatchKernelPerceptronRanker<Individual>(film, K, 5);
 

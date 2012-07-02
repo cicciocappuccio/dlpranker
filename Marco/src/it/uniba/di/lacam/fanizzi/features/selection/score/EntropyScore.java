@@ -14,8 +14,6 @@ import com.neuralnoise.cache.AbstractConceptCache;
 @Beta
 public class EntropyScore extends AbstractScore {
 	
-	
-
 	public EntropyScore(AbstractConceptCache cache,
 			AbstractReasonerComponent reasoner) {
 		super(cache, reasoner);

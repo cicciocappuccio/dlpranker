@@ -50,9 +50,7 @@ public class ClimbingSearch {
 					Set<Description> newConceptSet = new HashSet<Description>();
 					newConceptSet.addAll(conceptSet);
 					newConceptSet.add(refinement);
-					
-					XMLConceptStream.scrivi(conceptSet, 1);
-					
+
 					double proposed = tScore.score(newConceptSet, individuals);
 
 					// System.out.println("refinement: " + refinement +

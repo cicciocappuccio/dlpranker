@@ -11,6 +11,7 @@ import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 
 import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 
@@ -19,8 +20,8 @@ public class EIUtils {
 	private AbstractConceptCache cache;
 	private AbstractReasonerComponent reasoner;
 	
-	private Map<Description, Double> H;
-	private Table<Description, Description, Double> I;
+	private Map<String, Double> H;
+	private Table<String, String, Double> I;
 	
 	public EIUtils(AbstractConceptCache cache,
 			AbstractReasonerComponent reasoner) {
@@ -28,18 +29,18 @@ public class EIUtils {
 		this.cache = cache;
 		this.reasoner = reasoner;
 		
-		this.H = new HashMap<Description, Double>();
+		this.H = Maps.newHashMap();
 		this.I = HashBasedTable.create();
 	}
 
 	public double H (Description x, Set<Individual> individuals)
 	{
-		if(H.containsKey(x))
-			return H.get(x);
+		if(H.containsKey(x.toString()))
+			return H.get(x.toString());
 		else
 		{
 			double h = HCalc(x, individuals);
-			H.put(x, h);
+			H.put(x.toString(), h);
 			return h;
 		}
 					
@@ -86,12 +87,12 @@ public class EIUtils {
 
 	public double I(Description x, Description y, Set<Individual> individuals)
 	{
-		if(I.contains(x,y))
-			return I.get(x,y);
+		if(I.contains(x.toString(),y.toString()))
+			return I.get(x.toString(),y.toString());
 		else
 		{
 			double i = ICalc(x, y, individuals);
-			I.put(x, y, i);
+			I.put(x.toString(), y.toString(), i);
 			return i;
 		}
 					

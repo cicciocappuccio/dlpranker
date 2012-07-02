@@ -70,7 +70,7 @@ public class FeaturesGenerator {
 		return ret;
 	}
 
-	public Set<Description> getFilmSubclasses() {
+	public Set<Description> getFilmSubClasses() {
 		Set<Description> ret = Sets.newHashSet();
 		Set<String> seen = Sets.newHashSet();
 		Queue<Description> queue = new LinkedList<Description>();
@@ -90,11 +90,9 @@ public class FeaturesGenerator {
 	}
 	
 	
-	public Set<Description> getMHMRFeatures(Set<Individual> individui) {
-		
-		GreedyForward gf = new GreedyForward(inference.getCache(), inference.getReasoner(), refinement, 3);
-		
-		AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), .8);
+	public Set<Description> getMHMRFeatures(Set<Individual> individui, double lambda) {
+		GreedyForward gf = new GreedyForward(inference.getCache(), inference.getReasoner(), refinement, 1);
+		AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), lambda);
 		
 		Set<Description> ret = gf.estrazione(Thing.instance, individui, tScore);
 		
