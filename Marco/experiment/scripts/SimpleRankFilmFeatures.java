@@ -113,32 +113,6 @@ public class SimpleRankFilmFeatures {
 		
 		//System.out.println(K);
 		
-		Table<Individual, Individual, Double> E = HashBasedTable.create();
-		for (Individual xi : K.rowKeySet()) {
-			double Kii = K.get(xi, xi);
-			for (Individual xj : K.columnKeySet()) {
-				double Kjj = K.get(xj, xj);
-				E.put(xi, xj, Math.sqrt(- K.get(xi, xj) + 0.5 * (Kii + Kjj)));
-			}
-		}
-		
-		
-		Individual candidateI = null, candidateJ = null;
-		
-		for (Individual xi : K.rowKeySet()) {
-			double min = Double.MAX_VALUE;
-			for (Individual xj : K.columnKeySet()) {
-				if (xi != xj && min > E.get(xi, xj))
-				{
-					min = E.get(xi, xj);
-					candidateI = xi;
-					candidateJ = xj;
-				}
-			}
-			System.out.println("min(" + candidateI + " -> " + candidateJ + "): " + min);
-		}
-		
-		
 		//BatchKernelPerceptronRanker<Individual> m = new BatchKernelPerceptronRanker<Individual>(film, K, 5);
 
 		List<Individual> filmList = new ArrayList<Individual>(film);
