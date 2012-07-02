@@ -46,7 +46,7 @@ public class SimpleRank {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile + ".tmp");
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
 		Set<Individual> film = dati.getIndividuals();
