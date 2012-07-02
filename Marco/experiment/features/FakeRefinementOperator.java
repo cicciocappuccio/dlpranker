@@ -14,14 +14,16 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.Sets;
 import com.neuralnoise.cache.ReasonerUtils;
 
-public class AllAtomicRefinementOperator implements RefinementOperator {
+public class FakeRefinementOperator implements RefinementOperator {
 
-	private static final Logger log = LoggerFactory.getLogger(AllAtomicRefinementOperator.class);
+	private static final Logger log = LoggerFactory.getLogger(FakeRefinementOperator.class);
 	
 	private AbstractReasonerComponent reasoner;
+	private Set<Description> refinements;
 	
-	public AllAtomicRefinementOperator(AbstractReasonerComponent reasoner) {
+	public FakeRefinementOperator(AbstractReasonerComponent reasoner, Set<Description> refinements) {
 		this.reasoner = reasoner;
+		this.refinements = refinements;
 	}
 	
 	@Override
@@ -32,11 +34,10 @@ public class AllAtomicRefinementOperator implements RefinementOperator {
 	@Override
 	public Set<Description> refine(Description arg0) {
 		log.info("Refining " + arg0 + " ..");
-		List<NamedClass> atomics = reasoner.getAtomicConceptsList();
-		Set<Description> ret = Sets.newHashSet();
-		for (NamedClass atomic : atomics)
-			ret.add(atomic);
-		return ret;
+		if ("TOP".equals(arg0.toString()))
+			return refinements;
+		else
+			return Sets.newHashSet();
 	}
 
 	@Override

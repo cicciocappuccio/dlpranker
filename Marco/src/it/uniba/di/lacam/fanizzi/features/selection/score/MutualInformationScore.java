@@ -34,7 +34,7 @@ public class MutualInformationScore extends AbstractScore {
 		//sum = (1.0/((double)descriptions.size()*(double)descriptions.size()))*sum;
 		
 		double dS = descriptions.size();
-		sum = (1.0 / dS) * sum;
+		sum = (dS == 0.0 ? 0.0 : (1.0 / dS) * sum);
 		
 		return sum;
 	}

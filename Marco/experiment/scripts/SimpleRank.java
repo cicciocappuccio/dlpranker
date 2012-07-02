@@ -1,6 +1,6 @@
 package scripts;
 
-import features.AllAtomicRefinementOperator;
+import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
@@ -52,7 +52,9 @@ public class SimpleRank {
 		Set<Individual> film = dati.getIndividuals();
 
 		//FeaturesGenerator fg = new FeaturesGenerator(inference, new Psi2Wrapper(reasoner));
-		FeaturesGenerator fg = new FeaturesGenerator(inference, new AllAtomicRefinementOperator(reasoner));
+		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
+		FeaturesGenerator fg = new FeaturesGenerator(inference, new FakeRefinementOperator(reasoner, _fg.getFilmSubClasses()));
+		
 		Set<Description> features = fg.getMHMRFeatures(film, .9);
 		//Set<Description> features = XMLConceptStream.leggi(1);
 		//Set<Description> features = XMLConceptStream.leggi(2);
