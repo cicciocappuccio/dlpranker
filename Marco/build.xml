@@ -164,7 +164,7 @@
         </java>
     </target>
     <target name="OnLineKernelPerceptronRankingTest">
-        <java classname="test.OnLineKernelPerceptronRankingTest" failonerror="true" fork="yes">
+        <java classname="test.perceptron.OnLineKernelPerceptronRankingTest" failonerror="true" fork="yes">
             <classpath refid="Marco.classpath"/>
         </java>
     </target>

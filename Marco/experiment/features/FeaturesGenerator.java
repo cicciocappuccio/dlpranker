@@ -4,6 +4,7 @@ import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -87,6 +88,41 @@ public class FeaturesGenerator {
 		}
 		System.out.println("Film subclasses: " + ret.size());
 		return ret;
+	}
+	
+	
+	public Set<Description> getFilteredFilmSubClasses(Set<Individual> individui, double minProbability) {
+		Set<Description> ret = Sets.newHashSet();
+		Set<String> seen = Sets.newHashSet();
+		Queue<Description> queue = new LinkedList<Description>();
+		queue.add(new NamedClass("http://dbpedia.org/ontology/Film"));
+		queue.add(new NamedClass("http://dbpedia.org/class/yago/Movie106613686"));
+		queue.add(new NamedClass("http://schema.org/Movie"));
+		while (!queue.isEmpty()) {
+			Description p = queue.poll();
+			if (!seen.contains(p.toString())) {
+				ret.add(p);
+				seen.add(p.toString());
+				queue.addAll(inference.getReasoner().getSubClasses(p));
+			}
+		}
+		
+		Set<Description> newRet = Sets.newHashSet();
+		double total = individui.size();
+		
+		for (Description f : ret) {
+			double covered = 0.0;
+			for (Individual film : individui)
+				if (inference.cover(f, film) == LogicValue.TRUE)
+					covered += 1.0;
+
+			double p = covered / total;
+			if (p >= minProbability)
+				newRet.add(f);
+		}
+		
+		System.out.println("Filtered Film subclasses: " + newRet.size());
+		return newRet;
 	}
 	
 	

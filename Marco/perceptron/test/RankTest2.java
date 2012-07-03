@@ -42,7 +42,7 @@ public class RankTest2 {
 
 		
 
-		ranker.kernelPerceptronRank(stream);
+		ranker.train(stream);
 		
 		
 		
