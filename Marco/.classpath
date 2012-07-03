@@ -3,8 +3,8 @@
 	<classpathentry kind="src" path="perceptron"/>
 	<classpathentry excluding="it/uniba/di/lacam/fanizzi/reasonerUtils/ReasonerUtils.java" kind="src" path="src"/>
 	<classpathentry kind="src" path="test"/>
-	<classpathentry excluding="features/AllPrimitivesExists.java|features/Climbing.java|test/Test.java|features/SubSuperClass.java" kind="src" path="experiment"/>
 	<classpathentry kind="src" path="metrics"/>
+	<classpathentry excluding="features/AllPrimitivesExists.java|features/Climbing.java|test/Test.java|features/SubSuperClass.java" kind="src" path="experiment"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/libsvm.jar"/>
 	<classpathentry kind="lib" path="lib/log4j-1.2.16.jar"/>

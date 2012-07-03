@@ -93,8 +93,17 @@
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="bin">
+            <fileset dir="metrics">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
             <fileset dir="experiment">
                 <exclude name="**/*.java"/>
+                <exclude name="features/AllPrimitivesExists.java"/>
+                <exclude name="features/Climbing.java"/>
+                <exclude name="test/Test.java"/>
+                <exclude name="features/SubSuperClass.java"/>
             </fileset>
         </copy>
     </target>
@@ -120,7 +129,15 @@
             <classpath refid="Marco.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="metrics"/>
+            <classpath refid="Marco.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="experiment"/>
+            <exclude name="features/AllPrimitivesExists.java"/>
+            <exclude name="features/Climbing.java"/>
+            <exclude name="test/Test.java"/>
+            <exclude name="features/SubSuperClass.java"/>
             <classpath refid="Marco.classpath"/>
         </javac>
     </target>
@@ -178,6 +195,11 @@
             <classpath refid="Marco.classpath"/>
         </java>
     </target>
+    <target name="RankTest3">
+        <java classname="test.RankTest3" failonerror="true" fork="yes">
+            <classpath refid="Marco.classpath"/>
+        </java>
+    </target>
     <target name="ReasonerTest">
         <java classname="test.ReasonerTest" failonerror="true" fork="yes">
             <classpath refid="Marco.classpath"/>
@@ -191,8 +213,13 @@
             <classpath refid="Marco.classpath"/>
         </junit>
     </target>
-    <target name="SimpleRank">
-        <java classname="scripts.SimpleRank" failonerror="true" fork="yes">
+    <target name="SimpleRankFilmFeatures">
+        <java classname="scripts.SimpleRankFilmFeatures" failonerror="true" fork="yes">
+            <classpath refid="Marco.classpath"/>
+        </java>
+    </target>
+    <target name="SimpleRankMHMR">
+        <java classname="scripts.SimpleRankMHMR" failonerror="true" fork="yes">
             <classpath refid="Marco.classpath"/>
         </java>
     </target>
@@ -218,6 +245,11 @@
     </target>
     <target name="XMLReader">
         <java classname="test.XMLReader" failonerror="true" fork="yes">
+            <classpath refid="Marco.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperiment">
+        <java classname="scripts.RankExperiment" failonerror="true" fork="yes">
             <classpath refid="Marco.classpath"/>
         </java>
     </target>

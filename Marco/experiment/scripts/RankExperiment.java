@@ -42,8 +42,17 @@ import com.neuralnoise.cache.VolatileConceptCache;
 public class RankExperiment {
 
 	public static final int NFOLDS = 10;
-	
+
 	public static void main(String[] args) throws Exception {
+
+		List<Double> lmae = Lists.newArrayList();
+		List<Double> gmae = Lists.newArrayList();
+		List<Double> lrmse = Lists.newArrayList();
+		List<Double> grmse = Lists.newArrayList();
+		List<Double> lscc = Lists.newArrayList();
+		List<Double> gscc = Lists.newArrayList();
+		List<Double> laccuracy = Lists.newArrayList();
+		List<Double> gaccuracy = Lists.newArrayList();
 
 		String urlOwlFile = "res/fragmentOntology10.owl";
 
@@ -53,17 +62,19 @@ public class RankExperiment {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); //new AsynchronousHibernateConceptCache(urlOwlFile);
+		AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); // new
+																			// AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
 		Set<Individual> films = dati.getIndividuals();
 
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
-		
+
 		for (double _p = 0.00; _p <= 0.2; _p += 0.01) {
-			
+
 			Set<Description> features = _fg.getFilteredFilmSubClasses(films, _p);
-			//FeaturesGenerator fg = new FeaturesGenerator(inference, new FakeRefinementOperator(reasoner, filmSubClasses));
+			// FeaturesGenerator fg = new FeaturesGenerator(inference, new
+			// FakeRefinementOperator(reasoner, filmSubClasses));
 
 			System.out.println("Features:");
 			for (Description f : features) {
@@ -112,12 +123,12 @@ public class RankExperiment {
 				}
 			}
 
-			ErrorMetric accuracy = new Accuracy();							// da utilizzare per best sigma
+			ErrorMetric accuracy = new Accuracy(); // da utilizzare per best
+													// sigma
 
 			ErrorMetric mae = new MAE();
 			ErrorMetric rmse = new RMSE();
 			ErrorMetric scc = new SpearmanCorrelationCoefficient();
-			
 
 			GaussianKernel<Individual> gk = new GaussianKernel<Individual>(films, E);
 
@@ -125,15 +136,6 @@ public class RankExperiment {
 
 			List<Individual> filmList = new ArrayList<Individual>(films);
 			KFolder<Individual> folder = new KFolder<Individual>(filmList, nfolds);
-
-			List<Double> lmae = Lists.newArrayList();
-			List<Double> gmae = Lists.newArrayList();
-			List<Double> lrmse = Lists.newArrayList();
-			List<Double> grmse = Lists.newArrayList();
-			List<Double> lscc = Lists.newArrayList();
-			List<Double> gscc = Lists.newArrayList();
-			List<Double> laccuracy = Lists.newArrayList();
-			List<Double> gaccuracy = Lists.newArrayList();
 
 			double maeLErr = 0.0;
 			double maeGErr = 0.0;
@@ -143,7 +145,7 @@ public class RankExperiment {
 			double sccGErr = 0.0;
 			double accuracyLErr = 0.0;
 			double accuracyGErr = 0.0;
-			
+
 			for (int j = 0; j < nfolds; j++) {
 				List<ObjectRank<Individual>> training = Lists.newArrayList();
 
@@ -199,7 +201,7 @@ public class RankExperiment {
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
 			lmae.add(maeLErr / dnfolds);
 			gmae.add(maeGErr / dnfolds);
-			
+
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
 			lrmse.add(rmseLErr / dnfolds);
@@ -209,39 +211,39 @@ public class RankExperiment {
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
 			lscc.add(sccLErr / dnfolds);
 			gscc.add(sccGErr / dnfolds);
-			
+
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
 			laccuracy.add(accuracyLErr / dnfolds);
 			gaccuracy.add(accuracyGErr / dnfolds);
-			
-			CSVWriter csv = new CSVWriter("res/risultati.csv");
-			
-			csv.append("Linear MAE");
-			csv.append("Gaussian MAE");
-			csv.append("Linear RMSE");
-			csv.append("Gaussian RMSE");
-			csv.append("Linear Spearman Correlation Coefficient");
-			csv.append("Gaussian Spearman Correlation Coefficient");
-			csv.append("Linear Accuracy");
-			csv.append("Gaussian Accuracy");
+
+		}
+		
+		CSVWriter csv = new CSVWriter("res/risultati.csv");
+
+		csv.append("Linear MAE");
+		csv.append("Gaussian MAE");
+		csv.append("Linear RMSE");
+		csv.append("Gaussian RMSE");
+		csv.append("Linear Spearman Correlation Coefficient");
+		csv.append("Gaussian Spearman Correlation Coefficient");
+		csv.append("Linear Accuracy");
+		csv.append("Gaussian Accuracy");
+		csv.newRow();
+
+		for (int i = 0; i < Math.min(NFOLDS, films.size()); i++) {
+			csv.append(lmae.get(i).toString());
+			csv.append(gmae.get(i).toString());
+
+			csv.append(lrmse.get(i).toString());
+			csv.append(grmse.get(i).toString());
+
+			csv.append(lscc.get(i).toString());
+			csv.append(gscc.get(i).toString());
+
+			csv.append(laccuracy.get(i).toString());
+			csv.append(gaccuracy.get(i).toString());
 			csv.newRow();
-			
-			for (int i = 0; i < dnfolds; i++ )
-			{ 
-				csv.append(lmae.get(i).toString());
-				csv.append(gmae.get(i).toString());
-
-				csv.append(lrmse.get(i).toString());
-				csv.append(grmse.get(i).toString());
-
-				csv.append(lscc.get(i).toString());
-				csv.append(gscc.get(i).toString());
-
-				csv.append(laccuracy.get(i).toString());
-				csv.append(gaccuracy.get(i).toString());
-				csv.newRow();
-			}
 		}
 	}
 }
