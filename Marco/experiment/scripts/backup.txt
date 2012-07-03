@@ -1,0 +1,29 @@
+
+		final boolean paperKernel = false;
+
+		if (paperKernel) {
+			for (Individual i : films) {
+				for (Individual j : toCheck) {
+					double sum = 0;
+					for (Description feature : features)
+						sum += Math.pow(1 - Math.abs((Pi.get(feature, i) - Pi.get(feature, j))), 2);
+					sum = (Math.sqrt(sum));
+					K.put(i, j, sum);
+					K.put(j, i, sum);
+				}
+				toCheck.remove(i);
+			}
+		} else {
+			double featuresWeight = ((double) 1) / ((double) features.size());
+			for (Individual i : films) {
+				for (Individual j : toCheck) {
+					double sum = 0;
+					for (Description feature : features)
+						sum += Math.pow(Math.abs(featuresWeight * ((double) (Pi.get(feature, i) - Pi.get(feature, j)))), 2);
+					sum = 1 - (Math.sqrt(sum) / (double) (features.size() * 2));
+					K.put(i, j, sum);
+					K.put(j, i, sum);
+				}
+				toCheck.remove(i);
+			}
+		}

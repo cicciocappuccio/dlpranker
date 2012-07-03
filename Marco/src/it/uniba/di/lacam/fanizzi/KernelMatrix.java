@@ -86,12 +86,4 @@ public class KernelMatrix {
 		return ret;
 	}
 	
-	
-	
-	
-	
-	public void CSVPrint ()
-	{
-		CSVWriter.write("res/kernelMatrix.txt", kernel);
-	}
 }

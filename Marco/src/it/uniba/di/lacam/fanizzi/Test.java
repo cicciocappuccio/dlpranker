@@ -81,8 +81,6 @@ public class Test {
 		
 		
 		kernel.createKernelMatrix(featuresDD);
-
-		kernel.CSVPrint();
 		
 		System.out.println("Press <Enter> to continue =)))");
 		System.in.read();
