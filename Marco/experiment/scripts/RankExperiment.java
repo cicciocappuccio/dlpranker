@@ -5,8 +5,10 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
+import it.uniba.di.lacam.fanizzi.utils.CSV;
 import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
@@ -264,49 +266,55 @@ public class RankExperiment {
 
 		}
 		
-		CSVWriter csv = new CSVWriter("res/risultati.csv");
+		PrintWriter pw = new PrintWriter("res/risultati.csv");
+		
+		List<String> righe = Lists.newArrayList();
+		String head = new String();
+		
+		head.concat("p value,");
 
-		csv.append("p value");
+		head.concat("Linear MAE,");
+		head.concat("Gaussian MAE,");
+		head.concat("Polynomial MAE,");
 
-		csv.append("Linear MAE");
-		csv.append("Gaussian MAE");
-		csv.append("Polynomial MAE");
+		head.concat("Linear RMSE,");
+		head.concat("Gaussian RMSE,");
+		head.concat("Polynomial RMSE,");
 
-		csv.append("Linear RMSE");
-		csv.append("Gaussian RMSE");
-		csv.append("Polynomial RMSE");
+		head.concat("Linear Spearman Correlation Coefficient,");
+		head.concat("Gaussian Spearman Correlation Coefficient,");
+		head.concat("Polynomial Spearman Correlation Coefficient,");
 
-		csv.append("Linear Spearman Correlation Coefficient");
-		csv.append("Gaussian Spearman Correlation Coefficient");
-		csv.append("Polynomial Spearman Correlation Coefficient");
-
-		csv.append("Linear Accuracy");
-		csv.append("Gaussian Accuracy");
-		csv.append("Polynomial Accuracy");
+		head.concat("Linear Accuracy,");
+		head.concat("Gaussian Accuracy,");
+		head.concat("Polynomial Accuracy");
 	
-		csv.newRow();
-
+		righe.add(head);
+		
 		for (int i = 0; i < Math.min(NFOLDS, films.size()); i++) {
+			String row = new String();
 			
-			csv.append(pValue.get(i).toString());
+			row.concat(pValue.get(i).toString() + ',');
 			
-			csv.append(lmae.get(i).toString());
-			csv.append(gmae.get(i).toString());
-			csv.append(pmae.get(i).toString());
+			row.concat(lmae.get(i).toString() + ',');
+			row.concat(gmae.get(i).toString() + ',');
+			row.concat(pmae.get(i).toString() + ',');
 
-			csv.append(lrmse.get(i).toString());
-			csv.append(grmse.get(i).toString());
-			csv.append(prmse.get(i).toString());
+			row.concat(lrmse.get(i).toString() + ',');
+			row.concat(grmse.get(i).toString() + ',');
+			row.concat(prmse.get(i).toString() + ',');
 
-			csv.append(lscc.get(i).toString());
-			csv.append(gscc.get(i).toString());
-			csv.append(pscc.get(i).toString());
+			row.concat(lscc.get(i).toString() + ',');
+			row.concat(gscc.get(i).toString() + ',');
+			row.concat(pscc.get(i).toString() + ',');
 
-			csv.append(laccuracy.get(i).toString());
-			csv.append(gaccuracy.get(i).toString());
-			csv.append(paccuracy.get(i).toString());
+			row.concat(laccuracy.get(i).toString() + ',');
+			row.concat(gaccuracy.get(i).toString() + ',');
+			row.concat(paccuracy.get(i).toString());
 
-			csv.newRow();
+			righe.add(row);
 		}
+		
+		CSV.write(pw, righe);
 	}
 }
