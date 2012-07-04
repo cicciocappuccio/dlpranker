@@ -76,8 +76,8 @@ public class RankExperiment {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		//AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); 
-		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
+		AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); 
+		//AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
 		Set<Individual> films = dati.getIndividuals();
