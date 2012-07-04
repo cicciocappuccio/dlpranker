@@ -41,6 +41,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
+import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 
 public class RankExperiment {
@@ -75,8 +76,8 @@ public class RankExperiment {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); // new
-																			// AsynchronousHibernateConceptCache(urlOwlFile);
+		//AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); 
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
 		Set<Individual> films = dati.getIndividuals();
