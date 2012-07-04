@@ -268,53 +268,40 @@ public class RankExperiment {
 		
 		PrintWriter pw = new PrintWriter("res/risultati.csv");
 		
-		List<String> righe = Lists.newArrayList();
-		String head = new String();
+		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
+		List<String> headRow = Lists.newArrayList();
 		
-		head.concat("p value,");
+		headRow.add("p");
+		
+		for (String method : methods)
+		 headRow.add(method + " MAE");
 
-		head.concat("Linear MAE,");
-		head.concat("Gaussian MAE,");
-		head.concat("Polynomial MAE,");
-
-		head.concat("Linear RMSE,");
-		head.concat("Gaussian RMSE,");
-		head.concat("Polynomial RMSE,");
-
-		head.concat("Linear Spearman Correlation Coefficient,");
-		head.concat("Gaussian Spearman Correlation Coefficient,");
-		head.concat("Polynomial Spearman Correlation Coefficient,");
-
-		head.concat("Linear Accuracy,");
-		head.concat("Gaussian Accuracy,");
-		head.concat("Polynomial Accuracy");
+		for (String method : methods)
+			 headRow.add(method + " RMSE");
+		
+		for (String method : methods)
+			 headRow.add(method + " Spearman");
 	
-		righe.add(head);
+		CSV.write(pw, headRow);
 		
 		for (int i = 0; i < Math.min(NFOLDS, films.size()); i++) {
-			String row = new String();
+			List<String> row = Lists.newLinkedList();
 			
-			row.concat(pValue.get(i).toString() + ',');
+			row.add(pValue.get(i).toString());
 			
-			row.concat(lmae.get(i).toString() + ',');
-			row.concat(gmae.get(i).toString() + ',');
-			row.concat(pmae.get(i).toString() + ',');
+			row.add(lmae.get(i).toString());
+			row.add(gmae.get(i).toString());
+			row.add(pmae.get(i).toString());
 
-			row.concat(lrmse.get(i).toString() + ',');
-			row.concat(grmse.get(i).toString() + ',');
-			row.concat(prmse.get(i).toString() + ',');
+			row.add(lrmse.get(i).toString());
+			row.add(grmse.get(i).toString());
+			row.add(prmse.get(i).toString());
 
-			row.concat(lscc.get(i).toString() + ',');
-			row.concat(gscc.get(i).toString() + ',');
-			row.concat(pscc.get(i).toString() + ',');
-
-			row.concat(laccuracy.get(i).toString() + ',');
-			row.concat(gaccuracy.get(i).toString() + ',');
-			row.concat(paccuracy.get(i).toString());
-
-			righe.add(row);
+			row.add(lscc.get(i).toString());
+			row.add(gscc.get(i).toString());
+			row.add(pscc.get(i).toString());
+			
+			CSV.write(pw, row);
 		}
-		
-		CSV.write(pw, righe);
 	}
 }
