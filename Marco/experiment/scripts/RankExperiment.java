@@ -16,6 +16,7 @@ import java.util.SortedSet;
 
 import kernels.GaussianKernel;
 import kernels.ParamsScore;
+import kernels.PolynomialKernel;
 import metrics.Accuracy;
 import metrics.ErrorMetric;
 import metrics.MAE;
@@ -35,6 +36,7 @@ import test.KFolder;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
@@ -47,12 +49,21 @@ public class RankExperiment {
 
 		List<Double> lmae = Lists.newArrayList();
 		List<Double> gmae = Lists.newArrayList();
+		List<Double> pmae = Lists.newArrayList();
+
 		List<Double> lrmse = Lists.newArrayList();
 		List<Double> grmse = Lists.newArrayList();
+		List<Double> prmse = Lists.newArrayList();
+		
 		List<Double> lscc = Lists.newArrayList();
 		List<Double> gscc = Lists.newArrayList();
+		List<Double> pscc = Lists.newArrayList();
+		
 		List<Double> laccuracy = Lists.newArrayList();
 		List<Double> gaccuracy = Lists.newArrayList();
+		List<Double> paccuracy = Lists.newArrayList();
+
+		List<Double> pValue = Lists.newArrayList();
 
 		String urlOwlFile = "res/fragmentOntology10.owl";
 
@@ -69,13 +80,21 @@ public class RankExperiment {
 		Set<Individual> films = dati.getIndividuals();
 
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
-
-		for (double _p = 0.00; _p <= 0.2; _p += 0.01) {
-
-			Set<Description> features = _fg.getFilteredFilmSubClasses(films, _p);
-			// FeaturesGenerator fg = new FeaturesGenerator(inference, new
-			// FakeRefinementOperator(reasoner, filmSubClasses));
-
+		
+		Set<Description> prevFeatures = null, features = null;
+		
+		for (double _p = 0.3; _p >= 0.0; _p -= 0.01 ) {
+			
+			pValue.add(_p);
+			
+			prevFeatures = features;
+			features = _fg.getFilteredFilmSubClasses(films, _p);
+			
+			System.out.println("P = " + _p);
+			
+			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
+				continue;
+			
 			System.out.println("Features:");
 			for (Description f : features) {
 				System.out.println("\t" + f);
@@ -123,15 +142,15 @@ public class RankExperiment {
 				}
 			}
 
-			ErrorMetric accuracy = new Accuracy(); // da utilizzare per best
-													// sigma
+			ErrorMetric accuracy = new Accuracy(); // da utilizzare per best sigma
 
 			ErrorMetric mae = new MAE();
 			ErrorMetric rmse = new RMSE();
 			ErrorMetric scc = new SpearmanCorrelationCoefficient();
 
 			GaussianKernel<Individual> gk = new GaussianKernel<Individual>(films, E);
-
+			PolynomialKernel<Individual> pk = new PolynomialKernel<Individual>(films, K);
+			
 			final int nfolds = Math.min(NFOLDS, films.size());
 
 			List<Individual> filmList = new ArrayList<Individual>(films);
@@ -139,12 +158,19 @@ public class RankExperiment {
 
 			double maeLErr = 0.0;
 			double maeGErr = 0.0;
+			double maePErr = 0.0;
+			
 			double rmseLErr = 0.0;
 			double rmseGErr = 0.0;
+			double rmsePErr = 0.0;
+			
 			double sccLErr = 0.0;
 			double sccGErr = 0.0;
+			double sccPErr = 0.0;
+			
 			double accuracyLErr = 0.0;
 			double accuracyGErr = 0.0;
+			double accuracyPErr = 0.0;
 
 			for (int j = 0; j < nfolds; j++) {
 				List<ObjectRank<Individual>> training = Lists.newArrayList();
@@ -154,95 +180,132 @@ public class RankExperiment {
 					training.add(ii);
 				}
 
-				SortedSet<ParamsScore> ps = gk.getParameters(training, accuracy);
+				SortedSet<ParamsScore> gps = gk.getParameters(training, accuracy);
+				SortedSet<ParamsScore> pps = pk.getParameters(training, accuracy);
 
-				Double sigma = ps.first().getParams().get("Sigma");
-				System.out.println("Best parameters found: " + ps.first());
-
-				for (ParamsScore p : ps) {
-					System.out.println("\t" + p);
-				}
+				Double sigma = gps.first().getParams().get("Sigma");
+				System.out.println("Best param for Gaussian kernel: " + gps.first());
+				
+				Double d = pps.first().getParams().get("D");
+				System.out.println("Best param for Polynomial kernel: " + pps.first());
 
 				Table<Individual, Individual, Double> GK = gk.calculate(sigma);
+				Table<Individual, Individual, Double> PK = pk.calculate(d);
 
 				OnLineKernelPerceptronRanker<Individual> lmo = new OnLineKernelPerceptronRanker<Individual>(films, K, 5);
 				OnLineKernelPerceptronRanker<Individual> gmo = new OnLineKernelPerceptronRanker<Individual>(films, GK, 5);
+				OnLineKernelPerceptronRanker<Individual> pmo = new OnLineKernelPerceptronRanker<Individual>(films, PK, 5);
 
 				for (ObjectRank<Individual> i : training) {
 					lmo.feed(i);
 					gmo.feed(i);
+					pmo.feed(i);
 				}
 
 				List<Integer> reals = Lists.newLinkedList();
 
 				List<Integer> lpredicted = Lists.newLinkedList();
 				List<Integer> gpredicted = Lists.newLinkedList();
+				List<Integer> ppredicted = Lists.newLinkedList();
 
 				for (Individual t : folder.getFold(j)) {
 					reals.add(dati.getRatingMode(t));
 					lpredicted.add(lmo.rank(t));
 					gpredicted.add(gmo.rank(t));
+					ppredicted.add(pmo.rank(t));
 				}
 
 				maeLErr += mae.error(reals, lpredicted);
 				maeGErr += mae.error(reals, gpredicted);
+				maePErr += mae.error(reals, ppredicted);
+
 				rmseLErr += rmse.error(reals, lpredicted);
 				rmseGErr += rmse.error(reals, gpredicted);
+				rmsePErr += rmse.error(reals, ppredicted);
+				
 				sccLErr += scc.error(reals, lpredicted);
 				sccGErr += scc.error(reals, gpredicted);
+				sccPErr += scc.error(reals, ppredicted);
+				
 				accuracyLErr += accuracy.error(reals, lpredicted);
 				accuracyGErr += accuracy.error(reals, gpredicted);
-
+				accuracyPErr += accuracy.error(reals, ppredicted);
 			}
 
 			double dnfolds = nfolds;
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
+			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + maePErr / dnfolds);
 			lmae.add(maeLErr / dnfolds);
 			gmae.add(maeGErr / dnfolds);
+			pmae.add(maePErr / dnfolds);
 
-			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
-			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
+			System.out.println("Linear kernel on test set with " + features.size() + " features: " + rmseLErr / dnfolds);
+			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + rmseGErr / dnfolds);
+			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + rmsePErr / dnfolds);
 			lrmse.add(rmseLErr / dnfolds);
 			grmse.add(rmseGErr / dnfolds);
+			prmse.add(rmsePErr / dnfolds);
 
-			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
-			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
+			System.out.println("Linear kernel on test set with " + features.size() + " features: " + sccLErr / dnfolds);
+			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + sccGErr / dnfolds);
+			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + sccPErr / dnfolds);
 			lscc.add(sccLErr / dnfolds);
 			gscc.add(sccGErr / dnfolds);
+			pscc.add(sccPErr / dnfolds);
 
-			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
-			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
+			System.out.println("Linear kernel on test set with " + features.size() + " features: " + accuracyLErr / dnfolds);
+			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + accuracyGErr / dnfolds);
+			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + accuracyPErr / dnfolds);
 			laccuracy.add(accuracyLErr / dnfolds);
 			gaccuracy.add(accuracyGErr / dnfolds);
+			paccuracy.add(accuracyPErr / dnfolds);
 
 		}
 		
 		CSVWriter csv = new CSVWriter("res/risultati.csv");
 
+		csv.append("p value");
+
 		csv.append("Linear MAE");
 		csv.append("Gaussian MAE");
+		csv.append("Polynomial MAE");
+
 		csv.append("Linear RMSE");
 		csv.append("Gaussian RMSE");
+		csv.append("Polynomial RMSE");
+
 		csv.append("Linear Spearman Correlation Coefficient");
 		csv.append("Gaussian Spearman Correlation Coefficient");
+		csv.append("Polynomial Spearman Correlation Coefficient");
+
 		csv.append("Linear Accuracy");
 		csv.append("Gaussian Accuracy");
+		csv.append("Polynomial Accuracy");
+	
 		csv.newRow();
 
 		for (int i = 0; i < Math.min(NFOLDS, films.size()); i++) {
+			
+			csv.append(pValue.get(i).toString());
+			
 			csv.append(lmae.get(i).toString());
 			csv.append(gmae.get(i).toString());
+			csv.append(pmae.get(i).toString());
 
 			csv.append(lrmse.get(i).toString());
 			csv.append(grmse.get(i).toString());
+			csv.append(prmse.get(i).toString());
 
 			csv.append(lscc.get(i).toString());
 			csv.append(gscc.get(i).toString());
+			csv.append(pscc.get(i).toString());
 
 			csv.append(laccuracy.get(i).toString());
 			csv.append(gaccuracy.get(i).toString());
+			csv.append(paccuracy.get(i).toString());
+
 			csv.newRow();
 		}
 	}

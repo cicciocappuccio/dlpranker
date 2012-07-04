@@ -17,6 +17,7 @@ import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.Thing;
 import org.dllearner.refinementoperators.RefinementOperator;
+import org.dllearner.utilities.owl.ConceptComparator;
 
 import com.google.common.collect.Sets;
 import com.neuralnoise.cache.ReasonerUtils;
@@ -92,7 +93,7 @@ public class FeaturesGenerator {
 	
 	
 	public Set<Description> getFilteredFilmSubClasses(Set<Individual> individui, double minProbability) {
-		Set<Description> ret = Sets.newHashSet();
+		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
 		Set<String> seen = Sets.newHashSet();
 		Queue<Description> queue = new LinkedList<Description>();
 		queue.add(new NamedClass("http://dbpedia.org/ontology/Film"));
@@ -121,7 +122,7 @@ public class FeaturesGenerator {
 				newRet.add(f);
 		}
 		
-		System.out.println("Filtered Film subclasses: " + newRet.size());
+		System.out.println("Filtered Film subclasses: " + newRet.size() + " with minProbability: " + minProbability);
 		return newRet;
 	}
 	
