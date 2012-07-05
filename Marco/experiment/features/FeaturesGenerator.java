@@ -3,6 +3,7 @@ package features;
 import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
+import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 
@@ -26,10 +27,12 @@ public class FeaturesGenerator {
 
 	private Inference inference;
 	private RefinementOperator refinement;
+	private EIUtils ei;
 	
 	public FeaturesGenerator(Inference inference, RefinementOperator refinement) {
 		this.inference = inference;
 		this.refinement = refinement;
+		this.ei =  new EIUtils(inference.getCache(), inference.getReasoner());;
 	}
 	
 	public Set<Description> getExistentialFeatures() {
@@ -92,7 +95,7 @@ public class FeaturesGenerator {
 	}
 	
 	
-	public Set<Description> getFilteredFilmSubClasses(Set<Individual> individui, double minProbability) {
+	public Set<Description> getFilteredProbabilityFilmSubClasses(Set<Individual> individui, double minProbability) {
 		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
 		Set<String> seen = Sets.newHashSet();
 		Queue<Description> queue = new LinkedList<Description>();
@@ -126,6 +129,34 @@ public class FeaturesGenerator {
 		return newRet;
 	}
 	
+	
+	public Set<Description> getFilteredEntropyFilmSubClasses(Set<Individual> individui, double minEntropy) {
+		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
+		Set<String> seen = Sets.newHashSet();
+		Queue<Description> queue = new LinkedList<Description>();
+		queue.add(new NamedClass("http://dbpedia.org/ontology/Film"));
+		queue.add(new NamedClass("http://dbpedia.org/class/yago/Movie106613686"));
+		queue.add(new NamedClass("http://schema.org/Movie"));
+		while (!queue.isEmpty()) {
+			Description p = queue.poll();
+			if (!seen.contains(p.toString())) {
+				ret.add(p);
+				seen.add(p.toString());
+				queue.addAll(inference.getReasoner().getSubClasses(p));
+			}
+		}
+		
+		Set<Description> newRet = Sets.newHashSet();
+		
+		for (Description f : ret) {
+			double h = ei.H(f, individui);
+			if (h >= minEntropy)
+				newRet.add(f);
+		}
+		
+		System.out.println("Filtered Film subclasses: " + newRet.size() + " with minProbability: " + minEntropy);
+		return newRet;
+	}
 	
 	public Set<Description> getMHMRFeatures(Set<Individual> individui, double lambda) {
 		GreedyForward gf = new GreedyForward(inference.getCache(), inference.getReasoner(), refinement, 1);

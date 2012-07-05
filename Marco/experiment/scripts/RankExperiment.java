@@ -3,10 +3,10 @@ package scripts;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
+import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.CSV;
-import it.uniba.di.lacam.fanizzi.utils.CSVWriter;
 
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -41,7 +41,6 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 
 public class RankExperiment {
@@ -80,20 +79,21 @@ public class RankExperiment {
 		//AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
+		
 		Set<Individual> films = dati.getIndividuals();
 
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		for (double _p = 0.3; _p >= 0.0; _p -= 0.01 ) {
+		for (double _h = 0.3; _h >= 0.0; _h -= 0.01 ) {
 			
-			pValue.add(_p);
+			pValue.add(_h);
 			
 			prevFeatures = features;
-			features = _fg.getFilteredFilmSubClasses(films, _p);
+			features = _fg.getFilteredEntropyFilmSubClasses(films, _h);
 			
-			System.out.println("P = " + _p);
+			System.out.println("P = " + _h);
 			
 			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
 				continue;

@@ -74,11 +74,9 @@ public class EIUtils {
 			
 		}
 			
-		
 		double e = 0.0;
 
 		for (LogicValue valore : LogicValue.values())
-			
 		{	
 			e -= (prX.get(valore) * Math.log(prX.get(valore)));
 		}
