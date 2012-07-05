@@ -1,6 +1,7 @@
 package features;
 
 import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
+import it.uniba.di.lacam.fanizzi.features.selection.ScoreSelection;
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
@@ -166,5 +167,13 @@ public class FeaturesGenerator {
 		
 		return ret;
 	}
-	
+
+	public Set<Description> getMHMRFeatures(Set<Individual> individui, Set<Description> initialSet, double alpha) {
+		ScoreSelection ss = new ScoreSelection();
+		AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), alpha);
+		
+		Set<Description> ret = ss.estrazione(initialSet, individui, tScore);
+		
+		return ret;
+	}
 }

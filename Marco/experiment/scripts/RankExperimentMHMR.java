@@ -42,7 +42,7 @@ import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 
-public class RankExperiment {
+public class RankExperimentMHMR {
 
 	public static final int NFOLDS = 10;
 
@@ -60,7 +60,7 @@ public class RankExperiment {
 		Double gscc;
 		Double pscc;
 		
-		Double hValue;
+		Double alphaValue;
 		
 		//
 		
@@ -103,14 +103,14 @@ public class RankExperiment {
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		for (double _h = 0.7; _h >= 0.0; _h -= 0.05 ) {
+		for (double _alpha = 1.0; _alpha > 0.0; _alpha -= 0.1 ) {
 			
-			hValue = _h;
+			alphaValue = _alpha;
 			
 			prevFeatures = features;
-			features = _fg.getFilteredEntropyFilmSubClasses(films, _h);
+			features = _fg.getMHMRFeatures(films, features, _alpha);
 			
-			System.out.println("P = " + _h);
+			System.out.println("P = " + _alpha);
 			
 			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
 				continue;
@@ -282,7 +282,7 @@ public class RankExperiment {
 
 			List<String> row = Lists.newLinkedList();
 			
-			row.add(hValue.toString());
+			row.add(alphaValue.toString());
 			
 			row.add(lmae.toString());
 			row.add(gmae.toString());
