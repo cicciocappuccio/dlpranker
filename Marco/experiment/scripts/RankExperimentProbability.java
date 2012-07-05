@@ -1,6 +1,5 @@
 package scripts;
 
-import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
@@ -42,7 +41,9 @@ import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 
-public class RankExperiment {
+import features.FeaturesGenerator;
+
+public class RankExperimentProbability {
 
 	public static final int NFOLDS = 10;
 
@@ -64,7 +65,7 @@ public class RankExperiment {
 		
 		//
 		
-		PrintWriter pw = new PrintWriter("res/risultati.csv");
+		PrintWriter pw = new PrintWriter("res/risultati_p_fsub.csv");
 		
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
@@ -103,14 +104,14 @@ public class RankExperiment {
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		for (double _h = 0.7; _h >= 0.0; _h -= 0.05 ) {
+		for (double _p = 0.7; _p >= 0.0; _p -= 0.05 ) {
 			
-			hValue = _h;
+			hValue = _p;
 			
 			prevFeatures = features;
-			features = _fg.getFilteredEntropyFilmSubClasses(films, _h);
+			features = _fg.getFilteredProbabilityFilmSubClasses(films, _p);
 			
-			System.out.println("P = " + _h);
+			System.out.println("P = " + _p);
 			
 			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
 				continue;
@@ -299,4 +300,5 @@ public class RankExperiment {
 			CSV.write(pw, row);
 		}
 	}
+	
 }

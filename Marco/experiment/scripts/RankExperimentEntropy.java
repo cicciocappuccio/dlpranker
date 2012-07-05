@@ -42,7 +42,7 @@ import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 
-public class RankExperimentMHMR {
+public class RankExperimentEntropy {
 
 	public static final int NFOLDS = 10;
 
@@ -60,16 +60,16 @@ public class RankExperimentMHMR {
 		Double gscc;
 		Double pscc;
 		
-		Double alphaValue;
+		Double hValue;
 		
 		//
 		
-		PrintWriter pw = new PrintWriter("res/risultati_MHMR_fsub.csv");
+		PrintWriter pw = new PrintWriter("res/risultati_h_fsub.csv");
 		
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
 		
-		headRow.add("Alpha");
+		headRow.add("h");
 		
 		for (String method : methods)
 		 headRow.add(method + " MAE");
@@ -103,14 +103,14 @@ public class RankExperimentMHMR {
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		for (double _alpha = 1.0; _alpha > 0.0; _alpha -= 0.1 ) {
+		for (double _h = 0.7; _h >= 0.0; _h -= 0.05 ) {
 			
-			alphaValue = _alpha;
+			hValue = _h;
 			
 			prevFeatures = features;
-			features = _fg.getMHMRFeatures(films, features, _alpha);
+			features = _fg.getFilteredEntropyFilmSubClasses(films, _h);
 			
-			System.out.println("Alpha = " + _alpha);
+			System.out.println("h = " + _h);
 			
 			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
 				continue;
@@ -282,7 +282,7 @@ public class RankExperimentMHMR {
 
 			List<String> row = Lists.newLinkedList();
 			
-			row.add(alphaValue.toString());
+			row.add(hValue.toString());
 			
 			row.add(lmae.toString());
 			row.add(gmae.toString());

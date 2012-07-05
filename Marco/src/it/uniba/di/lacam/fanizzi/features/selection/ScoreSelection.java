@@ -7,20 +7,17 @@ import java.util.Set;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.Thing;
+import org.dllearner.utilities.owl.ConceptComparator;
 
 import com.google.common.collect.Sets;
 
 public class ScoreSelection {
 
-	public ScoreSelection() {
-		super();
-	}
-
 	public Set<Description> estrazione(Set<Description> initialSet, Set<Individual> individuals, AbstractScore tScore) {
-		Set<Description> ret = Sets.newHashSet();
+		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
 
 		double score = 0.0;
-		double previousScore;
+		double previousScore = 0.0;
 
 		{
 			previousScore = score;
