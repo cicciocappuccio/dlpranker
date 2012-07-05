@@ -249,8 +249,8 @@
             <classpath refid="Marco.classpath"/>
         </java>
     </target>
-    <target name="RankExperiment">
-        <java classname="scripts.RankExperiment" failonerror="true" fork="yes">
+    <target name="RankExperimentEntropy">
+        <java classname="scripts.RankExperimentEntropy" failonerror="true" fork="yes">
             <classpath refid="Marco.classpath"/>
         </java>
     </target>
