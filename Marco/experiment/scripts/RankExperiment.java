@@ -3,7 +3,6 @@ package scripts;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
-import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.CSV;
