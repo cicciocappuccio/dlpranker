@@ -19,5 +19,5 @@ public abstract class AbstractScore {
 		this.reasoner = reasoner;
 	}
 
-	public abstract double score(Set<Description> descriptions, Set<Individual> individuals);
+	public abstract Double score(Set<Description> descriptions, Set<Individual> individuals);
 }

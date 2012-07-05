@@ -3,10 +3,12 @@ package scripts;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
+import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.CSV;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,9 +64,11 @@ public class RankExperimentMHMR {
 		
 		Double alphaValue;
 		
-		//
+		File outFile = new File("res/risultati_MHMR_fsub.csv");
+		if (outFile.exists())
+			outFile.delete();
 		
-		PrintWriter pw = new PrintWriter("res/risultati_MHMR_fsub.csv");
+		PrintWriter pw = new PrintWriter(outFile);
 		
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
@@ -103,12 +107,16 @@ public class RankExperimentMHMR {
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		for (double _alpha = 1.0; _alpha > 0.0; _alpha -= 0.1 ) {
+		MHMRScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), 1.0);
+		
+		for (double _alpha = 0.99; _alpha > 0.0; _alpha -= 0.1 ) {
 			
 			alphaValue = _alpha;
 			
 			prevFeatures = features;
-			features = _fg.getMHMRFeatures(films, features, _alpha);
+			
+			features = _fg.getMHMRFeatures(films, _fg.getFilmSubClasses(), tScore, _alpha);
+			System.out.println(features + " " + features.size());
 			
 			System.out.println("Alpha = " + _alpha);
 			

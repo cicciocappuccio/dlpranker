@@ -14,20 +14,22 @@ import com.neuralnoise.cache.AbstractConceptCache;
 @Beta
 public class EntropyScore extends AbstractScore {
 	
+	private EIUtils calc;
+	
 	public EntropyScore(AbstractConceptCache cache,
-			AbstractReasonerComponent reasoner) {
+			AbstractReasonerComponent reasoner, EIUtils calc2) {
 		super(cache, reasoner);
-		// TODO Auto-generated constructor stub
+		this.calc = calc2;
 	}
 
 	@Override
-	public double score (Set<Description> descriptions, Set<Individual> individuals)
+	public Double score (Set<Description> descriptions, Set<Individual> individuals)
 	{
 		double sum = 0.0;
 		
-		EIUtils calc = new EIUtils(cache, reasoner);
 		
-		for (Description x: descriptions)
+		
+		for (Description x : descriptions)
 		{
 			//System.out.println(x);
 			sum += calc.H(x, individuals);

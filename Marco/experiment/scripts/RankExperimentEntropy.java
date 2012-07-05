@@ -7,6 +7,7 @@ import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.CSV;
 
+import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -62,9 +63,11 @@ public class RankExperimentEntropy {
 		
 		Double hValue;
 		
-		//
+		File outFile = new File("res/risultati_h_fsub.csv");
+		if (outFile.exists())
+			outFile.delete();
 		
-		PrintWriter pw = new PrintWriter("res/risultati_h_fsub.csv");
+		PrintWriter pw = new PrintWriter(outFile);
 		
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();

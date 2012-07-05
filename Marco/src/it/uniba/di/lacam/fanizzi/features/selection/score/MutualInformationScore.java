@@ -14,16 +14,18 @@ import com.neuralnoise.cache.AbstractConceptCache;
 @Beta
 public class MutualInformationScore extends AbstractScore {
 
+	private EIUtils calc;
 	
 	public MutualInformationScore(AbstractConceptCache cache,
-			AbstractReasonerComponent reasoner) {
+			AbstractReasonerComponent reasoner, EIUtils calc2) {
 		super(cache, reasoner);
+		this.calc = calc2;
 	}
 
 	@Override
-	public double score(Set<Description> descriptions, Set<Individual> individuals) {
+	public Double score(Set<Description> descriptions, Set<Individual> individuals) {
 		
-		EIUtils calc = new EIUtils(cache, reasoner);
+
 		
 		double sum = 0.0;
 		

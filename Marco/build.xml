@@ -86,11 +86,13 @@
             <fileset dir="src">
                 <exclude name="**/*.java"/>
                 <exclude name="it/uniba/di/lacam/fanizzi/reasonerUtils/ReasonerUtils.java"/>
+                <exclude name="it/uniba/di/lacam/fanizzi/features/selection/score/MHMR2Score.java"/>
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="test">
                 <exclude name="**/*.java"/>
+                <exclude name="test/MHMRTest.java"/>
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="bin">
@@ -123,10 +125,12 @@
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="src"/>
             <exclude name="it/uniba/di/lacam/fanizzi/reasonerUtils/ReasonerUtils.java"/>
+            <exclude name="it/uniba/di/lacam/fanizzi/features/selection/score/MHMR2Score.java"/>
             <classpath refid="Marco.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="test"/>
+            <exclude name="test/MHMRTest.java"/>
             <classpath refid="Marco.classpath"/>
         </javac>
         <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
@@ -251,6 +255,16 @@
     </target>
     <target name="RankExperimentEntropy">
         <java classname="scripts.RankExperimentEntropy" failonerror="true" fork="yes">
+            <classpath refid="Marco.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentMHMR">
+        <java classname="scripts.RankExperimentMHMR" failonerror="true" fork="yes">
+            <classpath refid="Marco.classpath"/>
+        </java>
+    </target>
+    <target name="MHMRTest">
+        <java classname="test.MHMRTest" failonerror="true" fork="yes">
             <classpath refid="Marco.classpath"/>
         </java>
     </target>

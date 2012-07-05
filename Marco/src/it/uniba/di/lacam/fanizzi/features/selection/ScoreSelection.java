@@ -13,32 +13,36 @@ import com.google.common.collect.Sets;
 
 public class ScoreSelection {
 
+	public static final double EPS = 1e-8;
+	
 	public Set<Description> estrazione(Set<Description> initialSet, Set<Individual> individuals, AbstractScore tScore) {
 		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
 
 		double score = 0.0;
 		double previousScore = 0.0;
 
-		{
+		do {
 			previousScore = score;
 			Description bestConcept = Thing.instance;
 
 			for (Description i : initialSet) {
-
-				double scoreI = 0.0;
-
 				Set<Description> temp = Sets.newHashSet(ret);
 				temp.add(i);
-				scoreI = tScore.score(temp, individuals);
-				if (scoreI > score) {
+				Double scoreI = tScore.score(temp, individuals);
+				if (scoreI != null && scoreI - score > EPS) {
 					bestConcept = i;
+
+					System.out.println(scoreI + " - " + score);
 					score = scoreI;
+//
 				}
 			}
-			if (bestConcept != Thing.instance)
+			if (bestConcept != Thing.instance) {
 				ret.add(bestConcept);
-		}
-		while (score > previousScore);
+				initialSet.remove(bestConcept);
+			}
+			System.out.println(ret.size() + ": " + bestConcept);
+		} while (score - previousScore > EPS);
 
 		return ret;
 	}
