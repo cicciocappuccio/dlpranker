@@ -24,9 +24,7 @@ public class MutualInformationScore extends AbstractScore {
 
 	@Override
 	public Double score(Set<Description> descriptions, Set<Individual> individuals) {
-		
 
-		
 		double sum = 0.0;
 		
 		for (Description i : descriptions)
@@ -36,7 +34,7 @@ public class MutualInformationScore extends AbstractScore {
 		//sum = (1.0/((double)descriptions.size()*(double)descriptions.size()))*sum;
 		
 		double dS = descriptions.size();
-		sum = (dS == 0.0 ? 0.0 : (1.0 / dS) * sum);
+		sum = (dS <= 1.0 ? 0.0 : (1.0 / dS) * sum);
 		
 		return sum;
 	}

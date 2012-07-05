@@ -40,7 +40,7 @@ public class MHMRScore extends AbstractScore {
 	public Double score(Set<Description> descriptions, Set<Individual> individuals) {
 				double ret1 = entropy.score(descriptions, individuals);
 				double ret2 = alpha * mutualInformation.score(descriptions, individuals);
-				//System.out.println("ret1: " + ret1 + "                     ret2: " + ret2);	
+				//System.out.println("ret1: " + ret1 + " ret2: " + ret2);	
 				Double ret = ret1 - ret2;
 				return (Double.isInfinite(ret) || Double.isNaN(ret) ? null : ret);
 	}
