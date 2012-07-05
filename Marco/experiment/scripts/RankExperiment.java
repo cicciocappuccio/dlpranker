@@ -48,24 +48,46 @@ public class RankExperiment {
 
 	public static void main(String[] args) throws Exception {
 
-		List<Double> lmae = Lists.newArrayList();
-		List<Double> gmae = Lists.newArrayList();
-		List<Double> pmae = Lists.newArrayList();
+		Double lmae;
+		Double gmae;
+		Double pmae;
 
-		List<Double> lrmse = Lists.newArrayList();
-		List<Double> grmse = Lists.newArrayList();
-		List<Double> prmse = Lists.newArrayList();
+		Double lrmse;
+		Double grmse;
+		Double prmse;
 		
-		List<Double> lscc = Lists.newArrayList();
-		List<Double> gscc = Lists.newArrayList();
-		List<Double> pscc = Lists.newArrayList();
+		Double lscc;
+		Double gscc;
+		Double pscc;
 		
-		List<Double> laccuracy = Lists.newArrayList();
-		List<Double> gaccuracy = Lists.newArrayList();
-		List<Double> paccuracy = Lists.newArrayList();
+		Double laccuracy;
+		Double gaccuracy;
+		Double paccuracy;
 
-		List<Double> pValue = Lists.newArrayList();
+		Double hValue;
+		
+		//
+		
+		PrintWriter pw = new PrintWriter("res/risultati.csv");
+		
+		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
+		List<String> headRow = Lists.newArrayList();
+		
+		headRow.add("p");
+		
+		for (String method : methods)
+		 headRow.add(method + " MAE");
 
+		for (String method : methods)
+			 headRow.add(method + " RMSE");
+		
+		for (String method : methods)
+			 headRow.add(method + " Spearman");
+	
+		CSV.write(pw, headRow);
+
+		//
+		
 		String urlOwlFile = "res/fragmentOntology10.owl";
 
 		ExperimentDataset dati = new ExperimentRatingW(urlOwlFile);
@@ -87,7 +109,7 @@ public class RankExperiment {
 		
 		for (double _h = 0.7; _h >= 0.0; _h -= 0.05 ) {
 			
-			pValue.add(_h);
+			hValue = _h;
 			
 			prevFeatures = features;
 			features = _fg.getFilteredEntropyFilmSubClasses(films, _h);
@@ -239,67 +261,44 @@ public class RankExperiment {
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + maePErr / dnfolds);
-			lmae.add(maeLErr / dnfolds);
-			gmae.add(maeGErr / dnfolds);
-			pmae.add(maePErr / dnfolds);
+			lmae = (maeLErr / dnfolds);
+			gmae = (maeGErr / dnfolds);
+			pmae = (maePErr / dnfolds);
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + rmseLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + rmseGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + rmsePErr / dnfolds);
-			lrmse.add(rmseLErr / dnfolds);
-			grmse.add(rmseGErr / dnfolds);
-			prmse.add(rmsePErr / dnfolds);
+			lrmse = (rmseLErr / dnfolds);
+			grmse = (rmseGErr / dnfolds);
+			prmse = (rmsePErr / dnfolds);
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + sccLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + sccGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + sccPErr / dnfolds);
-			lscc.add(sccLErr / dnfolds);
-			gscc.add(sccGErr / dnfolds);
-			pscc.add(sccPErr / dnfolds);
+			lscc = (sccLErr / dnfolds);
+			gscc = (sccGErr / dnfolds);
+			pscc = (sccPErr / dnfolds);
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + accuracyLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + accuracyGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + accuracyPErr / dnfolds);
-			laccuracy.add(accuracyLErr / dnfolds);
-			gaccuracy.add(accuracyGErr / dnfolds);
-			paccuracy.add(accuracyPErr / dnfolds);
 
-		}
-		
-		PrintWriter pw = new PrintWriter("res/risultati.csv");
-		
-		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
-		List<String> headRow = Lists.newArrayList();
-		
-		headRow.add("p");
-		
-		for (String method : methods)
-		 headRow.add(method + " MAE");
 
-		for (String method : methods)
-			 headRow.add(method + " RMSE");
-		
-		for (String method : methods)
-			 headRow.add(method + " Spearman");
-	
-		CSV.write(pw, headRow);
-		
-		for (int i = 0; i < Math.min(NFOLDS, films.size()); i++) {
 			List<String> row = Lists.newLinkedList();
 			
-			row.add(pValue.get(i).toString());
+			row.add(hValue.toString());
 			
-			row.add(lmae.get(i).toString());
-			row.add(gmae.get(i).toString());
-			row.add(pmae.get(i).toString());
+			row.add(lmae.toString());
+			row.add(gmae.toString());
+			row.add(pmae.toString());
 
-			row.add(lrmse.get(i).toString());
-			row.add(grmse.get(i).toString());
-			row.add(prmse.get(i).toString());
+			row.add(lrmse.toString());
+			row.add(grmse.toString());
+			row.add(prmse.toString());
 
-			row.add(lscc.get(i).toString());
-			row.add(gscc.get(i).toString());
-			row.add(pscc.get(i).toString());
+			row.add(lscc.toString());
+			row.add(gscc.toString());
+			row.add(pscc.toString());
 			
 			CSV.write(pw, row);
 		}
