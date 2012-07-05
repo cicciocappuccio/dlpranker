@@ -86,7 +86,7 @@ public class RankExperiment {
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		for (double _h = 0.3; _h >= 0.0; _h -= 0.01 ) {
+		for (double _h = 0.7; _h >= 0.0; _h -= 0.05 ) {
 			
 			pValue.add(_h);
 			
