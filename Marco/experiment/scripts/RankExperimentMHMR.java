@@ -60,39 +60,39 @@ public class RankExperimentMHMR {
 		Double lrmse;
 		Double grmse;
 		Double prmse;
-		
+
 		Double lscc;
 		Double gscc;
 		Double pscc;
-		
+
 		Double alphaValue;
-		
+
 		File outFile = new File("res/risultati_MHMR_fsub.csv");
 		if (outFile.exists())
 			outFile.delete();
-		
+
 		PrintWriter pw = new PrintWriter(outFile);
-		
+
 		CSVW csv = new CSVW(pw);
-		
+
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
-		
+
 		headRow.add("Alpha");
-		
-		for (String method : methods)
-		 headRow.add(method + " MAE");
 
 		for (String method : methods)
-			 headRow.add(method + " RMSE");
-		
+			headRow.add(method + " MAE");
+
 		for (String method : methods)
-			 headRow.add(method + " Spearman");
-	
+			headRow.add(method + " RMSE");
+
+		for (String method : methods)
+			headRow.add(method + " Spearman");
+
 		csv.write(headRow);
 
 		//
-		
+
 		String urlOwlFile = "res/fragmentOntology10.owl";
 
 		ExperimentDataset dati = new ExperimentRatingW(urlOwlFile);
@@ -101,34 +101,35 @@ public class RankExperimentMHMR {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 
 		reasoner.init();
-		AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile); 
-		//AbstractConceptCache cache = new AsynchronousHibernateConceptCache(urlOwlFile);
+		AbstractConceptCache cache = new VolatileConceptCache(urlOwlFile);
+		// AbstractConceptCache cache = new
+		// AsynchronousHibernateConceptCache(urlOwlFile);
 
 		Inference inference = new Inference(cache, reasoner);
-		
+
 		Set<Individual> films = dati.getIndividuals();
-		
+
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
 		FakeRefinementOperator fro = new FakeRefinementOperator(reasoner, _fg.getFilmSubClasses());
 		FeaturesGenerator fg = new FeaturesGenerator(inference, fro);
-		
+
 		Set<Description> prevFeatures = null, features = null;
-		
+
 		MHMRScore tScore = new MHMRScore(inference, 1.0);
-		
-		for (double _alpha = 0.19; _alpha > 0.0; _alpha -= 0.1 ) {
-			
+
+		for (double _alpha = 0.99; _alpha > 0.0; _alpha -= 0.1) {
+
 			alphaValue = _alpha;
-			
+
 			prevFeatures = features;
-			
+
 			features = fg.getMHMRFeatures(films, tScore, _alpha);
 
 			System.out.println("Features: " + features.size() + " con Alpha = " + _alpha);
-			
+
 			if (prevFeatures != null && Sets.symmetricDifference(prevFeatures, features).size() == 0)
 				continue;
-			
+
 			System.out.println("Features:");
 			for (Description f : features) {
 				System.out.println("\t" + f);
@@ -184,7 +185,7 @@ public class RankExperimentMHMR {
 
 			GaussianKernel<Individual> gk = new GaussianKernel<Individual>(films, E);
 			PolynomialKernel<Individual> pk = new PolynomialKernel<Individual>(films, K);
-			
+
 			final int nfolds = Math.min(NFOLDS, films.size());
 
 			List<Individual> filmList = new ArrayList<Individual>(films);
@@ -193,15 +194,15 @@ public class RankExperimentMHMR {
 			double maeLErr = 0.0;
 			double maeGErr = 0.0;
 			double maePErr = 0.0;
-			
+
 			double rmseLErr = 0.0;
 			double rmseGErr = 0.0;
 			double rmsePErr = 0.0;
-			
+
 			double sccLErr = 0.0;
 			double sccGErr = 0.0;
 			double sccPErr = 0.0;
-			
+
 			double accuracyLErr = 0.0;
 			double accuracyGErr = 0.0;
 			double accuracyPErr = 0.0;
@@ -219,7 +220,7 @@ public class RankExperimentMHMR {
 
 				Double sigma = gps.first().getParams().get("Sigma");
 				System.out.println("Best param for Gaussian kernel: " + gps.first());
-				
+
 				Double d = pps.first().getParams().get("D");
 				System.out.println("Best param for Polynomial kernel: " + pps.first());
 
@@ -256,11 +257,11 @@ public class RankExperimentMHMR {
 				rmseLErr += rmse.error(reals, lpredicted);
 				rmseGErr += rmse.error(reals, gpredicted);
 				rmsePErr += rmse.error(reals, ppredicted);
-				
+
 				sccLErr += scc.error(reals, lpredicted);
 				sccGErr += scc.error(reals, gpredicted);
 				sccPErr += scc.error(reals, ppredicted);
-				
+
 				accuracyLErr += accuracy.error(reals, lpredicted);
 				accuracyGErr += accuracy.error(reals, gpredicted);
 				accuracyPErr += accuracy.error(reals, ppredicted);
@@ -293,11 +294,10 @@ public class RankExperimentMHMR {
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + accuracyGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + accuracyPErr / dnfolds);
 
-
 			List<String> row = Lists.newLinkedList();
-			
+
 			row.add(alphaValue.toString());
-			
+
 			row.add(lmae.toString());
 			row.add(gmae.toString());
 			row.add(pmae.toString());
@@ -309,7 +309,7 @@ public class RankExperimentMHMR {
 			row.add(lscc.toString());
 			row.add(gscc.toString());
 			row.add(pscc.toString());
-			
+
 			csv.write(row);
 		}
 		csv.close();
