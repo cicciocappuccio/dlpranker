@@ -169,7 +169,7 @@ public class FeaturesGenerator {
 	}
 
 	public Set<Description> getMHMRFeatures(Set<Individual> individui, Set<Description> initialSet, MHMRScore tScore, double alpha) {
-		ScoreSelection ss = new ScoreSelection();
+		ScoreSelection ss = new ScoreSelection(0.2);
 		//AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), alpha);
 		tScore.setAlpha(alpha);
 		Set<Description> ret = ss.estrazione(initialSet, individui, tScore);
