@@ -18,21 +18,16 @@ import com.neuralnoise.cache.AbstractConceptCache;
 
 public class EIUtils {
 
-	private AbstractConceptCache cache;
-	private AbstractReasonerComponent reasoner;
+	private Inference inference;
 	
 	private Map<String, Double> H;
 	private Table<String, String, Double> I;
 	
 	private LogicValue[] values = LogicValue.values();
 	//private Set<LogicValue> values = Sets.newHashSet(LogicValue.TRUE, LogicValue.UNKNOWN);
-	
-	public EIUtils(AbstractConceptCache cache,
-			AbstractReasonerComponent reasoner) {
-		super();
-		this.cache = cache;
-		this.reasoner = reasoner;
-		
+
+	public EIUtils(Inference inference) {
+		this.inference = inference;
 		this.H = Maps.newHashMap();
 		this.I = HashBasedTable.create();
 	}
@@ -65,7 +60,7 @@ public class EIUtils {
 		
 		for (Individual i : individuals) {
 
-			Inference inf = new Inference(cache, reasoner);
+			Inference inf = inference;
 			LogicValue infVal = inf.cover(x, i);
 			
 			//infVal = (infVal == LogicValue.FALSE ? LogicValue.UNKNOWN : infVal);
@@ -131,12 +126,12 @@ public class EIUtils {
 		
 		for (Individual i : individuals) {
 
-			Inference infX = new Inference(cache, reasoner);
+			Inference infX = inference;
 			LogicValue infValX = infX.cover(x, i);
 
 			//infValX = (infValX == LogicValue.FALSE ? LogicValue.UNKNOWN : infValX);
 			
-			Inference infY = new Inference(cache, reasoner);
+			Inference infY = inference;
 			LogicValue infValY = infY.cover(y, i);
 			
 			//infValY = (infValY == LogicValue.FALSE ? LogicValue.UNKNOWN : infValY);

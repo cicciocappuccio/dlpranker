@@ -36,6 +36,7 @@ public class CSVTest {
 
 		csv.write(headRow);
 		
+		System.in.read();
 		
 		Double pValue = 0.1;
 		
@@ -70,7 +71,7 @@ public class CSVTest {
 		row.add(pscc.toString());
 		
 		csv.write(row);
-
+		csv.close();
 	
 	}
 }

@@ -37,7 +37,7 @@ public class ScoreSelection {
 				if (scoreI != null && scoreI - score > eps) {
 					bestConcept = i;
 
-					System.out.println(scoreI + " - " + score);
+					System.out.println(scoreI + " - " + score + " - " + bestConcept + " # " + temp);
 					score = scoreI;
 //
 				}
@@ -46,7 +46,7 @@ public class ScoreSelection {
 				ret.add(bestConcept);
 				initialSet.remove(bestConcept);
 			}
-			System.out.println(ret.size() + ": " + bestConcept);
+			System.out.println(ret.size() + ": " + bestConcept + " / " +  initialSet.size());
 		} while (score - previousScore > eps);
 
 		return ret;

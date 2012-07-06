@@ -4,6 +4,7 @@ import it.uniba.di.lacam.fanizzi.features.psi.Psi2DownWrapper;
 import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
 import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 
 import java.util.Collections;
 import java.util.Iterator;
@@ -55,10 +56,11 @@ public class ClimbingSearchTest {
 
 		System.out.println("Films selezionati\nchiamo GreedyForward");
 
-		AbstractScore tScore = new MHMRScore(cache, reasoner, 0.8);
+		Inference inference = new Inference(cache, reasoner);
+		
+		AbstractScore tScore = new MHMRScore(inference, 0.8);
 
-		GreedyForward pioniere = new GreedyForward(cache, reasoner, r,
-				maxLength);
+		GreedyForward pioniere = null;// new GreedyForward(inference, r, maxLength);
 
 		Set<Description> risultato = pioniere.estrazione(Thing.instance, _films,
 				tScore);

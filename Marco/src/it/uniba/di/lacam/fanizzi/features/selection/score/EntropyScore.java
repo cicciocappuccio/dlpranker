@@ -1,6 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.selection.score;
 
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 
 import java.util.Set;
 
@@ -15,11 +16,10 @@ import com.neuralnoise.cache.AbstractConceptCache;
 public class EntropyScore extends AbstractScore {
 	
 	private EIUtils calc;
-	
-	public EntropyScore(AbstractConceptCache cache,
-			AbstractReasonerComponent reasoner, EIUtils calc2) {
-		super(cache, reasoner);
-		this.calc = calc2;
+
+	public EntropyScore(Inference inference, EIUtils calc) {
+		super(inference);
+		this.calc = calc;
 	}
 
 	@Override

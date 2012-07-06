@@ -1,6 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.selection.score;
 
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 
 import java.util.Set;
 
@@ -16,9 +17,8 @@ public class MutualInformationScore extends AbstractScore {
 
 	private EIUtils calc;
 	
-	public MutualInformationScore(AbstractConceptCache cache,
-			AbstractReasonerComponent reasoner, EIUtils calc2) {
-		super(cache, reasoner);
+	public MutualInformationScore(Inference inference, EIUtils calc2) {
+		super(inference);
 		this.calc = calc2;
 	}
 

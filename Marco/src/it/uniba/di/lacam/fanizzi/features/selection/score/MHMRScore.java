@@ -1,6 +1,7 @@
 package it.uniba.di.lacam.fanizzi.features.selection.score;
 
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 
 import java.util.Set;
 
@@ -25,13 +26,13 @@ public class MHMRScore extends AbstractScore {
 		this.alpha = alpha;
 	}
 
-	public MHMRScore(AbstractConceptCache cache, AbstractReasonerComponent reasoner, double alpha) {
-		super(cache, reasoner);
+	public MHMRScore(Inference inference, double alpha) {
+		super(inference);
 
-		EIUtils calc = new EIUtils(cache, reasoner);
+		EIUtils calc = new EIUtils(inference);
 		
-		this.entropy =  new EntropyScore(cache, reasoner, calc);
-		this.mutualInformation = new MutualInformationScore(cache, reasoner, calc);
+		this.entropy =  new EntropyScore(inference, calc);
+		this.mutualInformation = new MutualInformationScore(inference, calc);
 		this.alpha = alpha;
 		
 	}

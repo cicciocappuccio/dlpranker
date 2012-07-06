@@ -33,7 +33,7 @@ public class FeaturesGenerator {
 	public FeaturesGenerator(Inference inference, RefinementOperator refinement) {
 		this.inference = inference;
 		this.refinement = refinement;
-		this.ei =  new EIUtils(inference.getCache(), inference.getReasoner());;
+		this.ei =  new EIUtils(inference);
 	}
 	
 	public Set<Description> getExistentialFeatures() {
@@ -159,21 +159,13 @@ public class FeaturesGenerator {
 		return newRet;
 	}
 	
-	public Set<Description> getMHMRFeatures(Set<Individual> individui, double lambda) {
-		GreedyForward gf = new GreedyForward(inference.getCache(), inference.getReasoner(), refinement, 1);
-		AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), lambda);
-		
+	public Set<Description> getMHMRFeatures(Set<Individual> individui, MHMRScore tScore, double lambda) {
+		GreedyForward gf = new GreedyForward(inference, refinement, 1, 0.01);
+		//AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), lambda);
+		tScore.setAlpha(lambda);
 		Set<Description> ret = gf.estrazione(Thing.instance, individui, tScore);
 		
 		return ret;
 	}
 
-	public Set<Description> getMHMRFeatures(Set<Individual> individui, Set<Description> initialSet, MHMRScore tScore, double alpha) {
-		ScoreSelection ss = new ScoreSelection(0.2);
-		//AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), alpha);
-		tScore.setAlpha(alpha);
-		Set<Description> ret = ss.estrazione(initialSet, individui, tScore);
-		
-		return ret;
-	}
 }

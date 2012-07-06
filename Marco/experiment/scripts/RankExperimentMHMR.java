@@ -1,12 +1,14 @@
 package scripts;
 
+import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
+import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
-import it.uniba.di.lacam.fanizzi.utils.CSV;
+import it.uniba.di.lacam.fanizzi.utils.CSVW;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -16,6 +18,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeSet;
 
 import kernels.GaussianKernel;
 import kernels.ParamsScore;
@@ -70,6 +73,8 @@ public class RankExperimentMHMR {
 		
 		PrintWriter pw = new PrintWriter(outFile);
 		
+		CSVW csv = new CSVW(pw);
+		
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
 		
@@ -84,7 +89,7 @@ public class RankExperimentMHMR {
 		for (String method : methods)
 			 headRow.add(method + " Spearman");
 	
-		CSV.write(pw, headRow);
+		csv.write(headRow);
 
 		//
 		
@@ -102,25 +107,26 @@ public class RankExperimentMHMR {
 		Inference inference = new Inference(cache, reasoner);
 		
 		Set<Individual> films = dati.getIndividuals();
-
+		
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
+		FakeRefinementOperator fro = new FakeRefinementOperator(reasoner, _fg.getFilmSubClasses());
+		FeaturesGenerator fg = new FeaturesGenerator(inference, fro);
 		
 		Set<Description> prevFeatures = null, features = null;
 		
-		MHMRScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), 1.0);
+		MHMRScore tScore = new MHMRScore(inference, 1.0);
 		
-		for (double _alpha = 0.99; _alpha > 0.0; _alpha -= 0.1 ) {
+		for (double _alpha = 0.19; _alpha > 0.0; _alpha -= 0.1 ) {
 			
 			alphaValue = _alpha;
 			
 			prevFeatures = features;
 			
-			features = _fg.getMHMRFeatures(films, _fg.getFilmSubClasses(), tScore, _alpha);
-			System.out.println(features + " " + features.size());
+			features = fg.getMHMRFeatures(films, tScore, _alpha);
+
+			System.out.println("Features: " + features.size() + " con Alpha = " + _alpha);
 			
-			System.out.println("Alpha = " + _alpha);
-			
-			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
+			if (prevFeatures != null && Sets.symmetricDifference(prevFeatures, features).size() == 0)
 				continue;
 			
 			System.out.println("Features:");
@@ -304,7 +310,8 @@ public class RankExperimentMHMR {
 			row.add(gscc.toString());
 			row.add(pscc.toString());
 			
-			CSV.write(pw, row);
+			csv.write(row);
 		}
+		csv.close();
 	}
 }

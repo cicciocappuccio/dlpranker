@@ -53,25 +53,18 @@ public class ClimbingSearch {
 
 					double proposed = tScore.score(newConceptSet, individuals);
 
-					// System.out.println("refinement: " + refinement +
-					// " with score: " + proposed + " best: " + best + " S: " +
-					// (newConceptSet.size()));
-
 					if (proposed > best) {
 						bestConcept = refinement;
-
-						// System.out.println("    True, best concept is: " +
-						// bestConcept);
-						// System.out.println("Press <Enter> to continue =)))");
 
 						best = proposed;
 						stop = false;
 					}
 				}
 			}
-
 		} while (!stop);
-
+		
+		
+		
 		return bestConcept;
 	}
 }

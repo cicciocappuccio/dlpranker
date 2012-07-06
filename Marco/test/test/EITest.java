@@ -2,6 +2,7 @@ package test;
 
 import it.uniba.di.lacam.fanizzi.features.psi.Psi2DownWrapper;
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
+import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 
 import java.util.Collections;
 import java.util.HashSet;
@@ -49,7 +50,8 @@ public class EITest {
 			films.add(it.next());
 
 		Set<Description> concetti = reasoner.getSubClasses(Thing.instance);
-		EIUtils calc = new EIUtils(cache, reasoner);
+		Inference inference = new Inference(cache, reasoner);
+		EIUtils calc = new EIUtils(inference);
 
 		System.out.println("concetti: " + concetti.size());
 		/*

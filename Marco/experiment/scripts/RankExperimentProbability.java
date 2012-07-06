@@ -5,6 +5,7 @@ import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.CSV;
+import it.uniba.di.lacam.fanizzi.utils.CSVW;
 
 import java.io.File;
 import java.io.PrintWriter;
@@ -69,7 +70,7 @@ public class RankExperimentProbability {
 			outFile.delete();
 		
 		PrintWriter pw = new PrintWriter(outFile);
-		
+		CSVW csv = new CSVW(pw);
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
 		
@@ -84,7 +85,7 @@ public class RankExperimentProbability {
 		for (String method : methods)
 			 headRow.add(method + " Spearman");
 	
-		CSV.write(pw, headRow);
+		csv.write(headRow);
 
 		//
 		
@@ -114,9 +115,9 @@ public class RankExperimentProbability {
 			prevFeatures = features;
 			features = _fg.getFilteredProbabilityFilmSubClasses(films, _p);
 			
-			System.out.println("P = " + _p);
+			System.out.println("Features: " + features.size() + " con P = " + _p);
 			
-			if (prevFeatures != null && Sets.intersection(prevFeatures, features).size() == 0)
+			if (prevFeatures != null && Sets.symmetricDifference(prevFeatures, features).size() == 0)
 				continue;
 			
 			System.out.println("Features:");
@@ -300,8 +301,9 @@ public class RankExperimentProbability {
 			row.add(gscc.toString());
 			row.add(pscc.toString());
 			
-			CSV.write(pw, row);
+			csv.write(row);
 		}
+		csv.close();
 	}
 	
 }
