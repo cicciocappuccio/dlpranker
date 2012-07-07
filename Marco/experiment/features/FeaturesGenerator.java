@@ -1,8 +1,6 @@
 package features;
 
 import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
-import it.uniba.di.lacam.fanizzi.features.selection.ScoreSelection;
-import it.uniba.di.lacam.fanizzi.features.selection.score.AbstractScore;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.EIUtils;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;

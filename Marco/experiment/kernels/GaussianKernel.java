@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
-import metrics.ErrorMetric;
+import metrics.AbstractErrorMetric;
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 import test.KFolder;
@@ -24,6 +24,22 @@ public class GaussianKernel<T> {
 	private Set<T> instances;
 	private Table<T, T, Double> euclideans;
 
+	public static <T> GaussianKernel<T> createGivenEuclideans(Set<T> instances, Table<T, T, Double> euclideans) {
+		return new GaussianKernel<T>(instances, euclideans);
+	}
+	
+	public static <T> GaussianKernel<T> createGivenKernel(Set<T> instances, Table<T, T, Double> kernel) {
+		Table<T, T, Double> euclideans = HashBasedTable.create();
+		for (T xi : kernel.rowKeySet()) {
+			double Kii = kernel.get(xi, xi);
+			for (T xj : kernel.columnKeySet()) {
+				double Kjj = kernel.get(xj, xj);
+				euclideans.put(xi, xj, Math.sqrt(-kernel.get(xi, xj) + 0.5 * (Kii + Kjj)));
+			}
+		}
+		return new GaussianKernel<T>(instances, euclideans);
+	}
+	
 	public GaussianKernel(Set<T> instances, Table<T, T, Double> euclideans) {
 		this.instances = instances;
 		this.euclideans = euclideans;
@@ -41,7 +57,7 @@ public class GaussianKernel<T> {
 		return K;
 	}
 
-	public SortedSet<ParamsScore> getParameters(List<ObjectRank<T>> training, ErrorMetric metric) {
+	public SortedSet<ParamsScore> getParameters(List<ObjectRank<T>> training, AbstractErrorMetric metric) {
 		int nfolds = Math.min(_NFOLDS, training.size());
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();

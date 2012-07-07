@@ -6,13 +6,11 @@ import java.util.Set;
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.ComponentInitException;
 import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.NamedClass;
 import org.dllearner.refinementoperators.RefinementOperator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.common.collect.Sets;
-import com.neuralnoise.cache.ReasonerUtils;
 
 public class FakeRefinementOperator implements RefinementOperator {
 

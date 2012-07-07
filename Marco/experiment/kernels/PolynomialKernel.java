@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
-import metrics.ErrorMetric;
+import metrics.AbstractErrorMetric;
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 import test.KFolder;
@@ -24,6 +24,10 @@ public class PolynomialKernel<T> {
 	private Set<T> instances;
 	private Table<T, T, Double> kernel;
 
+	public static <T> PolynomialKernel<T> create(Set<T> instances, Table<T, T, Double> kernel) {
+		return new PolynomialKernel<T>(instances, kernel);
+	}
+	
 	public PolynomialKernel(Set<T> instances, Table<T, T, Double> kernel) {
 		this.instances = instances;
 		this.kernel = kernel;
@@ -40,7 +44,7 @@ public class PolynomialKernel<T> {
 		return K;
 	}
 
-	public SortedSet<ParamsScore> getParameters(List<ObjectRank<T>> training, ErrorMetric metric) {
+	public SortedSet<ParamsScore> getParameters(List<ObjectRank<T>> training, AbstractErrorMetric metric) {
 		int nfolds = Math.min(_NFOLDS, training.size());
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();

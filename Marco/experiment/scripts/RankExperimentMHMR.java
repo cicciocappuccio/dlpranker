@@ -4,28 +4,23 @@ import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentDataset;
 import it.uniba.di.lacam.fanizzi.experiment.dataset.ExperimentRatingW;
-import it.uniba.di.lacam.fanizzi.features.selection.GreedyForward;
 import it.uniba.di.lacam.fanizzi.features.selection.score.MHMRScore;
 import it.uniba.di.lacam.fanizzi.features.utils.Inference;
-import it.uniba.di.lacam.fanizzi.features.utils.Inference.LogicValue;
 import it.uniba.di.lacam.fanizzi.utils.CSVW;
 
 import java.io.File;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
-import java.util.TreeSet;
 
 import kernels.GaussianKernel;
 import kernels.ParamsScore;
 import kernels.PolynomialKernel;
-import metrics.Accuracy;
+import metrics.AbstractErrorMetric;
 import metrics.AccuracyError;
-import metrics.ErrorMetric;
 import metrics.MAE;
 import metrics.RMSE;
 import metrics.SpearmanCorrelationCoefficient;
@@ -41,32 +36,17 @@ import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 import test.KFolder;
 
-import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 
-public class RankExperimentMHMR {
+public class RankExperimentMHMR extends AbstractRankExperiment {
 
 	public static final int NFOLDS = 10;
 
 	public static void main(String[] args) throws Exception {
-
-		Double lmae;
-		Double gmae;
-		Double pmae;
-
-		Double lrmse;
-		Double grmse;
-		Double prmse;
-
-		Double lscc;
-		Double gscc;
-		Double pscc;
-
-		Double alphaValue;
 
 		File outFile = new File("res/risultati_MHMR_fsub.csv");
 		if (outFile.exists())
@@ -122,7 +102,7 @@ public class RankExperimentMHMR {
 
 		for (double _alpha = 0.99; _alpha > 0.0; _alpha -= 0.1) {
 
-			alphaValue = _alpha;
+			double alphaValue = _alpha;
 
 			prevFeatures = features;
 
@@ -138,55 +118,15 @@ public class RankExperimentMHMR {
 				System.out.println("\t" + f);
 			}
 
-			System.out.println("Creating Pi..");
+			Table<Individual, Individual, Double> K = buildKernel(inference, features, films);
 
-			Table<Description, Individual, Double> Pi = HashBasedTable.create();
+			AbstractErrorMetric accuracy = new AccuracyError(); // da utilizzare per best sigma
 
-			Inference a = new Inference(cache, reasoner);
+			AbstractErrorMetric mae = new MAE();
+			AbstractErrorMetric rmse = new RMSE();
+			AbstractErrorMetric scc = new SpearmanCorrelationCoefficient();
 
-			for (Description feature : features) {
-				for (Individual individual : films) {
-					LogicValue b = a.cover(feature, individual);
-					Pi.put(feature, individual, (b == LogicValue.TRUE ? 0 : (b == LogicValue.FALSE ? 1 : 0.5)));
-				}
-			}
-
-			if (cache != null)
-				cache.save();
-
-			Table<Individual, Individual, Double> K = HashBasedTable.create();
-			Set<Individual> toCheck = new HashSet<Individual>(films);
-
-			System.out.println("Creating Kernel..");
-
-			for (Individual i : films) {
-				for (Individual j : toCheck) {
-					double sum = 0;
-					for (Description feature : features)
-						sum += Math.pow(1 - Math.abs((Pi.get(feature, i) - Pi.get(feature, j))), 2);
-					sum = (Math.sqrt(sum));
-					K.put(i, j, sum);
-					K.put(j, i, sum);
-				}
-				toCheck.remove(i);
-			}
-
-			Table<Individual, Individual, Double> E = HashBasedTable.create();
-			for (Individual xi : K.rowKeySet()) {
-				double Kii = K.get(xi, xi);
-				for (Individual xj : K.columnKeySet()) {
-					double Kjj = K.get(xj, xj);
-					E.put(xi, xj, Math.sqrt(-K.get(xi, xj) + 0.5 * (Kii + Kjj)));
-				}
-			}
-
-			ErrorMetric accuracy = new AccuracyError(); // da utilizzare per best sigma
-
-			ErrorMetric mae = new MAE();
-			ErrorMetric rmse = new RMSE();
-			ErrorMetric scc = new SpearmanCorrelationCoefficient();
-
-			GaussianKernel<Individual> gk = new GaussianKernel<Individual>(films, E);
+			GaussianKernel<Individual> gk = GaussianKernel.createGivenKernel(films, K);
 			PolynomialKernel<Individual> pk = new PolynomialKernel<Individual>(films, K);
 
 			final int nfolds = Math.min(NFOLDS, films.size());
@@ -275,43 +215,44 @@ public class RankExperimentMHMR {
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + maeLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + maeGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + maePErr / dnfolds);
-			lmae = (maeLErr / dnfolds);
-			gmae = (maeGErr / dnfolds);
-			pmae = (maePErr / dnfolds);
+			double lmae = (maeLErr / dnfolds);
+			double gmae = (maeGErr / dnfolds);
+			double pmae = (maePErr / dnfolds);
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + rmseLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + rmseGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + rmsePErr / dnfolds);
-			lrmse = (rmseLErr / dnfolds);
-			grmse = (rmseGErr / dnfolds);
-			prmse = (rmsePErr / dnfolds);
+			double lrmse = (rmseLErr / dnfolds);
+			double grmse = (rmseGErr / dnfolds);
+			double prmse = (rmsePErr / dnfolds);
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + sccLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + sccGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + sccPErr / dnfolds);
-			lscc = (sccLErr / dnfolds);
-			gscc = (sccGErr / dnfolds);
-			pscc = (sccPErr / dnfolds);
+			double lscc = (sccLErr / dnfolds);
+			double gscc = (sccGErr / dnfolds);
+			double pscc = (sccPErr / dnfolds);
 
 			System.out.println("Linear kernel on test set with " + features.size() + " features: " + accuracyLErr / dnfolds);
 			System.out.println("Gaussian kernel on test set with " + features.size() + " features: " + accuracyGErr / dnfolds);
 			System.out.println("Polynomial kernel on test set with " + features.size() + " features: " + accuracyPErr / dnfolds);
 
+
 			List<String> row = Lists.newLinkedList();
+			
+			row.add(Double.toString(alphaValue));
+			
+			row.add(Double.toString(lmae));
+			row.add(Double.toString(gmae));
+			row.add(Double.toString(pmae));
 
-			row.add(alphaValue.toString());
+			row.add(Double.toString(lrmse));
+			row.add(Double.toString(grmse));
+			row.add(Double.toString(prmse));
 
-			row.add(lmae.toString());
-			row.add(gmae.toString());
-			row.add(pmae.toString());
-
-			row.add(lrmse.toString());
-			row.add(grmse.toString());
-			row.add(prmse.toString());
-
-			row.add(lscc.toString());
-			row.add(gscc.toString());
-			row.add(pscc.toString());
+			row.add(Double.toString(lscc));
+			row.add(Double.toString(gscc));
+			row.add(Double.toString(pscc));
 			
 			row.add(((Integer)features.size()).toString());
 

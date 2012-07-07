@@ -3,7 +3,7 @@
 	<classpathentry kind="src" path="perceptron"/>
 	<classpathentry excluding="it/uniba/di/lacam/fanizzi/reasonerUtils/ReasonerUtils.java|it/uniba/di/lacam/fanizzi/features/selection/score/MHMR2Score.java" kind="src" path="src"/>
 	<classpathentry excluding="test/MHMRTest.java" kind="src" path="test"/>
-	<classpathentry kind="src" path="metrics"/>
+	<classpathentry excluding="metrics/Accuracy.java" kind="src" path="metrics"/>
 	<classpathentry excluding="features/AllPrimitivesExists.java|features/Climbing.java|test/Test.java|features/SubSuperClass.java" kind="src" path="experiment"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="lib/libsvm.jar"/>

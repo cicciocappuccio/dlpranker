@@ -3,7 +3,7 @@ package metrics;
 import java.util.Iterator;
 import java.util.List;
 
-public class RMSE extends ErrorMetric {
+public class RMSE extends AbstractErrorMetric {
 
 	@Override
 	protected double _error(List<Integer> real, List<Integer> predicted) {

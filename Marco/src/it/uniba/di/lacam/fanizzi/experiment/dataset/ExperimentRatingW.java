@@ -14,14 +14,12 @@ import com.google.common.collect.Table;
 
 public class ExperimentRatingW implements ExperimentDataset {
 
-	
-	private Table<Individual, Individual, Integer> ratings;							// rating, film, ratingValue,   row, column, cell
-
+	// rating, film, ratingValue,   row, column, cell
+	private Table<Individual, Individual, Integer> ratings;
 	
 	public ExperimentRatingW(String urlOWLFile) {
 		Table<Individual, Individual, Integer> prov = XMLFilmRatingStream.leggi();
-		if (prov == null)
-		{
+		if (prov == null) {
 			System.out.println("Lettura del file fallita, creazione di ExperimentRating e scrittura del file");
 			OntologyModel om = new OntologyModel(urlOWLFile);
 			ExperimentRating er = new ExperimentRating(om);

@@ -2,9 +2,9 @@ package metrics;
 
 import java.util.List;
 
-public abstract class ErrorMetric {
+public abstract class AbstractErrorMetric {
 
-	public ErrorMetric() { }
+	public AbstractErrorMetric() { }
 	
 	public double error(List<Integer> real, List<Integer> predicted) {
 		if (real.size() != predicted.size())
