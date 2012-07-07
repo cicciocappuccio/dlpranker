@@ -74,7 +74,7 @@ public class PolynomialKernel<T> {
 			params.put("D", D);
 
 			double dnfolds = nfolds;
-			ParamsScore psJ = new ParamsScore(params, (error / dnfolds), D);
+			ParamsScore psJ = new ParamsScore(params, - (error / dnfolds), D);
 			ret.add(psJ);
 		}
 

@@ -21,6 +21,7 @@ import kernels.GaussianKernel;
 import kernels.ParamsScore;
 import kernels.PolynomialKernel;
 import metrics.Accuracy;
+import metrics.AccuracyError;
 import metrics.ErrorMetric;
 import metrics.MAE;
 import metrics.RMSE;
@@ -167,7 +168,7 @@ public class RankExperimentEntropy {
 				}
 			}
 
-			ErrorMetric accuracy = new Accuracy(); // da utilizzare per best sigma
+			ErrorMetric accuracy = new AccuracyError(); // da utilizzare per best sigma
 
 			ErrorMetric mae = new MAE();
 			ErrorMetric rmse = new RMSE();
