@@ -85,7 +85,9 @@ public class RankExperimentProbability {
 		
 		for (String method : methods)
 			 headRow.add(method + " Spearman");
-	
+
+		headRow.add("features number");
+		
 		csv.write(headRow);
 
 		//
@@ -301,7 +303,9 @@ public class RankExperimentProbability {
 			row.add(lscc.toString());
 			row.add(gscc.toString());
 			row.add(pscc.toString());
-			
+
+			row.add(((Integer)features.size()).toString());
+
 			csv.write(row);
 		}
 		csv.close();
