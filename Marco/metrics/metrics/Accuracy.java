@@ -17,7 +17,7 @@ public class Accuracy extends ErrorMetric {
 		while (itr.hasNext() && itp.hasNext()) {
 			int r = itr.next();
 			int p = itp.next();
-			if (r != p) {
+			if (r == p) {
 				right += 1.0;
 			}
 			total += 1.0;

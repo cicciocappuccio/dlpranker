@@ -75,7 +75,7 @@ public class GaussianKernel<T> {
 			params.put("Sigma", sigma);
 
 			double dnfolds = nfolds;
-			ParamsScore psJ = new ParamsScore(params, - (error / dnfolds), sigma);
+			ParamsScore psJ = new ParamsScore(params, (error / dnfolds), sigma);
 			ret.add(psJ);
 		}
 
