@@ -17,7 +17,7 @@ public class SpearmanCorrelationCoefficient extends AbstractErrorMetric {
 		while (itr.hasNext() && itp.hasNext()) {
 			double r = itr.next();
 			double p = itp.next();
-			sumDi = Math.pow((r - p), 2);
+			sumDi += Math.pow((r - p), 2);
 		}
 		
 		double scc = 1 - ((6 * sumDi) / (n * (n * n - 1)));

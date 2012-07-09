@@ -9,6 +9,7 @@ import java.util.Set;
 
 import org.dllearner.core.owl.Individual;
 
+import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 
 
@@ -106,4 +107,28 @@ public class ExperimentRatingW implements ExperimentDataset {
 		return maxI + 1;
 	}
 	
+	public Table<String, Integer, Integer> getDist() {
+		
+		Table<String, Integer, Integer> dist = HashBasedTable.create();
+		
+		for (Individual individual : getIndividuals()) {
+			Set<Individual> ratings = getRatings(individual);
+
+			int[] modeV = new int[5];
+			
+			Arrays.fill(modeV, 0);
+
+			for (Individual i : ratings)
+				modeV[getRatingValue(i) - 1]++;
+			
+			for (int i = 0; i < 5; i++)
+			{
+				dist.put(individual.toString(), i + 1, modeV[i]);
+			}
+				
+		}
+		
+		return dist;
+	}
+
 }

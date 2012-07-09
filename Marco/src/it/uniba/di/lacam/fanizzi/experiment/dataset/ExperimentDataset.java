@@ -7,6 +7,8 @@ import java.util.Set;
 
 import org.dllearner.core.owl.Individual;
 
+import com.google.common.collect.Table;
+
 
 /**
  * @author Marco
@@ -75,4 +77,9 @@ public interface ExperimentDataset {
 	 * @return media
 	 */
 	public double getAVGRating(Individual individual);
+
+	/**
+	 * @return tabella con la distribuzione di ogni individuo
+	 */
+	public Table<String, Integer, Integer> getDist();
 }
