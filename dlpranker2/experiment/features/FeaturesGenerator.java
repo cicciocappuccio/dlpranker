@@ -28,97 +28,12 @@ public class FeaturesGenerator {
 
 	private Inference inference;
 	private RefinementOperator refinement;
-	private EIUtils ei;
 	
 	public FeaturesGenerator(Inference inference, RefinementOperator refinement) {
 		this.inference = inference;
 		this.refinement = refinement;
-		this.ei =  new EIUtils(inference);
 	}
 	
-	public Set<Description> getExistentialFeatures() {
-		return _getExistentialFeatures(Thing.instance, refinement, new HashSet<String>());
-	}
-	
-	private Set<Description> _getExistentialFeatures(Description concept, RefinementOperator r, Set<String> _seen) {
-		//System.out.println(".. Refining: " + concept);
-		Set<Description> ret = Sets.newHashSet();
-		Set<Description> refinements = r.refine(concept, 3, null);
-		Set<Description> toRemove = Sets.newHashSet();
-		for (Description c : refinements) {
-			Description nc = ReasonerUtils.normalise(c);
-			String str = c.toString();
-			if (_seen.contains(nc.toString()) || c.getLength() > 3 || str.contains(" OR ") || str.contains(" AND ") || str.contains("BOTTOM"))
-				toRemove.add(c);
-			_seen.add(nc.toString());
-		}
-		refinements.removeAll(toRemove);
-		for (Description c : refinements) {
-			ret.addAll(_getExistentialFeatures(c, r, _seen));
-			ret.add(c);
-		}
-		return ret;
-	}
-	
-	
-	public Set<Description> getFilteredProbabilityExistentialFeatures(Set<Individual> individui, double minProbability) {
-		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
-		
-		ret = _getExistentialFeatures(Thing.instance, refinement, new HashSet<String>());
-		
-		Set<Description> newRet = Sets.newHashSet();
-		double total = individui.size();
-		
-		for (Description f : ret) {
-			double covered = 0.0;
-			for (Individual film : individui)
-				if (inference.cover(f, film) == LogicValue.TRUE)
-					covered += 1.0;
-
-			double p = covered / total;
-			if (p >= minProbability)
-				newRet.add(f);
-		}
-		
-		System.out.println("Filtered Film subclasses: " + newRet.size() + " with minProbability: " + minProbability);
-		return newRet;
-	}
-	
-	
-	public Set<Description> getFilteredEntropyExistentialFeatures(Set<Individual> individui, double minEntropy) {
-		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
-		
-		ret = _getExistentialFeatures(Thing.instance, refinement, new HashSet<String>());
-		
-		Set<Description> newRet = Sets.newHashSet();
-		
-		for (Description f : ret) {
-			double h = ei.H(f, individui);
-			if (h >= minEntropy)
-				newRet.add(f);
-		}
-		
-		System.out.println("Filtered Film subclasses: " + newRet.size() + " with minProbability: " + minEntropy);
-		return newRet;
-	}
-	
-
-	
-	public Set<Description> getAtomicFeatures() {
-		List<NamedClass> tmp = inference.getReasoner().getAtomicConceptsList();
-		Set<Description> ret = Sets.newHashSet();
-		Set<String> sret = Sets.newHashSet();
-		for (Description t : tmp) {
-			Description nt = ReasonerUtils.normalise(t);
-			if (!sret.contains(nt.toString())) {
-				ret.add(nt);
-				sret.add(nt.toString());
-			}
-		}
-		System.out.println("Atomic features were " + tmp.size() + ", now are " + ret.size());
-		//ret.addAll(tmp);
-		return ret;
-	}
 
 	public Set<Description> getFilmSubClasses() {
 		Set<Description> ret = Sets.newHashSet();
@@ -138,7 +53,6 @@ public class FeaturesGenerator {
 		System.out.println("Film subclasses: " + ret.size());
 		return ret;
 	}
-	
 	
 	public Set<Description> getFilteredProbabilityFilmSubClasses(Set<Individual> individui, double minProbability) {
 		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
@@ -175,7 +89,7 @@ public class FeaturesGenerator {
 	}
 	
 	
-	public Set<Description> getFilteredEntropyFilmSubClasses(Set<Individual> individui, double minEntropy) {
+	public Set<Description> getFilteredEntropyFilmSubClasses(Set<Individual> individui, double minEntropy, EIUtils ei) {
 		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
 		Set<String> seen = Sets.newHashSet();
 		Queue<Description> queue = new LinkedList<Description>();

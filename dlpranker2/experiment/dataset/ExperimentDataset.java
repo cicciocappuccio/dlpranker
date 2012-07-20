@@ -85,12 +85,12 @@ public final class ExperimentDataset {
 		return ret;
 	}
 	
-	public static final int getRatingMode(List<Tupla> lista) {
-		Integer[] modeArray = new Integer[5];
-		
+	private static final int getRatingMode(List<Tupla> lista) {
+		int[] modeArray = new int[5];
+
 		for (Tupla i : lista)
 			modeArray[i.getValue() - 1]++;
-		
+
 		Integer mode = -1;
 		
 		for (Integer i : modeArray)
@@ -100,7 +100,7 @@ public final class ExperimentDataset {
 		return mode + 1;
 	}
 
-	public static final double getRatingAVG(List<Tupla> lista) {
+	private static final double getRatingAVG(List<Tupla> lista) {
 		double sum = 0.0;
 		
 		for (Tupla i : lista)

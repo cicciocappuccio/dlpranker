@@ -13,7 +13,6 @@ import org.dllearner.core.owl.Individual;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
-import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
 import utils.EIUtils;
@@ -31,30 +30,27 @@ import dataset.KFolder;
 import dataset.Tupla;
 import features.FeaturesGenerator;
 
-public class RankExperimentMRMRUser extends AbstractRankExperiment {
+public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 
 	public static void main(String[] args) throws Exception {
 
-		String fileName = "res/risultati/RankExperimentMRMRUser.csv";
+		String fileName = "res/risultati/RankExperimentProbabilityUser.csv";
 
-		CSVW csv = getCSV(fileName, "lambda", "nfeatures");
+		CSVW csv = getCSV(fileName, "Probability", "null");
 
 		int nrating = 5;
 
 		Inference inference = getInference();
 
-		FeaturesGenerator fg = getFeaturesGenerator(inference);
+		FeaturesGenerator fg = new FeaturesGenerator(inference, null);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
 
 		List<Tupla> utenti = ExperimentDataset.getUsers(lista);
 
-		List<Double> lambdas = Lists.newLinkedList();
-		lambdas.add(1.0);
-
-		List<Integer> nfeaturess = Lists.newLinkedList();
-		for (int i = 0; i < 50; i++)
-			nfeaturess.add(i);
+		List<Double> probability = Lists.newLinkedList();
+		for (Double i = 0.0; i < 1.0; i += 0.1)
+			probability.add(i);
 
 		for (Tupla utente : utenti) {
 
@@ -71,9 +67,7 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 				filmsUser.add(i.getFilm());
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
-			for (double lambda : lambdas) {
-			
-				for (int nfeatures : nfeaturess) {
+				for (Double p : probability) {
 
 					AbstractErrorMetric mae = new MAE();
 					AbstractErrorMetric rmse = new RMSE();
@@ -95,12 +89,8 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 
 						List<Tupla> testRanks = folder.getFold(j);
 
-						EIUtils calc = new EIUtils(inference);
-						MRMRScore tScore = new MRMRScore(inference, multimap, 1.0, calc);
-
-						Set<Description> features = fg.getMRMRFeatures(film, tScore, lambda, nfeatures);
-
-						System.out.println("Lambda: " + lambda + " numero di features: " + features.size());
+						Set<Description> features = fg.getFilteredProbabilityFilmSubClasses(film, p);
+						System.out.println("P: " + p + " numero di features: " + features.size());
 
 						Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
@@ -116,8 +106,6 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 							gmo.feed(i);
 							pmo.feed(i);
 						}
-
-						// Fase di TEST
 
 						List<Integer> reals = Lists.newLinkedList();
 
@@ -144,11 +132,11 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 						double gscc = scc.error(reals, gpredicted);
 						double pscc = scc.error(reals, ppredicted);
 
-						write(csv, utente.getUser().getName(), lambda, nfeatures, j, lmae, gmae, pmae, lrmse, grmse, prmse, lscc, gscc, pscc);
+						write(csv, utente.getUser().getName(), p, 0, j, lmae, gmae, pmae, lrmse, grmse, prmse, lscc, gscc, pscc);
 					}
 				}
 			}
-		}
+		
 		csv.close();
 	}
 }

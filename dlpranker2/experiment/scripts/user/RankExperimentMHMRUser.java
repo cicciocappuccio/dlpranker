@@ -13,10 +13,9 @@ import org.dllearner.core.owl.Individual;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
-import scoring.MRMRScore;
+import scoring.MHMRScore;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
-import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
 
@@ -31,11 +30,11 @@ import dataset.KFolder;
 import dataset.Tupla;
 import features.FeaturesGenerator;
 
-public class RankExperimentMRMRUser extends AbstractRankExperiment {
+public class RankExperimentMHMRUser extends AbstractRankExperiment {
 
 	public static void main(String[] args) throws Exception {
 
-		String fileName = "res/risultati/RankExperimentMRMRUser.csv";
+		String fileName = "res/risultati/RankExperimentMHMRUser.csv";
 
 		CSVW csv = getCSV(fileName, "lambda", "nfeatures");
 
@@ -44,7 +43,7 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 		Inference inference = getInference();
 
 		FeaturesGenerator fg = getFeaturesGenerator(inference);
-
+	
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
 
 		List<Tupla> utenti = ExperimentDataset.getUsers(lista);
@@ -72,13 +71,13 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
 			for (double lambda : lambdas) {
-			
+
 				for (int nfeatures : nfeaturess) {
 
 					AbstractErrorMetric mae = new MAE();
 					AbstractErrorMetric rmse = new RMSE();
 					AbstractErrorMetric scc = new SpearmanCorrelationCoefficient();
-					
+
 					for (int j = 0; j < NFOLDS; j++) {
 						List<Tupla> trainingRanks = folder.getOtherFolds(j);
 
@@ -95,10 +94,9 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 
 						List<Tupla> testRanks = folder.getFold(j);
 
-						EIUtils calc = new EIUtils(inference);
-						MRMRScore tScore = new MRMRScore(inference, multimap, 1.0, calc);
+						MHMRScore tScore = new MHMRScore(inference, 1.0);
 
-						Set<Description> features = fg.getMRMRFeatures(film, tScore, lambda, nfeatures);
+						Set<Description> features = fg.getMHMRFeatures(film, tScore, lambda, nfeatures);
 
 						System.out.println("Lambda: " + lambda + " numero di features: " + features.size());
 
@@ -116,8 +114,6 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 							gmo.feed(i);
 							pmo.feed(i);
 						}
-
-						// Fase di TEST
 
 						List<Integer> reals = Lists.newLinkedList();
 

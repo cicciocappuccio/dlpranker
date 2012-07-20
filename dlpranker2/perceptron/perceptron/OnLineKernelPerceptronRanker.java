@@ -14,7 +14,7 @@ public class OnLineKernelPerceptronRanker<T> extends AbstractPerceptronRanker<T>
 		T o = objectRank.getObject();
 		int r = objectRank.getRank();
 		int y = rank(o);
-	
+		
 		double _alpha = 0.0;
 		if (y != r)
 			_alpha = (alpha.containsKey(o) ? alpha.get(o) : 0.0);
