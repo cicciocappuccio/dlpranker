@@ -4,6 +4,7 @@ package features;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Set;
+import java.util.TreeMap;
 
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
@@ -31,7 +32,6 @@ public class FeaturesGenerator {
 		this.refinement = refinement;
 	}
 	
-
 	public Set<Description> getFilmSubClasses() {
 		Set<Description> ret = Sets.newHashSet();
 		Set<String> seen = Sets.newHashSet();
@@ -85,6 +85,46 @@ public class FeaturesGenerator {
 		return newRet;
 	}
 	
+	public Set<Description> getFilteredProbabilityFilmSubClasses(Set<Individual> individui, int nFeatures)
+	{
+		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
+		Set<String> seen = Sets.newHashSet();
+		Queue<Description> queue = new LinkedList<Description>();
+		queue.add(new NamedClass("http://dbpedia.org/ontology/Film"));
+		queue.add(new NamedClass("http://dbpedia.org/class/yago/Movie106613686"));
+		queue.add(new NamedClass("http://schema.org/Movie"));
+		while (!queue.isEmpty()) {
+			Description p = queue.poll();
+			if (!seen.contains(p.toString())) {
+				ret.add(p);
+				seen.add(p.toString());
+				queue.addAll(inference.getReasoner().getSubClasses(p));
+			}
+		}
+		
+		Set<Description> newRet = Sets.newTreeSet(new ConceptComparator());
+		double total = individui.size();
+		
+		TreeMap<Double, Description> retOrd = new TreeMap<Double, Description>();
+		
+		for (Description f : ret) {
+			double covered = 0.0;
+			for (Individual film : individui)
+				if (inference.cover(f, film) == LogicValue.TRUE)
+					covered += 1.0;
+
+			double p = covered / total;
+			retOrd.put(p, f);
+		}
+		
+		for(int i = 0; (i < nFeatures) && !retOrd.isEmpty(); i++)
+		{
+			newRet.add(retOrd.pollFirstEntry().getValue());
+		}
+		
+		return newRet;
+		
+	}
 	
 	public Set<Description> getFilteredEntropyFilmSubClasses(Set<Individual> individui, double minEntropy, EIUtils ei) {
 		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
@@ -111,6 +151,38 @@ public class FeaturesGenerator {
 		}
 		
 		System.out.println("Filtered Film subclasses: " + newRet.size() + " with minProbability: " + minEntropy);
+		return newRet;
+	}
+	
+	public Set<Description> getFilteredEntropyFilmSubClasses(Set<Individual> individui, int nFeatures, EIUtils ei) {
+		Set<Description> ret = Sets.newTreeSet(new ConceptComparator());
+		Set<String> seen = Sets.newHashSet();
+		Queue<Description> queue = new LinkedList<Description>();
+		queue.add(new NamedClass("http://dbpedia.org/ontology/Film"));
+		queue.add(new NamedClass("http://dbpedia.org/class/yago/Movie106613686"));
+		queue.add(new NamedClass("http://schema.org/Movie"));
+		while (!queue.isEmpty()) {
+			Description p = queue.poll();
+			if (!seen.contains(p.toString())) {
+				ret.add(p);
+				seen.add(p.toString());
+				queue.addAll(inference.getReasoner().getSubClasses(p));
+			}
+		}
+		
+		Set<Description> newRet = Sets.newTreeSet(new ConceptComparator());
+		
+		TreeMap<Double, Description> retOrd = new TreeMap<Double, Description>();
+		
+		for (Description f : ret) {
+			double h = ei.H(f, individui);
+			retOrd.put(h, f);
+		}
+		
+		for(int i = 0; (i < nFeatures) && !retOrd.isEmpty(); i++)
+		{
+			newRet.add(retOrd.pollFirstEntry().getValue());
+		}
 		return newRet;
 	}
 	

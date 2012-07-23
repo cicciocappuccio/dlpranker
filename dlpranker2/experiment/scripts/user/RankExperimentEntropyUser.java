@@ -55,11 +55,11 @@ public class RankExperimentEntropyUser extends AbstractRankExperiment {
 			filmsSet.add(i.getFilm());
 			
 		List<Double> entropies = Lists.newLinkedList();
-		for(double h = 0.7; h > 0; h += 0.1)
+		for(double h = 0.7; h > 0; h -= 0.1)
 			entropies.add(h);
 		
 		List<Integer> nfeaturess = Lists.newArrayList();
-		for (int i = 0; i < 0; i++)
+		for (int i = 0; i < 1; i++)
 			nfeaturess.add(i);
 		
 		

@@ -51,12 +51,12 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 		for(Tupla i : filmList)
 			filmsSet.add(i.getFilm());
 			
-		List<Double> entropies = Lists.newLinkedList();
-		for(double h = 0.7; h > 0; h += 0.1)
-			entropies.add(h);
+		List<Double> probabilities = Lists.newLinkedList();
+		for(double p = 1.0; p > 0; p -= 0.1)
+			probabilities.add(p);
 		
 		List<Integer> nfeaturess = Lists.newArrayList();
-		for (int i = 0; i < 0; i++)
+		for (int i = 0; i < 1; i++)
 			nfeaturess.add(i);
 		
 		
@@ -76,7 +76,7 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 			
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
-			for (double p : entropies) {
+			for (double p : probabilities) {
 			
 				for (int nfeatures : nfeaturess) {
 					
