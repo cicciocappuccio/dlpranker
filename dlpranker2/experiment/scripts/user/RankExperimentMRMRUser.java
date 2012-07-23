@@ -52,10 +52,12 @@ public class RankExperimentMRMRUser extends AbstractRankExperiment {
 		List<Double> lambdas = Lists.newLinkedList();
 		lambdas.add(1.0);
 
-		List<Integer> nfeaturess = Lists.newLinkedList();
+		
+		List<Integer> nfeaturess = Lists.newArrayList();
 		for (int i = 0; i < 50; i++)
 			nfeaturess.add(i);
-
+		
+		
 		for (Tupla utente : utenti) {
 
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());

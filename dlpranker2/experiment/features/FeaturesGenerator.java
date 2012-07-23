@@ -70,7 +70,7 @@ public class FeaturesGenerator {
 			}
 		}
 		
-		Set<Description> newRet = Sets.newHashSet();
+		Set<Description> newRet = Sets.newTreeSet(new ConceptComparator());
 		double total = individui.size();
 		
 		for (Description f : ret) {
@@ -105,7 +105,7 @@ public class FeaturesGenerator {
 			}
 		}
 		
-		Set<Description> newRet = Sets.newHashSet();
+		Set<Description> newRet = Sets.newTreeSet(new ConceptComparator());
 		
 		for (Description f : ret) {
 			double h = ei.H(f, individui);

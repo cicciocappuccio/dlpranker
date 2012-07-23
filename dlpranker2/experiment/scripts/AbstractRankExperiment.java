@@ -1,6 +1,5 @@
 package scripts;
 
-
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,12 +42,11 @@ import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 
 public class AbstractRankExperiment {
-	
+
 	public static final int NFOLDS = 10;
 	private static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
-	
-	public static FeaturesGenerator getFeaturesGenerator(Inference inference)
-	{
+
+	public static FeaturesGenerator getFeaturesGenerator(Inference inference) {
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
 		Set<Description> _features = _fg.getFilmSubClasses();
 		FakeRefinementOperator fro = new FakeRefinementOperator(inference.getReasoner(), _features);
@@ -56,9 +54,8 @@ public class AbstractRankExperiment {
 		FeaturesGenerator fg = new FeaturesGenerator(inference, fro);
 		return fg;
 	}
-	
-	public static <I> Table<I, I, Double> makeGaussian(Set<I> filmsUser, Table<I, I, Double> K, 
-			List<ObjectRank<I>> objectranks, int nrating) {
+
+	public static <I> Table<I, I, Double> makeGaussian(Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating) {
 		AbstractErrorMetric metric = new AccuracyError();
 		GaussianKernel<I> gk = GaussianKernel.createGivenKernel(filmsUser, K);
 		SortedSet<ParamsScore> gps = gk.getParameters(objectranks, metric, nrating);
@@ -67,9 +64,8 @@ public class AbstractRankExperiment {
 		Table<I, I, Double> GK = gk.calculate(sigma);
 		return GK;
 	}
-	
-	public static <I> Table<I, I, Double> makePolynomial(Set<I> filmsUser, Table<I, I, Double> K, 
-			List<ObjectRank<I>> objectranks, int nrating) {
+
+	public static <I> Table<I, I, Double> makePolynomial(Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating) {
 		AbstractErrorMetric metric = new AccuracyError();
 		PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, K);
 		SortedSet<ParamsScore> pps = pk.getParameters(objectranks, metric, nrating);
@@ -78,13 +74,8 @@ public class AbstractRankExperiment {
 		Table<I, I, Double> PK = pk.calculate(d);
 		return PK;
 	}
-	
-	
-	public static void write(CSVW csv,
-			String user, double lambda, int nfeatures, int nfold,
-			double lmae, double gmae, double pmae,
-			double lrmse, double grmse, double prmse,
-			double lscc, double gscc, double pscc) throws IOException {
+
+	public static void write(CSVW csv, String user, double lambda, int nfeatures, int nfold, double lmae, double gmae, double pmae, double lrmse, double grmse, double prmse, double lscc, double gscc, double pscc) throws IOException {
 		List<String> row = Lists.newLinkedList();
 
 		row.add(user);
@@ -106,7 +97,7 @@ public class AbstractRankExperiment {
 
 		csv.write(row);
 	}
-	
+
 	public static CSVW getCSV(String fileName, String param1, String param2) throws Exception {
 		File outFile = new File(fileName);
 		if (outFile.exists())
@@ -128,7 +119,7 @@ public class AbstractRankExperiment {
 		csv.write(headRow);
 		return csv;
 	}
-	
+
 	public static Inference getInference() throws Exception {
 		String owl = "res/fragmentOntology10.owl";
 		KnowledgeSource ks = new OWLFile(owl);
@@ -138,7 +129,7 @@ public class AbstractRankExperiment {
 		Inference inference = new Inference(cache, reasoner);
 		return inference;
 	}
-	
+
 	private static double k(LogicValue a, LogicValue b) {
 		double ret = 0.5;
 		if (a == LogicValue.TRUE && b == LogicValue.TRUE) {
@@ -152,14 +143,13 @@ public class AbstractRankExperiment {
 		}
 		return ret;
 	}
-	
-	protected static Table<Individual, Individual, Double> buildKernel(
-			Inference inference, Set<Description> features, Set<Individual> films) {
-		
+
+	protected static Table<Individual, Individual, Double> buildKernel(Inference inference, Set<Description> features, Set<Individual> films) {
+
 		log.info("Creating Kernel..");
-		
+
 		EIUtils ei = new EIUtils(inference);
-		
+
 		Map<Description, Double> entropies = Maps.newHashMap();
 		double normHs = 0.0;
 		for (Description f : features) {
@@ -168,12 +158,12 @@ public class AbstractRankExperiment {
 			normHs += Math.pow(ent, 2);
 		}
 		normHs = Math.sqrt(normHs);
-		
+
 		Map<Description, Double> weights = Maps.newHashMap();
 		for (Description f : features) {
 			weights.put(f, entropies.get(f) / normHs);
 		}
-		
+
 		Table<Description, Individual, LogicValue> vi = HashBasedTable.create();
 
 		for (Description feature : features) {
@@ -185,7 +175,7 @@ public class AbstractRankExperiment {
 
 		if (inference.getCache() != null)
 			inference.getCache().save();
-		
+
 		Table<Individual, Individual, Double> K = HashBasedTable.create();
 		Set<Individual> toCheck = Sets.newHashSet(films);
 
@@ -205,8 +195,30 @@ public class AbstractRankExperiment {
 			}
 			toCheck.remove(i);
 		}
-		
+
 		return K;
 	}
-	
+
+	public static <P extends Number & Comparable<P>> List<Number> getParam(P start, P end, int step) throws Exception {
+		if (start.compareTo(end) > 0)
+			throw new Exception();
+
+		step--;
+		List<Number> paramList = Lists.newLinkedList();
+
+		System.out.println((end.doubleValue() - start.doubleValue()) % step);
+		if ((end.doubleValue() - start.doubleValue()) % step == 0) {
+			
+			for (int i = 0; i <= step; i++) {
+				paramList.add(new Integer(((end.intValue() - start.intValue()) / step) * i) + start.intValue());
+			}
+
+		} else {
+			for (int i = 0; i <= step; i++) {
+				paramList.add(new Double(((end.doubleValue() - start.doubleValue()) / step) * i) + start.doubleValue());
+			}
+		}
+		return paramList;
+	}
+
 }
