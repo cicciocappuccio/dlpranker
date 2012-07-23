@@ -13,12 +13,9 @@ import org.dllearner.core.owl.Individual;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
-import scoring.AbstractScore;
 import scoring.MHMRScore;
-import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
-import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
 

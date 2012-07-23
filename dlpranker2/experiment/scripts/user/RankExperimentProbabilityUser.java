@@ -13,16 +13,12 @@ import org.dllearner.core.owl.Individual;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
-import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
-import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
 
-import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 
