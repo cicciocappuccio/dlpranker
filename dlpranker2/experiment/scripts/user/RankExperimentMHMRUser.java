@@ -13,9 +13,12 @@ import org.dllearner.core.owl.Individual;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
+import scoring.AbstractScore;
 import scoring.MHMRScore;
+import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
+import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
 
@@ -43,44 +46,49 @@ public class RankExperimentMHMRUser extends AbstractRankExperiment {
 		Inference inference = getInference();
 
 		FeaturesGenerator fg = getFeaturesGenerator(inference);
-	
+
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
 
 		List<Tupla> utenti = ExperimentDataset.getUsers(lista);
 
+		List<Tupla> filmsList = ExperimentDataset.getFilms(lista);
+
+		Set<Individual> filmsSet = Sets.newHashSet();
+		for (Tupla i : filmsList)
+			filmsSet.add(i.getFilm());
+		
+		MHMRScore tScore = new MHMRScore(inference, 1.0);
+
 		List<Double> lambdas = Lists.newLinkedList();
 		lambdas.add(1.0);
 
-		List<Integer> nfeaturess = Lists.newLinkedList();
+		List<Integer> nfeaturess = Lists.newArrayList();
 		for (int i = 0; i < 50; i++)
 			nfeaturess.add(i);
 
 		for (Tupla utente : utenti) {
-
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
-
-			if (ratingsUser.size() < 80)
-				continue;
-
-			System.out.println("Number of ratings: " + ratingsUser.size());
-
 			Set<Individual> filmsUser = Sets.newHashSet();
 
 			for (Tupla i : ratingsUser)
 				filmsUser.add(i.getFilm());
+			
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
-
+			
 			for (double lambda : lambdas) {
-
 				for (int nfeatures : nfeaturess) {
-
+					
+					Set<Description> features = fg.getMHMRFeatures(filmsSet, tScore, 1.0, nfeatures);
+					
 					AbstractErrorMetric mae = new MAE();
 					AbstractErrorMetric rmse = new RMSE();
 					AbstractErrorMetric scc = new SpearmanCorrelationCoefficient();
 
 					for (int j = 0; j < NFOLDS; j++) {
+						
 						List<Tupla> trainingRanks = folder.getOtherFolds(j);
-
+						List<Tupla> testRanks = folder.getFold(j);
+						
 						Multimap<Integer, Individual> multimap = HashMultimap.create();
 						List<ObjectRank<Individual>> objectranks = Lists.newLinkedList();
 
@@ -89,16 +97,10 @@ public class RankExperimentMHMRUser extends AbstractRankExperiment {
 							ObjectRank<Individual> ii = new ObjectRank<Individual>(film.getFilm(), film.getValue());
 							objectranks.add(ii);
 						}
+						
+						
 
-						Set<Individual> film = Sets.newHashSet(multimap.values());
-
-						List<Tupla> testRanks = folder.getFold(j);
-
-						MHMRScore tScore = new MHMRScore(inference, 1.0);
-
-						Set<Description> features = fg.getMHMRFeatures(film, tScore, lambda, nfeatures);
-
-						System.out.println("Lambda: " + lambda + " numero di features: " + features.size());
+						System.out.println("Lambda: " + 1.0 + " numero di features: " + features.size());
 
 						Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
@@ -114,6 +116,8 @@ public class RankExperimentMHMRUser extends AbstractRankExperiment {
 							gmo.feed(i);
 							pmo.feed(i);
 						}
+
+						// Fase di TEST
 
 						List<Integer> reals = Lists.newLinkedList();
 

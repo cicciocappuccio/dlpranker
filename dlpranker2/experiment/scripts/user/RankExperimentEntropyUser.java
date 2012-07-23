@@ -13,6 +13,7 @@ import org.dllearner.core.owl.Individual;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
+import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
 import utils.EIUtils;
@@ -36,22 +37,35 @@ public class RankExperimentEntropyUser extends AbstractRankExperiment {
 
 		String fileName = "res/risultati/RankExperimentEntropyUser.csv";
 
-		CSVW csv = getCSV(fileName, "Entropia", "numero features");
+		CSVW csv = getCSV(fileName, "probability", "nfeatures");
 
 		int nrating = 5;
 
 		Inference inference = getInference();
-
-		FeaturesGenerator fg = new FeaturesGenerator(inference, null);
+		
+		EIUtils calc = new EIUtils(inference);
+		
+		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
 
 		List<Tupla> utenti = ExperimentDataset.getUsers(lista);
-
+		
+		List<Tupla> filmList = ExperimentDataset.getFilms(lista);
+		
+		Set<Individual> filmsSet = Sets.newHashSet();
+		for(Tupla i : filmList)
+			filmsSet.add(i.getFilm());
+			
 		List<Double> entropies = Lists.newLinkedList();
-		for (Double i = 0.0; i < 0.7; i += 0.05)
-			entropies.add(i);
-
+		for(double h = 0.7; h > 0; h += 0.1)
+			entropies.add(h);
+		
+		List<Integer> nfeaturess = Lists.newArrayList();
+		for (int i = 0; i < 0; i++)
+			nfeaturess.add(i);
+		
+		
 		for (Tupla utente : utenti) {
 
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
@@ -65,79 +79,79 @@ public class RankExperimentEntropyUser extends AbstractRankExperiment {
 
 			for (Tupla i : ratingsUser)
 				filmsUser.add(i.getFilm());
+			
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
-			for (Double h : entropies) {
+			for (double h : entropies) {
+			
+				for (int nfeatures : nfeaturess) {
 
-				AbstractErrorMetric mae = new MAE();
-				AbstractErrorMetric rmse = new RMSE();
-				AbstractErrorMetric scc = new SpearmanCorrelationCoefficient();
+					AbstractErrorMetric mae = new MAE();
+					AbstractErrorMetric rmse = new RMSE();
+					AbstractErrorMetric scc = new SpearmanCorrelationCoefficient();
+					
+					for (int j = 0; j < NFOLDS; j++) {
+						List<Tupla> trainingRanks = folder.getOtherFolds(j);
 
-				for (int j = 0; j < NFOLDS; j++) {
-					List<Tupla> trainingRanks = folder.getOtherFolds(j);
+						
+						List<ObjectRank<Individual>> objectranks = Lists.newLinkedList();
 
-					Multimap<Integer, Individual> multimap = HashMultimap.create();
-					List<ObjectRank<Individual>> objectranks = Lists.newLinkedList();
+						for (Tupla film : trainingRanks) {
+							ObjectRank<Individual> ii = new ObjectRank<Individual>(film.getFilm(), film.getValue());
+							objectranks.add(ii);
+						}
 
-					for (Tupla film : trainingRanks) {
-						multimap.put(film.getValue(), film.getFilm());
-						ObjectRank<Individual> ii = new ObjectRank<Individual>(film.getFilm(), film.getValue());
-						objectranks.add(ii);
+						List<Tupla> testRanks = folder.getFold(j);
+
+						Set<Description> features = fg.getFilteredEntropyFilmSubClasses(filmsSet, h, calc);
+						
+						Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
+
+						Table<Individual, Individual, Double> GK = makeGaussian(filmsUser, K, objectranks, nrating);
+						Table<Individual, Individual, Double> PK = makePolynomial(filmsUser, K, objectranks, nrating);
+
+						OnLineKernelPerceptronRanker<Individual> lmo = new OnLineKernelPerceptronRanker<Individual>(filmsUser, K, nrating);
+						OnLineKernelPerceptronRanker<Individual> gmo = new OnLineKernelPerceptronRanker<Individual>(filmsUser, GK, nrating);
+						OnLineKernelPerceptronRanker<Individual> pmo = new OnLineKernelPerceptronRanker<Individual>(filmsUser, PK, nrating);
+
+						for (ObjectRank<Individual> i : objectranks) {
+							lmo.feed(i);
+							gmo.feed(i);
+							pmo.feed(i);
+						}
+
+						// Fase di TEST
+
+						List<Integer> reals = Lists.newLinkedList();
+
+						List<Integer> lpredicted = Lists.newLinkedList();
+						List<Integer> gpredicted = Lists.newLinkedList();
+						List<Integer> ppredicted = Lists.newLinkedList();
+
+						for (Tupla t : testRanks) {
+							reals.add(t.getValue());
+							lpredicted.add(lmo.rank(t.getFilm()));
+							gpredicted.add(gmo.rank(t.getFilm()));
+							ppredicted.add(pmo.rank(t.getFilm()));
+						}
+
+						double lmae = mae.error(reals, lpredicted);
+						double gmae = mae.error(reals, gpredicted);
+						double pmae = mae.error(reals, ppredicted);
+
+						double lrmse = rmse.error(reals, lpredicted);
+						double grmse = rmse.error(reals, gpredicted);
+						double prmse = rmse.error(reals, ppredicted);
+
+						double lscc = scc.error(reals, lpredicted);
+						double gscc = scc.error(reals, gpredicted);
+						double pscc = scc.error(reals, ppredicted);
+
+						write(csv, utente.getUser().getName(), h, features.size(), j, lmae, gmae, pmae, lrmse, grmse, prmse, lscc, gscc, pscc);
 					}
-
-					Set<Individual> film = Sets.newHashSet(multimap.values());
-
-					List<Tupla> testRanks = folder.getFold(j);
-
-					EIUtils ei = new EIUtils(inference);
-					Set<Description> features = fg.getFilteredEntropyFilmSubClasses(film, h, ei);
-					System.out.println("P: " + h + " numero di features: " + features.size());
-
-					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
-
-					Table<Individual, Individual, Double> GK = makeGaussian(filmsUser, K, objectranks, nrating);
-					Table<Individual, Individual, Double> PK = makePolynomial(filmsUser, K, objectranks, nrating);
-
-					OnLineKernelPerceptronRanker<Individual> lmo = new OnLineKernelPerceptronRanker<Individual>(filmsUser, K, nrating);
-					OnLineKernelPerceptronRanker<Individual> gmo = new OnLineKernelPerceptronRanker<Individual>(filmsUser, GK, nrating);
-					OnLineKernelPerceptronRanker<Individual> pmo = new OnLineKernelPerceptronRanker<Individual>(filmsUser, PK, nrating);
-
-					for (ObjectRank<Individual> i : objectranks) {
-						lmo.feed(i);
-						gmo.feed(i);
-						pmo.feed(i);
-					}
-
-					List<Integer> reals = Lists.newLinkedList();
-
-					List<Integer> lpredicted = Lists.newLinkedList();
-					List<Integer> gpredicted = Lists.newLinkedList();
-					List<Integer> ppredicted = Lists.newLinkedList();
-
-					for (Tupla t : testRanks) {
-						reals.add(t.getValue());
-						lpredicted.add(lmo.rank(t.getFilm()));
-						gpredicted.add(gmo.rank(t.getFilm()));
-						ppredicted.add(pmo.rank(t.getFilm()));
-					}
-
-					double lmae = mae.error(reals, lpredicted);
-					double gmae = mae.error(reals, gpredicted);
-					double pmae = mae.error(reals, ppredicted);
-
-					double lrmse = rmse.error(reals, lpredicted);
-					double grmse = rmse.error(reals, gpredicted);
-					double prmse = rmse.error(reals, ppredicted);
-
-					double lscc = scc.error(reals, lpredicted);
-					double gscc = scc.error(reals, gpredicted);
-					double pscc = scc.error(reals, ppredicted);
-
-					write(csv, utente.getUser().getName(), h, features.size(), j, lmae, gmae, pmae, lrmse, grmse, prmse, lscc, gscc, pscc);
 				}
 			}
 		}
-
 		csv.close();
 	}
 }
