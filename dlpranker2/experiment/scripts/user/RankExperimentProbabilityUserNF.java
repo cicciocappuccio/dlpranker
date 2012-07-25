@@ -27,11 +27,11 @@ import dataset.KFolder;
 import dataset.Tupla;
 import features.FeaturesGenerator;
 
-public class RankExperimentProbabilityUser extends AbstractRankExperiment {
+public class RankExperimentProbabilityUserNF extends AbstractRankExperiment {
 
 	public static void main(String[] args) throws Exception {
 
-		String fileName = "res/risultati/RankExperimentProbabilityUser.csv";
+		String fileName = "res/risultati/RankExperimentProbabilityUserNF.csv";
 
 		CSVW csv = getCSV(fileName, "probability", "nfeatures");
 
@@ -52,8 +52,9 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 			filmsSet.add(i.getFilm());
 			
 		List<Double> probabilities = Lists.newLinkedList();
-		for(double p = 1.0; p > 0; p -= 0.1)
-			probabilities.add(p);
+//		for(double p = 1.0; p > 0; p -= 0.1)
+//			probabilities.add(p);
+		probabilities.add(0.0);
 		
 		List<Integer> nfeaturess = Lists.newArrayList();
 		for (int i = 0; i < 1; i++)
@@ -77,10 +78,10 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
 			for (double p : probabilities) {
-				
-				Set<Description> features = fg.getFilteredProbabilityFilmSubClasses(filmsSet, p);
 			
 				for (int nfeatures : nfeaturess) {
+					
+					Set<Description> features = fg.getFilteredProbabilityFilmSubClasses(filmsSet, nfeatures);
 					
 					AbstractErrorMetric mae = new MAE();
 					AbstractErrorMetric rmse = new RMSE();

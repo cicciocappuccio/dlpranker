@@ -81,6 +81,8 @@ public class RankExperimentEntropyUser extends AbstractRankExperiment {
 
 			for (double h : entropies) {
 			
+				Set<Description> features = fg.getFilteredEntropyFilmSubClasses(filmsSet, h, calc);
+
 				for (int nfeatures : nfeaturess) {
 
 					AbstractErrorMetric mae = new MAE();
@@ -99,8 +101,6 @@ public class RankExperimentEntropyUser extends AbstractRankExperiment {
 						}
 
 						List<Tupla> testRanks = folder.getFold(j);
-
-						Set<Description> features = fg.getFilteredEntropyFilmSubClasses(filmsSet, h, calc);
 						
 						Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 

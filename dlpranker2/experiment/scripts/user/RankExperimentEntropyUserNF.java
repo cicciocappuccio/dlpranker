@@ -15,6 +15,7 @@ import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 import scripts.AbstractRankExperiment;
 import utils.CSVW;
+import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
 
@@ -27,17 +28,19 @@ import dataset.KFolder;
 import dataset.Tupla;
 import features.FeaturesGenerator;
 
-public class RankExperimentProbabilityUser extends AbstractRankExperiment {
+public class RankExperimentEntropyUserNF extends AbstractRankExperiment {
 
 	public static void main(String[] args) throws Exception {
 
-		String fileName = "res/risultati/RankExperimentProbabilityUser.csv";
+		String fileName = "res/risultati/RankExperimentEntropyUserNF.csv";
 
-		CSVW csv = getCSV(fileName, "probability", "nfeatures");
+		CSVW csv = getCSV(fileName, "Entropy", "nfeatures");
 
 		int nrating = 5;
 
 		Inference inference = getInference();
+		
+		EIUtils calc = new EIUtils(inference);
 		
 		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
@@ -51,12 +54,13 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 		for(Tupla i : filmList)
 			filmsSet.add(i.getFilm());
 			
-		List<Double> probabilities = Lists.newLinkedList();
-		for(double p = 1.0; p > 0; p -= 0.1)
-			probabilities.add(p);
+		List<Double> entropies = Lists.newLinkedList();
+//		for(double h = 0.7; h > 0; h -= 0.1)
+//			entropies.add(h);
+		entropies.add(0.0);
 		
 		List<Integer> nfeaturess = Lists.newArrayList();
-		for (int i = 0; i < 1; i++)
+		for (int i = 0; i < 100; i += 2)
 			nfeaturess.add(i);
 		
 		
@@ -76,18 +80,18 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 			
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
-			for (double p : probabilities) {
-				
-				Set<Description> features = fg.getFilteredProbabilityFilmSubClasses(filmsSet, p);
+			for (double h : entropies) {
 			
 				for (int nfeatures : nfeaturess) {
-					
+					Set<Description> features = fg.getFilteredEntropyFilmSubClasses(filmsSet, nfeatures, calc);
+						
 					AbstractErrorMetric mae = new MAE();
 					AbstractErrorMetric rmse = new RMSE();
 					AbstractErrorMetric scc = new SpearmanCorrelationCoefficient();
 					
 					for (int j = 0; j < NFOLDS; j++) {
 						List<Tupla> trainingRanks = folder.getOtherFolds(j);
+
 						
 						List<ObjectRank<Individual>> objectranks = Lists.newLinkedList();
 
@@ -140,7 +144,7 @@ public class RankExperimentProbabilityUser extends AbstractRankExperiment {
 						double gscc = scc.error(reals, gpredicted);
 						double pscc = scc.error(reals, ppredicted);
 
-						write(csv, utente.getUser().getName(), p, features.size(), j, lmae, gmae, pmae, lrmse, grmse, prmse, lscc, gscc, pscc);
+						write(csv, utente.getUser().getName(), h, features.size(), j, lmae, gmae, pmae, lrmse, grmse, prmse, lscc, gscc, pscc);
 					}
 				}
 			}
