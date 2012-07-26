@@ -1,4 +1,4 @@
-package com.neuralnoise.svm.learning.utils;
+package com.neuralnoise.svm;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,9 +13,11 @@ import gurobi.GRBVar;
 import java.util.Map;
 import java.util.Set;
 
+
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
+import com.neuralnoise.svm.AbstractSVM;
 
 public class SoftMarginSVML1<T> extends AbstractSVM<T> {
 

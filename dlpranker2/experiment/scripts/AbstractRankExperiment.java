@@ -30,6 +30,10 @@ import utils.EIUtils;
 import utils.Inference;
 import utils.Inference.LogicValue;
 
+import cern.colt.matrix.tdouble.DoubleMatrix2D;
+import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
+import cern.colt.matrix.tdouble.impl.DiagonalDoubleMatrix2D;
+
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -144,7 +148,21 @@ public class AbstractRankExperiment {
 		return ret;
 	}
 
-	protected static Table<Individual, Individual, Double> buildKernel(Inference inference, Set<Description> features, Set<Individual> films) {
+    public static Table<Individual, Individual, Double> normalizeKernel(Table<Individual, Individual, Double> K) {
+    	Table<Individual, Individual, Double> normalized = HashBasedTable.create();
+    	for (Individual i : K.rowKeySet()) {
+    		double Kii = K.get(i, i);
+    		for (Individual j : K.columnKeySet()) {
+    			double Kjj = K.get(j, j);
+    			double val = K.get(i, j);
+    			normalized.put(i, j, val / Math.sqrt(Kii * Kjj));
+   
+    		}
+    	}
+    	return normalized;
+    }
+	
+	public static Table<Individual, Individual, Double> buildKernel(Inference inference, Set<Description> features, Set<Individual> films) {
 
 		log.info("Creating Kernel..");
 
@@ -196,7 +214,7 @@ public class AbstractRankExperiment {
 			toCheck.remove(i);
 		}
 
-		return K;
+		return normalizeKernel(K);
 	}
 
 	public static <P extends Number & Comparable<P>> List<Number> getParam(P start, P end, int step) throws Exception {

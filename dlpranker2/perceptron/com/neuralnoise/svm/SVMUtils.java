@@ -1,4 +1,4 @@
-package com.neuralnoise.svm.learning.utils;
+package com.neuralnoise.svm;
 
 import gurobi.GRB;
 import gurobi.GRBEnv;

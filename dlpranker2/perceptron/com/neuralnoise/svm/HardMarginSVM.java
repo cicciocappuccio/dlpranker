@@ -1,4 +1,4 @@
-package com.neuralnoise.svm.learning.utils;
+package com.neuralnoise.svm;
 
 import static org.junit.Assert.assertEquals;
 import gurobi.GRB;

@@ -1,4 +1,4 @@
-package com.neuralnoise.svm.learning.utils;
+package com.neuralnoise.svm;
 
 import java.util.Map;
 import java.util.Map.Entry;
@@ -6,14 +6,13 @@ import java.util.Set;
 
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
+import cern.colt.matrix.tdouble.impl.DiagonalDoubleMatrix2D;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Table;
 import com.google.common.collect.Table.Cell;
-
-import com.neuralnoise.transduction.matrix.MatrixUtils;
 
 public class AbstractSVM<T> {
 
@@ -45,7 +44,7 @@ public class AbstractSVM<T> {
 			int i = indices.get(xi), j = indices.get(xj);
 			K.set(i, j, cell.getValue());
 		}
-		DoubleMatrix2D nK = MatrixUtils.normalizeKernel(K);
+		DoubleMatrix2D nK = normalizeKernel(K);
 		Table<T, T, Double> normalizedKernel = HashBasedTable.create();
 		for (Cell<T, T, Double> cell : kernel.cellSet()) {
 			T xi = cell.getRowKey(), xj = cell.getColumnKey();
@@ -54,6 +53,19 @@ public class AbstractSVM<T> {
 		}
 		return normalizedKernel;
 	}
+	
+    public static DoubleMatrix2D normalizeKernel(DoubleMatrix2D K) {
+    	final int n = K.rows();
+        DoubleMatrix2D _K = new DenseDoubleMatrix2D(K.toArray());
+        DiagonalDoubleMatrix2D Kii = new DiagonalDoubleMatrix2D(n, n, 0);
+        for (int i = 0; i < _K.rows(); ++i) {
+                for (int j = 0; j < _K.columns(); ++j) {
+                        double val = _K.get(i, j);
+                        _K.set(i, j, val / Math.sqrt(Kii.get(i, i) * Kii.get(j, j)));
+                }
+        }
+        return _K;
+    }
 	
 	// f(x) = sign(b + \sum_i alpha_i y_i K(x_i, x))
 	public boolean evaluate(T nx) {

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry excluding="com/neuralnoise/svm/learning/utils/" kind="src" path="perceptron"/>
+	<classpathentry excluding="com/neuralnoise/svm/learning/utils/|com/neuralnoise/svm/learning/" kind="src" path="perceptron"/>
 	<classpathentry kind="src" path="metrics"/>
 	<classpathentry excluding="scripts/exists/|scripts/nRatings/|scripts/subClasses/" kind="src" path="experiment"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="lib/commons/commons-cli-1.2.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-collections-3.2.1.jar"/>
@@ -71,5 +72,6 @@
 	<classpathentry kind="lib" path="lib/pcolt/optimization.jar"/>
 	<classpathentry kind="lib" path="lib/pcolt/parallelcolt-0.9.4.jar"/>
 	<classpathentry kind="lib" path="lib/jsc.jar"/>
+	<classpathentry kind="lib" path="lib/gurobi.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

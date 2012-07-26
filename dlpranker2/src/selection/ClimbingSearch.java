@@ -42,6 +42,11 @@ public class ClimbingSearch {
 			
 			// ciclo sui figli per sceglierne il migliore
 			for (Description refinement : refinements) {
+				String str = refinement.toString();
+				
+				if(str.contains(" OR ") || str.contains("ALL ") || str.contains(" AND ") || str.contains("BOTTOM"))
+					continue;
+				
 				if (!conceptSet.contains(refinement)) {
 					
 					Set<Description> newConceptSet = new HashSet<Description>();
@@ -50,7 +55,7 @@ public class ClimbingSearch {
 
 					double proposed = tScore.score(refinement, newConceptSet, individuals);
 
-					//System.out.println("proposed (" + refinement + ") : " + proposed + ", best (" + bestConcept + ") : " + best);
+					System.out.println("proposed (" + refinement + ") : " + proposed + ", best (" + bestConcept + ") : " + best);
 					
 					if (proposed > best) {
 						bestConcept = refinement;

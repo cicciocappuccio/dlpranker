@@ -1,7 +1,10 @@
 package features;
 
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
@@ -20,7 +23,9 @@ import utils.EIUtils;
 import utils.Inference;
 import utils.Inference.LogicValue;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import com.neuralnoise.cache.ReasonerUtils;
 
 public class FeaturesGenerator {
 
@@ -31,6 +36,34 @@ public class FeaturesGenerator {
 		this.inference = inference;
 		this.refinement = refinement;
 	}
+	
+	
+	public Set<Description> getExistentialFeatures() {
+		return _getExistentialFeatures(Thing.instance, refinement, new HashSet<String>());
+	}
+	
+	private Set<Description> _getExistentialFeatures(Description concept, RefinementOperator r, Set<String> _seen) {
+		System.out.println(".. Refining: " + concept);
+		Set<Description> ret = Sets.newHashSet();
+
+		Set<Description> refinements = r.refine(concept, 3, null);
+		System.out.println("Raffinato...");
+		Set<Description> toRemove = Sets.newHashSet();
+		for (Description c : refinements) {
+			Description nc = ReasonerUtils.normalise(c);
+			String str = c.toString();
+			if (_seen.contains(nc.toString()) || c.getLength() > 3 || str.contains(" OR ") || str.contains(" AND ") || str.contains("BOTTOM"))
+				toRemove.add(c);
+			_seen.add(nc.toString());
+		}
+		refinements.removeAll(toRemove);
+		for (Description c : refinements) {
+			ret.addAll(_getExistentialFeatures(c, r, _seen));
+			ret.add(c);
+		}
+		return ret;
+	}
+	
 	
 	public Set<Description> getFilmSubClasses() {
 		Set<Description> ret = Sets.newHashSet();
@@ -187,7 +220,7 @@ public class FeaturesGenerator {
 	}
 	
 	public Set<Description> getMHMRFeatures(Set<Individual> individui, MHMRScore tScore, double lambda, int nfeatures) {
-		GreedyForward gf = new GreedyForward(inference, refinement, 1, 0.0, nfeatures);
+		GreedyForward gf = new GreedyForward(inference, refinement, 3, 0.0, nfeatures);
 		//AbstractScore tScore = new MHMRScore(inference.getCache(), inference.getReasoner(), lambda);
 		tScore.setAlpha(lambda);
 		Set<Description> ret = gf.estrazione(Thing.instance, individui, tScore);
@@ -196,7 +229,7 @@ public class FeaturesGenerator {
 	}
 
 	public Set<Description> getMRMRFeatures(Set<Individual> individui, MRMRScore tScore, double lambda, int nfeatures) {
-		GreedyForward gf = new GreedyForward(inference, refinement, 1, 0.0, nfeatures);
+		GreedyForward gf = new GreedyForward(inference, refinement, 3, 0.0, nfeatures);
 		tScore.setLambda(lambda);
 		Set<Description> ret = gf.estrazione(Thing.instance, individui, tScore);
 		

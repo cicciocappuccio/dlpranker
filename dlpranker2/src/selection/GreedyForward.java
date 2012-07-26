@@ -32,6 +32,10 @@ public class GreedyForward {
 		this.nfeatures = nfeatures;
 	}
 
+	public GreedyForward(Inference inference, RefinementOperator r, int maxLength, double eps) {
+		this(inference, r, maxLength, eps, -1);
+	}
+	
 	public Set<Description> estrazione(Description rootConcept, Set<Individual> individuals, AbstractScore tScore) {
 
 		ClimbingSearch scalatore = new ClimbingSearch(r, maxLength, tScore);
@@ -57,7 +61,7 @@ public class GreedyForward {
 			
 			candidate = _candidate;
 			
-			stop = (this.nfeatures <= 0 ? score - previousScore <= eps : conceptSet.size() == this.nfeatures);
+			stop = (this.nfeatures < 0 ? score - previousScore <= eps : conceptSet.size() == this.nfeatures);
 		} while (!stop);
 
 		return conceptSet;
