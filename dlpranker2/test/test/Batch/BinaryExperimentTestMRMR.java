@@ -4,7 +4,12 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.SortedSet;
 
+import kernels.GaussianKernel;
+import kernels.LinearKernel;
+import kernels.ParamsScore;
+import kernels.PolynomialKernel;
 import kernels.AbstractKernel.KERNEL_MODE;
 import metrics.AbstractErrorMetric;
 import metrics.MAE;
@@ -143,12 +148,32 @@ public class BinaryExperimentTestMRMR {
 
 		System.out.println(K);
 
-		Table<Individual, Individual, Double> GK = AbstractRankExperimentLMBP.makeGaussian(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
-		Table<Individual, Individual, Double> PK = AbstractRankExperimentLMBP.makePolynomial(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
+		LinearKernel<Individual> lk = new LinearKernel<Individual>(filmsUser, K);
+		SortedSet<ParamsScore> lps = AbstractRankExperimentLMBP.findLinear(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating, lk);
+		Double paramL = lps.first().getParams().get("Param");
+		System.out.println("Best param for Gaussian kernel: " + lps.first());
+		Table<Individual, Individual, Double> LK = lk.calculate();
 
-		LargeMarginBatchPerceptronRanker<Individual> lmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, K, nrating);
-		LargeMarginBatchPerceptronRanker<Individual> gmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, GK, nrating);
-		LargeMarginBatchPerceptronRanker<Individual> pmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, PK, nrating);
+		GaussianKernel<Individual> gk = GaussianKernel.createGivenKernel(filmsUser, K);
+		SortedSet<ParamsScore> gps = AbstractRankExperimentLMBP.findGaussian(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating, gk);
+		Double sigma = gps.first().getParams().get("Sigma");
+		Double paramG = gps.first().getParams().get("Param");
+		System.out.println("Best param for Gaussian kernel: " + gps.first());
+		Table<Individual, Individual, Double> GK = gk.calculate(sigma);
+
+		
+		PolynomialKernel<Individual> pk = new PolynomialKernel<Individual>(filmsUser, K);
+		SortedSet<ParamsScore> pps = AbstractRankExperimentLMBP.findPolynomial(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating, pk);
+		Double d = pps.first().getParams().get("D");
+		Double paramP = pps.first().getParams().get("Param");
+		System.out.println("Best param for Polynomial kernel: " + pps.first());
+		Table<Individual, Individual, Double> PK = pk.calculate(d);
+		
+		
+		
+		LargeMarginBatchPerceptronRanker<Individual> lmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, K, nrating, paramL);
+		LargeMarginBatchPerceptronRanker<Individual> gmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, GK, nrating, paramG);
+		LargeMarginBatchPerceptronRanker<Individual> pmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, PK, nrating, paramP);
 
 		
 		lmo.train(objectranks);

@@ -122,11 +122,8 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 		for (int rank = 1; rank < ranks; ++rank) {
 		
 			T xi = null, xj = null;
-			System.out.println("xs (objects - filmsUser - ratingsUser  --): " + xs);
-			System.out.println("ys (map - stream - objectranks): " + ys);
-			for (T x : xs) {
+			for (T x : this.xs) {
 				if (xi == null) {
-					System.out.println("x: " + x + " ys.get(x): " + ys.get(x) + " rank: " + rank);
 					if (ys.get(x) == rank) {
 						double alphaL = alphasL.get(x);
 						if (alphaL > EPS && alphaL < (1.0 / (v * l))) {

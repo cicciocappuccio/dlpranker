@@ -15,46 +15,51 @@ import com.neuralnoise.svm2.SoftRank;
 public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptronRanker<T> {
 
 	// map: rank - classifier
-//	private BiMap<Integer, AbstractSVRank<T>> classifiers;
-	private double[] C = new double[] { 1, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8 };
-	
+	// private BiMap<Integer, AbstractSVRank<T>> classifiers;
+	// private double[] V = new double[] { 0.05, 0.1, 0.15, 0.2, 0.25, 0.3,
+	// 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95,
+	// 1.0 };
+
+	private double v;
+
 	private AbstractSVRank<T> svm;
-	
-	public LargeMarginBatchPerceptronRankerSVRank(Set<T> objects, Table<T, T, Double> K, int ranks) {
+
+	public LargeMarginBatchPerceptronRankerSVRank(Set<T> objects, Table<T, T, Double> K, int ranks, double v) {
 		super(objects, K, ranks);
+		this.v = v;
 	}
-	
+
 	public void train(List<ObjectRank<T>> stream) throws Exception {
 		GRBEnv env = SVMUtils.buildEnvironment();
-		
-//		classifiers = HashBiMap.create();
-		
+
+		// classifiers = HashBiMap.create();
+
 		Map<T, Integer> map = Maps.newHashMap();
-		
+
 		for (ObjectRank<T> o : stream) {
 			map.put(o.getObject(), o.getRank());
 		}
-		
+
 		svm = null;
-		
-		for (int i = 0; i < C.length && svm == null; ++i) {
-			try {
-				double c = C[i];
-				System.out.println("C: " + c);
-				svm = new SoftRank<T>(env, objects, map, ranks, K, c);
-			} catch (gurobi.GRBException e) {
-				svm = null;
-			}
+
+		// for (int i = 0; i < V.length && svm == null; ++i) {
+		try {
+			// double v = V[i];
+			System.out.println("V: " + v);
+			svm = new SoftRank<T>(env, objects, map, ranks, K, v);
+		} catch (gurobi.GRBException e) {
+			svm = null;
 		}
+		// }
 	}
-	
-	
-	// ################################ DA CONTROLLARE ################################
+
+	// ################################ DA CONTROLLARE
+	// ################################
 	@Override
 	public int rank(T o) {
 		if (svm == null)
 			return Integer.MAX_VALUE;
-		
+
 		return svm.rank(o);
 	}
 }

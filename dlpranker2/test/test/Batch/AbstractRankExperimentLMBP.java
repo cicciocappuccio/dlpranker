@@ -11,6 +11,7 @@ import java.util.SortedSet;
 
 import kernels.AbstractKernel.KERNEL_MODE;
 import kernels.GaussianKernel;
+import kernels.LinearKernel;
 import kernels.ParamsScore;
 import kernels.PolynomialKernel;
 import metrics.AbstractErrorMetric;
@@ -56,24 +57,22 @@ public class AbstractRankExperimentLMBP {
 		return fg;
 	}
 
-	public static <I> Table<I, I, Double> makeGaussian(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating) throws Exception {
+	public static <I> SortedSet<ParamsScore> findLinear(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, LinearKernel<I> lk) throws Exception {
 		AbstractErrorMetric metric = new AccuracyError();
-		GaussianKernel<I> gk = GaussianKernel.createGivenKernel(filmsUser, K);
-		SortedSet<ParamsScore> gps = gk.getParameters(mode, objectranks, metric, nrating);
-		Double sigma = gps.first().getParams().get("Sigma");
-		System.out.println("Best param for Gaussian kernel: " + gps.first());
-		Table<I, I, Double> GK = gk.calculate(sigma);
-		return GK;
+		SortedSet<ParamsScore> lps = lk.getParameters(mode, objectranks, metric, nrating);
+		return lps;
 	}
 
-	public static <I> Table<I, I, Double> makePolynomial(KERNEL_MODE mode,Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating) throws Exception {
+	public static <I> SortedSet<ParamsScore> findGaussian(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, GaussianKernel<I> gk) throws Exception {
 		AbstractErrorMetric metric = new AccuracyError();
-		PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, K);
+		SortedSet<ParamsScore> gps = gk.getParameters(mode, objectranks, metric, nrating);
+		return gps;
+	}
+
+	public static <I> SortedSet<ParamsScore> findPolynomial(KERNEL_MODE mode,Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, PolynomialKernel<I> pk) throws Exception {
+		AbstractErrorMetric metric = new AccuracyError();
 		SortedSet<ParamsScore> pps = pk.getParameters(mode, objectranks, metric, nrating);
-		Double d = pps.first().getParams().get("D");
-		System.out.println("Best param for Polynomial kernel: " + pps.first());
-		Table<I, I, Double> PK = pk.calculate(d);
-		return PK;
+		return pps;
 	}
 
 	public static void write(CSVW csv, String user, double lambda, int nfeatures, int nfold, double lmae, double gmae, double pmae, double lrmse, double grmse, double prmse, double lscc, double gscc, double pscc) throws IOException {

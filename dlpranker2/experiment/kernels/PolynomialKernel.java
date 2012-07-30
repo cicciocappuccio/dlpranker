@@ -6,9 +6,14 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
+import kernels.AbstractKernel.KERNEL_MODE;
+
 import metrics.AbstractErrorMetric;
 import perceptron.AbstractPerceptronRanker;
+import perceptron.LargeMarginBatchPerceptronRanker;
+import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.ObjectRank;
+import perceptron.OnLineKernelPerceptronRanker;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
@@ -28,7 +33,7 @@ public class PolynomialKernel<T> extends AbstractKernel<T> {
 	public static <T> PolynomialKernel<T> create(Set<T> instances, Table<T, T, Double> kernel) {
 		return new PolynomialKernel<T>(instances, kernel);
 	}
-	
+
 	public PolynomialKernel(Set<T> instances, Table<T, T, Double> kernel) {
 		this.instances = instances;
 		this.kernel = kernel;
@@ -38,7 +43,7 @@ public class PolynomialKernel<T> extends AbstractKernel<T> {
 		Table<T, T, Double> K = HashBasedTable.create();
 		for (T xi : kernel.rowKeySet()) {
 			for (T xj : kernel.columnKeySet()) {
-				double val = Math.pow((kernel.get(xi, xj) + 1.0) , D);
+				double val = Math.pow((kernel.get(xi, xj) + 1.0), D);
 				K.put(xi, xj, val);
 			}
 		}
@@ -50,35 +55,47 @@ public class PolynomialKernel<T> extends AbstractKernel<T> {
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();
 
-		for (double D = 1; D <= 9;  D += 1.0) {
+		double[] D = new double[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
-			Table<T, T, Double> K = calculate(D);
+		double[] parametri = getParam(mode);
+
+		for (double d : D) {
+
+			Table<T, T, Double> K = calculate(d);
 			KFolder<ObjectRank<T>> folder = new KFolder<ObjectRank<T>>(training, nfolds, new Random(0));
 
-			double error = 0.0;
-			
-			for (int j = 0; j < nfolds; j++) {
-				AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating);
 
-				mo.train(folder.getOtherFolds(j));
+			for (double param : parametri) {
+				
+				double error = 0.0;
+				
+				for (int j = 0; j < nfolds; j++) {
+					AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating, param);
 
-				List<Integer> real = Lists.newLinkedList();
-				List<Integer> predicted = Lists.newLinkedList();
+					mo.train(folder.getOtherFolds(j));
 
-				for (ObjectRank<T> or: folder.getFold(j)) {
-					real.add(or.rank);
-					predicted.add(mo.rank(or.object));
+					List<Integer> real = Lists.newLinkedList();
+					List<Integer> predicted = Lists.newLinkedList();
+
+					for (ObjectRank<T> or : folder.getFold(j)) {
+						real.add(or.rank);
+						predicted.add(mo.rank(or.object));
+					}
+
+					error += metric.error(real, predicted);
 				}
 				
-				error += metric.error(real, predicted);
+				
+				Map<String, Double> params = Maps.newHashMap();
+				params.put("D", d);
+				params.put("Param", param);
+				
+				double dnfolds = nfolds;
+				ParamsScore ps = new ParamsScore(params, - (error / dnfolds), d + param);
+				
+				ret.add(ps);
 			}
-			
-			Map<String, Double> params = Maps.newHashMap();
-			params.put("D", D);
 
-			double dnfolds = nfolds;
-			ParamsScore psJ = new ParamsScore(params, - (error / dnfolds), D);
-			ret.add(psJ);
 		}
 
 		return ret;

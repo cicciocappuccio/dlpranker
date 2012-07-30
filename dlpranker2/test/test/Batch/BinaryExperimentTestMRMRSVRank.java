@@ -45,7 +45,7 @@ public class BinaryExperimentTestMRMRSVRank {
 
 		double lambda = 1.0;
 		int nfeatures = 3;
-		int j = 4; // j fold
+		int j = 0; // j fold
 
 		// ----------------------------------------------------------------------------------------------------
 		String fileName = "res/risultati/TEST_MRMR.csv";
@@ -145,8 +145,8 @@ public class BinaryExperimentTestMRMRSVRank {
 		
 		System.out.println(K);
 		
-		Table<Individual, Individual, Double> GK = AbstractRankExperimentLMBP.makeGaussian(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
-		Table<Individual, Individual, Double> PK = AbstractRankExperimentLMBP.makePolynomial(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
+		Table<Individual, Individual, Double> GK = AbstractRankExperimentLMBP.findGaussian(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
+		Table<Individual, Individual, Double> PK = AbstractRankExperimentLMBP.findPolynomial(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
 		
 		LargeMarginBatchPerceptronRankerSVRank<Individual> lmo = new LargeMarginBatchPerceptronRankerSVRank<Individual>(filmsUser, K, nrating);
 		LargeMarginBatchPerceptronRankerSVRank<Individual> gmo = new LargeMarginBatchPerceptronRankerSVRank<Individual>(filmsUser, GK, nrating);

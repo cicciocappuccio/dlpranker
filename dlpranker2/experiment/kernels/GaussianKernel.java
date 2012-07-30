@@ -6,6 +6,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
+import kernels.AbstractKernel.KERNEL_MODE;
+
 import metrics.AbstractErrorMetric;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
@@ -28,7 +30,7 @@ public class GaussianKernel<T> extends AbstractKernel<T> {
 	public static <T> GaussianKernel<T> createGivenEuclideans(Set<T> instances, Table<T, T, Double> euclideans) {
 		return new GaussianKernel<T>(instances, euclideans);
 	}
-	
+
 	public static <T> GaussianKernel<T> createGivenKernel(Set<T> instances, Table<T, T, Double> kernel) {
 		Table<T, T, Double> euclideans = HashBasedTable.create();
 		for (T xi : kernel.rowKeySet()) {
@@ -40,7 +42,7 @@ public class GaussianKernel<T> extends AbstractKernel<T> {
 		}
 		return new GaussianKernel<T>(instances, euclideans);
 	}
-	
+
 	public GaussianKernel(Set<T> instances, Table<T, T, Double> euclideans) {
 		this.instances = instances;
 		this.euclideans = euclideans;
@@ -51,7 +53,7 @@ public class GaussianKernel<T> extends AbstractKernel<T> {
 		for (T xi : euclideans.rowKeySet()) {
 			for (T xj : euclideans.columnKeySet()) {
 				double sqdist = Math.pow(euclideans.get(xi, xj), 2.0);
-				double val = Math.exp(- sqdist / (2.0 * Math.pow(sigma, 2.0)));
+				double val = Math.exp(-sqdist / (2.0 * Math.pow(sigma, 2.0)));
 				K.put(xi, xj, val);
 			}
 		}
@@ -63,38 +65,43 @@ public class GaussianKernel<T> extends AbstractKernel<T> {
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();
 
-		//double[] sigmas = new double[] { 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6 };
-		double[] sigmas = new double[] { 1e-2, 1e-1, 1e0, 1e1, 1e2 };
-		
+		double[] sigmas = new double[] { 1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4 };
+		// double[] sigmas = new double[] { 1e-2, 1e-1, 1e0, 1e1, 1e2 };
+
+		double[] parametri = getParam(mode);
+
 		for (double sigma : sigmas) {
 
 			Table<T, T, Double> K = calculate(sigma);
 			KFolder<ObjectRank<T>> folder = new KFolder<ObjectRank<T>>(training, nfolds, new Random(0));
 
-			double error = 0.0;
-			
-			for (int j = 0; j < nfolds; j++) {
-				AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating);
-
-				mo.train(folder.getOtherFolds(j));
-
-				List<Integer> real = Lists.newLinkedList();
-				List<Integer> predicted = Lists.newLinkedList();
-
-				for (ObjectRank<T> or: folder.getFold(j)) {
-					real.add(or.rank);
-					predicted.add(mo.rank(or.object));
-				}
+			for (double param : parametri) {
 				
-				error += metric.error(real, predicted);
-			}
-			
-			Map<String, Double> params = Maps.newHashMap();
-			params.put("Sigma", sigma);
+				double error = 0.0;
 
-			double dnfolds = nfolds;
-			ParamsScore psJ = new ParamsScore(params, - (error / dnfolds), sigma);
-			ret.add(psJ);
+				for (int j = 0; j < nfolds; j++) {
+					AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating, param);
+
+					mo.train(folder.getOtherFolds(j));
+
+					List<Integer> real = Lists.newLinkedList();
+					List<Integer> predicted = Lists.newLinkedList();
+
+					for (ObjectRank<T> or : folder.getFold(j)) {
+						real.add(or.rank);
+						predicted.add(mo.rank(or.object));
+					}
+
+					error += metric.error(real, predicted);
+				}
+				Map<String, Double> params = Maps.newHashMap();
+				params.put("Sigma", sigma);
+				params.put("Param", param);
+
+				double dnfolds = nfolds;
+				ParamsScore psJ = new ParamsScore(params, -(error / dnfolds), sigma + param);
+				ret.add(psJ);
+			}
 		}
 
 		return ret;
