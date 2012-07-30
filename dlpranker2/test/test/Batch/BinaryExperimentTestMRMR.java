@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 
+import kernels.AbstractKernel.KERNEL_MODE;
 import kernels.GaussianKernel;
 import kernels.LinearKernel;
 import kernels.ParamsScore;
 import kernels.PolynomialKernel;
-import kernels.AbstractKernel.KERNEL_MODE;
 import metrics.AbstractErrorMetric;
 import metrics.MAE;
 import metrics.RMSE;

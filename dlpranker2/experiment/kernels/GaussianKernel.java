@@ -6,8 +6,6 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
-import kernels.AbstractKernel.KERNEL_MODE;
-
 import metrics.AbstractErrorMetric;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;

@@ -1,6 +1,7 @@
 package com.neuralnoise.svm;
 
-import gurobi.*;
+import gurobi.GRB;
+import gurobi.GRBEnv;
 
 public class SVMUtils {
 

@@ -6,16 +6,10 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
-import kernels.AbstractKernel.KERNEL_MODE;
-
 import metrics.AbstractErrorMetric;
 import perceptron.AbstractPerceptronRanker;
-import perceptron.LargeMarginBatchPerceptronRanker;
-import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.ObjectRank;
-import perceptron.OnLineKernelPerceptronRanker;
 
-import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
