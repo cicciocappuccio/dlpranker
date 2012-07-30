@@ -3,21 +3,18 @@ package test;
 import java.util.List;
 import java.util.Set;
 
-import org.dllearner.core.owl.Description;
-import org.dllearner.core.owl.Individual;
-
-import perceptron.ObjectRank;
-import perceptron.OnLineKernelPerceptronRanker;
-
 import metrics.AbstractErrorMetric;
 import metrics.MAE;
 import metrics.RMSE;
 import metrics.SpearmanCorrelationCoefficient;
 
+import org.dllearner.core.owl.Description;
+import org.dllearner.core.owl.Individual;
+
+import perceptron.ObjectRank;
+import perceptron.OnLineKernelPerceptronRanker;
 import scoring.MHMRScore;
-import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
-import utils.CSVW;
 import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;

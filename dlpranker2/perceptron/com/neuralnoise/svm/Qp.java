@@ -11,7 +11,13 @@ package com.neuralnoise.svm;
    It solves it once as a continuous model, and once as an integer model.
 */
 
-import gurobi.*;
+import gurobi.GRB;
+import gurobi.GRBEnv;
+import gurobi.GRBException;
+import gurobi.GRBLinExpr;
+import gurobi.GRBModel;
+import gurobi.GRBQuadExpr;
+import gurobi.GRBVar;
 
 public class Qp {
   public static void main(String[] args) {

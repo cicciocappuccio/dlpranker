@@ -5,6 +5,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import metrics.AbstractErrorMetric;
+import metrics.MAE;
+import metrics.RMSE;
+import metrics.SpearmanCorrelationCoefficient;
+
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.KnowledgeSource;
 import org.dllearner.core.owl.Description;
@@ -15,15 +20,8 @@ import org.dllearner.refinementoperators.RhoDRDown;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
-
-import metrics.AbstractErrorMetric;
-import metrics.MAE;
-import metrics.RMSE;
-import metrics.SpearmanCorrelationCoefficient;
-
 import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
-import utils.CSVW;
 import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
@@ -39,7 +37,6 @@ import com.neuralnoise.cache.VolatileConceptCache;
 import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
-import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 
 public class ExperimentTestMRMR {

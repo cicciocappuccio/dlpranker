@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.apache.commons.lang3.ArrayUtils;
 
-import perceptron.BatchKernelPerceptronRanker;
 import perceptron.LargeMarginBatchPerceptronRanker;
 import perceptron.ObjectRank;
 

@@ -31,10 +31,6 @@ import utils.EIUtils;
 import utils.Inference;
 import utils.Inference.LogicValue;
 
-import cern.colt.matrix.tdouble.DoubleMatrix2D;
-import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
-import cern.colt.matrix.tdouble.impl.DiagonalDoubleMatrix2D;
-
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;

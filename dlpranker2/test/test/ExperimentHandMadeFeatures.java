@@ -1,32 +1,18 @@
 package test;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
-import org.dllearner.core.AbstractReasonerComponent;
-import org.dllearner.core.KnowledgeSource;
+import metrics.AbstractErrorMetric;
+import metrics.MAE;
+
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
-import org.dllearner.core.owl.NamedClass;
-import org.dllearner.kb.OWLFile;
-import org.dllearner.parser.KBParser;
-import org.dllearner.reasoning.OWLAPIReasoner;
-import org.dllearner.refinementoperators.RhoDRDown;
 
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
-
-import metrics.AbstractErrorMetric;
-import metrics.MAE;
-import metrics.RMSE;
-import metrics.SpearmanCorrelationCoefficient;
-
-import scoring.MRMRScore;
 import scripts.AbstractRankExperiment;
-import utils.CSVW;
-import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
 
@@ -36,14 +22,10 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.google.common.collect.Table.Cell;
-import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.VolatileConceptCache;
 
 import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
-import features.FakeRefinementOperator;
-import features.FeaturesGenerator;
 
 public class ExperimentHandMadeFeatures {
 

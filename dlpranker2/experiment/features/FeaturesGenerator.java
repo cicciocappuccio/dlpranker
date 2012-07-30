@@ -1,10 +1,8 @@
 package features;
 
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
@@ -23,7 +21,6 @@ import utils.EIUtils;
 import utils.Inference;
 import utils.Inference.LogicValue;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.neuralnoise.cache.ReasonerUtils;
 

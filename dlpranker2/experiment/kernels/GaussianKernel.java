@@ -9,7 +9,6 @@ import java.util.SortedSet;
 import metrics.AbstractErrorMetric;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
-import perceptron.OnLineKernelPerceptronRanker;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;

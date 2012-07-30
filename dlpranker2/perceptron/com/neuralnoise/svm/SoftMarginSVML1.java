@@ -13,12 +13,9 @@ import gurobi.GRBVar;
 import java.util.Map;
 import java.util.Set;
 
-
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
-import com.google.common.collect.Table.Cell;
-import com.neuralnoise.svm.AbstractSVM;
 
 public class SoftMarginSVML1<T> extends AbstractSVM<T> {
 

@@ -1,7 +1,6 @@
 package selection;
 
 
-import java.util.HashSet;
 import java.util.Set;
 
 import org.dllearner.core.owl.Description;

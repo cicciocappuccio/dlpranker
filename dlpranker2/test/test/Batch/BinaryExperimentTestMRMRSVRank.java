@@ -142,16 +142,16 @@ public class BinaryExperimentTestMRMRSVRank {
 		System.out.println(features);
 
 		Table<Individual, Individual, Double> K = AbstractRankExperimentLMBP.buildKernel(inference, features, filmsUser);
-
+		
 		System.out.println(K);
-
+		
 		Table<Individual, Individual, Double> GK = AbstractRankExperimentLMBP.makeGaussian(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
 		Table<Individual, Individual, Double> PK = AbstractRankExperimentLMBP.makePolynomial(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating);
-
+		
 		LargeMarginBatchPerceptronRankerSVRank<Individual> lmo = new LargeMarginBatchPerceptronRankerSVRank<Individual>(filmsUser, K, nrating);
 		LargeMarginBatchPerceptronRankerSVRank<Individual> gmo = new LargeMarginBatchPerceptronRankerSVRank<Individual>(filmsUser, GK, nrating);
 		LargeMarginBatchPerceptronRankerSVRank<Individual> pmo = new LargeMarginBatchPerceptronRankerSVRank<Individual>(filmsUser, PK, nrating);
-
+		
 		lmo.train(objectranks);
 		gmo.train(objectranks);
 		pmo.train(objectranks);
@@ -173,7 +173,6 @@ public class BinaryExperimentTestMRMRSVRank {
 			System.out.println(gmo.rank(t.getFilm()));
 			ppredicted.add(pmo.rank(t.getFilm()));
 			System.out.println(pmo.rank(t.getFilm()));
-
 		}
 
 		double lmae = mae.error(reals, lpredicted);
