@@ -15,12 +15,17 @@ import java.util.Set;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
+import com.google.common.collect.Table.Cell;
 
 public class HardMarginSVM<T> extends AbstractSVM<T> {
 	
 	public HardMarginSVM(GRBEnv env, Set<T> xs, Map<T, Boolean> ys, Table<T, T, Double> kernel) throws GRBException {
 		super(xs, ys, kernel);
 
+		for (Cell<T, T, Double> cell : this.kernel.cellSet()) {
+			System.out.println(cell);
+		}
+		
 		GRBModel model = new GRBModel(env);
 		
 		this.xs = Sets.intersection(xs, ys.keySet());

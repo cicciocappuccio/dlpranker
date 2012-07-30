@@ -7,6 +7,7 @@ import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
 
 import perceptron.BatchKernelPerceptronRanker;
+import perceptron.LargeMarginBatchPerceptronRanker;
 import perceptron.ObjectRank;
 
 import com.google.common.collect.HashBasedTable;
@@ -20,7 +21,7 @@ public class RankTest2 {
 	
 	private static final double[][] DATAPOINTS = ArrayUtils.addAll(DATAPOINTS_1, DATAPOINTS_2);
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		List<ObjectRank<double[]>> stream = new LinkedList<ObjectRank<double[]>>();
 		
 		for (double[] point : DATAPOINTS_1) {
@@ -38,18 +39,10 @@ public class RankTest2 {
 			}
 		}
 		
-		BatchKernelPerceptronRanker<double[]> ranker = new BatchKernelPerceptronRanker<double[]>(objects, K, 2);
-
-		
+		LargeMarginBatchPerceptronRanker<double[]> ranker = new LargeMarginBatchPerceptronRanker<double[]>(objects, K, 2);
 
 		ranker.train(stream);
-		
-		
-		
-		
-		
 
-		
 		System.out.println(ranker.rank(DATAPOINTS_1[1]));
 		System.out.println(ranker.rank(DATAPOINTS_1[2]));
 		System.out.println(ranker.rank(DATAPOINTS_1[3]));

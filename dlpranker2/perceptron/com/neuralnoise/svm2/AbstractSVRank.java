@@ -1,9 +1,10 @@
-package com.neuralnoise.svm;
+package com.neuralnoise.svm2;
 
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
+//import utils.MatrixUtils;
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.DiagonalDoubleMatrix2D;
@@ -14,20 +15,24 @@ import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Table;
 import com.google.common.collect.Table.Cell;
 
-public class AbstractSVM<T> {
+public class AbstractSVRank<T> {
 
 	public static final double EPS = 1e-8;
 	
 	protected Set<T> xs;
 	protected Table<T, T, Double> kernel;
-	protected Map<T, Boolean> ys;
+	protected Map<T, Integer> ys;
+	protected double[] b;
+	protected int ranks;
 	
 	protected Map<T, Double> alphas;
-	protected double b;
-	
-	public AbstractSVM(Set<T> xs, Map<T, Boolean> ys, Table<T, T, Double> kernel) {
+
+	public AbstractSVRank(Set<T> xs, Map<T, Integer> ys, int ranks, Table<T, T, Double> kernel) {
 		this.xs = xs;
 		this.ys = ys;
+		this.ranks = ranks;
+		this.b = new double[ranks];
+		this.b[ranks - 1] = Double.POSITIVE_INFINITY;
 		this.kernel = normalizeKernel(kernel);
 	}
 	
@@ -54,6 +59,40 @@ public class AbstractSVM<T> {
 		return normalizedKernel;
 	}
 	
+	// f(x) = \sum_{i = 1}^{l} alpha_i k(x_{i}, x)
+	public double _evaluate(T nx) {
+		double ret = 0;
+		for (Entry<T, Integer> ae : this.ys.entrySet()) {
+			T x = ae.getKey();
+			double alpha = alphas.get(x);
+			ret += alpha * this.kernel.get(x, nx);
+		}
+		return ret;
+	}
+	
+	public int rank(T object) {
+		double sum = 0.0;
+		for (T o : this.xs) {
+			sum += (this.alphas.get(o) * this.kernel.get(object, o));
+		}
+		int ret = 0;
+		while (b[ret] <= sum) {
+			ret++;
+		}
+		ret++;
+		return ret;
+	}
+	
+	protected BiMap<T, Integer> makeIndices(Set<T> labeled, Set<T> unlabeled) {
+		BiMap<T, Integer> indices = HashBiMap.create();
+		int c = 0;
+		for (T x : labeled)
+			indices.put(x, Integer.valueOf(c++));
+		for (T x : unlabeled)
+			indices.put(x, Integer.valueOf(c++));
+		return indices;
+	}
+	
     public static DiagonalDoubleMatrix2D diagonal(DoubleMatrix2D M) {
         final int n = Math.min(M.rows(), M.columns());
         DiagonalDoubleMatrix2D D = new DiagonalDoubleMatrix2D(n, n, 0);
@@ -75,59 +114,4 @@ public class AbstractSVM<T> {
         return _K;
     }
 	
-	// f(x) = sign(b + \sum_i alpha_i y_i K(x_i, x))
-	public boolean evaluate(T nx) {
-		double aykb = this.b;
-		for (Entry<T, Double> ae : this.alphas.entrySet()) {
-			T x = ae.getKey();
-			double alpha = ae.getValue();
-			aykb += alpha * (ys.get(x) ? + 1.0 : - 1.0) * this.kernel.get(x, nx);
-		}
-		return aykb >= 0;
-	}
-	
-	@Override
-	public String toString() {
-		final String NL = System.getProperty("line.separator");
-		StringBuffer sb = new StringBuffer();
-		for (Entry<T, Double> ae : this.alphas.entrySet()) {
-			T x = ae.getKey();
-			double alpha = ae.getValue();
-			if (alpha > EPS) {
-				sb.append(x + "'s alpha: " + alpha + NL);
-			}
-		}
-		sb.append("b: " + this.b + NL);
-		return sb.toString();
-	}
-	
-	protected BiMap<T, Integer> makeIndices(Set<T> labeled, Set<T> unlabeled) {
-		BiMap<T, Integer> indices = HashBiMap.create();
-		int c = 0;
-		for (T x : labeled)
-			indices.put(x, Integer.valueOf(c++));
-		for (T x : unlabeled)
-			indices.put(x, Integer.valueOf(c++));
-		return indices;
-	}
-	
-	public Map<T, Boolean> getYs() {
-		return this.ys;
-	}
-	
-	public Table<T, T, Double> getKernel() {
-		return this.kernel;
-	}
-	
-	public Set<T> getXs() {
-		return this.xs;
-	}
-
-	public Map<T, Double> getAlphas() {
-		return this.alphas;
-	}
-	
-	public double getB() {
-		return this.b;
-	}
 }

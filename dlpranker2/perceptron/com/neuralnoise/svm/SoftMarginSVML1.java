@@ -17,11 +17,12 @@ import java.util.Set;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
+import com.google.common.collect.Table.Cell;
 import com.neuralnoise.svm.AbstractSVM;
 
 public class SoftMarginSVML1<T> extends AbstractSVM<T> {
 
-	private static final double C = 1.0;
+	private static final double C = 1;
 	private double c;
 	
 	public SoftMarginSVML1(GRBEnv env, Set<T> xs, Map<T, Boolean> ys, Table<T, T, Double> kernel) throws GRBException {
@@ -31,7 +32,7 @@ public class SoftMarginSVML1<T> extends AbstractSVM<T> {
 	public SoftMarginSVML1(GRBEnv env, Set<T> xs, Map<T, Boolean> ys, Table<T, T, Double> kernel, double c) throws GRBException {
 		super(xs, ys, kernel);
 		this.c = c;
-		
+
 		GRBModel model = new GRBModel(env);
 		
 		this.xs = Sets.intersection(xs, ys.keySet());

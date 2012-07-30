@@ -6,7 +6,10 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
+import kernels.AbstractKernel.KERNEL_MODE;
+
 import metrics.AbstractErrorMetric;
+import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 
@@ -18,7 +21,7 @@ import com.google.common.collect.Table;
 
 import dataset.KFolder;
 
-public class PolynomialKernel<T> {
+public class PolynomialKernel<T> extends AbstractKernel<T> {
 
 	private static final int _NFOLDS = 10;
 
@@ -45,12 +48,12 @@ public class PolynomialKernel<T> {
 		return K;
 	}
 
-	public SortedSet<ParamsScore> getParameters(List<ObjectRank<T>> training, AbstractErrorMetric metric, int nrating) {
+	public SortedSet<ParamsScore> getParameters(KERNEL_MODE mode, List<ObjectRank<T>> training, AbstractErrorMetric metric, int nrating) throws Exception {
 		int nfolds = Math.min(_NFOLDS, training.size());
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();
 
-		for (double D = 1; D <= 9; D += 1.0) {
+		for (double D = 1; D <= 9;  D += 1.0) {
 
 			Table<T, T, Double> K = calculate(D);
 			KFolder<ObjectRank<T>> folder = new KFolder<ObjectRank<T>>(training, nfolds, new Random(0));
@@ -58,11 +61,9 @@ public class PolynomialKernel<T> {
 			double error = 0.0;
 			
 			for (int j = 0; j < nfolds; j++) {
-				OnLineKernelPerceptronRanker<T> mo = new OnLineKernelPerceptronRanker<T>(instances, K, nrating);
+				AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating);
 
-				for (ObjectRank<T> or : folder.getOtherFolds(j)) {
-					mo.feed(or);
-				}
+				mo.train(folder.getOtherFolds(j));
 
 				List<Integer> real = Lists.newLinkedList();
 				List<Integer> predicted = Lists.newLinkedList();

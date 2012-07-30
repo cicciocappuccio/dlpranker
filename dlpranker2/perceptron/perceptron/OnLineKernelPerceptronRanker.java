@@ -1,5 +1,6 @@
 package perceptron;
 
+import java.util.List;
 import java.util.Set;
 
 import com.google.common.collect.Table;
@@ -29,6 +30,14 @@ public class OnLineKernelPerceptronRanker<T> extends AbstractPerceptronRanker<T>
 				b[z] = b[z] + 1.0;
 			}
 		}
+	}
+
+	@Override
+	public void train(List<ObjectRank<T>> stream) {
+
+		for (ObjectRank<T> o : stream)
+			feed(o);
+		
 	}
 	
 

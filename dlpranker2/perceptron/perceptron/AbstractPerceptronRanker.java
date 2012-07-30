@@ -1,6 +1,7 @@
 package perceptron;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -12,6 +13,7 @@ public abstract class AbstractPerceptronRanker<T> {
 
 	protected Map<T, Double> alpha;
 	protected double[] b;
+	protected int ranks;
 	
 	protected Set<T> objects;
 	protected Table<T, T, Double> K;
@@ -19,6 +21,7 @@ public abstract class AbstractPerceptronRanker<T> {
 	public AbstractPerceptronRanker(Set<T> objects, Table<T, T, Double> K, int r) {
 		this.b = new double[r];
 		this.b[r - 1] = Double.POSITIVE_INFINITY;
+		this.ranks = r;
 		this.alpha = Maps.newHashMap();
 		//for (T object : objects)
 		//	this.alpha.put(object, 0.0);
@@ -42,6 +45,8 @@ public abstract class AbstractPerceptronRanker<T> {
 		//System.out.println("sum is: " + sum + " and b is: " + DebugUtils.toString(b) + ",  returning " + ret);
 		return ret;
 	}
+	
+	public abstract void train(List<ObjectRank<T>> stream) throws Exception;
 
 	@Override
 	public String toString() {

@@ -1,4 +1,4 @@
-package scripts;
+package test.Batch;
 
 import java.io.File;
 import java.io.IOException;
@@ -46,10 +46,10 @@ import com.neuralnoise.cache.VolatileConceptCache;
 import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 
-public class AbstractRankExperiment {
+public class AbstractRankExperimentLMBP {
 
 	public static final int NFOLDS = 10;
-	private static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
+	private static final Logger log = LoggerFactory.getLogger(AbstractRankExperimentLMBP.class);
 
 	public static FeaturesGenerator getFeaturesGenerator(Inference inference) {
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
@@ -70,7 +70,7 @@ public class AbstractRankExperiment {
 		return GK;
 	}
 
-	public static <I> Table<I, I, Double> makePolynomial(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating) throws Exception {
+	public static <I> Table<I, I, Double> makePolynomial(KERNEL_MODE mode,Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating) throws Exception {
 		AbstractErrorMetric metric = new AccuracyError();
 		PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, K);
 		SortedSet<ParamsScore> pps = pk.getParameters(mode, objectranks, metric, nrating);

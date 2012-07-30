@@ -7,6 +7,7 @@ import java.util.Set;
 import java.util.SortedSet;
 
 import metrics.AbstractErrorMetric;
+import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
 
@@ -18,7 +19,7 @@ import com.google.common.collect.Table;
 
 import dataset.KFolder;
 
-public class GaussianKernel<T> {
+public class GaussianKernel<T> extends AbstractKernel<T> {
 
 	private static final int _NFOLDS = 10;
 
@@ -58,12 +59,15 @@ public class GaussianKernel<T> {
 		return K;
 	}
 
-	public SortedSet<ParamsScore> getParameters(List<ObjectRank<T>> training, AbstractErrorMetric metric, int nrating) {
+	public SortedSet<ParamsScore> getParameters(KERNEL_MODE mode, List<ObjectRank<T>> training, AbstractErrorMetric metric, int nrating) throws Exception {
 		int nfolds = Math.min(_NFOLDS, training.size());
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();
 
-		for (double sigma = 1e-4; sigma <= 1e4; sigma *= 10.0) {
+		//double[] sigmas = new double[] { 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6 };
+		double[] sigmas = new double[] { 1e-2, 1e-1, 1e0, 1e1, 1e2 };
+		
+		for (double sigma : sigmas) {
 
 			Table<T, T, Double> K = calculate(sigma);
 			KFolder<ObjectRank<T>> folder = new KFolder<ObjectRank<T>>(training, nfolds, new Random(0));
@@ -71,11 +75,9 @@ public class GaussianKernel<T> {
 			double error = 0.0;
 			
 			for (int j = 0; j < nfolds; j++) {
-				OnLineKernelPerceptronRanker<T> mo = new OnLineKernelPerceptronRanker<T>(instances, K, nrating);
+				AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating);
 
-				for (ObjectRank<T> or : folder.getOtherFolds(j)) {
-					mo.feed(or);
-				}
+				mo.train(folder.getOtherFolds(j));
 
 				List<Integer> real = Lists.newLinkedList();
 				List<Integer> predicted = Lists.newLinkedList();
