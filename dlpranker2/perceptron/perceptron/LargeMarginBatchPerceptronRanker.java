@@ -42,7 +42,6 @@ public class LargeMarginBatchPerceptronRanker<T> extends AbstractPerceptronRanke
 			AbstractSVM<T> svm = null;
 
 			try {
-				System.out.println("C: " + c);
 				svm = new SoftMarginSVML1<T>(env, objects, map, K, c);
 			} catch (gurobi.GRBException e) {
 				svm = null;

@@ -9,8 +9,8 @@ import java.util.Set;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
 import com.neuralnoise.svm.SVMUtils;
-import com.neuralnoise.svm2.AbstractSVRank;
-import com.neuralnoise.svm2.SoftRank;
+import com.neuralnoise.svrank.AbstractSVRank;
+import com.neuralnoise.svrank.SoftRank;
 
 public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptronRanker<T> {
 
@@ -32,8 +32,6 @@ public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptro
 	public void train(List<ObjectRank<T>> stream) throws Exception {
 		GRBEnv env = SVMUtils.buildEnvironment();
 
-		// classifiers = HashBiMap.create();
-
 		Map<T, Integer> map = Maps.newHashMap();
 
 		for (ObjectRank<T> o : stream) {
@@ -42,15 +40,12 @@ public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptro
 
 		svm = null;
 
-		// for (int i = 0; i < V.length && svm == null; ++i) {
 		try {
-			// double v = V[i];
-			System.out.println("V: " + v);
 			svm = new SoftRank<T>(env, objects, map, ranks, K, v);
 		} catch (gurobi.GRBException e) {
 			svm = null;
 		}
-		// }
+
 	}
 
 	// ################################ DA CONTROLLARE

@@ -1,4 +1,4 @@
-package com.neuralnoise.svm2;
+package com.neuralnoise.svrank;
 
 import java.util.Map;
 import java.util.Map.Entry;

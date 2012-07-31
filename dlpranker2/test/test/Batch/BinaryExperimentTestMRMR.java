@@ -27,6 +27,7 @@ import org.dllearner.refinementoperators.RhoDRDown;
 import perceptron.LargeMarginBatchPerceptronRanker;
 import perceptron.ObjectRank;
 import scoring.MRMRScore;
+import scripts.AbstractRankExperiment;
 import utils.EIUtils;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
@@ -52,6 +53,8 @@ public class BinaryExperimentTestMRMR {
 		int nfeatures = 3;
 		int j = 4; // j fold
 
+		KERNEL_MODE mode = KERNEL_MODE.SOFTMARGIN_BATCH;
+		
 		// ----------------------------------------------------------------------------------------------------
 		String fileName = "res/risultati/TEST_MRMR.csv";
 
@@ -118,7 +121,7 @@ public class BinaryExperimentTestMRMR {
 
 		for (Tupla i : ratingsUser)
 			filmsUser.add(i.getFilm());
-		KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, AbstractRankExperimentLMBP.NFOLDS);
+		KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, AbstractRankExperiment.NFOLDS);
 
 		// for (int j = 0; j < AbstractRankExperiment.NFOLDS; j++) {
 		List<Tupla> trainingRanks = folder.getOtherFolds(j);
@@ -144,18 +147,20 @@ public class BinaryExperimentTestMRMR {
 		System.out.println("Lambda: " + lambda + " numero di features: " + features.size());
 		System.out.println(features);
 
-		Table<Individual, Individual, Double> K = AbstractRankExperimentLMBP.buildKernel(inference, features, filmsUser);
+		Table<Individual, Individual, Double> K = AbstractRankExperiment.buildKernel(inference, features, filmsUser);
 
 		System.out.println(K);
 
+
+		
 		LinearKernel<Individual> lk = new LinearKernel<Individual>(filmsUser, K);
-		SortedSet<ParamsScore> lps = AbstractRankExperimentLMBP.findLinear(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating, lk);
+		SortedSet<ParamsScore> lps = AbstractRankExperiment.findLinear(mode, filmsUser, K, objectranks, nrating, lk);
 		Double paramL = lps.first().getParams().get("Param");
-		System.out.println("Best param for Gaussian kernel: " + lps.first());
+		System.out.println("Best param for Linear kernel: " + lps.first());
 		Table<Individual, Individual, Double> LK = lk.calculate();
 
 		GaussianKernel<Individual> gk = GaussianKernel.createGivenKernel(filmsUser, K);
-		SortedSet<ParamsScore> gps = AbstractRankExperimentLMBP.findGaussian(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating, gk);
+		SortedSet<ParamsScore> gps = AbstractRankExperiment.findGaussian(mode, filmsUser, K, objectranks, nrating, gk);
 		Double sigma = gps.first().getParams().get("Sigma");
 		Double paramG = gps.first().getParams().get("Param");
 		System.out.println("Best param for Gaussian kernel: " + gps.first());
@@ -163,7 +168,7 @@ public class BinaryExperimentTestMRMR {
 
 		
 		PolynomialKernel<Individual> pk = new PolynomialKernel<Individual>(filmsUser, K);
-		SortedSet<ParamsScore> pps = AbstractRankExperimentLMBP.findPolynomial(KERNEL_MODE.BATCH_SVM, filmsUser, K, objectranks, nrating, pk);
+		SortedSet<ParamsScore> pps = AbstractRankExperiment.findPolynomial(mode, filmsUser, K, objectranks, nrating, pk);
 		Double d = pps.first().getParams().get("D");
 		Double paramP = pps.first().getParams().get("Param");
 		System.out.println("Best param for Polynomial kernel: " + pps.first());
@@ -171,7 +176,7 @@ public class BinaryExperimentTestMRMR {
 		
 		
 		
-		LargeMarginBatchPerceptronRanker<Individual> lmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, K, nrating, paramL);
+		LargeMarginBatchPerceptronRanker<Individual> lmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, LK, nrating, paramL);
 		LargeMarginBatchPerceptronRanker<Individual> gmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, GK, nrating, paramG);
 		LargeMarginBatchPerceptronRanker<Individual> pmo = new LargeMarginBatchPerceptronRanker<Individual>(filmsUser, PK, nrating, paramP);
 
@@ -212,6 +217,7 @@ public class BinaryExperimentTestMRMR {
 		double gscc = scc.error(reals, gpredicted);
 		double pscc = scc.error(reals, ppredicted);
 
+		System.out.println("\n------------------------------------------------------------------------------\n\nmode: " + mode);
 		System.out.println(utente.getUser().getName());
 		System.out.println("ratingsUser.size()" + ratingsUser.size());
 		System.out.println("lambda: " + lambda);
