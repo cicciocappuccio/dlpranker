@@ -50,10 +50,10 @@ public class BinaryExperimentTestMRMR {
 	public static void main(String[] args) throws Exception {
 
 		double lambda = 1.0;
-		int nfeatures = 3;
-		int j = 4; // j fold
+		int nfeatures = 45;
+		int j = 3; // j fold
 
-		KERNEL_MODE mode = KERNEL_MODE.SOFTMARGIN_BATCH;
+		KERNEL_MODE mode = KERNEL_MODE.ONEVSALL_BATCH;
 		
 		// ----------------------------------------------------------------------------------------------------
 		String fileName = "res/risultati/TEST_MRMR.csv";
@@ -70,10 +70,10 @@ public class BinaryExperimentTestMRMR {
 		reasoner.init();
 		AbstractConceptCache cache = new VolatileConceptCache(owl);
 		Inference inference = new Inference(cache, reasoner);
-
+		
 		// ----------------------------
 
-		RhoDRDown op = new RhoDRDown();
+/*		RhoDRDown op = new RhoDRDown();
 		op.setReasoner(reasoner);
 		op.setSubHierarchy(reasoner.getClassHierarchy());
 		op.setObjectPropertyHierarchy(reasoner.getObjectPropertyHierarchy());
@@ -88,7 +88,9 @@ public class BinaryExperimentTestMRMR {
 		op.init();
 
 		FeaturesGenerator fg = new FeaturesGenerator(inference, op);
-
+*/
+		FeaturesGenerator fg = AbstractRankExperiment.getFeaturesGenerator(inference);
+		
 		// Psi2DownWrapper psi = new Psi2DownWrapper(reasoner);
 
 		// psi.init();
@@ -107,7 +109,7 @@ public class BinaryExperimentTestMRMR {
 		do {
 			utente = utenteI.next();
 			ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
-		} while (utenteI.hasNext() && ratingsUser.size() < 80);
+		} while (utenteI.hasNext() && ratingsUser.size() < 29);
 /**/		
 		
 		//List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
@@ -142,14 +144,15 @@ public class BinaryExperimentTestMRMR {
 		EIUtils calc = new EIUtils(inference);
 		MRMRScore tScore = new MRMRScore(inference, multimap, 1.0, calc);
 
-		Set<Description> features = fg.getFilmSubClasses();// .getMRMRFeatures(film, tScore, lambda, nfeatures);
+//		Set<Description> features = fg.getFilmSubClasses();// .getMRMRFeatures(film, tScore, lambda, nfeatures);
+		Set<Description> features = fg.getMRMRFeatures(film, tScore, lambda, nfeatures);// .getMRMRFeatures(film, tScore, lambda, nfeatures);
 
 		System.out.println("Lambda: " + lambda + " numero di features: " + features.size());
 		System.out.println(features);
 
 		Table<Individual, Individual, Double> K = AbstractRankExperiment.buildKernel(inference, features, filmsUser);
 
-		System.out.println(K);
+		System.out.println("Il kernel è: " + K);
 
 
 		

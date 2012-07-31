@@ -70,18 +70,19 @@ public class AbstractRankExperiment {
 		return gps;
 	}
 
-	public static <I> SortedSet<ParamsScore> findPolynomial(KERNEL_MODE mode,Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, PolynomialKernel<I> pk) throws Exception {
+	public static <I> SortedSet<ParamsScore> findPolynomial(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, PolynomialKernel<I> pk) throws Exception {
 		AbstractErrorMetric metric = new MAE();
 		SortedSet<ParamsScore> pps = pk.getParameters(mode, objectranks, metric, nrating);
 		return pps;
 	}
 
-	public static void write(CSVW csv, String user, double lambda, int nfeatures, int nfold, double lmae, double gmae, double pmae, double lrmse, double grmse, double prmse, double lscc, double gscc, double pscc) throws IOException {
+	public static void write(CSVW csv, String user, KERNEL_MODE mode, double param1, int param2, int nfold, double lmae, double gmae, double pmae, double lrmse, double grmse, double prmse, double lscc, double gscc, double pscc) throws IOException {
 		List<String> row = Lists.newLinkedList();
 
 		row.add(user);
-		row.add(Double.toString(lambda));
-		row.add(Integer.toString(nfeatures));
+		row.add(mode.toString());
+		row.add(Double.toString(param1));
+		row.add(Integer.toString(param2));
 		row.add(Integer.toString(nfold));
 
 		row.add(Double.toString(lmae));
@@ -108,6 +109,7 @@ public class AbstractRankExperiment {
 		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
 		headRow.add("utente");
+		headRow.add("KERNEL_MODE");
 		headRow.add(param1);
 		headRow.add(param2);
 		headRow.add("fold");
@@ -145,20 +147,20 @@ public class AbstractRankExperiment {
 		return ret;
 	}
 
-    public static Table<Individual, Individual, Double> normalizeKernel(Table<Individual, Individual, Double> K) {
-    	Table<Individual, Individual, Double> normalized = HashBasedTable.create();
-    	for (Individual i : K.rowKeySet()) {
-    		double Kii = K.get(i, i);
-    		for (Individual j : K.columnKeySet()) {
-    			double Kjj = K.get(j, j);
-    			double val = K.get(i, j);
-    			normalized.put(i, j, val / Math.sqrt(Kii * Kjj));
-   
-    		}
-    	}
-    	return normalized;
-    }
-	
+	public static Table<Individual, Individual, Double> normalizeKernel(Table<Individual, Individual, Double> K) {
+		Table<Individual, Individual, Double> normalized = HashBasedTable.create();
+		for (Individual i : K.rowKeySet()) {
+			double Kii = K.get(i, i);
+			for (Individual j : K.columnKeySet()) {
+				double Kjj = K.get(j, j);
+				double val = K.get(i, j);
+				normalized.put(i, j, val / Math.sqrt(Kii * Kjj));
+
+			}
+		}
+		return normalized;
+	}
+
 	public static Table<Individual, Individual, Double> buildKernel(Inference inference, Set<Description> features, Set<Individual> films) {
 
 		log.info("Creating Kernel..");
@@ -211,7 +213,7 @@ public class AbstractRankExperiment {
 			toCheck.remove(i);
 		}
 
-		return K;//return normalizeKernel(K);
+		return K;// return normalizeKernel(K);
 	}
 
 	public static <P extends Number & Comparable<P>> List<Number> getParam(P start, P end, int step) throws Exception {
@@ -223,7 +225,7 @@ public class AbstractRankExperiment {
 
 		System.out.println((end.doubleValue() - start.doubleValue()) % step);
 		if ((end.doubleValue() - start.doubleValue()) % step == 0) {
-			
+
 			for (int i = 0; i <= step; i++) {
 				paramList.add(new Integer(((end.intValue() - start.intValue()) / step) * i) + start.intValue());
 			}

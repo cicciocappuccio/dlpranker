@@ -88,7 +88,7 @@ public class SoftMarginSVML1<T> extends AbstractSVM<T> {
 		for (T x : this.xs) {
 			double alpha = this.alphas.get(x);
 			//System.out.println("alpha: " + alpha + ", C: " + c);
-			assertTrue(0.0 <= alpha && alpha <= (c + EPS));
+			assertTrue(- EPS <= alpha && alpha <= (c + EPS));
 			aty += alpha * (this.ys.get(x) ? + 1.0 : - 1.0);
 		}
 		assertEquals(aty, 0.0, EPS);
