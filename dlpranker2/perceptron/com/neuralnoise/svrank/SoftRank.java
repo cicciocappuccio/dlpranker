@@ -8,6 +8,7 @@ import gurobi.GRBModel;
 import gurobi.GRBQuadExpr;
 import gurobi.GRBVar;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -33,10 +34,10 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 		// 0 \leq alpha
 		for (T x : this.xs) {
 			// 0 <= aLi <= (1/vl)
-			GRBVar alphaL = model.addVar(- GRB.INFINITY, 1.0 / (v * l), 1.0, GRB.CONTINUOUS, "alphaL" + (c));
+			GRBVar alphaL = model.addVar(0.0, 1.0 / (v * l), 1.0, GRB.CONTINUOUS, "alphaL" + (c));
 		
-			// aUi >= 0
-			GRBVar alphaU = model.addVar(0.0, GRB.INFINITY, 1.0, GRB.CONTINUOUS, "alphaU" + (c));
+			// 0 <= aLi <= (1/vl)
+			GRBVar alphaU = model.addVar(0.0, 1.0 / (v * l), 1.0, GRB.CONTINUOUS, "alphaU" + (c));
 			
 			_alphasL.put(x, alphaL);
 			_alphasU.put(x, alphaU);
@@ -46,15 +47,17 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 		
 		model.update();
 		
-		// MAXIMIZE: W(alphaU, alphaL) = - \sum_{i, j = 1}^{l}
-		//		(alphaU_i - alphaL_i) (alphaU_j - alphaL_j) k(xi, xj)
+		// MAXIMIZE: W(alphaU, alphaL) = - \sum_{i, j = 1}^{l} (alphaU_i - alphaL_i) (alphaU_j - alphaL_j) k(xi, xj)
 		// -> - \sum_ij aU_i aU_j Kij - aU_i aL_j Kij - aL_i aU_j Kij + aL_i aL_j Kij
 		// -> \sum - aU_i aU_j Kij + aU_i aL_j Kij + aL_i aU_j Kij - aL_i aL_j Kij
 		GRBQuadExpr obj = new GRBQuadExpr();
 		for (T xi : this.xs) {
+			
 			GRBVar aLi = _alphasL.get(xi);
 			GRBVar aUi = _alphasU.get(xi);
+			
 			for (T xj : this.xs) {
+			
 				GRBVar aLj = _alphasL.get(xj);
 				GRBVar aUj = _alphasU.get(xj);
 				
@@ -68,12 +71,15 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 		}
 		
 		model.setObjective(obj, GRB.MAXIMIZE);
-		
-		// \sum_{i:yi=y} aLi = \sum_{i:yi=y-1} aUi
-		
+				
 		for (int rank = 2; rank <= this.ranks; ++rank) {
+			
+			// \sum_{i:yi=y} aLi = \sum_{i:yi=y-1} aUi
+			
 			GRBLinExpr expr = new GRBLinExpr();
+		
 			for (Entry<T, Integer> entry : ys.entrySet()) {
+				
 				if (entry.getValue() == rank) {
 					GRBVar aLi = _alphasL.get(entry.getKey());
 					expr.addTerm(1.0, aLi);
@@ -81,7 +87,9 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 					GRBVar aUi = _alphasU.get(entry.getKey());
 					expr.addTerm(- 1.0, aUi);
 				}
+				
 			}
+			
 			model.addConstr(expr, GRB.EQUAL, 0.0, "eq0");
 		}
 		
@@ -95,15 +103,16 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 			expr.addTerm(1.0, aUi);
 			expr.addTerm(1.0, aLi);
 		}
+
 		model.addConstr(expr, GRB.EQUAL, 1.0, "eq1");
 		
 		model.optimize();
 
+		this.alphas = Maps.newHashMap();
 		Map<T, Double> alphasL = Maps.newHashMap();
 		Map<T, Double> alphasU = Maps.newHashMap();
 		
 		this.alphas = Maps.newHashMap();
-		
 		
 		for (T x : this.xs) {
 			
@@ -116,17 +125,23 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 			alphasL.put(x, aL);
 			alphasU.put(x, aU);
 			
-			this.alphas.put(x, Double.valueOf(aU - aL));
+//			System.out.println("alphaU: " + aU + ", alphaL: " + aL + ", alpha: " + (aU - aL));
+			
+			this.alphas.put(x, aU - aL);
 		}
 		
 		for (int rank = 1; rank < ranks; ++rank) {
 		
 			T xi = null, xj = null;
+			
+			final double eps = 0;
+			
 			for (T x : this.xs) {
+				
 				if (xi == null) {
 					if (ys.get(x) == rank) {
 						double alphaL = alphasL.get(x);
-						if (alphaL > EPS && alphaL < (1.0 / (v * l))) {
+						if (alphaL > eps && alphaL < ((1.0 / (v * l)) - eps)) {
 							xi = x;
 						}
 					}
@@ -134,16 +149,22 @@ public class SoftRank<T> extends AbstractSVRank<T> {
 				
 				if (xj == null) {
 					if (ys.get(x) == (rank + 1)) {
-						double alphaU = alphasL.get(x);
-						if (alphaU > EPS && alphaU < (1.0 / (v * l))) {
+						double alphaU = alphasU.get(x);
+						if (alphaU > + eps && alphaU < ((1.0 / (v * l)) - eps)) {
 							xj = x;
 						}
 					}
 				}
 			}
 			
-			this.b[rank - 1] = 0.5 * (_evaluate(xi) + _evaluate(xj));
+			if (xi == null || xj == null)
+				this.b = null;
+			
+			if (this.b != null)
+				this.b[rank - 1] = 0.5 * (f(xi) + f(xj));
 		}
+		
+//		System.out.println("!!! " + this.b[0]);
 		
 		model.dispose();
 	}

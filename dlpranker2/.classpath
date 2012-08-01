@@ -2,7 +2,6 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry excluding="com/neuralnoise/svm/learning/utils/|com/neuralnoise/svm/learning/" kind="src" path="perceptron"/>
-	<classpathentry kind="src" path="metrics"/>
 	<classpathentry excluding="scripts/exists/|scripts/nRatings/|scripts/subClasses/|scripts/user/|scripts/userExists/" kind="src" path="experiment"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>

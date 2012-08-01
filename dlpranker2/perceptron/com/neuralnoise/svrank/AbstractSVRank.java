@@ -1,8 +1,8 @@
 package com.neuralnoise.svrank;
 
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
+import java.util.Map.Entry;
 
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
@@ -16,7 +16,7 @@ import com.google.common.collect.Table.Cell;
 
 public class AbstractSVRank<T> {
 
-	public static final double EPS = 1e-8;
+	public static final double EPS = 1e-24;
 	
 	protected Set<T> xs;
 	protected Table<T, T, Double> kernel;
@@ -59,27 +59,32 @@ public class AbstractSVRank<T> {
 	}
 	
 	// f(x) = \sum_{i = 1}^{l} alpha_i k(x_{i}, x)
-	public double _evaluate(T nx) {
+	protected double f(T nx) {
 		double ret = 0;
-		for (Entry<T, Integer> ae : this.ys.entrySet()) {
+		final double eps = 0.0;
+		for (Entry<T, Double> ae : this.alphas.entrySet()) {
 			T x = ae.getKey();
-			double alpha = alphas.get(x);
-			ret += alpha * this.kernel.get(x, nx);
+			double alpha = ae.getValue();
+			if (alpha > eps || alpha < - eps)
+				ret += alpha * this.kernel.get(x, nx);
 		}
 		return ret;
 	}
 	
 	public int rank(T object) {
 		double sum = 0.0;
-		for (T o : this.xs) {
-			sum += (this.alphas.get(o) * this.kernel.get(object, o));
+		
+		if (this.b == null)
+			return Integer.MAX_VALUE;
+		
+		for (Entry<T, Double> ae : this.alphas.entrySet()) {
+			sum += (ae.getValue() * this.kernel.get(object, ae.getKey()));
 		}
 		int ret = 0;
 		while (b[ret] <= sum) {
 			ret++;
 		}
-		ret++;
-		return ret;
+		return ret + 1;
 	}
 	
 	protected BiMap<T, Integer> makeIndices(Set<T> labeled, Set<T> unlabeled) {
@@ -91,15 +96,14 @@ public class AbstractSVRank<T> {
 			indices.put(x, Integer.valueOf(c++));
 		return indices;
 	}
-	
-    public static DiagonalDoubleMatrix2D diagonal(DoubleMatrix2D M) {
-        final int n = Math.min(M.rows(), M.columns());
-        DiagonalDoubleMatrix2D D = new DiagonalDoubleMatrix2D(n, n, 0);
-        for (int i = 0; i < n; ++i) {
-                D.set(i, i, M.get(i, i));
-        }
-        return D;
-    }
+
+	public Map<T, Double> getAlphas() {
+		return alphas;
+	}
+
+	public void setAlphas(Map<T, Double> alphas) {
+		this.alphas = alphas;
+	}
 	
     public static DoubleMatrix2D normalizeKernel(DoubleMatrix2D K) {
         DoubleMatrix2D _K = new DenseDoubleMatrix2D(K.toArray());
@@ -111,6 +115,15 @@ public class AbstractSVRank<T> {
                 }
         }
         return _K;
+    }
+    
+    public static DiagonalDoubleMatrix2D diagonal(DoubleMatrix2D M) {
+        final int n = Math.min(M.rows(), M.columns());
+        DiagonalDoubleMatrix2D D = new DiagonalDoubleMatrix2D(n, n, 0);
+        for (int i = 0; i < n; ++i) {
+                D.set(i, i, M.get(i, i));
+        }
+        return D;
     }
 	
 }

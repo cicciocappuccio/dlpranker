@@ -11,11 +11,11 @@ import com.google.common.collect.Table;
 
 public class AbstractKernel<T> {
 
-	public static enum KERNEL_MODE {
+	public static enum LearningMethod {
 		SIMPLE_ONLINE, ONEVSALL_BATCH, SOFTMARGIN_BATCH
 	}
 
-	public AbstractPerceptronRanker<T> buildRanker(KERNEL_MODE mode, Set<T> instances, Table<T, T, Double> K, int nrating, double param) {
+	public AbstractPerceptronRanker<T> buildRanker(LearningMethod mode, Set<T> instances, Table<T, T, Double> K, int nrating, double param) {
 		AbstractPerceptronRanker<T> ret = null;
 		switch (mode) {
 		case SIMPLE_ONLINE:
@@ -33,7 +33,7 @@ public class AbstractKernel<T> {
 		return ret;
 	}
 
-	public double[] getParam(KERNEL_MODE mode) {
+	public double[] getParam(LearningMethod mode) {
 		double[] parametri = null;
 		switch (mode) {
 		case SIMPLE_ONLINE:
@@ -41,11 +41,11 @@ public class AbstractKernel<T> {
 			break;
 
 		case ONEVSALL_BATCH:
-			parametri = new double[] { 1e-8, 1e-7, 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8 };
+			parametri = new double[] { 1e-6, 1e-5, 1e-4, 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6 };
 			break;
 
 		case SOFTMARGIN_BATCH:
-			parametri = new double[] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 };
+			parametri = new double[] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1e-1, 1e-2, 1e-3, 1e-4, 1 - 1e-1, 1 - 1e-2, 1 - 1e-3, 1 - 1e-4 };
 			break;
 		}
 		return parametri;

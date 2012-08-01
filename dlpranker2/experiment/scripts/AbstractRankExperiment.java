@@ -9,12 +9,13 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
 
-import kernels.AbstractKernel.KERNEL_MODE;
+import kernels.AbstractKernel.LearningMethod;
 import kernels.GaussianKernel;
 import kernels.LinearKernel;
 import kernels.ParamsScore;
 import kernels.PolynomialKernel;
-import metrics.AbstractErrorMetric;
+import metrics.AbstractMetric;
+import metrics.AbstractMetric.MetricType;
 import metrics.AccuracyError;
 import metrics.MAE;
 
@@ -27,7 +28,11 @@ import org.dllearner.reasoning.OWLAPIReasoner;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import perceptron.AbstractPerceptronRanker;
+import perceptron.LargeMarginBatchPerceptronRanker;
+import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.ObjectRank;
+import perceptron.OnLineKernelPerceptronRanker;
 import utils.CSVW;
 import utils.EIUtils;
 import utils.Inference;
@@ -46,9 +51,15 @@ import features.FeaturesGenerator;
 
 public class AbstractRankExperiment {
 
-	public static final int NFOLDS = 10;
-	private static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 
+	private static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
+	
+	public static final int NFOLDS = 10;
+	
+	public static enum KernelType {
+		Linear, Gaussian, Polynomial
+	}
+  	
 	public static FeaturesGenerator getFeaturesGenerator(Inference inference) {
 		FeaturesGenerator _fg = new FeaturesGenerator(inference, null);
 		Set<Description> _features = _fg.getFilmSubClasses();
@@ -57,46 +68,23 @@ public class AbstractRankExperiment {
 		FeaturesGenerator fg = new FeaturesGenerator(inference, fro);
 		return fg;
 	}
-
-	public static <I> SortedSet<ParamsScore> findLinear(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, LinearKernel<I> lk) throws Exception {
-		AbstractErrorMetric metric = new MAE();
-		SortedSet<ParamsScore> lps = lk.getParameters(mode, objectranks, metric, nrating);
-		return lps;
-	}
-
-	public static <I> SortedSet<ParamsScore> findGaussian(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, GaussianKernel<I> gk) throws Exception {
-		AbstractErrorMetric metric = new MAE();
-		SortedSet<ParamsScore> gps = gk.getParameters(mode, objectranks, metric, nrating);
-		return gps;
-	}
-
-	public static <I> SortedSet<ParamsScore> findPolynomial(KERNEL_MODE mode, Set<I> filmsUser, Table<I, I, Double> K, List<ObjectRank<I>> objectranks, int nrating, PolynomialKernel<I> pk) throws Exception {
-		AbstractErrorMetric metric = new MAE();
-		SortedSet<ParamsScore> pps = pk.getParameters(mode, objectranks, metric, nrating);
-		return pps;
-	}
-
-	public static void write(CSVW csv, String user, KERNEL_MODE mode, double param1, int param2, int nfold, double lmae, double gmae, double pmae, double lrmse, double grmse, double prmse, double lscc, double gscc, double pscc) throws IOException {
+	public static void write(CSVW csv, String user, int ratingsNumber, LearningMethod learningMethod, double param1, int param2, int nfold, Table<KernelType, MetricType, Double> predicted)
+			throws IOException {
 		List<String> row = Lists.newLinkedList();
 
 		row.add(user);
-		row.add(mode.toString());
+		row.add(Integer.toString(ratingsNumber));
+		row.add(learningMethod.toString());
 		row.add(Double.toString(param1));
 		row.add(Integer.toString(param2));
 		row.add(Integer.toString(nfold));
 
-		row.add(Double.toString(lmae));
-		row.add(Double.toString(gmae));
-		row.add(Double.toString(pmae));
-
-		row.add(Double.toString(lrmse));
-		row.add(Double.toString(grmse));
-		row.add(Double.toString(prmse));
-
-		row.add(Double.toString(lscc));
-		row.add(Double.toString(gscc));
-		row.add(Double.toString(pscc));
-
+		for (KernelType kernelType : KernelType.values()) {
+			for (MetricType metric : AbstractMetric.MetricType.values()) {
+				row.add(Double.toString(predicted.get(kernelType, metric)));
+			}
+		}
+		
 		csv.write(row);
 	}
 
@@ -104,21 +92,26 @@ public class AbstractRankExperiment {
 		File outFile = new File(fileName);
 		if (outFile.exists())
 			outFile.delete();
+		
 		PrintWriter pw = new PrintWriter(outFile);
 		CSVW csv = new CSVW(pw);
-		List<String> methods = Lists.newArrayList("Linear", "Gaussian", "Polynomial");
 		List<String> headRow = Lists.newArrayList();
-		headRow.add("utente");
-		headRow.add("KERNEL_MODE");
+		
+		headRow.add("User");
+		headRow.add("nRatings");
+		headRow.add("LearningMethod");
+		
 		headRow.add(param1);
 		headRow.add(param2);
+		
 		headRow.add("fold");
-		for (String method : methods)
-			headRow.add(method + " MAE");
-		for (String method : methods)
-			headRow.add(method + " RMSE");
-		for (String method : methods)
-			headRow.add(method + " Spearman");
+		
+		for (KernelType kernelType : KernelType.values()) {
+			for (MetricType metric : AbstractMetric.MetricType.values()) {
+				headRow.add(kernelType + " " + metric);
+			}
+		}
+
 		csv.write(headRow);
 		return csv;
 	}
@@ -238,4 +231,63 @@ public class AbstractRankExperiment {
 		return paramList;
 	}
 
+	
+	public static <I> AbstractPerceptronRanker<I> train(KernelType kType, LearningMethod mode, MetricType metric,
+			Set<I> filmsUser, Table<I, I, Double> k, int ranks, List<ObjectRank<I>> objectranks) throws Exception {
+		
+		AbstractMetric _metric = AbstractMetric.getErrorMetric(metric);
+		AbstractPerceptronRanker<I> ret = null;
+		
+		SortedSet<ParamsScore> _ps = null;
+		Table<I, I, Double> _K = null;
+		Double _param = null;
+		
+		switch (kType) {
+		case Linear:
+			LinearKernel<I> lk = new LinearKernel<I>(filmsUser, k);
+			_ps = lk.getParameters(mode, objectranks, _metric, ranks);
+			_K = lk.calculate();
+			break;
+			
+		case Gaussian:
+			GaussianKernel<I> gk = GaussianKernel.createGivenKernel(filmsUser, k);
+			_ps = gk.getParameters(mode, objectranks, _metric, ranks);
+			Double sigma = _ps.first().getParams().get("Sigma");
+			_K = gk.calculate(sigma);
+			break;
+
+		case Polynomial:
+			PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, k);
+			_ps = pk.getParameters(mode, objectranks, _metric, ranks);
+			Double d = _ps.first().getParams().get("D");
+			_K = pk.calculate(d);
+			break;
+		}
+		
+		_param = _ps.first().getParams().get("Param");
+		
+		System.out.println("Best params for " + kType + ": " + _ps.first());
+		ret = buildLearner(mode, filmsUser, _K, ranks, _param);
+		ret.train(objectranks);
+		
+		return ret;
+	}
+	
+	public static <I> AbstractPerceptronRanker<I> buildLearner(LearningMethod mode, Set<I> ratings, Table<I, I, Double> K, int ranks, Double param) {
+		AbstractPerceptronRanker<I> ret = null;
+
+		log.info("Building learner " + mode + " with " + ratings.size() + " ratings ..");
+		
+		switch (mode) {
+		case SIMPLE_ONLINE:
+			ret = new OnLineKernelPerceptronRanker<I>(ratings, K, ranks);
+			break;
+		case ONEVSALL_BATCH:
+			ret = new LargeMarginBatchPerceptronRanker<I>(ratings, K, ranks, param);
+			break;
+		case SOFTMARGIN_BATCH:
+			ret = new LargeMarginBatchPerceptronRankerSVRank<I>(ratings, K, ranks, param);
+		}
+		return ret;
+	}
 }

@@ -3,7 +3,7 @@ package metrics;
 import java.util.Iterator;
 import java.util.List;
 
-public class RMSE extends AbstractErrorMetric {
+public class MAE extends AbstractMetric {
 
 	@Override
 	protected double _error(List<Integer> real, List<Integer> predicted) {
@@ -14,10 +14,10 @@ public class RMSE extends AbstractErrorMetric {
 		while (itr.hasNext() && itp.hasNext()) {
 			double r = itr.next();
 			double p = itp.next();
-			sum += Math.pow(r - p, 2);
+			sum += Math.abs(r - p);
 		}
-		double rmse = Math.sqrt(sum / n);
-		return rmse;
+		double mae = sum / n;
+		return mae;
 	}
 
 }

@@ -78,7 +78,7 @@ public class SoftMarginSVML1<T> extends AbstractSVM<T> {
 		
 		model.dispose();
 
-		validate();
+		//validate();
 	}
 	
 	// Constraint 1: \sum_i alpha_i y_i = 0

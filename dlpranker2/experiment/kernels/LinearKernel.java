@@ -6,7 +6,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
-import metrics.AbstractErrorMetric;
+import metrics.AbstractMetric;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 
@@ -37,7 +37,7 @@ public class LinearKernel<T> extends AbstractKernel<T> {
 		return kernel;
 	}
 
-	public SortedSet<ParamsScore> getParameters(KERNEL_MODE mode, List<ObjectRank<T>> training, AbstractErrorMetric metric, int nrating) throws Exception {
+	public SortedSet<ParamsScore> getParameters(LearningMethod mode, List<ObjectRank<T>> training, AbstractMetric metric, int nrating) throws Exception {
 		int nfolds = Math.min(_NFOLDS, training.size());
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();

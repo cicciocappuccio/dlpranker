@@ -3,7 +3,7 @@ package metrics;
 import java.util.Iterator;
 import java.util.List;
 
-public class AccuracyError extends AbstractErrorMetric {
+public class AccuracyError extends AbstractMetric {
 	@Override
 	protected double _error(List<Integer> real, List<Integer> predicted) {
 		
