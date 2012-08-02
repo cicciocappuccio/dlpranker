@@ -40,7 +40,6 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
 	public static void main(String[] args) throws Exception {
-		double lambda = 1.0;
 		int nfeatures = -1;
 		int nrating = 5;
 
@@ -60,6 +59,7 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
 
 		List<Tupla> utenti = Lists.newArrayList();
+		
 		for (Tupla u : _utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, u.getUser());
 			if (ratingsUser.size() >= 10) {
@@ -92,7 +92,7 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 
 					List<Tupla> testRanks = folder.getFold(j);
 
-					log.info("Lambda: " + lambda + " numero di features: " + features.size());
+					log.info("Numero di features: " + features.size());
 
 					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
@@ -125,7 +125,7 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 						}
 					}
 					
-					write(csv, utente.getUser().getName(), ratingsUser.size(), mode, lambda, nfeatures, j, predicted);
+					write(csv, utente.getUser().getName(), ratingsUser.size(), mode, 1.0, features.size(), j, predicted);
 				}
 			}
 		}

@@ -3,6 +3,7 @@ package features;
 
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 import java.util.Set;
 import java.util.TreeMap;
@@ -61,6 +62,21 @@ public class FeaturesGenerator {
 		return ret;
 	}
 	
+	public Set<Description> getAtomicFeatures() {
+		List<NamedClass> tmp = inference.getReasoner().getAtomicConceptsList();
+		Set<Description> ret = Sets.newHashSet();
+		Set<String> sret = Sets.newHashSet();
+		for (Description t : tmp) {
+			Description nt = ReasonerUtils.normalise(t);
+			if (!sret.contains(nt.toString())) {
+				ret.add(nt);
+				sret.add(nt.toString());
+			}
+		}
+		System.out.println("Atomic features were " + tmp.size() + ", now are " + ret.size());
+		//ret.addAll(tmp);
+		return ret;
+	}
 	
 	public Set<Description> getFilmSubClasses() {
 		Set<Description> ret = Sets.newHashSet();

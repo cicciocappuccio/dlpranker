@@ -36,7 +36,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class FilmSubClassesMAE extends AbstractRankExperiment{
+public class AllAtomicConceptMAE extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -46,7 +46,7 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 		int nrating = 5;
 
 		LearningMethod[] modes = LearningMethod.values();
-		String fileName = "res/risultati/August1FilmSubClassesMAE.csv";
+		String fileName = "res/risultati/August1AllAtomicConceptMAE.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
 		
@@ -57,7 +57,7 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		Set<Description> features = fg.getFilmSubClasses();
+		Set<Description> features = fg.getAtomicFeatures();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
 

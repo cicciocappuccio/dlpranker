@@ -40,7 +40,7 @@ public class NoFeaturesMAE extends AbstractRankExperiment{
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
 	public static void main(String[] args) throws Exception {
-		double lambda = 1.0;
+
 		int nfeatures = -1;
 		int nrating = 5;
 
@@ -92,7 +92,7 @@ public class NoFeaturesMAE extends AbstractRankExperiment{
 
 					List<Tupla> testRanks = folder.getFold(j);
 
-					log.info("Lambda: " + lambda + " numero di features: " + features.size());
+					log.info("Numero di features: " + features.size());
 
 					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
@@ -125,7 +125,7 @@ public class NoFeaturesMAE extends AbstractRankExperiment{
 						}
 					}
 					
-					write(csv, utente.getUser().getName(), ratingsUser.size(), mode, lambda, nfeatures, j, predicted);
+					write(csv, utente.getUser().getName(), ratingsUser.size(), mode, 1.0, features.size(), j, predicted);
 				}
 			}
 		}
