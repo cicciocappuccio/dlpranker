@@ -60,7 +60,6 @@ public class AllAtomicConceptAccuracy extends AbstractRankExperiment{
 		Set<Description> features = fg.getAtomicFeatures();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
-
 		List<Tupla> utenti = Lists.newArrayList();
 		for (Tupla u : _utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, u.getUser());

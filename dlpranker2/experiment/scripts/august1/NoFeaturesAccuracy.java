@@ -40,6 +40,7 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
 	public static void main(String[] args) throws Exception {
+
 		int nfeatures = -1;
 		int nrating = 5;
 
@@ -59,7 +60,6 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
 
 		List<Tupla> utenti = Lists.newArrayList();
-		
 		for (Tupla u : _utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, u.getUser());
 			if (ratingsUser.size() >= 10) {
