@@ -21,15 +21,15 @@ public class LargeMarginBatchPerceptronRanker<T> extends AbstractPerceptronRanke
 	// private double[] C = new double[] { 1, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4,
 	// 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8 };
 	private double c;
+	private GRBEnv env;
 
-	public LargeMarginBatchPerceptronRanker(Set<T> objects, Table<T, T, Double> K, int ranks, double c) {
+	public LargeMarginBatchPerceptronRanker(GRBEnv env, Set<T> objects, Table<T, T, Double> K, int ranks, double c) {
 		super(objects, K, ranks);
 		this.c = c;
+		this.env = env;
 	}
 
 	public void train(List<ObjectRank<T>> stream) throws Exception {
-		GRBEnv env = SVMUtils.buildEnvironment();
-
 		classifiers = HashBiMap.create();
 
 		for (int r = 1; r < ranks && classifiers != null; ++r) {

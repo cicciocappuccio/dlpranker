@@ -45,9 +45,11 @@ import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
+import com.neuralnoise.svm.SVMUtils;
 
 import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
+import gurobi.GRBEnv;
 
 public class AbstractRankExperiment {
 
@@ -209,30 +211,7 @@ public class AbstractRankExperiment {
 		return K;// return normalizeKernel(K);
 	}
 
-	public static <P extends Number & Comparable<P>> List<Number> getParam(P start, P end, int step) throws Exception {
-		if (start.compareTo(end) > 0)
-			throw new Exception();
-
-		step--;
-		List<Number> paramList = Lists.newLinkedList();
-
-		System.out.println((end.doubleValue() - start.doubleValue()) % step);
-		if ((end.doubleValue() - start.doubleValue()) % step == 0) {
-
-			for (int i = 0; i <= step; i++) {
-				paramList.add(new Integer(((end.intValue() - start.intValue()) / step) * i) + start.intValue());
-			}
-
-		} else {
-			for (int i = 0; i <= step; i++) {
-				paramList.add(new Double(((end.doubleValue() - start.doubleValue()) / step) * i) + start.doubleValue());
-			}
-		}
-		return paramList;
-	}
-
-	
-	public static <I> AbstractPerceptronRanker<I> train(KernelType kType, LearningMethod mode, MetricType metric,
+	public static <I> AbstractPerceptronRanker<I> train(GRBEnv env, KernelType kType, LearningMethod mode, MetricType metric,
 			Set<I> filmsUser, Table<I, I, Double> k, int ranks, List<ObjectRank<I>> objectranks) throws Exception {
 		
 		AbstractMetric _metric = AbstractMetric.getErrorMetric(metric);
@@ -245,20 +224,20 @@ public class AbstractRankExperiment {
 		switch (kType) {
 		case Linear:
 			LinearKernel<I> lk = new LinearKernel<I>(filmsUser, k);
-			_ps = lk.getParameters(mode, objectranks, _metric, ranks);
+			_ps = lk.getParameters(env, mode, objectranks, _metric, ranks);
 			_K = lk.calculate();
 			break;
 			
 		case Gaussian:
 			GaussianKernel<I> gk = GaussianKernel.createGivenKernel(filmsUser, k);
-			_ps = gk.getParameters(mode, objectranks, _metric, ranks);
+			_ps = gk.getParameters(env, mode, objectranks, _metric, ranks);
 			Double sigma = _ps.first().getParams().get("Sigma");
 			_K = gk.calculate(sigma);
 			break;
 
 		case Polynomial:
 			PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, k);
-			_ps = pk.getParameters(mode, objectranks, _metric, ranks);
+			_ps = pk.getParameters(env, mode, objectranks, _metric, ranks);
 			Double d = _ps.first().getParams().get("D");
 			_K = pk.calculate(d);
 			break;
@@ -266,14 +245,15 @@ public class AbstractRankExperiment {
 		
 		_param = _ps.first().getParams().get("Param");
 		
-		System.out.println("Best params for " + kType + ": " + _ps.first());
-		ret = buildLearner(mode, filmsUser, _K, ranks, _param);
+		log.info("Best params for " + kType + ": " + _ps.first());
+
+		ret = buildLearner(mode, env, filmsUser, _K, ranks, _param);
 		ret.train(objectranks);
 		
 		return ret;
 	}
 	
-	public static <I> AbstractPerceptronRanker<I> buildLearner(LearningMethod mode, Set<I> ratings, Table<I, I, Double> K, int ranks, Double param) {
+	public static <I> AbstractPerceptronRanker<I> buildLearner(LearningMethod mode, GRBEnv env, Set<I> ratings, Table<I, I, Double> K, int ranks, Double param) {
 		AbstractPerceptronRanker<I> ret = null;
 
 		log.info("Building learner " + mode + " with " + ratings.size() + " ratings ..");
@@ -283,10 +263,10 @@ public class AbstractRankExperiment {
 			ret = new OnLineKernelPerceptronRanker<I>(ratings, K, ranks);
 			break;
 		case ONEVSALL_BATCH:
-			ret = new LargeMarginBatchPerceptronRanker<I>(ratings, K, ranks, param);
+			ret = new LargeMarginBatchPerceptronRanker<I>(env, ratings, K, ranks, param);
 			break;
 		case SOFTMARGIN_BATCH:
-			ret = new LargeMarginBatchPerceptronRankerSVRank<I>(ratings, K, ranks, param);
+			ret = new LargeMarginBatchPerceptronRankerSVRank<I>(env, ratings, K, ranks, param);
 		}
 		return ret;
 	}

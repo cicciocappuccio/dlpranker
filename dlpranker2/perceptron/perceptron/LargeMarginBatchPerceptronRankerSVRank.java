@@ -23,15 +23,15 @@ public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptro
 	private double v;
 
 	private AbstractSVRank<T> svm;
+	private GRBEnv env;
 
-	public LargeMarginBatchPerceptronRankerSVRank(Set<T> objects, Table<T, T, Double> K, int ranks, double v) {
+	public LargeMarginBatchPerceptronRankerSVRank(GRBEnv env, Set<T> objects, Table<T, T, Double> K, int ranks, double v) {
 		super(objects, K, ranks);
 		this.v = v;
+		this.env = env;
 	}
 
 	public void train(List<ObjectRank<T>> stream) throws Exception {
-		GRBEnv env = SVMUtils.buildEnvironment();
-
 		Map<T, Integer> map = Maps.newHashMap();
 
 		for (ObjectRank<T> o : stream) {

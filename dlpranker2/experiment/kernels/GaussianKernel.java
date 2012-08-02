@@ -1,5 +1,7 @@
 package kernels;
 
+import gurobi.GRBEnv;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
@@ -15,6 +17,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
+import com.neuralnoise.svm.SVMUtils;
 
 import dataset.KFolder;
 
@@ -58,7 +61,7 @@ public class GaussianKernel<T> extends AbstractKernel<T> {
 		return K;
 	}
 
-	public SortedSet<ParamsScore> getParameters(LearningMethod mode, List<ObjectRank<T>> training, AbstractMetric metric, int nrating) throws Exception {
+	public SortedSet<ParamsScore> getParameters(GRBEnv env, LearningMethod mode, List<ObjectRank<T>> training, AbstractMetric metric, int nrating) throws Exception {
 		int nfolds = Math.min(_NFOLDS, training.size());
 
 		SortedSet<ParamsScore> ret = Sets.newTreeSet();
@@ -78,7 +81,7 @@ public class GaussianKernel<T> extends AbstractKernel<T> {
 				double error = 0.0;
 
 				for (int j = 0; j < nfolds; j++) {
-					AbstractPerceptronRanker<T> mo = buildRanker(mode, instances, K, nrating, param);
+					AbstractPerceptronRanker<T> mo = buildRanker(mode, env, instances, K, nrating, param);
 
 					mo.train(folder.getOtherFolds(j));
 

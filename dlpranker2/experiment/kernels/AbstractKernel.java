@@ -1,5 +1,7 @@
 package kernels;
 
+import gurobi.GRBEnv;
+
 import java.util.Set;
 
 import perceptron.AbstractPerceptronRanker;
@@ -8,6 +10,7 @@ import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.OnLineKernelPerceptronRanker;
 
 import com.google.common.collect.Table;
+import com.neuralnoise.svm.SVMUtils;
 
 public class AbstractKernel<T> {
 
@@ -15,7 +18,7 @@ public class AbstractKernel<T> {
 		SIMPLE_ONLINE, ONEVSALL_BATCH, SOFTMARGIN_BATCH
 	}
 
-	public AbstractPerceptronRanker<T> buildRanker(LearningMethod mode, Set<T> instances, Table<T, T, Double> K, int nrating, double param) {
+	public AbstractPerceptronRanker<T> buildRanker(LearningMethod mode, GRBEnv env, Set<T> instances, Table<T, T, Double> K, int nrating, double param) {
 		AbstractPerceptronRanker<T> ret = null;
 		switch (mode) {
 		case SIMPLE_ONLINE:
@@ -23,11 +26,11 @@ public class AbstractKernel<T> {
 			break;
 
 		case ONEVSALL_BATCH:
-			ret = new LargeMarginBatchPerceptronRanker<T>(instances, K, nrating, param);
+			ret = new LargeMarginBatchPerceptronRanker<T>(env, instances, K, nrating, param);
 			break;
 
 		case SOFTMARGIN_BATCH:
-			ret = new LargeMarginBatchPerceptronRankerSVRank<T>(instances, K, nrating, param);
+			ret = new LargeMarginBatchPerceptronRankerSVRank<T>(env, instances, K, nrating, param);
 			break;
 		}
 		return ret;

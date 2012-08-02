@@ -1,20 +1,15 @@
-package scripts;
+package scripts.august1;
+
+import features.FeaturesGenerator;
+import gurobi.GRBEnv;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 
 import kernels.AbstractKernel.LearningMethod;
-import kernels.GaussianKernel;
-import kernels.LinearKernel;
-import kernels.ParamsScore;
-import kernels.PolynomialKernel;
 import metrics.AbstractMetric;
 import metrics.AbstractMetric.MetricType;
-import metrics.MAE;
-import metrics.RMSE;
-import metrics.SpearmanCorrelationCoefficient;
 
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
@@ -22,11 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import perceptron.AbstractPerceptronRanker;
-import perceptron.LargeMarginBatchPerceptronRanker;
-import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.ObjectRank;
-import perceptron.OnLineKernelPerceptronRanker;
-import scripts.AbstractRankExperiment.KernelType;
+import scripts.AbstractRankExperiment;
 import utils.CSVW;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
@@ -43,24 +35,21 @@ import com.neuralnoise.svm.SVMUtils;
 import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
-import features.FeaturesGenerator;
-import gurobi.GRBEnv;
 
-public class ExperimentTestSubFilm extends AbstractRankExperiment{
+public class FilmSubClassesMAE extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
 	public static void main(String[] args) throws Exception {
 		double lambda = 1.0;
 		int nfeatures = -1;
-
 		int nrating = 5;
 
 		LearningMethod[] modes = LearningMethod.values();
-		modes = new LearningMethod[] { LearningMethod.ONEVSALL_BATCH };
-
-		String fileName = "res/risultati/ExperimentTestSubFilmOnline.csv";
-
+		String fileName = "res/risultati/August1FilmSubClassesMAE.csv";
+		
+		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
+		
 		CSVW csv = getCSV(fileName, "lambda", "nfeatures");
 
 		GRBEnv env = SVMUtils.buildEnvironment();
@@ -109,9 +98,9 @@ public class ExperimentTestSubFilm extends AbstractRankExperiment{
 
 					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
-					AbstractPerceptronRanker<Individual> lmo = train(env, KernelType.Linear, mode, AbstractMetric.MetricType.AccuracyError, filmsUser, K, nrating, objectranks);
-					AbstractPerceptronRanker<Individual> gmo = train(env, KernelType.Gaussian, mode, AbstractMetric.MetricType.AccuracyError, filmsUser, K, nrating, objectranks);
-					AbstractPerceptronRanker<Individual> pmo = train(env, KernelType.Polynomial, mode, AbstractMetric.MetricType.AccuracyError, filmsUser, K, nrating, objectranks);
+					AbstractPerceptronRanker<Individual> lmo = train(env, KernelType.Linear, mode, metricEval, filmsUser, K, nrating, objectranks);
+					AbstractPerceptronRanker<Individual> gmo = train(env, KernelType.Gaussian, mode, metricEval, filmsUser, K, nrating, objectranks);
+					AbstractPerceptronRanker<Individual> pmo = train(env, KernelType.Polynomial, mode, metricEval, filmsUser, K, nrating, objectranks);
 
 					List<Integer> reals = Lists.newLinkedList();
 					List<Integer> lpredicted = Lists.newLinkedList();
