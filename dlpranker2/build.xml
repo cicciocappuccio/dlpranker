@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="dlpranker2">
+    <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="D:/Install/Software/Sviluppo/Linguaggi/Java/eclipse-jee-indigo-SR2-win32/eclipse"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+    <path id="dlpranker2.classpath">
+        <pathelement location="bin"/>
+        <pathelement location="lib/commons/commons-cli-1.2.jar"/>
+        <pathelement location="lib/commons/commons-collections-3.2.1.jar"/>
+        <pathelement location="lib/commons/commons-configuration-1.8.jar"/>
+        <pathelement location="lib/commons/commons-io-2.1.jar"/>
+        <pathelement location="lib/commons/commons-lang-2.6.jar"/>
+        <pathelement location="lib/commons/commons-lang3-3.1.jar"/>
+        <pathelement location="lib/commons/commons-logging-1.1.1.jar"/>
+        <pathelement location="lib/commons/commons-math-2.2.jar"/>
+        <pathelement location="lib/commons/commons-pool-1.6.jar"/>
+        <pathelement location="lib/dbms/mysql-connector-java-5.1.18.jar"/>
+        <pathelement location="lib/dbms/postgresql-jdbc4-9.1.jar"/>
+        <pathelement location="lib/hibernate/antlr-2.7.6.jar"/>
+        <pathelement location="lib/hibernate/hibernate-annotations-3.5.6-Final.jar"/>
+        <pathelement location="lib/hibernate/hibernate-commons-annotations-3.2.0.Final.jar"/>
+        <pathelement location="lib/hibernate/hibernate-core-3.5.6-Final.jar"/>
+        <pathelement location="lib/hibernate/hibernate-jpa-2.0-api-1.0.0.Final.jar"/>
+        <pathelement location="lib/hibernate/javassist-3.9.0.GA.jar"/>
+        <pathelement location="lib/hibernate/javax.inject-1.jar"/>
+        <pathelement location="lib/hibernate/javax.servlet-api-3.0.1.jar"/>
+        <pathelement location="lib/hibernate/jdo2-api-2.3-eb.jar"/>
+        <pathelement location="lib/hibernate/jsp-api-2.2.1-b03.jar"/>
+        <pathelement location="lib/hibernate/jstl-1.2.jar"/>
+        <pathelement location="lib/hibernate/jta-1.1.jar"/>
+        <pathelement location="lib/hibernate/persistence-api-1.0.jar"/>
+        <pathelement location="lib/hibernate/servlet-api-2.5.jar"/>
+        <pathelement location="lib/hibernate/transaction-api-1.1.jar"/>
+        <pathelement location="lib/jena/arq-2.8.8.jar"/>
+        <pathelement location="lib/jena/icu4j-3.4.4.jar"/>
+        <pathelement location="lib/jena/iri-0.8.jar"/>
+        <pathelement location="lib/jena/jena-2.6.4-tests.jar"/>
+        <pathelement location="lib/jena/jena-2.6.4.jar"/>
+        <pathelement location="lib/jena/junit-4.5.jar"/>
+        <pathelement location="lib/jena/log4j-1.2.14.jar"/>
+        <pathelement location="lib/jena/lucene-core-2.3.1.jar"/>
+        <pathelement location="lib/jena/slf4j-api-1.5.8.jar"/>
+        <pathelement location="lib/jena/slf4j-log4j12-1.5.8.jar"/>
+        <pathelement location="lib/jena/stax-api-1.0.1.jar"/>
+        <pathelement location="lib/jena/wstx-asl-3.2.9.jar"/>
+        <pathelement location="lib/jena/xercesImpl-2.7.1.jar"/>
+        <pathelement location="lib/owlapi/aterm-java-1.6.jar"/>
+        <pathelement location="lib/owlapi/jgrapht-jdk1.5.jar"/>
+        <pathelement location="lib/owlapi/owlapi-bin.jar"/>
+        <pathelement location="lib/owlapi/pellet-core.jar"/>
+        <pathelement location="lib/owlapi/pellet-datatypes.jar"/>
+        <pathelement location="lib/owlapi/pellet-el.jar"/>
+        <pathelement location="lib/owlapi/pellet-modularity.jar"/>
+        <pathelement location="lib/owlapi/pellet-owlapiv3.jar"/>
+        <pathelement location="lib/owlapi/pellet-query.jar"/>
+        <pathelement location="lib/owlapi/pellet-rules.jar"/>
+        <pathelement location="lib/xstream/dom4j-1.6.1.jar"/>
+        <pathelement location="lib/xstream/xstream-1.4.2.jar"/>
+        <pathelement location="lib/components-core-1.0-SNAPSHOT.jar"/>
+        <pathelement location="lib/guava-11.0.2.jar"/>
+        <pathelement location="lib/javacsv.jar"/>
+        <pathelement location="lib/log4j-1.2.16.jar"/>
+        <pathelement location="lib/owlapi-bin.jar"/>
+        <pathelement location="lib/SuperCSV-1.52.jar"/>
+        <pathelement location="lib/pcolt/arpack-combo.jar"/>
+        <pathelement location="lib/pcolt/csparsej.jar"/>
+        <pathelement location="lib/pcolt/jplasma.jar"/>
+        <pathelement location="lib/pcolt/jtransforms.jar"/>
+        <pathelement location="lib/pcolt/junit.jar"/>
+        <pathelement location="lib/pcolt/netlib-java.jar"/>
+        <pathelement location="lib/pcolt/optimization.jar"/>
+        <pathelement location="lib/pcolt/parallelcolt-0.9.4.jar"/>
+        <pathelement location="lib/jsc.jar"/>
+        <pathelement location="lib/gurobi.jar"/>
+    </path>
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="perceptron">
+                <exclude name="**/*.java"/>
+                <exclude name="com/neuralnoise/svm/learning/utils/"/>
+                <exclude name="com/neuralnoise/svm/learning/"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="experiment">
+                <exclude name="**/*.java"/>
+                <exclude name="scripts/exists/"/>
+                <exclude name="scripts/nRatings/"/>
+                <exclude name="scripts/subClasses/"/>
+                <exclude name="scripts/user/"/>
+                <exclude name="scripts/userExists/"/>
+            </fileset>
+        </copy>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="test">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="clean">
+        <delete dir="bin"/>
+    </target>
+    <target depends="clean" name="cleanall"/>
+    <target depends="build-subprojects,build-project" name="build"/>
+    <target name="build-subprojects"/>
+    <target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="dlpranker2.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="perceptron"/>
+            <exclude name="com/neuralnoise/svm/learning/utils/"/>
+            <exclude name="com/neuralnoise/svm/learning/"/>
+            <classpath refid="dlpranker2.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="experiment"/>
+            <exclude name="scripts/exists/"/>
+            <exclude name="scripts/nRatings/"/>
+            <exclude name="scripts/subClasses/"/>
+            <exclude name="scripts/user/"/>
+            <exclude name="scripts/userExists/"/>
+            <classpath refid="dlpranker2.classpath"/>
+        </javac>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+            <src path="test"/>
+            <classpath refid="dlpranker2.classpath"/>
+        </javac>
+    </target>
+    <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
+    </target>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
+    </target>
+    <target name="BinaryExperimentTestMRMR">
+        <java classname="test.Batch.BinaryExperimentTestMRMR" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="BinaryExperimentTestMRMRSVRank">
+        <java classname="test.Batch.BinaryExperimentTestMRMRSVRank" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="ExperimentHandMadeFeatures">
+        <java classname="test.ExperimentHandMadeFeatures" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="ExperimentTestMHMR">
+        <java classname="test.ExperimentTestMHMR" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="ExperimentTestMRMR">
+        <java classname="test.ExperimentTestMRMR" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="ExperimentTestSubFilm">
+        <java classname="scripts.ExperimentTestSubFilm" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="Qp">
+        <java classname="com.neuralnoise.svm.Qp" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentEntropy (1)">
+        <java classname="scripts.mode.RankExperimentEntropy" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentEntropyUser">
+        <java classname="scripts.user.RankExperimentEntropyUser" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentEntropyUserNF">
+        <java classname="scripts.user.RankExperimentEntropyUserNF" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentMHMR (1)">
+        <java classname="scripts.mode.RankExperimentMHMR" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentMHMRUser">
+        <java classname="scripts.user.RankExperimentMHMRUser" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentMHMRUserExists">
+        <java classname="scripts.userExists.RankExperimentMHMRUserExists" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentMRMRUser (1)">
+        <java classname="scripts.user.RankExperimentMRMRUser" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentProbabilityUser">
+        <java classname="scripts.user.RankExperimentProbabilityUser" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankExperimentProbabilityUserNF">
+        <java classname="scripts.user.RankExperimentProbabilityUserNF" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="RankTest2 (1)">
+        <java classname="test.RankTest2" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="Test (2)">
+        <java classname="scripts.user.Test" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="Test">
+        <java classname="scripts.user2.test" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="AllAtomicConceptAccuracy">
+        <java classname="scripts.august1.AllAtomicConceptAccuracy" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+    <target name="NoFeaturesMAE">
+        <java classname="scripts.august1.NoFeaturesMAE" failonerror="true" fork="yes">
+            <classpath refid="dlpranker2.classpath"/>
+        </java>
+    </target>
+</project>
