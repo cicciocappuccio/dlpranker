@@ -8,7 +8,6 @@ import java.util.Set;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
-import com.neuralnoise.svm.SVMUtils;
 import com.neuralnoise.svrank.AbstractSVRank;
 import com.neuralnoise.svrank.SoftRank;
 

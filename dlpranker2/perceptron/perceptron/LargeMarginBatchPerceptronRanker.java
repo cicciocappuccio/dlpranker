@@ -11,7 +11,6 @@ import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
 import com.neuralnoise.svm.AbstractSVM;
-import com.neuralnoise.svm.SVMUtils;
 import com.neuralnoise.svm.SoftMarginSVML1;
 
 public class LargeMarginBatchPerceptronRanker<T> extends AbstractPerceptronRanker<T> {
