@@ -22,13 +22,17 @@ public class OnLineKernelPerceptronRanker<T> extends AbstractPerceptronRanker<T>
 		
 		if (y < r) {
 			alpha.put(o, _alpha + (double)(r - y));
-			for (int z = (y - 1); z < (r - 1); z++)
-				b[z] = b[z] - 1.0;
+			//for (int z = (y - 1); z < (r - 1); z++)
+			//	b[z] = b[z] - 1.0;
+			for (int z = y; z <= (r - 1); z++)
+				b[z - 1] = b[z - 1] - 1.0;
 		} else if (y > r) {
 			alpha.put(o, _alpha + (double)(r - y));
-			for (int z = (r - 1); z < (y - 1); z++) {
-				b[z] = b[z] + 1.0;
-			}
+			//for (int z = (r - 1); z < (y - 1); z++) {
+			//	b[z] = b[z] + 1.0;
+			//}
+			for (int z = r; z <= (y - 1); z++)
+				b[z - 1] = b[z - 1] + 1.0;
 		}
 	}
 

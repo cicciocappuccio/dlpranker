@@ -11,7 +11,8 @@ import com.google.common.collect.Table;
 
 public abstract class AbstractPerceptronRanker<T> {
 
-	protected Map<T, Double> alpha;
+	//protected Map<T, Double> alpha;
+	public Map<T, Double> alpha;
 	protected double[] b;
 	protected int ranks;
 	
