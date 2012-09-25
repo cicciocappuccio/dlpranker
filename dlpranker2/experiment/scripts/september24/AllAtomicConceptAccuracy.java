@@ -48,7 +48,7 @@ public class AllAtomicConceptAccuracy extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September24AllAtomicConceptMAE.csv";
+		String fileName = "res/risultati/September24AllAtomicConceptAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
