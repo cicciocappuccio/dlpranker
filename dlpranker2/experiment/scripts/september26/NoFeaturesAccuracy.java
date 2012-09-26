@@ -89,7 +89,7 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 					for (Tupla film : trainingRanks) {
 						// OCCHIO v
 						int classe;
-						if (film.getValue() < 4)
+						if (film.getValue() < 3)
 							classe = 1;
 						else
 							classe = 2;
@@ -114,7 +114,7 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 					List<Integer> ppredicted = Lists.newLinkedList();
 
 					for (Tupla t : testRanks) {
-						reals.add(t.getValue() < 4 ? 1 : 2);
+						reals.add(t.getValue() < 3 ? 1 : 2);
 						lpredicted.add(lmo.rank(t.getFilm()));
 						gpredicted.add(gmo.rank(t.getFilm()));
 						ppredicted.add(pmo.rank(t.getFilm()));
