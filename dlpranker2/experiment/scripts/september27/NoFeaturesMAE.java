@@ -1,10 +1,7 @@
-package scripts.september24;
+package scripts.september27;
 
-import features.FeaturesGenerator;
 import gurobi.GRBEnv;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -38,7 +35,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class AllAtomicConceptMAE extends AbstractRankExperiment{
+public class NoFeaturesMAE extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -50,7 +47,7 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September24AllAtomicConceptMAE.csv";
+		String fileName = "res/risultati/September27NoFeaturesMAE.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
 		
@@ -58,12 +55,12 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 
 		GRBEnv env = SVMUtils.buildEnvironment();
 		Inference inference = getInference();
-		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		Set<Description> features = fg.getAtomicFeatures();
+		Set<Description> features = Sets.newHashSet();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
+
 		List<Tupla> utenti = Lists.newArrayList();
 		for (Tupla u : _utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, u.getUser());
@@ -104,7 +101,7 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 					AbstractPerceptronRanker<Individual> lmo = train(env, KernelType.Linear, mode, metricEval, filmsUser, K, nrating, objectranks);
 					AbstractPerceptronRanker<Individual> gmo = train(env, KernelType.Gaussian, mode, metricEval, filmsUser, K, nrating, objectranks);
 					AbstractPerceptronRanker<Individual> pmo = train(env, KernelType.Polynomial, mode, metricEval, filmsUser, K, nrating, objectranks);
-					
+
 					List<Integer> reals = Lists.newLinkedList();
 					List<Integer> lpredicted = Lists.newLinkedList();
 					List<Integer> gpredicted = Lists.newLinkedList();
@@ -112,7 +109,6 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 
 					for (Tupla t : testRanks) {
 						reals.add(t.getValue());
-					
 						lpredicted.add(lmo.rank(t.getFilm()));
 						gpredicted.add(gmo.rank(t.getFilm()));
 						ppredicted.add(pmo.rank(t.getFilm()));
@@ -132,7 +128,6 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 					}
 					
 					write(csv, utente.getUser().getName(), ratingsUser.size(), mode, 1.0, features.size(), j, predicted);
-					
 				}
 			}
 		}

@@ -1,4 +1,4 @@
-package scripts.september24;
+package scripts.september27;
 
 import features.FeaturesGenerator;
 import gurobi.GRBEnv;
@@ -50,7 +50,7 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September24AllAtomicConceptMAE.csv";
+		String fileName = "res/risultati/September27AllAtomicConceptMAE.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
 		
