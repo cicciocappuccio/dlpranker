@@ -94,10 +94,14 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 						else
 							classe = 2;
 						multimap.put(classe, film.getFilm());
+						
 						ObjectRank<Individual> ii = new ObjectRank<Individual>(film.getFilm(), classe);
+						
 						objectranks.add(ii);
+						
+						System.out.printf(classe + " - ");
 					}
-
+					System.out.println("\n");
 					List<Tupla> testRanks = folder.getFold(j);
 
 					log.info("Numero di features: " + features.size());
@@ -112,8 +116,6 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 					List<Integer> lpredicted = Lists.newLinkedList();
 					List<Integer> gpredicted = Lists.newLinkedList();
 					List<Integer> ppredicted = Lists.newLinkedList();
-					
-					
 					
 					for (Tupla t : testRanks) {
 						reals.add(t.getValue() < 3 ? 1 : 2);

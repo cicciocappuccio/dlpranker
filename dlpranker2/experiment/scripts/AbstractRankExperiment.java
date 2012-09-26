@@ -41,6 +41,7 @@ import utils.Inference.LogicValue;
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
@@ -269,5 +270,19 @@ public class AbstractRankExperiment {
 			ret = new LargeMarginBatchPerceptronRankerSVRank<I>(env, ratings, K, ranks, param);
 		}
 		return ret;
+	}
+	
+	public static Multimap<Integer, Individual> balance(Multimap<Integer, Individual> multimap, List<ObjectRank<Individual>> objectranks) {
+		
+		int min = Integer.MAX_VALUE;
+		
+		for (Integer value : multimap.keySet())
+		{
+			if (multimap.get(value).size() < min)
+				min = multimap.get(value).size();
+		}
+		
+		
+		return null;
 	}
 }
