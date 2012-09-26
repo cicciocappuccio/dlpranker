@@ -25,6 +25,7 @@ import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 import org.dllearner.kb.OWLFile;
 import org.dllearner.reasoning.OWLAPIReasoner;
+import org.jgrapht.graph.DirectedMultigraph;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -47,6 +48,10 @@ import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 import com.neuralnoise.svm.SVMUtils;
+
+import dataset.ITreeNode;
+import dataset.OntologyAsGraph;
+import dataset.RoleEdge;
 
 import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
@@ -157,6 +162,25 @@ public class AbstractRankExperiment {
 		return normalized;
 	}
 
+	public static Table<Individual, Individual, Double> buildLoeschKernel(Inference inference, Set<Individual> films, int d, double lambda) {
+		
+		log.info("Creating Kernel..");
+		
+		OntologyAsGraph onto = new OntologyAsGraph(inference);
+
+		Table<Individual, Individual, Double> K = HashBasedTable.create();
+
+		for (Individual i : films) {
+			for (Individual j : films) {
+				DirectedMultigraph<ITreeNode, RoleEdge> itree = onto.intersectionTree(i.toString(), j.toString(), d);
+				double k = onto.st(itree, lambda);
+				K.put(i, j, k);
+			}
+		}
+		
+		return K;
+	}
+	
 	public static Table<Individual, Individual, Double> buildKernel(Inference inference, Set<Description> features, Set<Individual> films) {
 
 		log.info("Creating Kernel..");

@@ -1,6 +1,5 @@
 package scripts.september27;
 
-import features.FeaturesGenerator;
 import gurobi.GRBEnv;
 
 import java.util.List;
@@ -36,7 +35,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class AllAtomicConceptAccuracy extends AbstractRankExperiment{
+public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -48,7 +47,7 @@ public class AllAtomicConceptAccuracy extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September27AllAtomicConceptAccuracy.csv";
+		String fileName = "res/risultati/September27KFanizziNoFeaturesAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
@@ -56,12 +55,12 @@ public class AllAtomicConceptAccuracy extends AbstractRankExperiment{
 
 		GRBEnv env = SVMUtils.buildEnvironment();
 		Inference inference = getInference();
-		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		Set<Description> features = fg.getAtomicFeatures();
+		Set<Description> features = Sets.newHashSet();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
+
 		List<Tupla> utenti = Lists.newArrayList();
 		for (Tupla u : _utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, u.getUser());

@@ -36,7 +36,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class FilmSubClassesAccuracy extends AbstractRankExperiment{
+public class KFanizziAllAtomicConceptAccuracy extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -48,7 +48,7 @@ public class FilmSubClassesAccuracy extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September27FilmSubClassesAccuracy.csv";
+		String fileName = "res/risultati/September27KFanizziAllAtomicConceptAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
@@ -59,10 +59,9 @@ public class FilmSubClassesAccuracy extends AbstractRankExperiment{
 		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		Set<Description> features = fg.getFilmSubClasses();
+		Set<Description> features = fg.getAtomicFeatures();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
-
 		List<Tupla> utenti = Lists.newArrayList();
 		for (Tupla u : _utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, u.getUser());
