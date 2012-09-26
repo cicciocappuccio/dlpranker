@@ -37,7 +37,7 @@ import dataset.Tupla;
 import features.FeaturesGenerator;
 import gurobi.GRBEnv;
 
-public class KLoesch21Accuracy  extends AbstractRankExperiment{
+public class KLoesch21Accuracy extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
