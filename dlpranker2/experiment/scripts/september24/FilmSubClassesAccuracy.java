@@ -48,7 +48,7 @@ public class FilmSubClassesAccuracy extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September27FilmSubClassesAccuracy.csv";
+		String fileName = "res/risultati/September24FilmSubClassesAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
