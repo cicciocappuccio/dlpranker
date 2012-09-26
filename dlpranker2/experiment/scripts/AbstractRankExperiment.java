@@ -162,12 +162,10 @@ public class AbstractRankExperiment {
 		return normalized;
 	}
 
-	public static Table<Individual, Individual, Double> buildLoeschKernel(Inference inference, Set<Individual> films, int d, double lambda) {
+	public static Table<Individual, Individual, Double> buildLoeschKernel(OntologyAsGraph onto, Set<Individual> films, int d, double lambda) {
 		
 		log.info("Creating Kernel..");
 		
-		OntologyAsGraph onto = new OntologyAsGraph(inference);
-
 		Table<Individual, Individual, Double> K = HashBasedTable.create();
 
 		for (Individual i : films) {

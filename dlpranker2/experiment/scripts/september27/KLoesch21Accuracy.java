@@ -62,6 +62,7 @@ public class KLoesch21Accuracy  extends AbstractRankExperiment{
 		
 		Inference inference = getInference();
 		//FeaturesGenerator fg = getFeaturesGenerator(inference);
+		OntologyAsGraph onto = new OntologyAsGraph(inference);
 		
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
 		//Set<Description> features = fg.getAtomicFeatures();
@@ -101,7 +102,7 @@ public class KLoesch21Accuracy  extends AbstractRankExperiment{
 
 					List<Tupla> testRanks = folder.getFold(j);
 
-					Table<Individual, Individual, Double> K = buildLoeschKernel(inference, filmsUser, d, lambda);
+					Table<Individual, Individual, Double> K = buildLoeschKernel(onto, filmsUser, d, lambda);
 
 					AbstractPerceptronRanker<Individual> lmo = train(env, KernelType.Linear, mode, metricEval, filmsUser, K, nrating, objectranks);
 					AbstractPerceptronRanker<Individual> gmo = train(env, KernelType.Gaussian, mode, metricEval, filmsUser, K, nrating, objectranks);
