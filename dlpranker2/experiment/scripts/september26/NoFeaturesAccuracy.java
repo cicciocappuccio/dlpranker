@@ -112,7 +112,9 @@ public class NoFeaturesAccuracy extends AbstractRankExperiment{
 					List<Integer> lpredicted = Lists.newLinkedList();
 					List<Integer> gpredicted = Lists.newLinkedList();
 					List<Integer> ppredicted = Lists.newLinkedList();
-
+					
+					
+					
 					for (Tupla t : testRanks) {
 						reals.add(t.getValue() < 3 ? 1 : 2);
 						lpredicted.add(lmo.rank(t.getFilm()));

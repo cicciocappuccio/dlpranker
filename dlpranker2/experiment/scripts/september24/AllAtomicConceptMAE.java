@@ -116,9 +116,7 @@ public class AllAtomicConceptMAE extends AbstractRankExperiment{
 
 					for (Tupla t : testRanks) {
 						reals.add(t.getValue());
-						
-						System.out.println(lmo.alpha.containsKey(t.getFilm()));
-						
+					
 						lpredicted.add(lmo.rank(t.getFilm()));
 						gpredicted.add(gmo.rank(t.getFilm()));
 						ppredicted.add(pmo.rank(t.getFilm()));
