@@ -14,9 +14,9 @@ import dataset.Tupla;
 
 public class XMLFilmRatingStream {
 
-	//private static String urlFile = "res/FilmRating.xml";
-	private static String urlFile = "res/FilmRatingBalance.xml";
-	private static String urlFileOut = "res/FilmRatingBalance.xml";
+	private static String urlFile = "res/FilmRating.xml";
+//	private static String urlFile = "res/FilmRatingBalance.xml";
+//	private static String urlFileOut = "res/FilmRatingBalance.xml";
 
 	@SuppressWarnings("unchecked")
 	public static List<Tupla> leggi() {
@@ -43,7 +43,7 @@ public class XMLFilmRatingStream {
 
         //Write to a file in the file system
         try {
-            FileOutputStream fs = new FileOutputStream(urlFileOut);
+            FileOutputStream fs = new FileOutputStream(urlFile);
             xs.toXML(lista, fs);
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
