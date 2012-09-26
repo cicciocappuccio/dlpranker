@@ -97,7 +97,7 @@ public class FilmSubClassesAccuracy extends AbstractRankExperiment{
 							classe = 2;
 						multimap.put(classe, film.getFilm());
 						
-						ObjectRank<Individual> ii = new ObjectRank<Individual>(film.getFilm(), film.getValue());
+						ObjectRank<Individual> ii = new ObjectRank<Individual>(film.getFilm(), classe);
 						objectranks.add(ii);
 					}
 
@@ -117,7 +117,7 @@ public class FilmSubClassesAccuracy extends AbstractRankExperiment{
 					List<Integer> ppredicted = Lists.newLinkedList();
 
 					for (Tupla t : testRanks) {
-						reals.add(t.getValue());
+						reals.add(t.getValue() < 3 ? 1 : 2);
 						lpredicted.add(lmo.rank(t.getFilm()));
 						gpredicted.add(gmo.rank(t.getFilm()));
 						ppredicted.add(pmo.rank(t.getFilm()));

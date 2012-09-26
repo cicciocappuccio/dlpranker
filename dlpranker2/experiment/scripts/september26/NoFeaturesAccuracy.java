@@ -1,6 +1,5 @@
 package scripts.september26;
 
-import features.FeaturesGenerator;
 import gurobi.GRBEnv;
 
 import java.util.List;
@@ -36,7 +35,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class FilmSubClassesMAE extends AbstractRankExperiment{
+public class NoFeaturesAccuracy extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -48,18 +47,17 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September26BinaryFilmSubClassesMAE.csv";
+		String fileName = "res/risultati/September26BinaryNoFeaturesAccuracy.csv";
 		
-		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
+		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
 		CSVW csv = getCSV(fileName, "lambda", "nfeatures");
 
 		GRBEnv env = SVMUtils.buildEnvironment();
 		Inference inference = getInference();
-		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		Set<Description> features = fg.getFilmSubClasses();
+		Set<Description> features = Sets.newHashSet();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
 
@@ -91,7 +89,7 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 					for (Tupla film : trainingRanks) {
 						// OCCHIO v
 						int classe;
-						if (film.getValue() < 3)
+						if (film.getValue() < 4)
 							classe = 1;
 						else
 							classe = 2;
@@ -116,10 +114,12 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 					List<Integer> ppredicted = Lists.newLinkedList();
 
 					for (Tupla t : testRanks) {
-						reals.add(t.getValue() < 3 ? 1 : 2);
+						reals.add(t.getValue() < 4 ? 1 : 2);
 						lpredicted.add(lmo.rank(t.getFilm()));
 						gpredicted.add(gmo.rank(t.getFilm()));
 						ppredicted.add(pmo.rank(t.getFilm()));
+						int cur = reals.size() - 1;
+						System.out.println(reals.get(cur) + " - " + lpredicted.get(cur) + " - " + gpredicted.get(cur) + " - " + ppredicted.get(cur));
 					}
 
 					Map<KernelType, List<Integer>> apr = Maps.newHashMap();

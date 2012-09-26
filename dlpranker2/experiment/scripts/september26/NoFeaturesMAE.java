@@ -1,6 +1,5 @@
 package scripts.september26;
 
-import features.FeaturesGenerator;
 import gurobi.GRBEnv;
 
 import java.util.List;
@@ -36,7 +35,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class FilmSubClassesMAE extends AbstractRankExperiment{
+public class NoFeaturesMAE extends AbstractRankExperiment{
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -48,7 +47,7 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September26BinaryFilmSubClassesMAE.csv";
+		String fileName = "res/risultati/September26BinaryNoFeaturesMAE.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
 		
@@ -56,10 +55,9 @@ public class FilmSubClassesMAE extends AbstractRankExperiment{
 
 		GRBEnv env = SVMUtils.buildEnvironment();
 		Inference inference = getInference();
-		FeaturesGenerator fg = getFeaturesGenerator(inference);
 
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		Set<Description> features = fg.getFilmSubClasses();
+		Set<Description> features = Sets.newHashSet();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
 
