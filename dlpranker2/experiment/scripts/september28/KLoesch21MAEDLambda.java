@@ -60,7 +60,7 @@ public class KLoesch21MAEDLambda extends AbstractRankExperiment {
 		// LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = { LearningMethod.SIMPLE_ONLINE };
 
-		String fileName = "res/risultati/September27KLoesch21MAE.csv";
+		String fileName = "res/risultati/September28KLoesch21MAEDLambda.csv";
 
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
 

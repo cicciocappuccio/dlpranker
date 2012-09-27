@@ -61,7 +61,7 @@ public class KLoesch21AccuracyDLambda extends AbstractRankExperiment {
 		// LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = { LearningMethod.SIMPLE_ONLINE };
 
-		String fileName = "res/risultati/September27KLoesch21Accuracy.csv";
+		String fileName = "res/risultati/September27KLoesch21AccuracyDLambda.csv";
 
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 
