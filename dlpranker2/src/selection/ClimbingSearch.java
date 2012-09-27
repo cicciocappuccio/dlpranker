@@ -55,7 +55,7 @@ public class ClimbingSearch {
 
 					double proposed = tScore.score(refinement, newConceptSet, individuals);
 
-					System.out.println("proposed (" + refinement + ") : " + proposed + ", best (" + bestConcept + ") : " + best);
+					//System.out.println("proposed (" + refinement + ") : " + proposed + ", best (" + bestConcept + ") : " + best);
 					
 					if (proposed > best) {
 						bestConcept = refinement;
