@@ -64,7 +64,7 @@ public class KLoesch21MAEDLambda extends AbstractRankExperiment {
 
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.MAE;
 
-		CSVW csv = getCSV(fileName, "lambda", "nfeatures");
+		CSVW csv = getCSV(fileName, "d", "lambda");
 
 		GRBEnv env = SVMUtils.buildEnvironment();
 
@@ -145,7 +145,7 @@ public class KLoesch21MAEDLambda extends AbstractRankExperiment {
 								}
 							}
 
-							write(csv, utente.getUser().getName(), ratingsUser.size(), mode, 1.0, -1, j, predicted);
+							write(csv, utente.getUser().getName(), ratingsUser.size(), mode, d, (int) lambda, j, predicted);
 						}
 					}
 				}
