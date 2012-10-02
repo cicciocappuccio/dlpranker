@@ -6,6 +6,7 @@
               as the first entry and export the buildfile again. -->
 <project basedir="." default="build" name="dlpranker2">
     <property environment="env"/>
+    <property name="ECLIPSE_HOME" value="../../eclipse"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.6"/>
     <property name="source" value="1.6"/>
@@ -78,16 +79,19 @@
         <pathelement location="lib/pcolt/parallelcolt-0.9.4.jar"/>
         <pathelement location="lib/jsc.jar"/>
         <pathelement location="lib/gurobi.jar"/>
+        <pathelement location="lib/jblas/jblas-1.2.1.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="src">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="perceptron">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
                 <exclude name="com/neuralnoise/svm/learning/utils/"/>
                 <exclude name="com/neuralnoise/svm/learning/"/>
@@ -95,6 +99,7 @@
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="experiment">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
                 <exclude name="scripts/exists/"/>
                 <exclude name="scripts/nRatings/"/>
@@ -105,6 +110,7 @@
         </copy>
         <copy includeemptydirs="false" todir="bin">
             <fileset dir="test">
+                <exclude name="**/*.launch"/>
                 <exclude name="**/*.java"/>
             </fileset>
         </copy>
@@ -117,18 +123,13 @@
     <target name="build-subprojects"/>
     <target depends="init" name="build-project">
         <echo message="${ant.project.name}: ${ant.file}"/>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
             <src path="src"/>
-            <classpath refid="dlpranker2.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
             <src path="perceptron"/>
+            <src path="experiment"/>
+            <src path="test"/>
             <exclude name="com/neuralnoise/svm/learning/utils/"/>
             <exclude name="com/neuralnoise/svm/learning/"/>
-            <classpath refid="dlpranker2.classpath"/>
-        </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="experiment"/>
             <exclude name="scripts/exists/"/>
             <exclude name="scripts/nRatings/"/>
             <exclude name="scripts/subClasses/"/>
@@ -136,115 +137,19 @@
             <exclude name="scripts/userExists/"/>
             <classpath refid="dlpranker2.classpath"/>
         </javac>
-        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}">
-            <src path="test"/>
-            <classpath refid="dlpranker2.classpath"/>
-        </javac>
     </target>
     <target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
-    <target name="BinaryExperimentTestMRMR">
-        <java classname="test.Batch.BinaryExperimentTestMRMR" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
+    <target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+        <copy todir="${ant.library.dir}">
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </copy>
+        <unzip dest="${ant.library.dir}">
+            <patternset includes="jdtCompilerAdapter.jar"/>
+            <fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar"/>
+        </unzip>
     </target>
-    <target name="BinaryExperimentTestMRMRSVRank">
-        <java classname="test.Batch.BinaryExperimentTestMRMRSVRank" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="ExperimentHandMadeFeatures">
-        <java classname="test.ExperimentHandMadeFeatures" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="ExperimentTestMHMR">
-        <java classname="test.ExperimentTestMHMR" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="ExperimentTestMRMR">
-        <java classname="test.ExperimentTestMRMR" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="ExperimentTestSubFilm">
-        <java classname="scripts.ExperimentTestSubFilm" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="Qp">
-        <java classname="com.neuralnoise.svm.Qp" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentEntropy (1)">
-        <java classname="scripts.mode.RankExperimentEntropy" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentEntropyUser">
-        <java classname="scripts.user.RankExperimentEntropyUser" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentEntropyUserNF">
-        <java classname="scripts.user.RankExperimentEntropyUserNF" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentMHMR (1)">
-        <java classname="scripts.mode.RankExperimentMHMR" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentMHMRUser">
-        <java classname="scripts.user.RankExperimentMHMRUser" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentMHMRUserExists">
-        <java classname="scripts.userExists.RankExperimentMHMRUserExists" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentMRMRUser (1)">
-        <java classname="scripts.user.RankExperimentMRMRUser" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentProbabilityUser">
-        <java classname="scripts.user.RankExperimentProbabilityUser" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankExperimentProbabilityUserNF">
-        <java classname="scripts.user.RankExperimentProbabilityUserNF" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="RankTest2 (1)">
-        <java classname="test.RankTest2" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="Test (2)">
-        <java classname="scripts.user.Test" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="Test">
-        <java classname="scripts.user2.test" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="AllAtomicConceptAccuracy">
-        <java classname="scripts.august1.AllAtomicConceptAccuracy" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
-    </target>
-    <target name="NoFeaturesMAE">
-        <java classname="scripts.august1.NoFeaturesMAE" failonerror="true" fork="yes">
-            <classpath refid="dlpranker2.classpath"/>
-        </java>
+    <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+        <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
+        <antcall target="build"/>
     </target>
 </project>
