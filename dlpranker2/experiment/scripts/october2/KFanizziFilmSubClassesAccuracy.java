@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import scripts.AbstractRankExperiment;
+import scripts.AbstractRankExperiment.KernelType;
 import utils.CSVW;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
@@ -103,23 +104,27 @@ public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment{
 					AbstractPerceptronRanker<Individual> lmo = train(env, KernelType.Linear, mode, metricEval, filmsUser, K, nrating, objectranks);
 					AbstractPerceptronRanker<Individual> gmo = train(env, KernelType.Gaussian, mode, metricEval, filmsUser, K, nrating, objectranks);
 					AbstractPerceptronRanker<Individual> pmo = train(env, KernelType.Polynomial, mode, metricEval, filmsUser, K, nrating, objectranks);
-
+					AbstractPerceptronRanker<Individual> dmo = train(env, KernelType.Diffusion, mode, metricEval, filmsUser, K, nrating, objectranks);
+					
 					List<Integer> reals = Lists.newLinkedList();
 					List<Integer> lpredicted = Lists.newLinkedList();
 					List<Integer> gpredicted = Lists.newLinkedList();
 					List<Integer> ppredicted = Lists.newLinkedList();
+					List<Integer> dpredicted = Lists.newLinkedList();
 
 					for (Tupla t : testRanks) {
 						reals.add(t.getValue());
 						lpredicted.add(lmo.rank(t.getFilm()));
 						gpredicted.add(gmo.rank(t.getFilm()));
 						ppredicted.add(pmo.rank(t.getFilm()));
+						dpredicted.add(dmo.rank(t.getFilm()));
 					}
 
 					Map<KernelType, List<Integer>> apr = Maps.newHashMap();
 					apr.put(KernelType.Linear, lpredicted);
 					apr.put(KernelType.Gaussian, gpredicted);
 					apr.put(KernelType.Polynomial, ppredicted);
+					apr.put(KernelType.Diffusion, dpredicted);
 
 					Table<KernelType, MetricType, Double> predicted = HashBasedTable.create();
 					for (KernelType kType : KernelType.values()) {
