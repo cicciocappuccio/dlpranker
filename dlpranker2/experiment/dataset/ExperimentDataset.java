@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.SortedSet;
 
+import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.NamedClass;
@@ -101,12 +102,16 @@ public final class ExperimentDataset {
 		Set<Individual> ret = Sets.newHashSet();
 		
 		Set<Individual> individuals = inference.getReasoner().getIndividuals();
+		AbstractReasonerComponent reasoner = inference.getReasoner();
 		for (Individual i : individuals) {
-			if (inference._cover(d, i)) {
+			//if (inference._cover(d, i))
+			//if (inference.cover(d, i) == LogicValue.TRUE)
+			//	ret.add(i);
+			if (reasoner.hasType(a, i) || reasoner.hasType(b, i) || reasoner.hasType(c, i))
 				ret.add(i);
-			}
+			System.out.print(".");
 		}
-		
+		System.out.println();
 		log.info("Movies in total: " + ret.size());
 		
 		if (inference.getCache() != null)

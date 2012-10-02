@@ -132,8 +132,8 @@ public class AbstractRankExperiment {
 		KnowledgeSource ks = new OWLFile(owl);
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 		reasoner.init();
-		AbstractConceptCache cache = new VolatileConceptCache(owl);
-		//AbstractConceptCache cache = new AsynchronousHibernateConceptCache(owl);
+		//AbstractConceptCache cache = new VolatileConceptCache(owl);
+		AbstractConceptCache cache = new AsynchronousHibernateConceptCache(owl);
 		Inference inference = new Inference(cache, reasoner);
 		return inference;
 	}
