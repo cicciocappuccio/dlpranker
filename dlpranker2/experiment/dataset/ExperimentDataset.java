@@ -102,7 +102,7 @@ public final class ExperimentDataset {
 		
 		Set<Individual> individuals = inference.getReasoner().getIndividuals();
 		for (Individual i : individuals) {
-			if (LogicValue.TRUE.equals(inference.cover(d, i))) {
+			if (inference._cover(d, i)) {
 				ret.add(i);
 			}
 		}

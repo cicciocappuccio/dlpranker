@@ -72,6 +72,25 @@ public class Inference {
 		return ret; 
 	}
 	
+	public Boolean _cover(Description concept, Individual i) {
+		Description normalised = ReasonerUtils.normalise(concept);
+		Boolean ret = false;
+	
+		if (cache != null && cache.contains(normalised, i)) {
+			ret = cache.get(normalised, i);
+		} else {
+			// System.out.println("Entailing: " + normalised + " ..");
+
+			ret = reasoner.hasType(normalised, i);
+
+			if (cache != null) {
+				cache.addElement(normalised, i, ret);
+			}
+		}
+
+		return ret; 
+	}
+	
 	public AbstractReasonerComponent getReasoner() {
 		return reasoner;
 	}

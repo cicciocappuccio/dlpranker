@@ -78,6 +78,7 @@ public class AbstractRankExperiment {
 		FeaturesGenerator fg = new FeaturesGenerator(inference, fro);
 		return fg;
 	}
+	
 	public static void write(CSVW csv, String user, int ratingsNumber, LearningMethod learningMethod, double param1, int param2, int nfold, Table<KernelType, MetricType, Double> predicted)
 			throws IOException {
 		List<String> row = Lists.newLinkedList();
