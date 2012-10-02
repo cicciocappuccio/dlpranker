@@ -65,7 +65,7 @@ public class AbstractRankExperiment {
 	public static final int NFOLDS = 10;
 	
 	public static enum KernelType {
-		Linear, Gaussian, Polynomial
+		Linear, Gaussian, Polynomial, Diffusion
 	}
   	
 	public static FeaturesGenerator getFeaturesGenerator(Inference inference) {
@@ -245,25 +245,32 @@ public class AbstractRankExperiment {
 		Double _param = null;
 		
 		switch (kType) {
-		case Linear:
+		case Linear: {
 			LinearKernel<I> lk = new LinearKernel<I>(filmsUser, k);
 			_ps = lk.getParameters(env, mode, objectranks, _metric, ranks);
 			_K = lk.calculate();
-			break;
+		} break;
 			
-		case Gaussian:
+		case Gaussian: {
 			GaussianKernel<I> gk = GaussianKernel.createGivenKernel(filmsUser, k);
 			_ps = gk.getParameters(env, mode, objectranks, _metric, ranks);
 			Double sigma = _ps.first().getParams().get("Sigma");
 			_K = gk.calculate(sigma);
-			break;
+		} break;
 
-		case Polynomial:
+		case Polynomial: {
 			PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, k);
 			_ps = pk.getParameters(env, mode, objectranks, _metric, ranks);
 			Double d = _ps.first().getParams().get("D");
 			_K = pk.calculate(d);
-			break;
+		} break;
+			
+		case Diffusion: {
+			PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, k);
+			_ps = pk.getParameters(env, mode, objectranks, _metric, ranks);
+			Double d = _ps.first().getParams().get("D");
+			_K = pk.calculate(d);
+		} break;
 		}
 		
 		_param = _ps.first().getParams().get("Param");

@@ -45,7 +45,7 @@
 	<classpathentry kind="lib" path="lib/jena/wstx-asl-3.2.9.jar"/>
 	<classpathentry kind="lib" path="lib/jena/xercesImpl-2.7.1.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi/aterm-java-1.6.jar"/>
-	<classpathentry kind="lib" path="lib/owlapi/jgrapht-jdk1.5.jar"/>
+	<classpathentry kind="lib" path="lib/owlapi/jgrapht-jdk1.5.jar" sourcepath="/home/pasquale/.m2/repository/org/jgrapht/jgrapht-jdk1.5/0.7.3/jgrapht-jdk1.5-0.7.3-sources.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi/owlapi-bin.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi/pellet-core.jar"/>
 	<classpathentry kind="lib" path="lib/owlapi/pellet-datatypes.jar"/>
@@ -72,5 +72,6 @@
 	<classpathentry kind="lib" path="lib/pcolt/parallelcolt-0.9.4.jar"/>
 	<classpathentry kind="lib" path="lib/jsc.jar"/>
 	<classpathentry kind="lib" path="lib/gurobi.jar"/>
+	<classpathentry kind="lib" path="lib/jblas/jblas-1.2.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

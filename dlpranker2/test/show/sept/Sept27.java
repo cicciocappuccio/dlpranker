@@ -39,6 +39,14 @@ public class Sept27 {
 			"\\end{table}";
 	
 	public static void main(String[] args) throws Exception {
+		final int range = 20;
+		for (int i = 10; i < 120; i += range) {
+			System.out.println("Range: [ " + i + ", " + (i + range) + " ] ..");
+			main(i, i + range, args);
+		}
+	}
+	
+	public static void main(int min, int max, String[] args) throws Exception {
 		
 		if (args.length < 1)
 			throw new IllegalArgumentException("Syntax: script <csv> [signature]");
@@ -73,6 +81,9 @@ public class Sept27 {
 			String user = _csv[0];
 			int nratings = Integer.parseInt(_csv[1]);
 			String method = _csv[2];
+			
+			if (!(nratings >= min && nratings <= max))
+				continue;
 			
 			int nfeatures = Integer.parseInt(_csv[4]);
 			KernelType type = (nfeatures >= 0 ? KernelType.Fanizzi : KernelType.Loesch);
@@ -166,8 +177,8 @@ public class Sept27 {
 			}
 		}
 		
-		System.out.println(HEADER);
-		System.out.println("\\hline");
+		//System.out.println(HEADER);
+		//System.out.println("\\hline");
 		
 		for (String metric : METRICS) {
 			System.out.print(" & " + metric);
@@ -176,11 +187,11 @@ public class Sept27 {
 		System.out.println("\\hline \\hline");
 
 		DecimalFormatSymbols s = new DecimalFormatSymbols(Locale.ENGLISH);
-		NumberFormat f = new DecimalFormat("#.##", s);
+		NumberFormat f = new DecimalFormat("#.###", s);
 		
 		// each transform is on a new row
 		for (KernelTransform transform : KernelTransform.values()) {
-			System.out.print(type.toString() + "(" + methodSignature + ")"
+			System.out.print(type.toString() + "" + methodSignature + ""
 					+ (transform == KernelTransform.Linear ? "" : "+" + transform.toString()));
 			
 			DescriptiveStatistics accuracy = null, mae = null, rmse = null, spearman = null;
@@ -229,8 +240,8 @@ public class Sept27 {
 			System.out.println("\\\\");
 		}
 		
-		System.out.println("\\hline");
-		System.out.println(FOOTER);
+		//System.out.println("\\hline");
+		//System.out.println(FOOTER);
 	}
 
 }
