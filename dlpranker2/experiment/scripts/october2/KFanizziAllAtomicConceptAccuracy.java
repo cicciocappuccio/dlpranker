@@ -48,7 +48,7 @@ public class KFanizziAllAtomicConceptAccuracy extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September27KFanizziAllAtomicConceptAccuracy.csv";
+		String fileName = "res/risultati/October2KFanizziAllAtomicConceptAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		

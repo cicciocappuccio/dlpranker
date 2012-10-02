@@ -48,7 +48,7 @@ public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment{
 		//LearningMethod[] modes = LearningMethod.values();
 		LearningMethod[] modes = {LearningMethod.SIMPLE_ONLINE};
 		
-		String fileName = "res/risultati/September27KFanizziFilmSubClassesAccuracy.csv";
+		String fileName = "res/risultati/October2KFanizziFilmSubClassesAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
