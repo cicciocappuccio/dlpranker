@@ -69,6 +69,9 @@ public class KFanizziAllAtomicConceptAccuracy extends AbstractRankExperiment{
 				utenti.add(u);
 			}
 		}
+		
+		Set<Individual> films = ExperimentDataset.getFilms(inference);
+		Table<Individual, Individual, Double> K = buildKernel(inference, features, films);
 
 		for (Tupla utente : utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
@@ -97,7 +100,7 @@ public class KFanizziAllAtomicConceptAccuracy extends AbstractRankExperiment{
 
 					log.info("Numero di features: " + features.size());
 
-					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
+					//Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
 					KernelType[] types = new KernelType[] { KernelType.Linear, KernelType.Gaussian, KernelType.Polynomial, KernelType.Diffusion };
 					

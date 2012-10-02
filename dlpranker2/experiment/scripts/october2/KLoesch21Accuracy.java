@@ -77,6 +77,9 @@ public class KLoesch21Accuracy extends AbstractRankExperiment{
 			}
 		}
 
+		Set<Individual> films = ExperimentDataset.getFilms(inference);
+		Table<Individual, Individual, Double> K = buildLoeschKernel(onto, films, d, lambda);
+		
 		for (Tupla utente : utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
 
@@ -101,8 +104,6 @@ public class KLoesch21Accuracy extends AbstractRankExperiment{
 					}
 
 					List<Tupla> testRanks = folder.getFold(j);
-
-					Table<Individual, Individual, Double> K = buildLoeschKernel(onto, filmsUser, d, lambda);
 
 					KernelType[] types = new KernelType[] { KernelType.Linear, KernelType.Gaussian, KernelType.Polynomial, KernelType.Diffusion };
 					

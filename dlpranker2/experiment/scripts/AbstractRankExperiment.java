@@ -10,6 +10,7 @@ import java.util.Set;
 import java.util.SortedSet;
 
 import kernels.AbstractKernel.LearningMethod;
+import kernels.DiffusionKernel;
 import kernels.GaussianKernel;
 import kernels.LinearKernel;
 import kernels.ParamsScore;
@@ -46,6 +47,7 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
+import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
 import com.neuralnoise.svm.SVMUtils;
 
@@ -130,6 +132,7 @@ public class AbstractRankExperiment {
 		AbstractReasonerComponent reasoner = new OWLAPIReasoner(Collections.singleton(ks));
 		reasoner.init();
 		AbstractConceptCache cache = new VolatileConceptCache(owl);
+		//AbstractConceptCache cache = new AsynchronousHibernateConceptCache(owl);
 		Inference inference = new Inference(cache, reasoner);
 		return inference;
 	}
@@ -266,10 +269,10 @@ public class AbstractRankExperiment {
 		} break;
 			
 		case Diffusion: {
-			PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, k);
-			_ps = pk.getParameters(env, mode, objectranks, _metric, ranks);
-			Double d = _ps.first().getParams().get("D");
-			_K = pk.calculate(d);
+			DiffusionKernel<I> dk = new DiffusionKernel<I>(filmsUser, k);
+			_ps = dk.getParameters(env, mode, objectranks, _metric, ranks);
+			Double d = _ps.first().getParams().get("Lambda");
+			_K = dk.calculate(d);
 		} break;
 		}
 		

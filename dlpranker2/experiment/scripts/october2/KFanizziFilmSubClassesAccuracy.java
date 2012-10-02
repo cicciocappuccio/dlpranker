@@ -37,7 +37,7 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
 
-public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment{
+public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment {
 
 	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
 	
@@ -72,6 +72,9 @@ public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment{
 			}
 		}
 
+		Set<Individual> films = ExperimentDataset.getFilms(inference);
+		Table<Individual, Individual, Double> K = buildKernel(inference, features, films);
+		
 		for (Tupla utente : utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
 
@@ -99,7 +102,7 @@ public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment{
 
 					log.info("Numero di features: " + features.size());
 
-					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
+					//Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
 					KernelType[] types = new KernelType[] { KernelType.Linear, KernelType.Gaussian, KernelType.Polynomial, KernelType.Diffusion };
 					

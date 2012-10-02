@@ -69,14 +69,17 @@ public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 				utenti.add(u);
 			}
 		}
+		
+		Set<Individual> films = ExperimentDataset.getFilms(inference);
+		Table<Individual, Individual, Double> K = buildKernel(inference, features, films);
 
 		for (Tupla utente : utenti) {
 			List<Tupla> ratingsUser = ExperimentDataset.getRatingsOfUser(lista, utente.getUser());
 
 			Set<Individual> filmsUser = Sets.newHashSet();
 
-			for (Tupla i : ratingsUser)
-				filmsUser.add(i.getFilm());
+			//for (Tupla i : ratingsUser)
+			//	filmsUser.add(i.getFilm());
 
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 
@@ -96,8 +99,6 @@ public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 					List<Tupla> testRanks = folder.getFold(j);
 
 					log.info("Numero di features: " + features.size());
-
-					Table<Individual, Individual, Double> K = buildKernel(inference, features, filmsUser);
 
 					KernelType[] types = new KernelType[] { KernelType.Linear, KernelType.Gaussian, KernelType.Polynomial, KernelType.Diffusion };
 					
