@@ -6,18 +6,17 @@ import java.io.InputStreamReader;
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 import java.util.Locale;
 
 import org.apache.commons.math.stat.descriptive.DescriptiveStatistics;
 
-import com.google.common.collect.Lists;
-
 import show.sept.Entry.KernelTransform;
 import show.sept.Entry.KernelType;
 import utils.CSV;
+
+import com.google.common.collect.Lists;
 
 public class Sept27 {
 	

@@ -18,7 +18,6 @@ import org.slf4j.LoggerFactory;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import scripts.AbstractRankExperiment;
-import scripts.AbstractRankExperiment.KernelType;
 import utils.CSVW;
 import utils.Inference;
 import utils.XMLFilmRatingStream;

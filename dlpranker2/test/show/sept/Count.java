@@ -12,15 +12,10 @@ import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.ObjectProperty;
 
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
-
-import dataset.ExperimentDataset;
-import dataset.OntologyAsGraph;
-import dataset.Tupla;
 import scripts.AbstractRankExperiment;
 import utils.Inference;
-import utils.XMLFilmRatingStream;
+
+import com.google.common.collect.Sets;
 
 public class Count extends AbstractRankExperiment {
 

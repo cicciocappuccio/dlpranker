@@ -4,29 +4,21 @@ import features.FeaturesGenerator;
 import gurobi.GRBEnv;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 import kernels.AbstractKernel.LearningMethod;
 import metrics.AbstractMetric;
-import metrics.AbstractMetric.MetricType;
 
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import scripts.AbstractRankExperiment;
-import utils.CSVW;
-import utils.Inference;
-import utils.XMLFilmRatingStream;
 
-import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Maps;
 import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;

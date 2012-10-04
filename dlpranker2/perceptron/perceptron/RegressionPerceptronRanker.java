@@ -1,15 +1,10 @@
 package perceptron;
 
-import gurobi.GRBEnv;
-
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import regression.RidgeRegression;
-
-import kernelMethods.ranking.AbstractRank;
-import kernelMethods.ranking.SoftRank;
+import kernelMethods.regression.RidgeRegression;
 
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;

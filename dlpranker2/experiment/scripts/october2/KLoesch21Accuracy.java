@@ -1,5 +1,7 @@
 package scripts.october2;
 
+import gurobi.GRBEnv;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -8,7 +10,6 @@ import kernels.AbstractKernel.LearningMethod;
 import metrics.AbstractMetric;
 import metrics.AbstractMetric.MetricType;
 
-import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,6 @@ import org.slf4j.LoggerFactory;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import scripts.AbstractRankExperiment;
-import scripts.AbstractRankExperiment.KernelType;
 import utils.CSVW;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
@@ -34,8 +34,6 @@ import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.OntologyAsGraph;
 import dataset.Tupla;
-import features.FeaturesGenerator;
-import gurobi.GRBEnv;
 
 public class KLoesch21Accuracy extends AbstractRankExperiment{
 
