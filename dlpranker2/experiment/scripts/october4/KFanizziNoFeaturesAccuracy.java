@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import kernelMethods.regression.RidgeRegression;
 import kernels.AbstractKernel.LearningMethod;
 import metrics.AbstractMetric;
 import metrics.AbstractMetric.MetricType;
@@ -40,7 +41,7 @@ public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 	public static final Logger log = LoggerFactory.getLogger(KFanizziNoFeaturesAccuracy.class);
 	
 	public static void main(String[] args) throws Exception {
-
+		//System.out.println(RidgeRegression.class.getName());
 		final int nrating = 5;
 
 		LearningMethod[] modes = {

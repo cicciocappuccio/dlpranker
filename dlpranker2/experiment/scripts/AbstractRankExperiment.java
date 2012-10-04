@@ -241,7 +241,6 @@ public class AbstractRankExperiment {
 		
 		SortedSet<ParamsScore> _ps = null;
 		Table<I, I, Double> _K = null;
-		Double _param = null;
 		
 		switch (kType) {
 		case Linear: {
@@ -253,26 +252,26 @@ public class AbstractRankExperiment {
 		case Gaussian: {
 			GaussianKernel<I> gk = GaussianKernel.createGivenKernel(filmsUser, k);
 			_ps = gk.getParameters(env, mode, objectranks, _metric, ranks);
-			Double sigma = _ps.first().getParams().get("Sigma");
+			double sigma = _ps.first().getParams().get("Sigma");
 			_K = gk.calculate(sigma);
 		} break;
 
 		case Polynomial: {
 			PolynomialKernel<I> pk = new PolynomialKernel<I>(filmsUser, k);
 			_ps = pk.getParameters(env, mode, objectranks, _metric, ranks);
-			Double d = _ps.first().getParams().get("D");
+			double d = _ps.first().getParams().get("D");
 			_K = pk.calculate(d);
 		} break;
 			
 		case Diffusion: {
 			DiffusionKernel<I> dk = new DiffusionKernel<I>(filmsUser, k);
 			_ps = dk.getParameters(env, mode, objectranks, _metric, ranks);
-			Double d = _ps.first().getParams().get("Lambda");
-			_K = dk.calculate(d);
+			double lambda = _ps.first().getParams().get("Lambda");
+			_K = dk.calculate(lambda);
 		} break;
 		}
 		
-		_param = _ps.first().getParams().get("Param");
+		double _param = _ps.first().getParams().get("Param");
 		
 		log.info("Best params for " + kType + ": " + _ps.first());
 
@@ -282,36 +281,45 @@ public class AbstractRankExperiment {
 		return ret;
 	}
 	
-	public static <I> AbstractPerceptronRanker<I> buildLearner(LearningMethod mode, GRBEnv env, Set<I> ratings, Table<I, I, Double> K, int ranks, Double param) {
+	public static <I> AbstractPerceptronRanker<I> buildLearner(LearningMethod mode, GRBEnv env, Set<I> ratings, Table<I, I, Double> K, int ranks, double param) {
 		AbstractPerceptronRanker<I> ret = null;
 
 		log.info("Building learner " + mode + " with " + ratings.size() + " ratings ..");
 		
 		switch (mode) {
+
 		case SIMPLE_ONLINE: {
 			ret = new OnLineKernelPerceptronRanker<I>(ratings, K, ranks);
 		} break;
+		
 		case ONEVSALL_BATCH: {
 			ret = new LargeMarginBatchPerceptronRanker<I>(env, ratings, K, ranks, param);
 		} break;
+		
 		case SOFTMARGIN_BATCH: {
 			ret = new LargeMarginBatchPerceptronRankerSVRank<I>(env, ratings, K, ranks, param);
 		} break;
+		
 		case RIDGE_REGRESSION: {
 			ret = new RegressionPerceptronRanker<I>(ratings, K, ranks, param);
 		} break;
+		
+		default: {
+			throw new IllegalStateException("Unknown mode: " + mode);
 		}
+		
+		}
+		
 		return ret;
 	}
 	
 	public static Multimap<Integer, Individual> balance(Multimap<Integer, Individual> multimap, List<ObjectRank<Individual>> objectranks) {
-		
 		int min = Integer.MAX_VALUE;
 		
-		for (Integer value : multimap.keySet())
-		{
-			if (multimap.get(value).size() < min)
+		for (Integer value : multimap.keySet()) {
+			if (multimap.get(value).size() < min) {
 				min = multimap.get(value).size();
+			}
 		}
 		
 		
