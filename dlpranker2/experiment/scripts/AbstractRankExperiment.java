@@ -33,6 +33,7 @@ import perceptron.LargeMarginBatchPerceptronRanker;
 import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.ObjectRank;
 import perceptron.OnLineKernelPerceptronRanker;
+import perceptron.RegressionPerceptronRanker;
 import utils.CSVW;
 import utils.EIUtils;
 import utils.Inference;
@@ -287,14 +288,18 @@ public class AbstractRankExperiment {
 		log.info("Building learner " + mode + " with " + ratings.size() + " ratings ..");
 		
 		switch (mode) {
-		case SIMPLE_ONLINE:
+		case SIMPLE_ONLINE: {
 			ret = new OnLineKernelPerceptronRanker<I>(ratings, K, ranks);
-			break;
-		case ONEVSALL_BATCH:
+		} break;
+		case ONEVSALL_BATCH: {
 			ret = new LargeMarginBatchPerceptronRanker<I>(env, ratings, K, ranks, param);
-			break;
-		case SOFTMARGIN_BATCH:
+		} break;
+		case SOFTMARGIN_BATCH: {
 			ret = new LargeMarginBatchPerceptronRankerSVRank<I>(env, ratings, K, ranks, param);
+		} break;
+		case RIDGE_REGRESSION: {
+			ret = new RegressionPerceptronRanker<I>(ratings, K, ranks, param);
+		} break;
 		}
 		return ret;
 	}
