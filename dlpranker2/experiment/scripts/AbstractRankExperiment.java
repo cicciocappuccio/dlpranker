@@ -17,8 +17,6 @@ import kernels.ParamsScore;
 import kernels.PolynomialKernel;
 import metrics.AbstractMetric;
 import metrics.AbstractMetric.MetricType;
-import metrics.AccuracyError;
-import metrics.MAE;
 
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.KnowledgeSource;
@@ -47,14 +45,11 @@ import com.google.common.collect.Multimap;
 import com.google.common.collect.Sets;
 import com.google.common.collect.Table;
 import com.neuralnoise.cache.AbstractConceptCache;
-import com.neuralnoise.cache.AsynchronousHibernateConceptCache;
 import com.neuralnoise.cache.VolatileConceptCache;
-import com.neuralnoise.svm.SVMUtils;
 
 import dataset.ITreeNode;
 import dataset.OntologyAsGraph;
 import dataset.RoleEdge;
-
 import features.FakeRefinementOperator;
 import features.FeaturesGenerator;
 import gurobi.GRBEnv;

@@ -10,7 +10,6 @@ import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.OnLineKernelPerceptronRanker;
 
 import com.google.common.collect.Table;
-import com.neuralnoise.svm.SVMUtils;
 
 public class AbstractKernel<T> {
 

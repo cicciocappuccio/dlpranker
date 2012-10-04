@@ -6,7 +6,6 @@ package dataset;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 
 import org.dllearner.core.AbstractReasonerComponent;
 import org.dllearner.core.owl.Description;
@@ -17,7 +16,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import utils.Inference;
-import utils.Inference.LogicValue;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;

@@ -1,7 +1,6 @@
 package dataset;
 
 import java.io.File;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -14,18 +13,15 @@ import org.dllearner.core.owl.DatatypeProperty;
 import org.dllearner.core.owl.Individual;
 import org.dllearner.core.owl.NamedClass;
 import org.dllearner.core.owl.ObjectProperty;
-import org.jgrapht.graph.DefaultEdge;
 import org.jgrapht.graph.DirectedMultigraph;
-import org.jgrapht.traverse.AbstractGraphIterator;
-import org.jgrapht.traverse.BreadthFirstIterator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import utils.Inference;
+
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
-import com.google.common.collect.Sets.SetView;
 import com.neuralnoise.cache.ReasonerUtils;
-import utils.Inference;
 
 public class OntologyAsGraph {
 

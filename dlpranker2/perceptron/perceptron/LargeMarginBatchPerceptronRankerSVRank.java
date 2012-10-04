@@ -6,10 +6,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import kernelMethods.ranking.AbstractRank;
+import kernelMethods.ranking.SoftRank;
+
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
-import com.neuralnoise.svrank.AbstractSVRank;
-import com.neuralnoise.svrank.SoftRank;
 
 public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptronRanker<T> {
 
@@ -21,7 +22,7 @@ public class LargeMarginBatchPerceptronRankerSVRank<T> extends AbstractPerceptro
 
 	private double v;
 
-	private AbstractSVRank<T> svm;
+	private AbstractRank<T> svm;
 	private GRBEnv env;
 
 	public LargeMarginBatchPerceptronRankerSVRank(GRBEnv env, Set<T> objects, Table<T, T, Double> K, int ranks, double v) {

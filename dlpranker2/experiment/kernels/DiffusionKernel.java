@@ -8,17 +8,15 @@ import java.util.Random;
 import java.util.Set;
 import java.util.SortedSet;
 
+import metrics.AbstractMetric;
+
 import org.jblas.DoubleMatrix;
 import org.jblas.MatrixFunctions;
 
-import kernels.AbstractKernel.LearningMethod;
-import metrics.AbstractMetric;
 import perceptron.AbstractPerceptronRanker;
 import perceptron.ObjectRank;
 import utils.MatrixUtils;
-
 import cern.colt.matrix.tdouble.DoubleMatrix2D;
-import cern.colt.matrix.tdouble.algo.DenseDoubleAlgebra;
 import cern.colt.matrix.tdouble.impl.DenseDoubleMatrix2D;
 
 import com.google.common.annotations.Beta;

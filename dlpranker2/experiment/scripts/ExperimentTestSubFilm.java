@@ -1,20 +1,15 @@
 package scripts;
 
+import features.FeaturesGenerator;
+import gurobi.GRBEnv;
+
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.SortedSet;
 
 import kernels.AbstractKernel.LearningMethod;
-import kernels.GaussianKernel;
-import kernels.LinearKernel;
-import kernels.ParamsScore;
-import kernels.PolynomialKernel;
 import metrics.AbstractMetric;
 import metrics.AbstractMetric.MetricType;
-import metrics.MAE;
-import metrics.RMSE;
-import metrics.SpearmanCorrelationCoefficient;
 
 import org.dllearner.core.owl.Description;
 import org.dllearner.core.owl.Individual;
@@ -22,11 +17,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import perceptron.AbstractPerceptronRanker;
-import perceptron.LargeMarginBatchPerceptronRanker;
-import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.ObjectRank;
-import perceptron.OnLineKernelPerceptronRanker;
-import scripts.AbstractRankExperiment.KernelType;
 import utils.CSVW;
 import utils.Inference;
 import utils.XMLFilmRatingStream;
@@ -43,8 +34,6 @@ import com.neuralnoise.svm.SVMUtils;
 import dataset.ExperimentDataset;
 import dataset.KFolder;
 import dataset.Tupla;
-import features.FeaturesGenerator;
-import gurobi.GRBEnv;
 
 public class ExperimentTestSubFilm extends AbstractRankExperiment{
 

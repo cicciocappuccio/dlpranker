@@ -6,17 +6,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import kernelMethods.classification.AbstractClassification;
+import kernelMethods.classification.SoftMarginSVML1;
+
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
-import com.neuralnoise.svm.AbstractSVM;
-import com.neuralnoise.svm.SoftMarginSVML1;
 
 public class LargeMarginBatchPerceptronRanker<T> extends AbstractPerceptronRanker<T> {
 
 	// map: rank - classifier
-	private BiMap<Integer, AbstractSVM<T>> classifiers;
+	private BiMap<Integer, AbstractClassification<T>> classifiers;
 	// private double[] C = new double[] { 1, 1e-8, 1e-7, 1e-6, 1e-5, 1e-4,
 	// 1e-3, 1e-2, 1e-1, 1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8 };
 	private double c;
@@ -38,7 +39,7 @@ public class LargeMarginBatchPerceptronRanker<T> extends AbstractPerceptronRanke
 				map.put(o.getObject(), (o.getRank() == r));
 			}
 
-			AbstractSVM<T> svm = null;
+			AbstractClassification<T> svm = null;
 
 			try {
 				svm = new SoftMarginSVML1<T>(env, objects, map, K, c);
@@ -61,7 +62,7 @@ public class LargeMarginBatchPerceptronRanker<T> extends AbstractPerceptronRanke
 			return Integer.MAX_VALUE;
 
 		for (int i = 1; i <= classifiers.size(); ++i) {
-			AbstractSVM<T> classifier = classifiers.get(i);
+			AbstractClassification<T> classifier = classifiers.get(i);
 			if (classifier.evaluate(o)) {
 				return i;
 			}

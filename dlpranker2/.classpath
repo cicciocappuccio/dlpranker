@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry excluding="com/neuralnoise/svm/learning/utils/|com/neuralnoise/svm/learning/" kind="src" path="perceptron"/>
+	<classpathentry excluding="com/neuralnoise/svm/learning/utils/|com/neuralnoise/svm/learning/|com/neuralnoise/svrank/" kind="src" path="perceptron"/>
 	<classpathentry excluding="scripts/exists/|scripts/nRatings/|scripts/subClasses/|scripts/user/|scripts/userExists/" kind="src" path="experiment"/>
 	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
@@ -73,5 +73,6 @@
 	<classpathentry kind="lib" path="lib/jsc.jar"/>
 	<classpathentry kind="lib" path="lib/gurobi.jar"/>
 	<classpathentry kind="lib" path="lib/jblas/jblas-1.2.1.jar"/>
+	<classpathentry kind="lib" path="lib/OptimizationLight.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
