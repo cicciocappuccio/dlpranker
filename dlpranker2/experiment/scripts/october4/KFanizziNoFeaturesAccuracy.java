@@ -48,7 +48,7 @@ public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 				LearningMethod.SIMPLE_ONLINE		
 		};
 		
-		String fileName = "res/risultati/October2KFanizziNoFeaturesAccuracy.csv";
+		String fileName = "res/risultati/October4KFanizziNoFeaturesAccuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		

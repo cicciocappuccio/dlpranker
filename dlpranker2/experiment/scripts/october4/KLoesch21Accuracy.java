@@ -51,7 +51,7 @@ public class KLoesch21Accuracy extends AbstractRankExperiment{
 		int d = 2;
 		double lambda = 1.0;
 		
-		String fileName = "res/risultati/October2KLoesch21Accuracy.csv";
+		String fileName = "res/risultati/October4KLoesch21Accuracy.csv";
 		
 		AbstractMetric.MetricType metricEval = AbstractMetric.MetricType.AccuracyError;
 		
