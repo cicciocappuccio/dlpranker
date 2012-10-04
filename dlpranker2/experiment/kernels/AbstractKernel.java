@@ -21,6 +21,7 @@ public class AbstractKernel<T> {
 	public AbstractPerceptronRanker<T> buildRanker(LearningMethod mode, GRBEnv env, Set<T> instances, Table<T, T, Double> K, int nrating, double param) {
 		AbstractPerceptronRanker<T> ret = null;
 		switch (mode) {
+
 		case SIMPLE_ONLINE: {
 			ret = new OnLineKernelPerceptronRanker<T>(instances, K, nrating);
 		} break;
@@ -48,6 +49,7 @@ public class AbstractKernel<T> {
 	public double[] getParam(LearningMethod mode) {
 		double[] parametri = null;
 		switch (mode) {
+		
 		case SIMPLE_ONLINE:
 			parametri = new double[] { 0.0 };
 			break;
@@ -64,6 +66,7 @@ public class AbstractKernel<T> {
 			parametri = new double[] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1e-1, 1e-2, 1e-3, 1e-4, 1 - 1e-1, 1 - 1e-2, 1 - 1e-3, 1 - 1e-4 };
 			break;
 		}
+		
 		return parametri;
 	}
 }

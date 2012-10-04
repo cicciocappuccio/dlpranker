@@ -129,6 +129,7 @@ public class DiffusionKernel<T> extends AbstractKernel<T> {
 				}
 				Map<String, Double> params = Maps.newHashMap();
 				params.put("Lambda", lambda);
+				params.put("Param", param);
 
 				double dnfolds = nfolds;
 				ParamsScore psJ = new ParamsScore(params, -(error / dnfolds), lambda + param);
