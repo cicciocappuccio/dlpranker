@@ -80,6 +80,7 @@
         <pathelement location="lib/jsc.jar"/>
         <pathelement location="lib/gurobi.jar"/>
         <pathelement location="lib/jblas/jblas-1.2.1.jar"/>
+        <pathelement location="lib/OptimizationLight.jar"/>
     </path>
     <target name="init">
         <mkdir dir="bin"/>
@@ -95,6 +96,7 @@
                 <exclude name="**/*.java"/>
                 <exclude name="com/neuralnoise/svm/learning/utils/"/>
                 <exclude name="com/neuralnoise/svm/learning/"/>
+                <exclude name="com/neuralnoise/svrank/"/>
             </fileset>
         </copy>
         <copy includeemptydirs="false" todir="bin">
@@ -130,6 +132,7 @@
             <src path="test"/>
             <exclude name="com/neuralnoise/svm/learning/utils/"/>
             <exclude name="com/neuralnoise/svm/learning/"/>
+            <exclude name="com/neuralnoise/svrank/"/>
             <exclude name="scripts/exists/"/>
             <exclude name="scripts/nRatings/"/>
             <exclude name="scripts/subClasses/"/>
