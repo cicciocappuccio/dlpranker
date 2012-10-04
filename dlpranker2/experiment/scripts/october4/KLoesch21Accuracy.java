@@ -35,9 +35,9 @@ import dataset.KFolder;
 import dataset.OntologyAsGraph;
 import dataset.Tupla;
 
-public class KLoesch21Accuracy extends AbstractRankExperiment{
+public class KLoesch21Accuracy extends AbstractRankExperiment {
 
-	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
+	public static final Logger log = LoggerFactory.getLogger(KLoesch21Accuracy.class);
 	
 	public static void main(String[] args) throws Exception {
 
@@ -60,11 +60,9 @@ public class KLoesch21Accuracy extends AbstractRankExperiment{
 		GRBEnv env = SVMUtils.buildEnvironment();
 		
 		Inference inference = getInference();
-		//FeaturesGenerator fg = getFeaturesGenerator(inference);
 		OntologyAsGraph onto = new OntologyAsGraph(inference);
 		
 		List<Tupla> lista = XMLFilmRatingStream.leggi();
-		//Set<Description> features = fg.getAtomicFeatures();
 
 		List<Tupla> _utenti = ExperimentDataset.getUsers(lista);
 		List<Tupla> utenti = Lists.newArrayList();

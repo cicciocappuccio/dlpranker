@@ -37,7 +37,7 @@ import dataset.Tupla;
 
 public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 
-	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
+	public static final Logger log = LoggerFactory.getLogger(KFanizziNoFeaturesAccuracy.class);
 	
 	public static void main(String[] args) throws Exception {
 
@@ -78,8 +78,8 @@ public class KFanizziNoFeaturesAccuracy extends AbstractRankExperiment{
 
 			Set<Individual> filmsUser = Sets.newHashSet();
 
-			//for (Tupla i : ratingsUser)
-			//	filmsUser.add(i.getFilm());
+			for (Tupla i : ratingsUser)
+				filmsUser.add(i.getFilm());
 
 			KFolder<Tupla> folder = new KFolder<Tupla>(ratingsUser, NFOLDS);
 

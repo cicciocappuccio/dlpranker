@@ -38,7 +38,7 @@ import dataset.Tupla;
 
 public class KFanizziFilmSubClassesAccuracy extends AbstractRankExperiment {
 
-	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
+	public static final Logger log = LoggerFactory.getLogger(KFanizziFilmSubClassesAccuracy.class);
 	
 	public static void main(String[] args) throws Exception {
 

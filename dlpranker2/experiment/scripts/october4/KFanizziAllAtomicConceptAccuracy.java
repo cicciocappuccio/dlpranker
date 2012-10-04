@@ -38,7 +38,7 @@ import dataset.Tupla;
 
 public class KFanizziAllAtomicConceptAccuracy extends AbstractRankExperiment{
 
-	public static final Logger log = LoggerFactory.getLogger(AbstractRankExperiment.class);
+	public static final Logger log = LoggerFactory.getLogger(KFanizziAllAtomicConceptAccuracy.class);
 	
 	public static void main(String[] args) throws Exception {
 	
