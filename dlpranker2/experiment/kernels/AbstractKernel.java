@@ -8,29 +8,39 @@ import perceptron.AbstractPerceptronRanker;
 import perceptron.LargeMarginBatchPerceptronRanker;
 import perceptron.LargeMarginBatchPerceptronRankerSVRank;
 import perceptron.OnLineKernelPerceptronRanker;
+import perceptron.RegressionPerceptronRanker;
 
 import com.google.common.collect.Table;
 
 public class AbstractKernel<T> {
 
 	public static enum LearningMethod {
-		SIMPLE_ONLINE, ONEVSALL_BATCH, SOFTMARGIN_BATCH
+		SIMPLE_ONLINE, ONEVSALL_BATCH, SOFTMARGIN_BATCH, RIDGE_REGRESSION
 	}
 
 	public AbstractPerceptronRanker<T> buildRanker(LearningMethod mode, GRBEnv env, Set<T> instances, Table<T, T, Double> K, int nrating, double param) {
 		AbstractPerceptronRanker<T> ret = null;
 		switch (mode) {
-		case SIMPLE_ONLINE:
+		case SIMPLE_ONLINE: {
 			ret = new OnLineKernelPerceptronRanker<T>(instances, K, nrating);
-			break;
+		} break;
 
-		case ONEVSALL_BATCH:
+		case ONEVSALL_BATCH: {
 			ret = new LargeMarginBatchPerceptronRanker<T>(env, instances, K, nrating, param);
-			break;
+		} break;
 
-		case SOFTMARGIN_BATCH:
+		case SOFTMARGIN_BATCH: {
 			ret = new LargeMarginBatchPerceptronRankerSVRank<T>(env, instances, K, nrating, param);
-			break;
+		} break;
+		
+		case RIDGE_REGRESSION: {
+			ret = new RegressionPerceptronRanker<T>(instances, K, nrating, param);
+		} break;
+		
+		default: {
+			throw new IllegalStateException("Unknown mode: " + mode);
+		}
+		
 		}
 		return ret;
 	}
@@ -47,6 +57,10 @@ public class AbstractKernel<T> {
 			break;
 
 		case SOFTMARGIN_BATCH:
+			parametri = new double[] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1e-1, 1e-2, 1e-3, 1e-4, 1 - 1e-1, 1 - 1e-2, 1 - 1e-3, 1 - 1e-4 };
+			break;
+			
+		case RIDGE_REGRESSION:
 			parametri = new double[] { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1e-1, 1e-2, 1e-3, 1e-4, 1 - 1e-1, 1 - 1e-2, 1 - 1e-3, 1 - 1e-4 };
 			break;
 		}

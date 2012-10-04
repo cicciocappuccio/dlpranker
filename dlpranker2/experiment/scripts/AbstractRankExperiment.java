@@ -147,7 +147,7 @@ public class AbstractRankExperiment {
 		return ret;
 	}
 
-	public static Table<Individual, Individual, Double> normalizeKernel(Table<Individual, Individual, Double> K) {
+	public static Table<Individual, Individual, Double> _normalizeKernel(Table<Individual, Individual, Double> K) {
 		Table<Individual, Individual, Double> normalized = HashBasedTable.create();
 		for (Individual i : K.rowKeySet()) {
 			double Kii = K.get(i, i);
@@ -162,7 +162,6 @@ public class AbstractRankExperiment {
 	}
 
 	public static Table<Individual, Individual, Double> buildLoeschKernel(OntologyAsGraph onto, Set<Individual> films, int d, double lambda) {
-		
 		log.info("Creating Kernel..");
 		
 		Table<Individual, Individual, Double> K = HashBasedTable.create();

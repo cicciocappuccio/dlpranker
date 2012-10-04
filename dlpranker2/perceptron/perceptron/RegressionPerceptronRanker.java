@@ -48,7 +48,7 @@ public class RegressionPerceptronRanker<T> extends AbstractPerceptronRanker<T> {
 		}
 		double eval = rr.evaluate(o);
 		int ret = 1;
-		for (int rank = 1; rank <= ranks; ++rank) {
+		for (int rank = 1; rank <= this.ranks; ++rank) {
 			if (eval > (rank - 0.5)) {
 				ret = rank;
 			}
