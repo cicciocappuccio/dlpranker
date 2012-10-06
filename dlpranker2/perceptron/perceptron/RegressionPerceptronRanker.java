@@ -6,6 +6,8 @@ import java.util.Set;
 
 import kernelMethods.regression.RidgeRegression;
 
+import cern.colt.matrix.tdouble.algo.solver.IterativeSolverDoubleNotConvergedException;
+
 import com.google.common.collect.Maps;
 import com.google.common.collect.Table;
 
@@ -30,7 +32,7 @@ public class RegressionPerceptronRanker<T> extends AbstractPerceptronRanker<T> {
 
 		try {
 			this.rr = new RidgeRegression<T>(objects, map, K, lambda);
-		} catch (gurobi.GRBException e) {
+		} catch (IterativeSolverDoubleNotConvergedException e) {
 			this.rr = null;
 		}
 
