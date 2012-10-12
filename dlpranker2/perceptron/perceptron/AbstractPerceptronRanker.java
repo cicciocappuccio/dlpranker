@@ -39,7 +39,7 @@ public abstract class AbstractPerceptronRanker<T> {
 			sum += (val * this.K.get(object, key));
 		}
 		int ret = 0;
-		while (b[ret] <= sum) {
+		while (ret < b.length && b[ret] <= sum) {
 			ret++;
 		}
 		ret++;
